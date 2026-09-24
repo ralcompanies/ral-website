@@ -1,0 +1,7 @@
+# Team section. Members show in this order.
+name: "Operations"
+order: 7
+visible: true
+card_size: standard
+members:
+  - susan-sorenson
