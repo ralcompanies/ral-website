@@ -1,7 +1,8 @@
 ---
 title: About
 eyebrow: About RAL
-lede: RAL has grown from an architecture practice into a developer, owner's representative and partner on complex residential, hospitality and public-private projects.
+headline: Founded as a design firm in 1979. Design is still in our DNA.
+lede: Today RAL is also a developer, owner's representative and partner on complex residential, hospitality and public-private projects.
 story:
   - heading: Designer.
     text: RAL designs office, residential, hospitality and resort properties in the United States and abroad. Because the company began as an architecture firm, its in-house architects and the design teams it hires work toward timeless, original buildings that respond to their surroundings.

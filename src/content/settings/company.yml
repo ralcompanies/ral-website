@@ -18,9 +18,13 @@ stats:
     label: Competitive public RFPs won on the New York waterfront and Union Square
     visible: false
     internal_source: Zero Irving (NYCEDC RFP) and Pier 6 (Brooklyn Bridge Park Corporation RFP), both stated in RAL project copy. Hidden until wording approved.
+  - value: "$2.5B+"
+    label: In development acquired and financed since 2001
+    internal_source: Stuart Taft live-site bio ("acquisition and financing of developments totaling over 6 million square feet and $2.5 billion dollars" since joining RAL in 2001). Confirm the firm-wide figure; the draft's $20B total development value and 50M SF are unverified and not used.
   - value: "3"
     label: Four Seasons hotels delivered or renovated
-    internal_source: Four Seasons Vail, Atlanta, Houston per live-site project copy.
+    visible: false
+    internal_source: Four Seasons Vail, Atlanta, Houston per live-site project copy. Hidden per Josh (Gate 2).
 offices:
   - name: New York
     primary: true
@@ -54,7 +58,7 @@ partners_list:
   - { name: Marmol Radziner, kind: design }
   - { name: Davis Brody Bond, kind: design }
 internal_notes:
-  - Homepage stats shown - years since 1979 (calculated), 100+ projects (Robert Levine bio), 3 Four Seasons hotels. Square footage and development value omitted until verified; the draft's 50M SF and $20B are not used.
+  - Homepage stats shown - years since 1979 (calculated), 100+ projects (Robert Levine bio), $2.5B+ acquired and financed since 2001 (Stuart Taft bio). Square footage and development value omitted until verified; the draft's 50M SF and $20B are not used.
   - Western office address (Brighton, CO) carried over from draft; confirm or replace with Steamboat/Telluride.
   - Careers mailbox is "career@" (singular) on the draft; confirm.
   - Add LinkedIn / Instagram company URLs (draft footer icons linked nowhere).

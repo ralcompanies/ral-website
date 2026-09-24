@@ -1,0 +1,8 @@
+---
+/** Publication wordmark (monochrome) with a typeset fallback when no logo is on file. */
+interface Props { pub: { name: string; logo?: string; logo_scale?: number }; class?: string }
+const { pub, class: cls } = Astro.props;
+---
+{pub.logo
+  ? <p class:list={['pubmark', cls]}><img src={pub.logo} alt={pub.name} loading="lazy" decoding="async" style={`--logo-scale:${pub.logo_scale ?? 1}`} /></p>
+  : <p class:list={['label pubmark pubmark--text', cls]}>{pub.name}</p>}

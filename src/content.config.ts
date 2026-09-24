@@ -141,7 +141,16 @@ const teamSections = defineCollection({
 /* ---------- Press ---------- */
 const publications = defineCollection({
   loader: file('src/content/publications/publications.yml'),
-  schema: z.object({ id: z.string(), name: z.string(), website: z.string().url().optional(), tier: z.enum(['national', 'trade', 'local']).default('trade') }),
+  schema: z.object({
+    id: z.string(),
+    name: z.string(),
+    website: z.string().url().optional(),
+    tier: z.enum(['national', 'trade', 'local']).default('trade'),
+    // Monochrome wordmark in /public/press-logos. Without one, the outlet name is set in type.
+    logo: z.string().optional(),
+    // Optical size tweak: compact marks read small next to long wordmarks.
+    logo_scale: z.number().min(0.5).max(2.5).default(1),
+  }),
 });
 
 const press = defineCollection({
@@ -235,7 +244,7 @@ const settings = defineCollection({
           )
           .optional(),
         capabilities: z
-          .array(z.object({ key: z.enum(['design', 'develop', 'partner']), title: z.string(), text: z.string(), proof: z.array(reference('projects')).default([]) }))
+          .array(z.object({ key: z.enum(['design', 'develop', 'partner']), title: z.string(), text: z.string(), proof: z.array(z.string()).optional() }))
           .optional(),
         leadership_quote: z.object({ text: z.string(), person: reference('people'), image: image().optional() }).optional(),
         press_count: z.number().optional(),

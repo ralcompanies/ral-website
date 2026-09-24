@@ -17,8 +17,8 @@ summary: >-
   City Economic Development Corporation. The 21-story building combines the workforce-training,
   incubator and event space the City required with market-rate office floors that carry it,
   and it was approved through the City's public review process.
-hero_image: /src/assets/images/projects/zero-irving/lobby.jpg
-hero_alt: Zero Irving lobby with a large-scale digital art wall and reception desk
+hero_image: /src/assets/images/projects/zero-irving/exterior-dusk-wide.jpg
+hero_alt: Zero Irving at dusk, its colored glass volumes lit above East 14th Street
 card_image: /src/assets/images/projects/zero-irving/exterior-dusk.jpg
 card_alt: Zero Irving at dusk from East 14th Street
 facts:
@@ -64,6 +64,7 @@ chapters:
       kind: photo
 gallery:
   - { src: /src/assets/images/projects/zero-irving/exterior-dusk.jpg, alt: "Zero Irving at dusk", kind: photo }
+  - { src: /src/assets/images/projects/zero-irving/lobby.jpg, alt: "Lobby with a large-scale digital art wall and reception desk", kind: photo }
   - { src: /src/assets/images/projects/zero-irving/clock-tower-view.jpg, alt: "Tenant lounge framing the Con Edison clock tower", kind: photo }
   - { src: /src/assets/images/projects/zero-irving/lobby-art-wall.jpg, alt: "Lobby art wall and turnstiles", kind: photo }
   - { src: /src/assets/images/projects/zero-irving/civic-hall.jpg, alt: "Civic Hall event floor", kind: photo }

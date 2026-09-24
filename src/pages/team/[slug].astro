@@ -4,7 +4,7 @@ import Base from '../../layouts/Base.astro';
 import Img from '../../components/Img.astro';
 import Arrow from '../../components/Arrow.astro';
 import PressItem from '../../components/PressItem.astro';
-import { visiblePress, lookups } from '../../lib/site';
+import { visiblePress } from '../../lib/site';
 
 export async function getStaticPaths() {
   const people = await getCollection('people', (p) => p.data.active);
@@ -15,9 +15,7 @@ const d = p.data;
 const { Content } = await render(p);
 const hasBio = Boolean(p.body && p.body.trim());
 const sections = (await getCollection('teamSections')).filter((s) => s.data.visible && s.data.members.some((m) => m.id === p.id));
-const projects = (await getCollection('projects', (x) => x.data.tier === 'featured' && x.data.team.some((t) => t.id === p.id)));
 const press = (await visiblePress()).filter((x) => x.data.people.some((r) => r.id === p.id));
-const lk = await lookups();
 const initials = d.name.split(/\s+/).filter((w) => /^[A-Z]/.test(w)).map((w) => w[0]).slice(0, 2).join('');
 ---
 <Base title={d.name} description={d.seo?.description ?? `${d.name}, ${d.title} at RAL Companies.`}>
@@ -38,14 +36,6 @@ const initials = d.name.split(/\s+/).filter((w) => /^[A-Z]/.test(w)).map((w) => 
             {d.linkedin && <li><a class="link" href={d.linkedin} target="_blank" rel="noopener">LinkedIn<Arrow dir="up-right" /></a></li>}
             {d.show_email && d.email && <li><a class="link" href={`mailto:${d.email}`}>{d.email}</a></li>}
           </ul>
-        )}
-        {projects.length > 0 && (
-          <div class="bio__block">
-            <p class="label">Selected projects</p>
-            <ul class="bio__projects">
-              {projects.map((x) => <li><a href={`/projects/${x.id}/`}><span>{x.data.name}</span><span class="meta">{x.data.location}</span><Arrow /></a></li>)}
-            </ul>
-          </div>
         )}
         {press.length > 0 && (
           <div class="bio__block">

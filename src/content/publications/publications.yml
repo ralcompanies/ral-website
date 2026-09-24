@@ -1,31 +1,48 @@
 # Publications. Add an outlet once; press items pick it from this list.
+# Logos: monochrome wordmarks in /public/press-logos, sourced from the outlets' own sites, Wikimedia Commons and the draft site. Used only to identify the outlet next to coverage of RAL. Outlets without a logo on file show their name in type.
 - id: off-the-mrkt
   name: "Off the MRKT"
   tier: trade
+  logo: /press-logos/off-the-mrkt.png
+  logo_scale: 0.8
 - id: mann-report
   name: "Mann Report"
   tier: trade
+  logo: /press-logos/mann-report.png
+  logo_scale: 1.9
 - id: the-information
   name: "The Information"
   tier: national
+  logo: /press-logos/the-information.png
+  logo_scale: 1.05
 - id: commercial-observer
   name: "Commercial Observer"
   tier: trade
+  logo: /press-logos/commercial-observer.png
+  logo_scale: 0.85
 - id: new-york-yimby
   name: "New York YIMBY"
   tier: trade
 - id: architectural-digest
   name: "Architectural Digest"
   tier: national
+  logo: /press-logos/architectural-digest.svg
+  logo_scale: 1.35
 - id: the-real-deal
   name: "The Real Deal"
   tier: trade
+  logo: /press-logos/the-real-deal.svg
+  logo_scale: 1.25
 - id: 6sqft
   name: "6sqft"
   tier: local
+  logo: /press-logos/6sqft.svg
+  logo_scale: 1.6
 - id: new-york-post
   name: "New York Post"
   tier: national
+  logo: /press-logos/new-york-post.svg
+  logo_scale: 0.95
 - id: globest
   name: "GlobeSt.com"
   tier: trade
@@ -35,18 +52,27 @@
 - id: forbes
   name: "Forbes"
   tier: national
+  logo: /press-logos/forbes.svg
+  logo_scale: 1.1
 - id: new-york-times
   name: "The New York Times"
   tier: national
+  logo: /press-logos/new-york-times.svg
 - id: robb-report
   name: "Robb Report"
   tier: national
+  logo: /press-logos/robb-report.svg
+  logo_scale: 1.05
 - id: wallpaper
   name: "Wallpaper*"
   tier: national
+  logo: /press-logos/wallpaper.svg
+  logo_scale: 1.05
 - id: wall-street-journal
   name: "The Wall Street Journal"
   tier: national
+  logo: /press-logos/wall-street-journal.svg
+  logo_scale: 0.85
 - id: multi-housing-news
   name: "Multi-Housing News"
   tier: trade

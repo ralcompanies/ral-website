@@ -13,7 +13,7 @@ const legal = await legalPages();
         {c.offices?.map((o) => (
           <div>
             <p class="label">{o.name}</p>
-            <p class="meta">{o.lines.map((l, i) => <>{l}{i < o.lines.length - 1 && <br />}</>)}{o.phone && <><br />{o.phone}</>}</p>
+            <p class="meta">{o.lines.map((l, i) => <>{l}{i < o.lines.length - 1 && <br />}</>)}{o.phone && <><br /><a class="ftr__tel num" href={`tel:+1${o.phone.replace(/\D/g, '')}`}>{o.phone}</a></>}</p>
             {o.map_url && <a class="meta ftr__map" href={o.map_url} target="_blank" rel="noopener">Map</a>}
           </div>
         ))}
@@ -36,12 +36,13 @@ const legal = await legalPages();
   </div>
 </footer>
 <style>
-  .ftr { background: var(--stone); padding-block: var(--s-7) var(--s-4); }
+  .ftr { background: var(--stone); padding-block: var(--s-6) var(--s-4); border-top: 1px solid var(--rule-strong); }
   .ftr__top { row-gap: var(--s-5); padding-bottom: var(--s-6); }
   .ftr__logo { grid-column: 1 / span 3; width: 6rem; color: var(--ink); }
   .ftr__logo :global(svg) { width: 100%; height: auto; display: block; }
   .ftr__offices { grid-column: 5 / span 4; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--s-4); }
   .ftr__offices .label, .ftr__contacts .label { margin-bottom: 0.75rem; }
+  .ftr__tel { color: var(--ink); }
   .ftr__map { display: inline-block; margin-top: 0.5rem; border-bottom: 1px solid var(--rule-strong); }
   .ftr__contacts { grid-column: 9 / span 4; }
   .ftr__contacts ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.6rem; }

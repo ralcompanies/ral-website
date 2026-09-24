@@ -9,8 +9,8 @@ hero_slides:
     alt: Rendering of the Mandarin Oriental resort on the Grand Cayman coast
     project: mandarin-oriental-grand-cayman
     caption: Mandarin Oriental, Grand Cayman (rendering)
-  - image: /src/assets/images/projects/zero-irving/lobby.jpg
-    alt: Zero Irving lobby with digital art wall
+  - image: /src/assets/images/projects/zero-irving/exterior-dusk-wide.jpg
+    alt: Zero Irving at dusk above East 14th Street
     project: zero-irving
     caption: Zero Irving, Union Square
   - image: /src/assets/images/projects/roan-steamboat/winter-mountain.jpg
@@ -22,12 +22,12 @@ featured_intro: >-
   and recent projects.
 # Ordered list. Drag to reorder in the admin. Only Featured projects can be chosen.
 featured_projects:
-  - project: zero-irving
-    image: /src/assets/images/projects/zero-irving/clock-tower-view.jpg
-    alt: Tenant lounge at Zero Irving framing the Con Edison clock tower
   - project: quay-tower
     image: /src/assets/images/projects/quay-tower/exterior.jpg
     alt: Quay Tower rising above Brooklyn Bridge Park
+  - project: zero-irving
+    image: /src/assets/images/projects/zero-irving/exterior-dusk-wide.jpg
+    alt: Zero Irving at dusk from East 14th Street
   - project: mandarin-oriental-grand-cayman
     image: /src/assets/images/projects/mandarin-oriental-grand-cayman/facade-twilight.jpg
     alt: Rendering of the Mandarin Oriental residences at twilight
@@ -41,21 +41,18 @@ capabilities:
       RAL began as an architecture firm and still plans every project from the floor plan out.
       Our architects and designers work alongside the design teams we hire, so decisions about
       layout, materials and cost are made together from the first sketch.
-    proof: [quay-tower, parkwood-sports-complex, loft-25]
   - key: develop
     title: Developer
     text: >-
       We acquire, finance, entitle, build and manage. RAL has taken projects from site selection
       to sell-out across condominiums, rentals, hotels, offices and planned communities, and has
       a reputation for delivering on schedule and on budget.
-    proof: [zero-irving, 270-broadway, roan-steamboat]
   - key: partner
     title: Partner
     text: >-
       Owners, lenders, operators and public agencies bring RAL in when a project is complex. We
       have won competitive public RFPs, represented ownership on Four Seasons renovations and
       stepped in for lenders to see projects through to opening.
-    proof: [the-landing, four-seasons-houston, mandarin-oriental-grand-cayman]
 leadership_quote:
   text: Look for a sponsor's history. Longevity in the market matters. We have been delivering since the '70s.
   person: robert-a-levine

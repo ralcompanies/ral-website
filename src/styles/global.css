@@ -38,7 +38,7 @@
   /* Spacing (8px base) */
   --s-1: 0.5rem; --s-2: 1rem; --s-3: 1.5rem; --s-4: 2rem; --s-5: 3rem;
   --s-6: 4rem; --s-7: 6rem; --s-8: 9rem;
-  --section: clamp(5rem, 3.5rem + 6vw, 9rem);
+  --section: clamp(3.5rem, 2.5rem + 3.5vw, 6rem);
   --gutter: clamp(1.25rem, 0.8rem + 1.9vw, 2.5rem);   /* column gap */
   --margin: clamp(1.25rem, 0.2rem + 4.5vw, 4rem);     /* outer page margin */
   --maxw: 90rem;                                      /* 1440 */
@@ -78,7 +78,8 @@ h1, h2, h3, h4 { margin: 0; font-weight: var(--display-weight); text-wrap: balan
 .wrap { width: 100%; max-width: calc(var(--maxw) + 2 * var(--margin)); margin-inline: auto; padding-inline: var(--margin); }
 .grid { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--gutter); }
 .section { padding-block: var(--section); }
-.section--stone { background: var(--stone-2); }
+.section--stone { background: var(--stone); }
+.section--paper2 { background: var(--stone-2); }
 .section--dark { background: var(--ink); color: var(--on-dark); }
 
 /* ---- Typography ---------------------------------------------------------- */
@@ -99,9 +100,10 @@ h1, h2, h3, h4 { margin: 0; font-weight: var(--display-weight); text-wrap: balan
 /* ---- Section header: the drawing "title strip" ---------------------------- */
 .strip {
   display: flex; align-items: baseline; justify-content: space-between; gap: var(--s-3);
-  border-top: 1px solid var(--ink); padding-top: var(--s-2); margin-bottom: var(--s-6);
+  border-top: 2px solid var(--ink); padding-top: var(--s-2); margin-bottom: var(--s-5);
 }
 .on-dark .strip, .strip--light { border-top-color: var(--on-dark-2); }
+.strip .label, .strip__title .label { font-weight: 600; }
 .strip__title { display: flex; gap: var(--s-3); align-items: baseline; flex-wrap: wrap; }
 .strip__aside { color: var(--graphite); }
 .on-dark .strip__aside { color: var(--on-dark-2); }
@@ -177,6 +179,9 @@ a:hover .frame img, .frame:hover img.zoom { transform: scale(1.025); }
   }
 
 /* ---- Press item (global so it also renders inside the bio side panel) ---- */
+  .pubmark { margin: 0; height: 2.25rem; display: flex; align-items: center; }
+  .pubmark img { display: block; height: calc(1.3rem * var(--logo-scale, 1)); width: auto; max-width: min(12rem, 100%); object-fit: contain; object-position: left center; filter: brightness(0); opacity: 0.86; }
+  .pubmark--text { color: var(--ink); }
   .pitem { display: flex; flex-direction: column; gap: 0.9rem; height: 100%; border-top: 1px solid var(--ink); padding-top: 1.5rem; }
   .pitem__h { font-family: var(--font-display); font-weight: var(--display-weight); font-size: clamp(1.2rem, 1.05rem + 0.5vw, 1.5rem); line-height: 1.25; }
   .pitem:hover .pitem__h { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 0.2em; }

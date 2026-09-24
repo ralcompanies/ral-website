@@ -1,11 +1,12 @@
 ---
 import Arrow from './Arrow.astro';
+import PubMark from './PubMark.astro';
 import { fmtDate } from '../lib/site';
 const { item } = Astro.props;
 const d = item.data;
 ---
 <a class="pitem" href={d.url ?? d.pdf} target="_blank" rel="noopener">
-  <p class="label pitem__pub">{item.pub.name}</p>
+  <PubMark pub={item.pub} class="pitem__pub" />
   <h3 class="pitem__h">{d.headline}</h3>
   <p class="meta num pitem__d">{fmtDate(d.date, d.date_precision)} · {d.url ? 'Read article' : 'View clipping'}<Arrow dir="up-right" /></p>
 </a>

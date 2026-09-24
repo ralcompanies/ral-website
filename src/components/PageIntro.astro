@@ -1,10 +1,10 @@
 ---
-interface Props { eyebrow: string; title: string; lede?: string }
-const { eyebrow, title, lede } = Astro.props;
+interface Props { eyebrow: string; title: string; lede?: string; wide?: boolean }
+const { eyebrow, title, lede, wide } = Astro.props;
 ---
 <header class="pintro wrap">
   <p class="label pintro__eyebrow">{eyebrow}</p>
-  <h1 class="display pintro__title">{title}</h1>
+  <h1 class:list={['display pintro__title', wide && 'pintro__title--wide']}>{title}</h1>
   {lede && <p class="lead pintro__lede">{lede}</p>}
   <slot />
 </header>
@@ -12,5 +12,6 @@ const { eyebrow, title, lede } = Astro.props;
   .pintro { padding-top: clamp(3rem, 2rem + 5vw, 7rem); padding-bottom: var(--s-6); }
   .pintro__eyebrow { color: var(--graphite); margin-bottom: var(--s-3); }
   .pintro__title { max-width: 16ch; }
+  .pintro__title--wide { max-width: 24ch; }
   .pintro__lede { margin-top: var(--s-4); }
 </style>

@@ -36,7 +36,7 @@ Internal. Generated September 24, 2026 from the content files (`internal_notes`)
 - [ ] **Zero Irving**: Architect corrected from draft's 'David Brody Bond' to Davis Brody Bond (YIMBY).
 - [ ] **Zero Irving**: Co-developer Junius Real Estate Partners per YIMBY and press headlines; confirm naming.
 - [ ] **Zero Irving**: Removed 'currently fully occupied' (time-sensitive). Team links are a working guess; confirm who to show.
-- [ ] **company.yml**: Homepage stats shown - years since 1979 (calculated), 100+ projects (Robert Levine bio), 3 Four Seasons hotels. Square footage and development value omitted until verified; the draft's 50M SF and $20B are not used.
+- [ ] **company.yml**: Homepage stats shown - years since 1979 (calculated), 100+ projects (Robert Levine bio), $2.5B+ acquired and financed since 2001 (Stuart Taft bio). Square footage and development value omitted until verified; the draft's 50M SF and $20B are not used.
 - [ ] **company.yml**: Western office address (Brighton, CO) carried over from draft; confirm or replace with Steamboat/Telluride.
 - [ ] **company.yml**: Careers mailbox is "career@" (singular) on the draft; confirm.
 - [ ] **company.yml**: Add LinkedIn / Instagram company URLs (draft footer icons linked nowhere).
@@ -47,7 +47,7 @@ Internal. Generated September 24, 2026 from the content files (`internal_notes`)
 - [ ] **Hotels and communities in the mountains**: Era dates not yet confirmed.
 - [ ] **The Brooklyn waterfront**: 2019 = Pier 6 completion per 6sqft (spring 2019 expected). Also assumes One Brooklyn Bridge Park conversion preceded Pier 6. Confirm.
 - [ ] **A public-private tech hub**: 2023 per NY YIMBY completion report. Confirm.
-- [ ] **About**: Story and how-we-work copy adapted from the live ralcompanies.com About page. Capability copy is new; review wording.
+- [ ] **Founded as a design firm in 1979. Design is still in our DNA.**: Story and how-we-work copy adapted from the live ralcompanies.com About page. Capability copy is new; review wording.
 
 ## Team (29)
 

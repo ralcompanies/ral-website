@@ -223,7 +223,7 @@ collections:
           - name: capabilities
             label: Designer / Developer / Partner
             widget: list
-            fields: [{ name: key, widget: select, options: [design, develop, partner] }, { name: title, widget: string }, { name: text, widget: text }, { name: proof, label: Proof projects, widget: relation, collection: projects, search_fields: [name], value_field: "{{slug}}", display_fields: [name], multiple: true }]
+            fields: [{ name: key, widget: select, options: [design, develop, partner] }, { name: title, widget: string }, { name: text, widget: text }]
           - name: leadership_quote
             label: Leadership quote
             widget: object
@@ -260,4 +260,4 @@ collections:
       - { name: project-types, label: Project types, file: src/content/taxonomies/project-types.yml, fields: [{ name: items, label: Types, widget: list, root: true, fields: [{ name: id, widget: string }, { name: label, widget: string }, { name: order, widget: number }] }] }
       - { name: regions, label: Regions, file: src/content/taxonomies/regions.yml, fields: [{ name: items, label: Regions, widget: list, root: true, fields: [{ name: id, widget: string }, { name: label, widget: string }, { name: order, widget: number }] }] }
       - { name: roles, label: RAL roles, file: src/content/taxonomies/roles.yml, fields: [{ name: items, label: Roles, widget: list, root: true, fields: [{ name: id, widget: string }, { name: label, widget: string }, { name: order, widget: number }, { name: capability, widget: select, options: [design, develop, partner, manage], required: false }] }] }
-      - { name: publications, label: Publications, file: src/content/publications/publications.yml, fields: [{ name: items, label: Publications, widget: list, root: true, fields: [{ name: id, widget: string }, { name: name, widget: string }, { name: tier, widget: select, options: [national, trade, local] }, { name: website, widget: string, required: false }] }] }
+      - { name: publications, label: Publications, file: src/content/publications/publications.yml, fields: [{ name: items, label: Publications, widget: list, root: true, fields: [{ name: id, widget: string }, { name: name, widget: string }, { name: tier, widget: select, options: [national, trade, local] }, { name: website, widget: string, required: false }, { name: logo, label: Logo (monochrome SVG or transparent PNG), widget: image, required: false, media_folder: /public/press-logos, public_folder: /press-logos }, { name: logo_scale, label: Logo size adjustment, widget: number, value_type: float, default: 1, min: 0.5, max: 2.5, step: 0.05, required: false }] }] }

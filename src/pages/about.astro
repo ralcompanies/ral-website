@@ -4,15 +4,11 @@ import Base from '../layouts/Base.astro';
 import PageIntro from '../components/PageIntro.astro';
 import Arrow from '../components/Arrow.astro';
 import Img from '../components/Img.astro';
-import { company, statValue, publicProjects, lookups } from '../lib/site';
+import { company, statValue } from '../lib/site';
 
 const page = (await getEntry('pages', 'about'))!;
 const a = page.data as any;
 const c = await company();
-const lk = await lookups();
-const projects = await publicProjects();
-const proofFor = (cap: string) =>
-  projects.filter((p) => p.data.roles.some((r) => lk.roles[r.id]?.capability === cap)).slice(0, 4);
 const eras = await Promise.all(
   (await getCollection('timeline')).sort((x, y) => x.data.order - y.data.order).map(async (e) => ({ e, projects: (await getEntries(e.data.projects)).filter((p) => p.data.tier !== 'hidden') })),
 );
@@ -20,7 +16,7 @@ const stats = (c.stats ?? []).filter((s) => s.visible);
 const visual = (await getEntry('projects', 'quay-tower'))!;
 ---
 <Base title="About" description={a.lede}>
-  <PageIntro eyebrow={a.eyebrow} title="Founded by architects in 1979." lede={a.lede} />
+  <PageIntro eyebrow={a.eyebrow} title={a.headline ?? a.title} wide lede={a.lede} />
 
   <figure class="wrap about-hero">
     <div class="frame"><Img src={visual.data.hero_image!} alt={visual.data.hero_alt!} sizes="100vw" priority /></div>
@@ -41,17 +37,11 @@ const visual = (await getEntry('projects', 'quay-tower'))!;
       <div class="strip"><h2 id="cap-h" class="label">Capabilities</h2></div>
       <div class="caps">
         {a.capabilities.map((cap: any, i: number) => {
-          const proof = proofFor(cap.key);
           return (
             <article class="capb">
               <p class="label num capb__no">{String(i + 1).padStart(2, '0')}</p>
               <h3 class="h3">{cap.title}</h3>
               <p class="capb__text">{cap.text}</p>
-              {proof.length > 0 && (
-                <ul class="capb__proof">
-                  {proof.map((p) => <li>{p.data.tier === 'featured' ? <a href={`/projects/${p.id}/`}>{p.data.name}<Arrow /></a> : <span>{p.data.name}</span>}</li>)}
-                </ul>
-              )}
             </article>
           );
         })}
@@ -101,10 +91,6 @@ const visual = (await getEntry('projects', 'quay-tower'))!;
   .capb { display: flex; flex-direction: column; gap: var(--s-2); }
   .capb__no { color: var(--graphite); }
   .capb__text { color: var(--ink-2); font-size: var(--fs-small); }
-  .capb__proof { list-style: none; margin: auto 0 0; padding: var(--s-2) 0 0; border-top: 1px solid var(--rule-strong); display: grid; gap: 0.4rem; font-size: var(--fs-small); }
-  .capb__proof a { display: flex; justify-content: space-between; gap: 0.5rem; align-items: center; }
-  .capb__proof a:hover { text-decoration: underline; text-underline-offset: 0.2em; }
-  .capb__proof :global(.arrow) { width: 0.9em; flex: none; }
   .eras { list-style: none; margin: 0; padding: 0; }
   .era { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--gutter); padding-block: var(--s-4); border-bottom: 1px solid var(--rule); }
   .era:first-child { border-top: 1px solid var(--ink); }

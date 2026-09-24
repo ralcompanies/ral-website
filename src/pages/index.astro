@@ -3,6 +3,7 @@ import { getEntry, getEntries } from 'astro:content';
 import Base from '../layouts/Base.astro';
 import Img from '../components/Img.astro';
 import Arrow from '../components/Arrow.astro';
+import PubMark from '../components/PubMark.astro';
 import { company, homepage, statValue, lookups, visiblePress, fmtDate, projectUrl } from '../lib/site';
 
 const c = await company();
@@ -32,9 +33,7 @@ for (let i = 0; i < featured.length; i += 2) rows.push(featured.slice(i, i + 2))
 const stats = (c.stats ?? []).filter((s) => s.visible);
 
 
-const caps = await Promise.all(
-  (h.capabilities ?? []).map(async (cap) => ({ ...cap, projects: (await getEntries(cap.proof)).filter((p) => p.data.tier !== 'hidden') })),
-);
+const caps = h.capabilities ?? [];
 
 const quotePerson = h.leadership_quote ? await getEntry(h.leadership_quote.person) : undefined;
 const leaders = (await getEntry('teamSections', 'leadership'))?.data;
@@ -47,10 +46,10 @@ const statusLabel = { completed: 'Completed', current: 'Under construction', 'in
 ---
 <Base overlayHeader description={c.positioning}>
   <!-- 1. Hero -->
-  <section class="hero on-dark" aria-label="Selected projects">
+  <section class="hero on-dark" aria-roledescription="carousel" aria-label="Selected projects" data-hero>
     <div class="hero__slides" data-slides>
       {slides.map((s, i) => (
-        <figure class:list={['hero__slide', i === 0 && 'is-active']} data-caption={s.caption}>
+        <figure class:list={['hero__slide', i === 0 && 'is-active']} data-caption={s.caption} data-href={s.entry ? projectUrl(s.entry) : undefined} aria-roledescription="slide" aria-label={`${i + 1} of ${slides.length}`} aria-hidden={i === 0 ? undefined : 'true'}>
           <Img src={s.image} alt={s.alt} priority={i === 0} sizes="100vw" />
         </figure>
       ))}
@@ -60,17 +59,32 @@ const statusLabel = { completed: 'Completed', current: 'Under construction', 'in
       <p class="label hero__eyebrow">RAL Companies · Since {c.founded}</p>
       <h1 class="display hero__title">{h.hero_headline}</h1>
       {h.hero_subline && <p class="hero__sub">{h.hero_subline}</p>}
+      {slides.length > 1 && (
+        <div class="hero__bars" role="group" aria-label="Choose slide">
+          {slides.map((s, i) => (
+            <button type="button" class:list={['hero__bar', i === 0 && 'is-active']} data-go={i} aria-label={`Show slide ${i + 1}: ${s.caption}`} aria-current={i === 0 ? 'true' : undefined}><span></span></button>
+          ))}
+        </div>
+      )}
       <div class="hero__foot">
         <p class="hero__caption meta" aria-live="polite"><span data-caption-text>{slides[0]?.caption}</span></p>
+        <a class="hero__cue" href="#work" aria-label="Scroll to selected work">
+          <span class="meta">Scroll</span>
+          <svg viewBox="0 0 16 24" aria-hidden="true"><path d="M8 1v21M1.5 15.5 8 22l6.5-6.5" fill="none" stroke="currentColor" stroke-width="1.2" /></svg>
+        </a>
         {slides.length > 1 && (
-          <p class="hero__count meta num" aria-hidden="true"><span data-count>01</span> / {String(slides.length).padStart(2, '0')}</p>
+          <div class="hero__ctrl">
+            <button type="button" class="hero__btn" data-prev aria-label="Previous slide"><Arrow dir="left" /></button>
+            <p class="meta num" aria-hidden="true"><span data-count>01</span> / {String(slides.length).padStart(2, '0')}</p>
+            <button type="button" class="hero__btn" data-next aria-label="Next slide"><Arrow /></button>
+          </div>
         )}
       </div>
     </div>
   </section>
 
   <!-- 2. Featured work -->
-  <section class="section work" aria-labelledby="work-h">
+  <section class="section work" id="work" aria-labelledby="work-h">
     <div class="wrap">
       <div class="strip">
         <div class="strip__title"><h2 id="work-h" class="label">Selected work</h2></div>
@@ -79,9 +93,9 @@ const statusLabel = { completed: 'Completed', current: 'Under construction', 'in
       <p class="lead work__intro">{h.featured_intro}</p>
       <div class="work__rows">
         {rows.map((row, ri) => (
-          <div class:list={['work__row', ri % 2 === 1 && 'work__row--flip', row.length === 1 && 'work__row--single']}>
+          <div class:list={['work__row', ri % 2 === 0 && row.length > 1 && 'work__row--flip', row.length === 1 && 'work__row--single']}>
             {row.map((f, i) => {
-              const wide = row.length === 1 || (ri % 2 === 0 ? i === 0 : i === 1);
+              const wide = row.length === 1 || (ri % 2 === 0 ? i === 1 : i === 0);
               const url = projectUrl(f.p);
               return (
                 <article class:list={['work__item', wide ? 'work__item--wide' : 'work__item--narrow']}>
@@ -139,15 +153,6 @@ const statusLabel = { completed: 'Completed', current: 'Under construction', 'in
             <p class="label num cap__no">{String(i + 1).padStart(2, '0')}</p>
             <h3 class="h2 cap__title">{cap.title}.</h3>
             <p class="cap__text">{cap.text}</p>
-            {cap.projects.length > 0 && (
-              <ul class="cap__proof">
-                {cap.projects.map((p) => {
-                  const url = projectUrl(p);
-                  const inner = <><span class="cap__pname">{p.data.name}</span><span class="meta">{p.data.location}</span></>;
-                  return <li>{url ? <a href={url}>{inner}<Arrow /></a> : <div>{inner}</div>}</li>;
-                })}
-              </ul>
-            )}
           </article>
         ))}
       </div>
@@ -157,7 +162,7 @@ const statusLabel = { completed: 'Completed', current: 'Under construction', 'in
 
   <!-- 5. People -->
   {quotePerson && (
-    <section class="section people" aria-labelledby="people-h">
+    <section class="section section--stone people" aria-labelledby="people-h">
       <div class="wrap">
         <div class="strip">
           <div class="strip__title"><h2 id="people-h" class="label">People</h2></div>
@@ -194,7 +199,7 @@ const statusLabel = { completed: 'Completed', current: 'Under construction', 'in
 
   <!-- 6. Press -->
   {press.length > 0 && (
-    <section class="section section--stone press" aria-labelledby="press-h">
+    <section class="section press" aria-labelledby="press-h">
       <div class="wrap">
         <div class="strip">
           <div class="strip__title"><h2 id="press-h" class="label">In the press</h2></div>
@@ -204,7 +209,7 @@ const statusLabel = { completed: 'Completed', current: 'Under construction', 'in
           {press.map((p) => (
             <li>
               <a href={p.data.url ?? p.data.pdf} target="_blank" rel="noopener">
-                <p class="label press__pub">{p.pub.name}</p>
+                <PubMark pub={p.pub} class="press__pub" />
                 <h3 class="h3 press__h">{p.data.headline}</h3>
                 <p class="meta num press__d">{fmtDate(p.data.date, p.data.date_precision)}<Arrow dir="up-right" /></p>
               </a>
@@ -215,35 +220,11 @@ const statusLabel = { completed: 'Completed', current: 'Under construction', 'in
     </section>
   )}
 
-  <!-- 7. Contact -->
-  <section class="section contact" aria-labelledby="contact-h">
-    <div class="wrap contact__grid">
-      <div>
-        <h2 id="contact-h" class="h2">Get in touch.</h2>
-      </div>
-      <ul class="contact__routes">
-        {c.contacts?.filter((x) => x.label !== 'Press').map((x) => (
-          <li>
-            <p class="label">{x.label}</p>
-            {x.note && <p class="meta">{x.note}</p>}
-            <a class="link" href={`mailto:${x.email}`}>{x.email}</a>
-          </li>
-        ))}
-        {c.offices?.filter((o) => o.primary).map((o) => (
-          <li>
-            <p class="label">Office</p>
-            <p class="meta">{o.lines.join(', ')}</p>
-            {o.phone && <a class="link num" href={`tel:${o.phone.replace(/\D/g, '')}`}>{o.phone}</a>}
-          </li>
-        ))}
-      </ul>
-    </div>
-  </section>
 </Base>
 
 <style>
   /* Hero */
-  .hero { color: var(--on-dark); position: relative; height: clamp(34rem, 92svh, 62rem); background: var(--ink); overflow: hidden; }
+  .hero { color: var(--on-dark); position: relative; height: 100vh; height: 100svh; min-height: 32rem; background: var(--ink); overflow: hidden; touch-action: pan-y; }
   .hero__slides, .hero__slide { position: absolute; inset: 0; margin: 0; }
   .hero__slide { opacity: 0; transition: opacity 1.6s var(--ease); }
   .hero__slide.is-active { opacity: 1; }
@@ -256,17 +237,35 @@ const statusLabel = { completed: 'Completed', current: 'Under construction', 'in
   .hero__eyebrow { color: var(--on-dark); margin-bottom: var(--s-3); }
   .hero__title { max-width: 11ch; }
   .hero__sub { max-width: 34rem; margin-top: var(--s-3); font-size: var(--fs-lead); line-height: 1.45; color: var(--on-dark); font-family: var(--font-body); font-weight: 400; }
-  .hero__foot { display: flex; justify-content: space-between; align-items: baseline; margin-top: var(--s-6); padding-top: var(--s-2); border-top: 1px solid rgb(245 243 238 / 0.35); }
+  .hero__bars { display: grid; grid-auto-flow: column; grid-auto-columns: 1fr; gap: 0.5rem; margin-top: var(--s-6); }
+  .hero__bar { appearance: none; background: none; border: 0; padding: 0.75rem 0; cursor: pointer; }
+  .hero__bar span { display: block; height: 2px; background: rgb(245 243 238 / 0.3); position: relative; overflow: hidden; }
+  .hero__bar span::after { content: ''; position: absolute; inset: 0; background: var(--on-dark); transform: scaleX(0); transform-origin: left; }
+  .hero__bar.is-done span::after { transform: scaleX(1); }
+  .hero__bar.is-active span::after { transform: scaleX(1); }
+  .hero[data-playing] .hero__bar.is-active span::after { animation: bar var(--hero-ms, 7000ms) linear both; }
+  @keyframes bar { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+  .hero__bar:hover span { background: rgb(245 243 238 / 0.55); }
+  .hero__foot { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: var(--s-3); padding-top: 0.25rem; }
+  .hero__ctrl { justify-self: end; display: flex; align-items: center; gap: 0.75rem; }
+  .hero__btn { appearance: none; width: 2.75rem; height: 2.75rem; display: grid; place-items: center; border: 1px solid rgb(245 243 238 / 0.45); border-radius: 50%; background: transparent; color: var(--on-dark); cursor: pointer; transition: background 0.2s, border-color 0.2s; }
+  .hero__btn:hover { background: rgb(245 243 238 / 0.12); border-color: var(--on-dark); }
+  .hero__btn :global(.arrow) { width: 1rem; }
+  .hero__cue { display: flex; flex-direction: column; align-items: center; gap: 0.35rem; color: var(--on-dark); padding: 0.25rem 1rem; }
+  .hero__cue .meta { color: var(--on-dark); letter-spacing: 0.12em; text-transform: uppercase; font-size: 0.6875rem; }
+  .hero__cue svg { width: 0.9rem; height: 1.4rem; animation: cue 2.2s var(--ease) infinite; }
+  @keyframes cue { 0%, 100% { transform: translateY(-3px); opacity: 0.55; } 50% { transform: translateY(5px); opacity: 1; } }
+  @media (prefers-reduced-motion: reduce) { .hero__cue svg { animation: none; } }
   .hero__caption span { transition: opacity 0.6s; }
 
   /* Featured work */
-  .work__intro { margin-bottom: var(--s-7); }
-  .work__rows { display: grid; gap: clamp(4rem, 2rem + 6vw, 8rem); }
+  .work__intro { margin-bottom: var(--s-5); }
+  .work__rows { display: grid; gap: clamp(3rem, 2rem + 3vw, 5rem); }
   .work__row { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--gutter); align-items: start; }
   .work__item--wide { grid-column: 1 / span 7; }
-  .work__item--narrow { grid-column: 9 / span 4; margin-top: clamp(3rem, 10vw, 9rem); }
+  .work__item--narrow { grid-column: 9 / span 4; margin-top: clamp(2rem, 6vw, 5rem); }
   .work__row--flip .work__item--narrow { grid-column: 1 / span 4; margin-top: 0; grid-row: 1; }
-  .work__row--flip .work__item--wide { grid-column: 6 / span 7; margin-top: clamp(3rem, 10vw, 9rem); grid-row: 1; }
+  .work__row--flip .work__item--wide { grid-column: 6 / span 7; margin-top: clamp(2rem, 6vw, 5rem); grid-row: 1; }
   .work__row--single .work__item--wide { grid-column: 1 / -1; }
   .work__link { display: block; }
   .work__no { color: var(--graphite); }
@@ -284,12 +283,6 @@ const statusLabel = { completed: 'Completed', current: 'Under construction', 'in
   .cap:first-child { border-left: 0; padding-left: 0; }
   .cap__no { color: var(--graphite); }
   .cap__text { color: var(--ink-2); }
-  .cap__proof { list-style: none; margin: auto 0 0; padding: 0; border-top: 1px solid var(--ink); }
-  .cap__proof li > * { display: grid; grid-template-columns: 1fr auto; column-gap: 1rem; padding-block: 0.8rem; border-bottom: 1px solid var(--rule); }
-  .cap__proof a:hover .cap__pname { text-decoration: underline; text-underline-offset: 0.2em; }
-  .cap__proof .meta { grid-column: 1; }
-  .cap__proof :global(.arrow) { grid-column: 2; grid-row: 1 / span 2; align-self: center; width: 1.1em; }
-  .cap__pname { font-weight: 500; }
 
 
   /* People */
@@ -315,13 +308,6 @@ const statusLabel = { completed: 'Completed', current: 'Under construction', 'in
   .press__d { margin-top: auto; display: flex; gap: 0.5rem; align-items: center; }
   .press__d :global(.arrow) { width: 0.9em; }
 
-  /* Contact */
-  .contact__grid { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--gutter); row-gap: var(--s-5); }
-  .contact__grid > div { grid-column: 1 / span 5; }
-  .contact__routes { grid-column: 7 / -1; list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--s-5) var(--gutter); }
-  .contact__routes li { display: flex; flex-direction: column; gap: 0.5rem; align-items: flex-start; border-top: 1px solid var(--rule); padding-top: var(--s-2); }
-  .contact__routes .link { overflow-wrap: anywhere; }
-
   @media (max-width: 1100px) {
     .press__list { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: var(--s-5); }
     .people__row { grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -335,32 +321,67 @@ const statusLabel = { completed: 'Completed', current: 'Under construction', 'in
     .cap { border-left: 0; padding-left: 0; }
     .people__portrait { grid-column: 1 / span 8; }
     .people__body { grid-column: 1 / -1; }
-    .contact__grid > div, .contact__routes { grid-column: 1 / -1; }
   }
   @media (max-width: 560px) {
     .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: var(--s-4); }
     .people__portrait { grid-column: 1 / -1; }
     .hero__sub { font-size: 1.0625rem; }
-    .hero__count { display: none; }
+    .hero__ctrl .meta { display: none; }
+    .hero__cue .meta { display: none; }
     .strip p.strip__aside { display: none; }
   }
 </style>
 
 <script>
-  const wrap = document.querySelector('[data-slides]');
-  const slides = wrap ? Array.from(wrap.querySelectorAll('.hero__slide')) : [];
-  const cap = document.querySelector('[data-caption-text]') as HTMLElement | null;
-  const count = document.querySelector('[data-count]') as HTMLElement | null;
-  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
-  let i = 0;
-  if (slides.length > 1 && !reduce) {
-    setInterval(() => {
-      if (document.hidden) return;
+  const hero = document.querySelector<HTMLElement>('[data-hero]');
+  const slides = hero ? Array.from(hero.querySelectorAll<HTMLElement>('.hero__slide')) : [];
+  if (hero && slides.length > 1) {
+    const MS = 7000;
+    hero.style.setProperty('--hero-ms', `${MS}ms`);
+    const bars = Array.from(hero.querySelectorAll<HTMLElement>('.hero__bar'));
+    const cap = hero.querySelector<HTMLElement>('[data-caption-text]');
+    const count = hero.querySelector<HTMLElement>('[data-count]');
+    const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    let i = 0;
+    let timer: number | undefined;
+    const go = (n: number) => {
+      const next = (n + slides.length) % slides.length;
+      if (next === i) return;
       slides[i].classList.remove('is-active');
-      i = (i + 1) % slides.length;
+      slides[i].setAttribute('aria-hidden', 'true');
+      i = next;
       slides[i].classList.add('is-active');
-      if (cap) { cap.style.opacity = '0'; setTimeout(() => { cap.textContent = (slides[i] as HTMLElement).dataset.caption ?? ''; cap.style.opacity = '1'; }, 400); }
+      slides[i].removeAttribute('aria-hidden');
+      bars.forEach((b, k) => {
+        b.classList.toggle('is-active', k === i);
+        b.classList.toggle('is-done', k < i);
+        if (k === i) b.setAttribute('aria-current', 'true'); else b.removeAttribute('aria-current');
+      });
+      // restart the progress animation on the active bar
+      const bar = bars[i]?.querySelector('span');
+      if (bar) { bar.style.display = 'none'; void bar.offsetWidth; bar.style.display = ''; }
+      if (cap) { cap.style.opacity = '0'; setTimeout(() => { cap.textContent = slides[i].dataset.caption ?? ''; cap.style.opacity = '1'; }, 300); }
       if (count) count.textContent = String(i + 1).padStart(2, '0');
-    }, 7000);
+    };
+    const stop = () => { clearInterval(timer); timer = undefined; hero.removeAttribute('data-playing'); };
+    const play = () => { if (reduce) return; stop(); hero.setAttribute('data-playing', ''); timer = window.setInterval(() => { if (!document.hidden) go(i + 1); }, MS); };
+    // Manual navigation stops autoplay so the visitor stays in control
+    const manual = (n: number) => { stop(); go(n); };
+    hero.querySelector('[data-prev]')?.addEventListener('click', () => manual(i - 1));
+    hero.querySelector('[data-next]')?.addEventListener('click', () => manual(i + 1));
+    bars.forEach((b) => b.addEventListener('click', () => manual(Number(b.dataset.go))));
+    hero.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowLeft') { manual(i - 1); e.preventDefault(); }
+      if (e.key === 'ArrowRight') { manual(i + 1); e.preventDefault(); }
+    });
+    let x0: number | null = null, y0 = 0;
+    hero.addEventListener('pointerdown', (e) => { if (e.pointerType !== 'mouse') { x0 = e.clientX; y0 = e.clientY; } });
+    hero.addEventListener('pointerup', (e) => {
+      if (x0 === null) return;
+      const dx = e.clientX - x0, dy = e.clientY - y0; x0 = null;
+      if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy)) manual(dx < 0 ? i + 1 : i - 1);
+    });
+    hero.addEventListener('pointercancel', () => (x0 = null));
+    play();
   }
 </script>
