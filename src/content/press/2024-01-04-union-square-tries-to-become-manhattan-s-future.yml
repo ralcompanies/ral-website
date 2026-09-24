@@ -1,0 +1,13 @@
+headline: Union Square Tries to Become Manhattan’s Future
+publication: the-city
+date: '2024-01-04'
+url: https://www.thecity.nyc/2024/01/04/union-square-office-space-manhattan-future/
+category: coverage
+projects:
+- zero-irving
+people:
+- josh-wein
+featured: false
+internal_notes:
+- Added Sept 2026 from press research. Holds up Zero Irving, nearly fully leased within two years, as a model for Union Square's future; Josh Wein quoted.
+- 'Verified: curl og:title/published_time/author (Greg David) + WebFetch tone check'

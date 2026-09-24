@@ -1,0 +1,14 @@
+headline: 'Hubba Hubba: Zero Irving and the City''s Growing Number of Tech Hubs'
+publication: commercial-observer
+date: '2019-10-21'
+url: https://commercialobserver.com/2019/10/hubba-hubba-zero-irving-and-the-citys-growing-number-of-tech-hubs/
+category: interview
+projects:
+- zero-irving
+people:
+- spencer-levine
+- josh-wein
+featured: false
+internal_notes:
+- Added Sept 2026 from press research. Feature on Zero Irving as a model tech hub, with Spencer Levine and Josh Wein on the training-center-to-jobs pipeline (was on RAL's old press page).
+- 'Verified: curl title/published_time/tags + WebFetch quotes (Nicholas Rizzi)'

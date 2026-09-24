@@ -114,9 +114,201 @@ Internal. Generated September 24, 2026 from the content files (`internal_notes`)
 - [ ] Confirm licence/usage rights: Getty images (ROAN folder, not used), operator photography (Four Seasons), listing photos (Franklin Tower), Mandarin Oriental name and marks.
 - [ ] Photographer credit lines where contracts require them (Evan Joseph, CTC, Binyan).
 
-## Press (4)
+## Press (196)
 
+- [ ] **Capella Telluride: On-Mountain Living at its Finest**: Added Sept 2026 from press research. Preview of Capella Telluride 'developed by RAL Companies and Affiliates'; notes RAL developed and owns the Inn at Lost Creek, ranked #1 in Telluride
+- [ ] **Capella Telluride: On-Mountain Living at its Finest**: Verified: curl of page: title, published_time 2007-05-25, RAL passages
+- [ ] **Capella Telluride Reaches Milestone, Maintains Schedule**: Added Sept 2026 from press research. Construction on schedule one year after groundbreaking; developer Robert Levine of R.A.L. Companies quoted
+- [ ] **Capella Telluride Reaches Milestone, Maintains Schedule**: Verified: curl of page: title (subhead 'Ultra-Posh Resort on Track One Year After Breaking Ground'), datetime 2007-07-19, Levine quotes
+- [ ] **BuildingNY: NYStories - Robert Levine, Pres. & CEO, RAL Companies & Affiliates**: Added Sept 2026 from press research. Michael Stoler TV interview with Levine on RAL's founding, his architecture background, One Brooklyn Bridge Park and Loft 25.
+- [ ] **BuildingNY: NYStories - Robert Levine, Pres. & CEO, RAL Companies & Affiliates**: Verified: WebFetch episode page: title and air date April 7, 2008
+- [ ] **The Closing: Robert Levine**: Added Sept 2026 from press research. Q&A profile (Lauren Elkies) of Robert Levine covering his career, family firm, and projects from Brooklyn to Telluride
+- [ ] **The Closing: Robert Levine**: Verified: curl + WebFetch: title, byline, datePublished 2009-01-30; content positive
+- [ ] **Capella opens its doors**: Added Sept 2026 from press research. Ribbon-cutting of the $200M Capella Telluride (now Hotel Madeline) with Horst Schulze and Robert Levine of RAL
+- [ ] **Capella opens its doors**: Verified: curl of page: title, time datetime 2009-02-13, Levine/RAL in photo caption and body
+- [ ] **Capella Telluride, Telluride, Colorado**: Added Sept 2026 from press research. Robb Report review of the RAL-developed Capella Telluride (now Madeline) soon after opening; RAL not named
+- [ ] **Capella Telluride, Telluride, Colorado**: Verified: curl of page: title, published_time 2009-08-21; project-specific, RAL not named
+- [ ] **McHugh completes ultra-lux Capella Telluride hotel in Colorado**: Added Sept 2026 from press research. Completion of Capella Telluride; 'developed by New York-based RAL Development Services'
+- [ ] **McHugh completes ultra-lux Capella Telluride hotel in Colorado**: Verified: curl of page: title, datePublished 2010-08-11, RAL sentence
+- [ ] **Chelsea's Loft 25 sells out**: Added Sept 2026 from press research. RAL Companies' Loft 25 conversion of a prewar industrial building at 420 West 25th Street is fully sold.
+- [ ] **Chelsea's Loft 25 sells out**: Verified: curl og:title/published_time/description
+- [ ] **RAL Development Services and Oliver's Realty Group picked to build Pier 6 towers at Brooklyn Bridge Park**: Added Sept 2026 from press research. Brooklyn Bridge Park Corp. selects RAL/Oliver's for Pier 6: 29-story condo + 14-story mostly affordable rental, $118M for park operations.
+- [ ] **RAL Development Services and Oliver's Realty Group picked to build Pier 6 towers at Brooklyn Bridge Park**: Verified: WebFetch loaded article body (curl 403); headline from search title/URL slug, date from URL path 20150630
+- [ ] **Robert Levine's RAL, partner tapped for Brooklyn Bridge Park resi project**: Added Sept 2026 from press research. RAL/Oliver's JV wins Pier 6 RFP ($106M ground lease) for a condo tower and mixed-income rental; Levine quoted on single-lobby design.
+- [ ] **Robert Levine's RAL, partner tapped for Brooklyn Bridge Park resi project**: Verified: curl og:title + article:published_time; WebFetch for summary/tone
+- [ ] **It's A New Season for This Popular Downtown Hotel Spa**: Added Sept 2026 from press research. Review of the renovated 4th-floor spa and fitness center, RAL's phase one at Four Seasons Houston; RAL not named
+- [ ] **It's A New Season for This Popular Downtown Hotel Spa**: Verified: WebFetch of article: author Ellie Sharp, date Jun 1 2016
+- [ ] **First look: Bayou & Bottle**: Added Sept 2026 from press research. Unveiling of the Four Seasons Houston lobby overhaul ('Houston's living room') and Bayou & Bottle, the phase RAL oversaw; RAL not named
+- [ ] **First look: Bayou & Bottle**: Verified: curl of page (WebFetch blocked by robots): title, datePublished 2017-01-18, lobby renovation text
+- [ ] **New Renderings Out For Union Square Tech Hub**: Added Sept 2026 from press research. First renderings of RAL's $250M city-sponsored Union Square tech hub; 600 tech jobs, 800 construction jobs.
+- [ ] **New Renderings Out For Union Square Tech Hub**: Verified: curl og:title/published_time/tags + WebFetch tone check
+- [ ] **RAL's Spencer Levine on His Journey From Waldbaum's to Landscape Architecture**: Added Sept 2026 from press research. Profile of Spencer Levine (then director of landscape architecture) and his work on One Brooklyn Bridge Park, Pier 6 and 124 East 14th Street.
+- [ ] **RAL's Spencer Levine on His Journey From Waldbaum's to Landscape Architecture**: Verified: WebFetch content (author Larry Getlen); curl article:published_time 2018-02-22
+- [ ] **Brooklyn Bridge Park Pier 6 developers land $400M+ in new financing**: Added Sept 2026 from press research. RAL/Vanke/Oliver's secure $411M incl. $251M Bank OZK construction loan for Pier 6 towers.
+- [ ] **Brooklyn Bridge Park Pier 6 developers land $400M+ in new financing**: Verified: curl og:title + article:published_time + body snippet
+- [ ] **Development Trio Scores $411M in Construction Financing for Brooklyn's Pier 6**: Added Sept 2026 from press research. RAL, Vanke US and Oliver's close $411M construction financing for Pier 6; Meridian praises RAL's vision.
+- [ ] **Development Trio Scores $411M in Construction Financing for Brooklyn's Pier 6**: Verified: curl <title> + article:published_time; WebFetch summary
+- [ ] **Quay Tower Tops Out, Façade Installation Underway, Brooklyn Bridge Park**: Added Sept 2026 from press research. Topping-out of Quay Tower, JV of RAL, Oliver's and Vanke US; on track for 2019.
+- [ ] **Quay Tower Tops Out, Façade Installation Underway, Brooklyn Bridge Park**: Verified: WebFetch (headline, June 5 2018, author Andrew Nelson)
+- [ ] **New Multifamily/Retail Mixed-Use Project To Break Ground At 13th And Fairmount**: Added Sept 2026 from press research. RAL Development Services is set to break ground on the $190M, 14-story 1300 Fairmount with 471 apartments and 58K SF of retail.
+- [ ] **New Multifamily/Retail Mixed-Use Project To Break Ground At 13th And Fairmount**: Verified: WebFetch content; curl datePublished 2018-06-26
+- [ ] **Grand Cayman Luxury: Mandarin Oriental to Manage Second Caribbean Resort**: Added Sept 2026 from press research. Travel-trade report of the Mandarin Oriental management deal; names RAL Development Services as development partner
+- [ ] **Grand Cayman Luxury: Mandarin Oriental to Manage Second Caribbean Resort**: Verified: WebFetch of article: headline, date Jun 29 2018, RAL named
+- [ ] **Getting the lay of Quay: Pier 6's larger tower offers sprawling views, swanky condos, for a pretty penny**: Added Sept 2026 from press research. Exclusive tour of Quay Tower; Levine quoted on finishes and Brooklyn's first Amazon smart-home partnership.
+- [ ] **Getting the lay of Quay: Pier 6's larger tower offers sprawling views, swanky condos, for a pretty penny**: Verified: curl og:title + article:published_time + full article text
+- [ ] **Aldi sets sights on Center City shoppers with store below apartments planned near Divine Lorraine**: Added Sept 2026 from press research. Aldi signs about 25,000 SF at RAL's 1300 Fairmount (Broadridge), its first mixed-use store in the Philadelphia area.
+- [ ] **Aldi sets sights on Center City shoppers with store below apartments planned near Divine Lorraine**: Verified: WebFetch content (author Jacob Adelman, Aug 29, 2018); curl title
+- [ ] **Quay Tower nears completion on Brooklyn Heights waterfront**: Added Sept 2026 from press research. Construction progress, pricing and amenities at RAL/Oliver's Quay Tower.
+- [ ] **Quay Tower nears completion on Brooklyn Heights waterfront**: Verified: curl og:title + article:published_time; WebFetch tone check
+- [ ] **RAL Development Services Begins Construction of 1300 Fairmount Avenue**: Added Sept 2026 from press research. Construction start at 1300 Fairmount, with 38,000 SF of commercial space pre-leased.
+- [ ] **RAL Development Services Begins Construction of 1300 Fairmount Avenue**: Verified: WebFetch headline and date October 5, 2018 (curl blocked by Cloudflare)
+- [ ] **$20M Brooklyn Heights penthouse could be the borough's priciest sale ever**: Added Sept 2026 from press research. Quay Tower penthouse contract poised to set Brooklyn price record.
+- [ ] **$20M Brooklyn Heights penthouse could be the borough's priciest sale ever**: Verified: curl og:title + datePublished
+- [ ] **Quay Tower Sees Brooklyn's First-Ever $20 Million Condominium Sale**: Added Sept 2026 from press research. First $20M condo deal in Brooklyn at RAL/Oliver's Quay Tower.
+- [ ] **Quay Tower Sees Brooklyn's First-Ever $20 Million Condominium Sale**: Verified: WebFetch (headline, Oct 12 2018, RAL named)
+- [ ] **Rental units inside shorter Pier 6 tower available as soon as next month, brokers say**: Added Sept 2026 from press research. The Landing's 100 affordable + 40 market-rate units about to lease; upbeat amenity rundown.
+- [ ] **Rental units inside shorter Pier 6 tower available as soon as next month, brokers say**: Verified: curl og:title + article:published_time; WebFetch tone check (one-line reference to past lawsuit)
+- [ ] **Renting to begin soon at Brooklyn Bridge Park's 'The Landing'**: Added Sept 2026 from press research. The Landing nears completion with 100 lottery-affordable units; renderings credited to RAL/Oliver's.
+- [ ] **Renting to begin soon at Brooklyn Bridge Park's 'The Landing'**: Verified: curl og:title + article:published_time; WebFetch tone check
+- [ ] **Last Of Brooklyn Bridge Park Developments Opens With 140 Units**: Added Sept 2026 from press research. Ribbon-cutting for The Landing; officials call it a triumph, 45,000 applied, Levine calls units 'premium housing'.
+- [ ] **Last Of Brooklyn Bridge Park Developments Opens With 140 Units**: Verified: WebFetch (headline, Feb 26 2019, RAL/Levine quoted); mentions past opposition as backdrop
+- [ ] **Union Square Tech Hub JV Closes $120M Construction Loan**: Added Sept 2026 from press research. RAL secures construction financing and signs 99-year ground lease with NYCEDC for the tech hub.
+- [ ] **Union Square Tech Hub JV Closes $120M Construction Loan**: Verified: WebFetch headline/date/author (Betsy Kim)
+- [ ] **New York's largest indoor water park is finally open—take a look inside**: Added Sept 2026 from press research. Opening of The Kartrite, New York's largest indoor water park; RAL not named
+- [ ] **New York's largest indoor water park is finally open—take a look inside**: Verified: curl of page: title, datePublished 2019-04-25; project-specific, RAL not named
+- [ ] **EPR’s $180 million Kartrite Resort & Indoor Waterpark opens; Project team includes RAL, Adelaar HWP, Suffolk Construction, ADG, ADCI and AKRF**: Added Sept 2026 from press research. Opening of the $180M resort with RAL as owner's representative for EPR; Spencer Levine quoted
+- [ ] **EPR’s $180 million Kartrite Resort & Indoor Waterpark opens; Project team includes RAL, Adelaar HWP, Suffolk Construction, ADG, ADCI and AKRF**: Verified: WebFetch + curl: headline, date June 4 2019, RAL and Levine quote
+- [ ] **Hubba Hubba: Zero Irving and the City's Growing Number of Tech Hubs**: Added Sept 2026 from press research. Feature on Zero Irving as a model tech hub, with Spencer Levine and Josh Wein on the training-center-to-jobs pipeline (was on RAL's old press page).
+- [ ] **Hubba Hubba: Zero Irving and the City's Growing Number of Tech Hubs**: Verified: curl title/published_time/tags + WebFetch quotes (Nicholas Rizzi)
+- [ ] **Union Square Tech Training Center Begins Ascent at 124 East 14th Street in Union Square**: Added Sept 2026 from press research. Early construction progress on the tech training center; RAL Development named on the development team (was on RAL's old press page).
+- [ ] **Union Square Tech Training Center Begins Ascent at 124 East 14th Street in Union Square**: Verified: WebFetch headline/date (Michael Young)
+- [ ] **Developers of Zero Irving Manage a Construction Shutdown and Leasing**: Added Sept 2026 from press research. How RAL kept Zero Irving on track through the COVID shutdown; Spencer Levine interviewed.
+- [ ] **Developers of Zero Irving Manage a Construction Shutdown and Leasing**: Verified: curl title/published_time/tags + WebFetch (Rebecca Baird-Remba)
+- [ ] **$20.3M penthouse on the Brooklyn Heights waterfront is borough's most expensive sale ever**: Added Sept 2026 from press research. Closing of Quay Tower's $20.3M penthouse, Brooklyn's priciest sale ever (2020 closing, distinct from 2018 contract stories).
+- [ ] **$20.3M penthouse on the Brooklyn Heights waterfront is borough's most expensive sale ever**: Verified: WebFetch (headline, Apr 15 2020, RAL/Oliver's photo credit)
+- [ ] **Brooklyn Heights penthouse sells for record $20 million**: Added Sept 2026 from press research. Record $20M Quay Tower penthouse closing; RAL/Oliver's credited.
+- [ ] **Brooklyn Heights penthouse sells for record $20 million**: Verified: WebFetch headline/tone; curl article:published_time 2020-04-16
+- [ ] **Iris Café, Pilates Studio and Grocery Store Ink Deals in Brooklyn Bridge Park**: Added Sept 2026 from press research. New local retail (Iris Cafe/Town Market, OV Pilates) at RAL/Oliver's One Brooklyn Bridge Park and The Landing.
+- [ ] **Iris Café, Pilates Studio and Grocery Store Ink Deals in Brooklyn Bridge Park**: Verified: curl <title> + article:published_time; WebFetch summary
+- [ ] **UrbanSpace to bring fresh business to NYC’s Union Square amid COVID-19**: Added Sept 2026 from press research. Exclusive: UrbanSpace signs 10,000 SF food hall at RAL Development Services' $200M Union Square tech hub.
+- [ ] **UrbanSpace to bring fresh business to NYC’s Union Square amid COVID-19**: Verified: curl og:title (prefixed 'Exclusive |') + published_time 2020-08-07T02:25Z (Aug 6 ET)
+- [ ] **UrbanSpace will open a new food hall at Union Square tech hub**: Added Sept 2026 from press research. UrbanSpace food hall coming to Zero Irving; renderings courtesy of RAL Development Services.
+- [ ] **UrbanSpace will open a new food hall at Union Square tech hub**: Verified: curl og:title/datePublished
+- [ ] **RAL Development Tops Out 240,000 SF Zero Irving Office Building in Manhattan**: Added Sept 2026 from press research. RAL, with NYCEDC, tops out Zero Irving.
+- [ ] **RAL Development Tops Out 240,000 SF Zero Irving Office Building in Manhattan**: Verified: curl og:title/published_time/description
+- [ ] **Zero Irving Tops Out at 124 East 14th Street in Union Square**: Added Sept 2026 from press research. Topping out of RAL's 21-story Zero Irving; Spencer Levine calls it a major milestone.
+- [ ] **Zero Irving Tops Out at 124 East 14th Street in Union Square**: Verified: WebFetch headline/date/author (Sebastian Morris)
+- [ ] **RAL Development Nears Completion of 478-Unit Broadridge Apartments in Philadelphia**: Added Sept 2026 from press research. Broadridge nears completion: 478 units, 30K SF of terraces, pool, and Aldi opened in 60K SF of commercial space.
+- [ ] **RAL Development Nears Completion of 478-Unit Broadridge Apartments in Philadelphia**: Verified: WebFetch content; curl datePublished 2020-12-10
+- [ ] **Leasing Begins at Broadridge, By the Unit or By the Room**: Added Sept 2026 from press research. RAL opens leasing at Broadridge: 331 traditional apartments plus 147 Common co-living units, with Aldi and a daycare on site.
+- [ ] **Leasing Begins at Broadridge, By the Unit or By the Room**: Verified: curl h1/og:title; article:published_time 2021-02-08
+- [ ] **We’re finally getting a glimpse of what the COVID-safe skyscraper will look like**: Added Sept 2026 from press research. Features Zero Irving, 'developed by RAL Companies & Affiliates', as a case study in touchless, air-quality-monitored post-pandemic office design; Spencer Levine quoted.
+- [ ] **We’re finally getting a glimpse of what the COVID-safe skyscraper will look like**: Verified: curl og:title/datePublished/author (Andrew Marquardt) + WebFetch body quotes
 - [ ] **Zendaya Is Revealed As the Buyer of a $4.9 Million Brooklyn Waterfront Condo**: Hidden: names a private buyer. Your call whether to show.
+- [ ] **Broadridge, Now Complete, Offers Something for Everyone**: Added Sept 2026 from press research. Completion profile: Philadelphia's largest single-building rental, with amenities including podcast studios; quotes Spencer Levine.
+- [ ] **Broadridge, Now Complete, Offers Something for Everyone**: Verified: curl h1/og:title; article:published_time 2021-08-30; WebFetch content (author Sandy Smith)
+- [ ] **First Look: The Residences At Mandarin Oriental Grand Cayman**: Added Sept 2026 from press research. Jim Dobson preview of the residences; names Melkonian Capital as owner and RAL as co-developer
+- [ ] **First Look: The Residences At Mandarin Oriental Grand Cayman**: Verified: WebFetch of article: headline, author, date Nov 30 2021, RAL named as co-developer
+- [ ] **RAL Development Announces Zero Irving's First Tenant at 124 East 14th Street in Union Square, Manhattan**: Added Sept 2026 from press research. Melio signs as Zero Irving's first tenant; Josh Wein quoted on the building's entrepreneurial ecosystem.
+- [ ] **RAL Development Announces Zero Irving's First Tenant at 124 East 14th Street in Union Square, Manhattan**: Verified: WebFetch headline/date/author (Sebastian Morris)
+- [ ] **See inside a $10M penthouse at the record-setting Quay Tower in Brooklyn Heights**: Added Sept 2026 from press research. Photo tour of a $10M Quay Tower penthouse; building described as record-setting.
+- [ ] **See inside a $10M penthouse at the record-setting Quay Tower in Brooklyn Heights**: Verified: WebFetch (headline, Jan 13 2022)
+- [ ] **RAL Companies and Oliver's Realty Group Bring Robust Retail Experiences to Brooklyn Bridge Park**: Added Sept 2026 from press research. Twelve open retailers at Pier 6/Brooklyn Bridge Park; Levine quoted (release-based trade item).
+- [ ] **RAL Companies and Oliver's Realty Group Bring Robust Retail Experiences to Brooklyn Bridge Park**: Verified: curl og:title + article:published_time; WebFetch notes it is press-release based
+- [ ] **Developers of Mandarin Oriental Grand Cayman Receive Approval on Next Phase of Development**: Added Sept 2026 from press research. Co-developers Melkonian and RAL win approval for 22 more branded residences; Spencer Levine quoted on jobs for Bodden Town
+- [ ] **Developers of Mandarin Oriental Grand Cayman Receive Approval on Next Phase of Development**: Verified: curl of page: title, date April 27, 2022 in body, RAL and Levine quotes
+- [ ] **Affordable Housing Units Still Available at 15 Bridge Park Drive in Brooklyn Heights**: Added Sept 2026 from press research. Housing Connect re-offering at The Landing; names RAL as developer.
+- [ ] **Affordable Housing Units Still Available at 15 Bridge Park Drive in Brooklyn Heights**: Verified: WebFetch (headline, June 3 2022)
+- [ ] **VC Firm Sequoia Capital Opening First East Coast Office at Zero Irving**: Added Sept 2026 from press research. Sequoia lease at Zero Irving; credits RAL Development Services and Junius with transforming the former P.C. Richard site into a tech hub.
+- [ ] **VC Firm Sequoia Capital Opening First East Coast Office at Zero Irving**: Verified: curl title/published_time/tags (RAL Development Services) + WebFetch
+- [ ] **VC giant Sequoia coming to RAL’s Union Square property**: Added Sept 2026 from press research. Sequoia Capital signs its first East Coast office lease at RAL Development's Zero Irving tech hub (headline from old draft press list).
+- [ ] **VC giant Sequoia coming to RAL’s Union Square property**: Verified: curl og:title + article:published_time; WebFetch confirms RAL named as developer
+- [ ] **Inside the Sprawling $22 Million Grand Cayman Penthouse at The Mandarin Oriental Residences**: Added Sept 2026 from press research. Feature on the project's $22M penthouse; quotes Ryan Melkonian (RAL not named in text)
+- [ ] **Inside the Sprawling $22 Million Grand Cayman Penthouse at The Mandarin Oriental Residences**: Verified: curl of page: h1 headline, published_time 2022-09-01; project-specific story, RAL not named
+- [ ] **Digital Training Center Finalizes 85K SF at Zero Irving**: Added Sept 2026 from press research. Fedcap/Civic Hall finalizes 85,000 SF digital skills training center lease with RAL at Zero Irving.
+- [ ] **Digital Training Center Finalizes 85K SF at Zero Irving**: Verified: curl title/published_time/tags incl. RAL Development Services
+- [ ] **Tech Incubator and Training Center Announced for Zero Irving at 124 East 14th Street in Union Square, Manhattan**: Added Sept 2026 from press research. RAL Development Services finalizes 25-year lease with The Fedcap Group for Civic Hall's tech incubator/training center.
+- [ ] **Tech Incubator and Training Center Announced for Zero Irving at 124 East 14th Street in Union Square, Manhattan**: Verified: WebFetch headline/date (Sebastian Morris)
+- [ ] **Private Equity Firm Alpine Investors Relocating to 22K SF at Zero Irving**: Added Sept 2026 from press research. Alpine Investors takes 22,000 SF at RAL's Zero Irving.
+- [ ] **Private Equity Firm Alpine Investors Relocating to 22K SF at Zero Irving**: Verified: curl title/published_time/tags incl. RAL Development Services
+- [ ] **Quay Tower Developers List Penthouse Collection as Brooklyn Condo Project's Sales Pass $98M**: Added Sept 2026 from press research. Quay Tower tops $98M in 2022 sales; new Penthouse Collection launched; Levine quoted.
+- [ ] **Quay Tower Developers List Penthouse Collection as Brooklyn Condo Project's Sales Pass $98M**: Verified: curl og:title + datePublished; WebFetch summary
+- [ ] **Dick’s Signs 27K-SF Lease for GameChanger at Zero Irving**: Added Sept 2026 from press research. Dick's Sporting Goods' GameChanger leases two floors at RAL's Zero Irving.
+- [ ] **Dick’s Signs 27K-SF Lease for GameChanger at Zero Irving**: Verified: curl title/published_time/tags incl. RAL Development Services
+- [ ] **Gaming platform joins RAL’s Union Square property**: Added Sept 2026 from press research. GameChanger inks deal with RAL Development to join its Union Square office building.
+- [ ] **Gaming platform joins RAL’s Union Square property**: Verified: curl og:title/published_time/description
+- [ ] **Union Square Has A New 10,000 Square Foot Food Hall**: Added Sept 2026 from press research. Urbanspace Union Square opens on the ground floor of Zero Irving, 'recently completed by RAL Development'.
+- [ ] **Union Square Has A New 10,000 Square Foot Food Hall**: Verified: WebFetch headline/date/author (Melissa Kravitz Hoeffner) and RAL mention
+- [ ] **New York's Best New Building Is The Last New Building In Brooklyn Heights**: Added Sept 2026 from press research. Regina Cole calls Quay Tower NYC's best new building; Levine on waterfront resilience and $98M 2022 sales.
+- [ ] **New York's Best New Building Is The Last New Building In Brooklyn Heights**: Verified: WebFetch (headline, author, Feb 12 2023, fully positive)
+- [ ] **Union Square 'Tech Hub' Set to Open in Coming Months After Covid Delays**: Added Sept 2026 from press research. Civic Hall at Zero Irving nears opening; recounts RAL winning the 2016 bid and building the 21-story tower; Spencer Levine quoted.
+- [ ] **Union Square 'Tech Hub' Set to Open in Coming Months After Covid Delays**: Verified: curl og:title + WebFetch date/author (Kristian Burt) and tone
+- [ ] **Zero Irving Completes Construction at 124 East 14th Street in Union Square, Manhattan**: Added Sept 2026 from press research. Construction complete on Zero Irving, developed by RAL Development Services with Junius.
+- [ ] **Zero Irving Completes Construction at 124 East 14th Street in Union Square, Manhattan**: Verified: WebFetch headline/date (Michael Young, Matt Pruznick)
+- [ ] **Five Minutes With the Zero Irving Team**: Added Sept 2026 from press research. Q&A with Spencer Levine as Zero Irving is a finalist for ULI NY's Awards for Excellence in Office Development.
+- [ ] **Five Minutes With the Zero Irving Team**: Verified: WebFetch content; page shows only article:modified_time 2023-10-16 (no published_time), so date is the modified date
+- [ ] **Robert Levine: RAL and the Future of Development in NYC**: Added Sept 2026 from press research. 57-min interview with Levine covering One Brooklyn Bridge Park (Brooklyn's largest residential conversion), Quay Tower, Zero Irving.
+- [ ] **Robert Levine: RAL and the Future of Development in NYC**: Verified: curl og:title on Acast; release date from Apple Podcasts episode page
+- [ ] **Civic Hall at Union Square Celebrates Grand Opening at 124 East 14th Street in Union Square, Manhattan**: Added Sept 2026 from press research. Mayor Adams opens Civic Hall's tech training hub inside Zero Irving (RAL not named in the article).
+- [ ] **Civic Hall at Union Square Celebrates Grand Opening at 124 East 14th Street in Union Square, Manhattan**: Verified: WebFetch headline/date (Max Gillespie); no RAL mention
+- [ ] **Quay Tower penthouse tops Brooklyn's last luxury contracts of 2023**: Added Sept 2026 from press research. Quay Tower penthouse leads Brooklyn luxury contracts; notes building routinely tops weekly reports since 2018 launch; names RAL.
+- [ ] **Quay Tower penthouse tops Brooklyn's last luxury contracts of 2023**: Verified: WebFetch headline/content; date from URL path
+- [ ] **Union Square Tries to Become Manhattan’s Future**: Added Sept 2026 from press research. Holds up Zero Irving, nearly fully leased within two years, as a model for Union Square's future; Josh Wein quoted.
+- [ ] **Union Square Tries to Become Manhattan’s Future**: Verified: curl og:title/published_time/author (Greg David) + WebFetch tone check
+- [ ] **Quay Tower Continues to Outperform the Brooklyn Market With Over $85M in Sales Volume During 2023**: Added Sept 2026 from press research. RAL/Oliver's report $85M+ Quay Tower sales volume in 2023.
+- [ ] **Quay Tower Continues to Outperform the Brooklyn Market With Over $85M in Sales Volume During 2023**: Verified: curl <title> + body snippet naming RAL; date from URL path
+- [ ] **The Evolution of Brooklyn Waterfront's as told by Robert Levine**: Added Sept 2026 from press research. Levine interview on the Brooklyn waterfront's shift from industrial use, the park's PILOT funding model, and Quay Tower profits funding affordable housing at The Landing.
+- [ ] **The Evolution of Brooklyn Waterfront's as told by Robert Levine**: Verified: curl h1/title and displayed datetime 2024-02-29 (URL slug says 2/22); WebFetch content
+- [ ] **What's the Deal? | Robert Levine's Story Behind Brooklyn's Record Setting Quay Tower**: Added Sept 2026 from press research. Levine on financing (Vanke, Bank OZK), ODA/Marmol Radziner design, The Landing's inverted 70/30 affordable mix, and persistence.
+- [ ] **What's the Deal? | Robert Levine's Story Behind Brooklyn's Record Setting Quay Tower**: Verified: WebFetch (headline, May 17 2024)
+- [ ] **Origin story: How one abandoned firehouse set Robert Levine on path to luxury development**: Added Sept 2026 from press research. Profile of Levine's path from a $50K Hempstead firehouse conversion (1981) to adaptive reuse and luxury development including One Brooklyn Bridge Park and Quay Tower.
+- [ ] **Origin story: How one abandoned firehouse set Robert Levine on path to luxury development**: Verified: WebFetch headline/content; curl datePublished 2024-06-17T11:00 in JSON-LD; also listed on TRD's ral-companies tag page
+- [ ] **Hedge Fund Senator Investment Group Takes Last Bit of Space at Zero Irving**: Added Sept 2026 from press research. Final full-floor lease brings Zero Irving to 100% leased; Robert Levine quoted.
+- [ ] **Hedge Fund Senator Investment Group Takes Last Bit of Space at Zero Irving**: Verified: curl title/published_time + body quote from Robert Levine
+- [ ] **Zero Irving Achieves 100% Leased**: Added Sept 2026 from press research. Zero Irving, developed by RAL and JRE Partners, fully leased two years after completion; Robert Levine quoted.
+- [ ] **Zero Irving Achieves 100% Leased**: Verified: curl title + body text (URL carries date)
+- [ ] **Successfully Redefining Office Space with Spencer Levine - RFP 53**: Added Sept 2026 from press research. Podcast interview with Spencer Levine on experiential office space, Zero Irving and public-private partnerships.
+- [ ] **Successfully Redefining Office Space with Spencer Levine - RFP 53**: Verified: WebFetch episode page: title and date December 11, 2024
+- [ ] **Mandarin Oriental to open residences, resort in the Caribbean**: Added Sept 2026 from press research. Hotel trade coverage of the groundbreaking; 'Developed by Melkonian Capital Management and RAL Companies', completion early 2028
+- [ ] **Mandarin Oriental to open residences, resort in the Caribbean**: Verified: curl of page: title, datePublished 2025-02-20, RAL named twice
+- [ ] **Mandarin Oriental Residences Grand Cayman: New Pinnacle of Caribbean Luxury**: Added Sept 2026 from press research. Feature by Mark Derho on the residences 'developed by Melkonian Capital Management and RAL Companies'
+- [ ] **Mandarin Oriental Residences Grand Cayman: New Pinnacle of Caribbean Luxury**: Verified: curl of page: h1 headline, datePublished 2025-02-22, 11 RAL/Levine mentions
+- [ ] **George Town hotel prepares for November opening as Beach Bay breaks ground**: Added Sept 2026 from press research. Reports Melkonian Capital and RAL Companies broke ground on the 67-acre Beach Bay Mandarin Oriental, 40%+ of residences already sold
+- [ ] **George Town hotel prepares for November opening as Beach Bay breaks ground**: Verified: WebFetch of article: headline, date Feb 24 2025, RAL named as developer
+- [ ] **Melkonian Capital Management and RAL Companies break ground and launch public sales of Mandarin Oriental Residences, Grand Cayman**: Added Sept 2026 from press research. Groundbreaking and public sales launch; quotes Spencer Levine, president of RAL Companies
+- [ ] **Melkonian Capital Management and RAL Companies break ground and launch public sales of Mandarin Oriental Residences, Grand Cayman**: Verified: curl of page: title, 'Posted: February 25, 2025', Spencer Levine quote
+- [ ] **Time Out Market to Open First Manhattan Food Hall in Union Square**: Added Sept 2026 from press research. Time Out Market signs for the ground floor of RAL/JRE's Zero Irving; Spencer Levine tagged/quoted.
+- [ ] **Time Out Market to Open First Manhattan Food Hall in Union Square**: Verified: curl title/published_time/tags (Spencer Levine, RAL Development Services)
+- [ ] **Time Out to open new food hall in Union Square this fall**: Added Sept 2026 from press research. Time Out Market coming to Zero Irving, 'developed by RAL Cos. and JRE Partners'.
+- [ ] **Time Out to open new food hall in Union Square this fall**: Verified: curl og:title/datePublished + WebFetch RAL quote (Aaron Ginsburg)
+- [ ] **Townhomes construction set to start in May below Mount Werner Road**: Added Sept 2026 from press research. ROAN approved unanimously; broker calls developer RAL Companies 'a stellar reputation', notes RAL built Four Seasons Vail and Hotel Madeline
+- [ ] **Townhomes construction set to start in May below Mount Werner Road**: Verified: curl of page (WebFetch blocked by robots): title, byline Suzie Romig, date Mar 28 2025, RAL quotes
+- [ ] **Inside the Mandarin Oriental Grand Cayman’s Ocean House Residence**: Added Sept 2026 from press research. Feature on the AW2-designed Ocean House residences at the project (RAL not named in text)
+- [ ] **Inside the Mandarin Oriental Grand Cayman’s Ocean House Residence**: Verified: curl of page: h1 headline, published_time 2025-04-10; project-specific story, RAL not named
+- [ ] **Builders Capital Lends $63M for Colorado Townhome Development**: Added Sept 2026 from press research. $63M construction loan for ROAN's 78-townhome community; quotes Stuart Taft of RAL
+- [ ] **Builders Capital Lends $63M for Colorado Townhome Development**: Verified: WebFetch of article: headline, date Jun 12 2025, Taft quote
+- [ ] **$63M Construction Loan Arranged for Steamboat Townhome Development**: Added Sept 2026 from press research. Colorado CRE coverage of ROAN financing for the RAL/KZ Capital/Latitude partnership; Taft quoted
+- [ ] **$63M Construction Loan Arranged for Steamboat Townhome Development**: Verified: curl of page: title, published_time 2025-06-16, RAL and Taft in body
+- [ ] **Colorado ski town to get dozens of ‘modern mountain’ luxury units**: Added Sept 2026 from press research. CoStar/Homes.com news story on ROAN led by RAL Cos.; Spencer Levine calls it a 'modern mountain residential project'
+- [ ] **Colorado ski town to get dozens of ‘modern mountain’ luxury units**: Verified: WebFetch of article: headline, author Caroline Broderick, date Jul 30 2025, Levine quote
+- [ ] **New Luxe Ocean House Brings $6 Million-Plus Dream Homes To Grand Cayman — Inside a Caribbean Island’s Big Money Vision**: Added Sept 2026 from press research. Ocean House residences feature; 'Melkonian Capital Management and RAL Companies are developing the residences'
+- [ ] **New Luxe Ocean House Brings $6 Million-Plus Dream Homes To Grand Cayman — Inside a Caribbean Island’s Big Money Vision**: Verified: curl of page: h1 headline, published_time 2025-09-02 UTC (2025-09-01 local), RAL sentence in body
+- [ ] **Casa at FIU, a 297-Unit Student Housing Project, Breaks Grounds in Sweetwater**: Added Sept 2026 from press research. Groundbreaking for the 20-story, 297-unit, about $105.5M Casa at FIU, developed by WFHP and RAL Companies; the mayor praises the project.
+- [ ] **Casa at FIU, a 297-Unit Student Housing Project, Breaks Grounds in Sweetwater**: Verified: WebFetch content (names RAL Companies as co-developer); curl datePublished 2025-09-16. Note: a local development news site
+- [ ] **Time Out Market opens in Union Square**: Added Sept 2026 from press research. Time Out Market opens on the ground floor of Zero Irving (RAL not named).
+- [ ] **Time Out Market opens in Union Square**: Verified: curl og:title/datePublished + WebFetch (Devin Gannon); Zero Irving named, RAL not
+- [ ] **See what a $37M cliffside Caribbean penthouse will look like**: Added Sept 2026 from press research. Exclusive on the Ocean House Penthouse; residences 'developed by Melkonian Capital Management and RAL Companies'
+- [ ] **See what a $37M cliffside Caribbean penthouse will look like**: Verified: curl of page: h1 headline (og title prefixed 'Exclusive |'), published_time 2025-10-14, RAL sentence in body
+- [ ] **Home of the Week: A Sky-High Masterpiece at Mandarin Oriental Residences, Grand Cayman**: Added Sept 2026 from press research. Home of the Week on the $37M Ocean House Penthouse, 'Developed by Melkonian Capital Management and RAL Companies'
+- [ ] **Home of the Week: A Sky-High Masterpiece at Mandarin Oriental Residences, Grand Cayman**: Verified: curl of page: title (all caps on page), published_time 2025-10-16, RAL sentence
+- [ ] **This $37 Million Penthouse Will Crown the Upcoming Mandarin Oriental Residences, Grand Cayman**: Added Sept 2026 from press research. Unveils the $37M Ocean House Penthouse; says Melkonian is developing the project along with RAL Companies
+- [ ] **This $37 Million Penthouse Will Crown the Upcoming Mandarin Oriental Residences, Grand Cayman**: Verified: curl of page: h1 headline, article:published_time 2025-10-22, RAL sentence in body
+- [ ] **Building for the Long Term: How RAL Companies Navigates Real Estate Development Across Market Cycles**: Added Sept 2026 from press research. Firm profile built on a Spencer Levine interview: 45-year history, owner and third-party development model, ROAN and Mandarin Oriental Grand Cayman.
+- [ ] **Building for the Long Term: How RAL Companies Navigates Real Estate Development Across Market Cycles**: Verified: WebFetch content (author Steve Marcinuk); curl datePublished 2025-12-29. Note: KeyCrew is a staffing firm's journal, not a news outlet
+- [ ] **Cliffside Residence At Mandarin Oriental Grand Cayman Lists For $22.8 Million**: Added Sept 2026 from press research. Launch of the $22.8M Ocean Residence; credits Melkonian Capital Management and RAL Companies
+- [ ] **Cliffside Residence At Mandarin Oriental Grand Cayman Lists For $22.8 Million**: Verified: WebFetch of article: headline, author Emma Kershaw, date Mar 30 2026, RAL named
+- [ ] **EP 39: The Importance of Process and Passion in Development with Spencer Levine of RAL Companies & Affiliates LLC**: Added Sept 2026 from press research. Podcast interview with Spencer Levine on family-owned development, a municipal bond deal for Florida student housing, and community trust.
+- [ ] **EP 39: The Importance of Process and Passion in Development with Spencer Levine of RAL Companies & Affiliates LLC**: Verified: WebFetch Apple Podcasts episode page: title and release date April 7, 2026
 - [ ] 25 clippings imported from the live site with dates read from the PDFs; 3 have confirmed original URLs, the rest link to the archived PDF. Find original URLs.
 - [ ] Find original article URLs for clippings (PDF fallbacks used now).
 - [ ] Import remaining ~85 live-site clippings progressively.

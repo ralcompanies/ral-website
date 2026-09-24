@@ -1,0 +1,12 @@
+headline: Brooklyn Heights penthouse sells for record $20 million
+publication: brooklyn-paper
+date: '2020-04-16'
+url: https://www.brooklynpaper.com/brooklyn-heights-20-million-sale/
+category: coverage
+projects:
+- quay-tower
+people: []
+featured: false
+internal_notes:
+- Added Sept 2026 from press research. Record $20M Quay Tower penthouse closing; RAL/Oliver's credited.
+- 'Verified: WebFetch headline/tone; curl article:published_time 2020-04-16'

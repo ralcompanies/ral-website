@@ -1,6 +1,6 @@
 # Team section. Rename, reorder (order), hide (visible: false) or change members freely.
 name: "Finance"
-order: 5
+order: 3
 visible: true
 card_size: standard
 members:

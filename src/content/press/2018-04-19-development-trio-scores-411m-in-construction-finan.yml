@@ -1,0 +1,13 @@
+headline: Development Trio Scores $411M in Construction Financing for Brooklyn's Pier 6
+publication: commercial-observer
+date: '2018-04-19'
+url: https://commercialobserver.com/2018/04/development-trio-nail-down-411m-in-construction-financing-for-brooklyns-pier-6/
+category: announcement
+projects:
+- quay-tower
+- the-landing
+people: []
+featured: false
+internal_notes:
+- Added Sept 2026 from press research. RAL, Vanke US and Oliver's close $411M construction financing for Pier 6; Meridian praises RAL's vision.
+- 'Verified: curl <title> + article:published_time; WebFetch summary'

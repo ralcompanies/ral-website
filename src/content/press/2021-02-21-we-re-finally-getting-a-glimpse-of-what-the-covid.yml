@@ -1,0 +1,13 @@
+headline: We’re finally getting a glimpse of what the COVID-safe skyscraper will look like
+publication: fortune
+date: '2021-02-21'
+url: https://fortune.com/2021/02/21/covid-safe-offices-buildings-skyscrapers/
+category: coverage
+projects:
+- zero-irving
+people:
+- spencer-levine
+featured: true
+internal_notes:
+- Added Sept 2026 from press research. Features Zero Irving, 'developed by RAL Companies & Affiliates', as a case study in touchless, air-quality-monitored post-pandemic office design; Spencer Levine quoted.
+- 'Verified: curl og:title/datePublished/author (Andrew Marquardt) + WebFetch body quotes'

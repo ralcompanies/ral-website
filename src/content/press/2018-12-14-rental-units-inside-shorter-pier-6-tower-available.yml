@@ -1,0 +1,12 @@
+headline: Rental units inside shorter Pier 6 tower available as soon as next month, brokers say
+publication: brooklyn-paper
+date: '2018-12-14'
+url: https://www.brooklynpaper.com/rental-units-inside-shorter-pier-6-tower-available-as-soon-as-next-month-brokers-say/
+category: coverage
+projects:
+- the-landing
+people: []
+featured: false
+internal_notes:
+- Added Sept 2026 from press research. The Landing's 100 affordable + 40 market-rate units about to lease; upbeat amenity rundown.
+- 'Verified: curl og:title + article:published_time; WebFetch tone check (one-line reference to past lawsuit)'

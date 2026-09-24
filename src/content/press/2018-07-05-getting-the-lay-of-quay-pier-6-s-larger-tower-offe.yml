@@ -1,0 +1,13 @@
+headline: 'Getting the lay of Quay: Pier 6''s larger tower offers sprawling views, swanky condos, for a pretty penny'
+publication: brooklyn-paper
+date: '2018-07-05'
+url: https://www.brooklynpaper.com/getting-the-lay-of-quay-pier-6s-larger-tower-offers-sprawling-views-swanky-condos-for-a-pretty-penny/
+category: coverage
+projects:
+- quay-tower
+people:
+- robert-a-levine
+featured: false
+internal_notes:
+- Added Sept 2026 from press research. Exclusive tour of Quay Tower; Levine quoted on finishes and Brooklyn's first Amazon smart-home partnership.
+- 'Verified: curl og:title + article:published_time + full article text'

@@ -1,0 +1,12 @@
+headline: Quay Tower nears completion on Brooklyn Heights waterfront
+publication: brooklyn-eagle
+date: '2018-09-04'
+url: https://brooklyneagle.com/articles/2018/09/04/quay-tower-nears-completion-on-brooklyn-heights-waterfront/
+category: coverage
+projects:
+- quay-tower
+people: []
+featured: false
+internal_notes:
+- Added Sept 2026 from press research. Construction progress, pricing and amenities at RAL/Oliver's Quay Tower.
+- 'Verified: curl og:title + article:published_time; WebFetch tone check'

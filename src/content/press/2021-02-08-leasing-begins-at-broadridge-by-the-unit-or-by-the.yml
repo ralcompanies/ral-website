@@ -1,0 +1,12 @@
+headline: Leasing Begins at Broadridge, By the Unit or By the Room
+publication: philadelphia-magazine
+date: '2021-02-08'
+url: https://www.phillymag.com/property/2021/02/08/broadridge-leasing-update/
+category: coverage
+projects:
+- broadridge-philadelphia
+people: []
+featured: false
+internal_notes:
+- 'Added Sept 2026 from press research. RAL opens leasing at Broadridge: 331 traditional apartments plus 147 Common co-living units, with Aldi and a daycare on site.'
+- 'Verified: curl h1/og:title; article:published_time 2021-02-08'

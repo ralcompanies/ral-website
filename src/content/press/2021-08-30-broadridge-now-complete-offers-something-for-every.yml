@@ -1,0 +1,13 @@
+headline: Broadridge, Now Complete, Offers Something for Everyone
+publication: philadelphia-magazine
+date: '2021-08-30'
+url: https://www.phillymag.com/property/2021/08/30/broadridge-opening-profile/
+category: coverage
+projects:
+- broadridge-philadelphia
+people:
+- spencer-levine
+featured: false
+internal_notes:
+- 'Added Sept 2026 from press research. Completion profile: Philadelphia''s largest single-building rental, with amenities including podcast studios; quotes Spencer Levine.'
+- 'Verified: curl h1/og:title; article:published_time 2021-08-30; WebFetch content (author Sandy Smith)'

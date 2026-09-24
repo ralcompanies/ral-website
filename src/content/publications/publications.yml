@@ -82,3 +82,172 @@
 - id: elite-traveler
   name: "Elite Traveler"
   tier: national
+- id: haute-living
+  name: "Haute Living"
+  tier: trade
+  website: https://hauteliving.com
+- id: telluride-watch
+  name: "The Telluride Watch"
+  tier: local
+  website: https://www.telluridenews.com
+- id: cuny-tv
+  name: "CUNY TV"
+  tier: trade
+  website: https://tv.cuny.edu
+- id: telluride-daily-planet
+  name: "Telluride Daily Planet"
+  tier: local
+  website: https://www.telluridenews.com
+- id: building-design-construction
+  name: "Building Design + Construction"
+  tier: national
+  website: https://www.bdcnetwork.com
+- id: crains-new-york-business
+  name: "Crain's New York Business"
+  tier: national
+  website: https://www.crainsnewyork.com
+- id: houstonia
+  name: "Houstonia"
+  tier: local
+  website: https://www.houstoniamag.com
+- id: houston-chronicle
+  name: "Houston Chronicle"
+  tier: national
+  website: https://www.houstonchronicle.com
+- id: bisnow
+  name: "Bisnow"
+  tier: trade
+  logo: /press-logos/bisnow.svg
+  website: https://www.bisnow.com
+- id: luxury-travel-advisor
+  name: "Luxury Travel Advisor"
+  tier: trade
+  website: https://www.luxurytraveladvisor.com
+- id: brooklyn-paper
+  name: "Brooklyn Paper"
+  tier: local
+  logo: /press-logos/brooklyn-paper.png
+  logo_scale: 0.95
+  website: https://www.brooklynpaper.com
+- id: philadelphia-inquirer
+  name: "The Philadelphia Inquirer"
+  tier: national
+  website: https://www.inquirer.com
+- id: brooklyn-eagle
+  name: "Brooklyn Eagle"
+  tier: local
+  website: https://brooklyneagle.com
+- id: patch
+  name: "Patch"
+  tier: local
+  logo: /press-logos/patch.svg
+  logo_scale: 1.05
+  website: https://patch.com
+- id: time-out-new-york
+  name: "Time Out New York"
+  tier: national
+  website: https://www.timeout.com/newyork
+- id: new-york-real-estate-journal
+  name: "New York Real Estate Journal"
+  tier: trade
+  website: https://nyrej.com
+- id: rebusinessonline
+  name: "REBusinessOnline"
+  tier: trade
+  website: https://rebusinessonline.com
+- id: philadelphia-magazine
+  name: "Philadelphia Magazine"
+  tier: local
+  logo: /press-logos/philadelphia-magazine.svg
+  website: https://www.phillymag.com
+- id: fortune
+  name: "Fortune"
+  tier: national
+  logo: /press-logos/fortune.svg
+  website: https://fortune.com
+- id: real-estate-weekly
+  name: "Real Estate Weekly"
+  tier: trade
+  website: https://rew-online.com
+- id: connect-cre
+  name: "Connect CRE"
+  tier: trade
+  website: https://www.connectcre.com
+- id: gotham-gazette
+  name: "Gotham Gazette"
+  tier: local
+  website: https://www.gothamgazette.com
+- id: uli-new-york
+  name: "ULI New York"
+  tier: trade
+  website: https://newyork.uli.org
+- id: closed-podcast
+  name: "Closed! NYC's Real Estate Podcast"
+  tier: trade
+  website: https://shows.acast.com/closed
+- id: the-city
+  name: "THE CITY"
+  tier: local
+  website: https://www.thecity.nyc
+- id: nyc-urbanism
+  name: "NYC Urbanism"
+  tier: trade
+  website: https://www.nycurbanism.com
+- id: traded
+  name: "Traded"
+  tier: trade
+  website: https://traded.co
+- id: real-finds-podcast
+  name: "The Real Finds Podcast"
+  tier: trade
+  website: https://www.vvco.com
+- id: hotels-magazine
+  name: "HOTELS Magazine"
+  tier: national
+  logo: /press-logos/hotels-magazine.svg
+  logo_scale: 1.5
+  website: https://hotelsmag.com
+- id: resident-magazine
+  name: "Resident Magazine"
+  tier: trade
+  website: https://resident.com
+- id: cayman-compass
+  name: "Cayman Compass"
+  tier: local
+  logo: /press-logos/cayman-compass.png
+  logo_scale: 1.35
+  website: https://www.caymancompass.com
+- id: steamboat-pilot
+  name: "Steamboat Pilot & Today"
+  tier: local
+  logo: /press-logos/steamboat-pilot.png
+  logo_scale: 1.2
+  website: https://www.steamboatpilot.com
+- id: mile-high-cre
+  name: "Mile High CRE"
+  tier: trade
+  website: https://milehighcre.com
+- id: homes-com-news
+  name: "Homes.com News"
+  tier: trade
+  website: https://www.homes.com/news/
+- id: papercity-magazine
+  name: "PaperCity Magazine"
+  tier: local
+  website: https://www.papercitymag.com
+- id: floridian-development
+  name: "Floridian Development"
+  tier: trade
+  website: https://floridiandevelopment.com
+- id: ocean-home-magazine
+  name: "Ocean Home Magazine"
+  tier: trade
+  website: https://www.oceanhomemag.com
+- id: keycrew-journal
+  name: "KeyCrew Journal"
+  tier: trade
+  website: https://keycrew.co
+- id: building-better-futures-podcast
+  name: "Building Better Futures"
+  tier: trade
+  website: https://www.buildingbetterfuturespodcast.com

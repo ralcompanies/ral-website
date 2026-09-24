@@ -1,0 +1,13 @@
+headline: Iris Café, Pilates Studio and Grocery Store Ink Deals in Brooklyn Bridge Park
+publication: commercial-observer
+date: '2020-05-18'
+url: https://commercialobserver.com/2020/05/iris-cafe-pilates-studio-and-grocery-store-ink-deals-in-brooklyn-bridge-park/
+category: announcement
+projects:
+- one-brooklyn-bridge-park
+- the-landing
+people: []
+featured: false
+internal_notes:
+- Added Sept 2026 from press research. New local retail (Iris Cafe/Town Market, OV Pilates) at RAL/Oliver's One Brooklyn Bridge Park and The Landing.
+- 'Verified: curl <title> + article:published_time; WebFetch summary'

@@ -1,0 +1,12 @@
+headline: Renting to begin soon at Brooklyn Bridge Park's 'The Landing'
+publication: brooklyn-eagle
+date: '2018-12-17'
+url: https://brooklyneagle.com/articles/2018/12/17/renting-to-begin-soon-at-brooklyn-bridge-parks-the-landing/
+category: coverage
+projects:
+- the-landing
+people: []
+featured: false
+internal_notes:
+- Added Sept 2026 from press research. The Landing nears completion with 100 lottery-affordable units; renderings credited to RAL/Oliver's.
+- 'Verified: curl og:title + article:published_time; WebFetch tone check'

@@ -36,9 +36,6 @@ const stats = (c.stats ?? []).filter((s) => s.visible);
 const caps = h.capabilities ?? [];
 
 const quotePerson = h.leadership_quote ? await getEntry(h.leadership_quote.person) : undefined;
-const leaders = (await getEntry('teamSections', 'leadership'))?.data;
-// A cross-section of the team, chosen in Homepage settings; only people with a headshot are shown.
-const gridPeople = h.people_grid?.length ? (await getEntries(h.people_grid)).filter((p) => p.data.active && p.data.headshot) : (leaders ? (await getEntries(leaders.members)).filter((p) => p.data.active && p.data.headshot) : []);
 
 const press = (await visiblePress()).filter((p) => p.data.featured).slice(0, h.press_count ?? 4);
 
@@ -176,19 +173,7 @@ const statusLabel = { completed: 'Completed', current: 'Under construction', 'in
               <footer class="meta"><a href={`/team/${quotePerson.id}/`}>{quotePerson.data.name}</a>, {quotePerson.data.title}</footer>
             </blockquote>
             <p class="people__line">A core leadership team that has worked together for more than two decades, with in-house architects, project managers, finance and property management.</p>
-            <a class="link" href="/team/">Meet the team<Arrow /></a>
           </div>
-          <ul class="people__faces">
-            {gridPeople.map((p) => (
-              <li>
-                <a href={`/team/${p.id}/`}>
-                  <div class="frame frame--portrait"><Img src={p.data.headshot!} alt="" sizes="(max-width: 860px) 25vw, 12vw" widths={[400, 800]} /></div>
-                  <span class="people__n">{p.data.name}</span>
-                  <span class="meta">{p.data.title}</span>
-                </a>
-              </li>
-            ))}
-          </ul>
         </div>
       </div>
     </section>
@@ -285,16 +270,11 @@ const statusLabel = { completed: 'Completed', current: 'Under construction', 'in
   /* People */
   .people__grid { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--gutter); row-gap: var(--s-5); align-items: start; }
   .frame--portrait { aspect-ratio: 4 / 5; background: var(--portrait-bg); }
-  .people__body { grid-column: 1 / span 5; display: flex; flex-direction: column; gap: var(--s-4); align-items: flex-start; }
+  .people__body { grid-column: 1 / span 8; display: flex; flex-direction: column; gap: var(--s-4); align-items: flex-start; }
   .people__quote { margin: 0; }
   .people__quote p { margin-bottom: var(--s-3); }
   .people__quote a { border-bottom: 1px solid var(--rule-strong); color: var(--ink); }
   .people__line { max-width: 34rem; color: var(--ink-2); }
-  .people__faces { grid-column: 7 / -1; list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--s-4) var(--s-3); }
-  .people__faces a { display: grid; gap: 0.2rem; }
-  .people__faces .frame { margin-bottom: 0.5rem; }
-  .people__faces a:hover .people__n { text-decoration: underline; text-underline-offset: 0.2em; }
-  .people__faces .meta { font-size: 0.8125rem; }
   .people__n { font-weight: 500; font-size: var(--fs-small); }
 
   /* Press */
@@ -315,12 +295,11 @@ const statusLabel = { completed: 'Completed', current: 'Under construction', 'in
     .work__row--flip .work__item--narrow { justify-self: start; }
         .caps__grid { grid-template-columns: 1fr; row-gap: var(--s-6); }
     .cap { border-left: 0; padding-left: 0; }
-    .people__body, .people__faces { grid-column: 1 / -1; }
+    .people__body { grid-column: 1 / -1; }
   }
   @media (max-width: 560px) {
     .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: var(--s-4); }
-    .people__faces { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-    .hero__sub { font-size: 1.0625rem; }
+      .hero__sub { font-size: 1.0625rem; }
     .hero__ctrl .meta { display: none; }
     .hero__cue .meta { display: none; }
     .strip p.strip__aside { display: none; }
