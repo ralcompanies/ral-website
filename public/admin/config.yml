@@ -4,6 +4,7 @@ backend:
   name: github
   repo: ralcompanies/ral-website
   branch: main
+  base_url: https://sveltia-cms-auth.ralcompanies.workers.dev   # sign-in helper (Cloudflare Worker)
 publish_mode: editorial_workflow   # Draft -> In review -> Ready -> Publish; each draft gets a preview URL
 media_folder: src/assets/images/uploads
 public_folder: ../../assets/images/uploads
