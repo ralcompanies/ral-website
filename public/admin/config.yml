@@ -6,8 +6,8 @@ backend:
   branch: main
   base_url: https://sveltia-cms-auth.ralcompanies.workers.dev   # sign-in helper (Cloudflare Worker)
 publish_mode: editorial_workflow   # Draft -> In review -> Ready -> Publish; each draft gets a preview URL
-media_folder: src/assets/images/uploads
-public_folder: ../../assets/images/uploads
+media_folder: /src/assets/images/uploads
+public_folder: /src/assets/images/uploads   # Astro resolves /src/... paths and optimizes the image at build time
 site_url: https://www.ralcompanies.com
 logo_url: /admin/ral-mark.svg
 slug:

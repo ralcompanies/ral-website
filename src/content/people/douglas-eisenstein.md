@@ -1,7 +1,7 @@
 ---
 name: "Douglas Eisenstein"
 title: "General Counsel · Project Director"
-headshot: ../../assets/images/people/douglas-eisenstein.jpg
+headshot: /src/assets/images/people/douglas-eisenstein.jpg
 short_bio: "Leads project management and serves as general counsel."
 internal_notes:
   - "Headshot is 321x432 and a different style: new studio portrait needed."

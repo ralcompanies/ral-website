@@ -7,7 +7,7 @@ location: "Upper East Side, Manhattan"
 region: new-york
 types: [residential]
 roles: []
-card_image: ../../assets/images/projects/the-new-yorker/card.jpg
+card_image: /src/assets/images/projects/the-new-yorker/card.jpg
 card_alt: "The New Yorker"
 internal_notes:
   - "From the Drive project folder only. No public copy found. Confirm name, role and that it should appear."

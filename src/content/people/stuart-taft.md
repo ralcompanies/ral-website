@@ -1,7 +1,7 @@
 ---
 name: "Stuart Taft"
 title: "Managing Partner"
-headshot: ../../assets/images/people/stuart-taft.jpg
+headshot: /src/assets/images/people/stuart-taft.jpg
 short_bio: "Leads acquisitions, leasing and finance."
 internal_notes:
   - "Live bio says \"The Rouse Organization\"; corrected to The Rouse Company (the firm's name). Confirm."

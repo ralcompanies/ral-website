@@ -1,7 +1,7 @@
 ---
 name: "Vincent Cangelosi"
 title: "Managing Director, Design & Development"
-headshot: ../../assets/images/people/vincent-cangelosi.jpg
+headshot: /src/assets/images/people/vincent-cangelosi.jpg
 short_bio: "Leads design and marketing across RAL's residential, resort and commercial work."
 internal_notes:
   - "Studio portrait used; the draft ink-wash image is not used."

@@ -17,9 +17,9 @@ summary: >-
   City Economic Development Corporation. The 21-story building combines the workforce-training,
   incubator and event space the City required with market-rate office floors that carry it,
   and it was approved through the City's public review process.
-hero_image: ../../assets/images/projects/zero-irving/lobby.jpg
+hero_image: /src/assets/images/projects/zero-irving/lobby.jpg
 hero_alt: Zero Irving lobby with a large-scale digital art wall and reception desk
-card_image: ../../assets/images/projects/zero-irving/exterior-dusk.jpg
+card_image: /src/assets/images/projects/zero-irving/exterior-dusk.jpg
 card_alt: Zero Irving at dusk from East 14th Street
 facts:
   square_feet: 270000
@@ -44,7 +44,7 @@ chapters:
       site at the edge of Union Square. RAL's proposal answered the public brief by pairing it with
       private office space whose rents would support the civic program for the long term.
     image:
-      src: ../../assets/images/projects/zero-irving/exterior-day.jpg
+      src: /src/assets/images/projects/zero-irving/exterior-day.jpg
       alt: Zero Irving rising beside the Con Edison clock tower
       kind: photo
   - heading: The program
@@ -59,17 +59,17 @@ chapters:
       clock tower next door, with planted terraces, a public-facing ground floor and a lobby built
       around a large-scale digital art wall.
     image:
-      src: ../../assets/images/projects/zero-irving/roof-terrace.jpg
+      src: /src/assets/images/projects/zero-irving/roof-terrace.jpg
       alt: Planted roof terrace with a perforated canopy at Zero Irving
       kind: photo
 gallery:
-  - { src: ../../assets/images/projects/zero-irving/exterior-dusk.jpg, alt: "Zero Irving at dusk", kind: photo }
-  - { src: ../../assets/images/projects/zero-irving/clock-tower-view.jpg, alt: "Tenant lounge framing the Con Edison clock tower", kind: photo }
-  - { src: ../../assets/images/projects/zero-irving/lobby-art-wall.jpg, alt: "Lobby art wall and turnstiles", kind: photo }
-  - { src: ../../assets/images/projects/zero-irving/civic-hall.jpg, alt: "Civic Hall event floor", kind: photo }
-  - { src: ../../assets/images/projects/zero-irving/food-hall-terrace.jpg, alt: "Terrace seating beside the food hall", kind: photo }
-  - { src: ../../assets/images/projects/zero-irving/tenant-floor.jpg, alt: "Tenant floor with reception and planted lounge", kind: photo }
-  - { src: ../../assets/images/projects/zero-irving/panorama.jpg, alt: "Panorama of Manhattan from the upper floors", kind: photo }
+  - { src: /src/assets/images/projects/zero-irving/exterior-dusk.jpg, alt: "Zero Irving at dusk", kind: photo }
+  - { src: /src/assets/images/projects/zero-irving/clock-tower-view.jpg, alt: "Tenant lounge framing the Con Edison clock tower", kind: photo }
+  - { src: /src/assets/images/projects/zero-irving/lobby-art-wall.jpg, alt: "Lobby art wall and turnstiles", kind: photo }
+  - { src: /src/assets/images/projects/zero-irving/civic-hall.jpg, alt: "Civic Hall event floor", kind: photo }
+  - { src: /src/assets/images/projects/zero-irving/food-hall-terrace.jpg, alt: "Terrace seating beside the food hall", kind: photo }
+  - { src: /src/assets/images/projects/zero-irving/tenant-floor.jpg, alt: "Tenant floor with reception and planted lounge", kind: photo }
+  - { src: /src/assets/images/projects/zero-irving/panorama.jpg, alt: "Panorama of Manhattan from the upper floors", kind: photo }
 team: [stuart-taft, josh-wein, spencer-levine]
 seo:
   description: Zero Irving at 124 East 14th Street, a public-private technology hub on Union Square developed by RAL in response to an NYCEDC request for proposals.

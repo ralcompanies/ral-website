@@ -1,7 +1,7 @@
 ---
 name: "Leah Rosen"
 title: "Compliance Officer"
-headshot: ../../assets/images/people/leah-rosen.jpg
+headshot: /src/assets/images/people/leah-rosen.jpg
 short_bio: "Oversees accounting, audits and compliance."
 internal_notes:
   - "Published name Leah Rosen per Josh; image file is named l_volpe."

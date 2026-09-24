@@ -1,19 +1,19 @@
 # Homepage settings. Everything on the homepage that changes is controlled here.
 hero_headline: Designer. Developer. Partner.
 hero_slides:
-  - image: ../../assets/images/projects/quay-tower/aerial-park-context.jpg
+  - image: /src/assets/images/projects/quay-tower/aerial-park-context.jpg
     alt: Quay Tower and Brooklyn Bridge Park from above, lower Manhattan beyond
     project: quay-tower
     caption: Quay Tower, Brooklyn Bridge Park
-  - image: ../../assets/images/projects/mandarin-oriental-grand-cayman/aerial.jpg
+  - image: /src/assets/images/projects/mandarin-oriental-grand-cayman/aerial.jpg
     alt: Rendering of the Mandarin Oriental resort on the Grand Cayman coast
     project: mandarin-oriental-grand-cayman
     caption: Mandarin Oriental, Grand Cayman (rendering)
-  - image: ../../assets/images/projects/zero-irving/lobby.jpg
+  - image: /src/assets/images/projects/zero-irving/lobby.jpg
     alt: Zero Irving lobby with digital art wall
     project: zero-irving
     caption: Zero Irving, Union Square
-  - image: ../../assets/images/projects/roan-steamboat/winter-mountain.jpg
+  - image: /src/assets/images/projects/roan-steamboat/winter-mountain.jpg
     alt: Rendering of ROAN townhomes below the Steamboat ski area
     project: roan-steamboat
     caption: ROAN, Steamboat Springs (rendering)
@@ -23,16 +23,16 @@ featured_intro: >-
 # Ordered list. Drag to reorder in the admin. Only Featured projects can be chosen.
 featured_projects:
   - project: zero-irving
-    image: ../../assets/images/projects/zero-irving/clock-tower-view.jpg
+    image: /src/assets/images/projects/zero-irving/clock-tower-view.jpg
     alt: Tenant lounge at Zero Irving framing the Con Edison clock tower
   - project: quay-tower
-    image: ../../assets/images/projects/quay-tower/exterior.jpg
+    image: /src/assets/images/projects/quay-tower/exterior.jpg
     alt: Quay Tower rising above Brooklyn Bridge Park
   - project: mandarin-oriental-grand-cayman
-    image: ../../assets/images/projects/mandarin-oriental-grand-cayman/facade-twilight.jpg
+    image: /src/assets/images/projects/mandarin-oriental-grand-cayman/facade-twilight.jpg
     alt: Rendering of the Mandarin Oriental residences at twilight
   - project: roan-steamboat
-    image: ../../assets/images/projects/roan-steamboat/exterior-winter.jpg
+    image: /src/assets/images/projects/roan-steamboat/exterior-winter.jpg
     alt: Rendering of ROAN townhomes in winter
 capabilities:
   - key: design

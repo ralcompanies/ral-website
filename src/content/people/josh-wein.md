@@ -1,7 +1,7 @@
 ---
 name: "Josh Wein"
 title: "Managing Director"
-headshot: ../../assets/images/people/josh-wein.jpg
+headshot: /src/assets/images/people/josh-wein.jpg
 short_bio: "Leads acquisitions, underwriting and financing."
 internal_notes:
   - "Bio from live site, lightly edited. Josh to review."

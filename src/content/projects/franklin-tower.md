@@ -8,7 +8,7 @@ region: new-york
 types: [residential]
 roles: [developer]
 hook: "A residential conversion that helped redefine the northern edge of Tribeca."
-card_image: ../../assets/images/projects/franklin-tower/card.jpg
+card_image: /src/assets/images/projects/franklin-tower/card.jpg
 card_alt: "Franklin Tower"
 internal_notes:
   - "Role inferred from live copy; confirm. Card image is a 650px listing photo (licence + original needed)."

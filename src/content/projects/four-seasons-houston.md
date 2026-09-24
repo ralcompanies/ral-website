@@ -12,9 +12,9 @@ hook: A phased renovation that remade the arrival, lobby, bar and spa of a downt
 summary: >-
   Ownership and Four Seasons asked RAL to oversee the design and renovation of the hotel in
   phases, keeping it open throughout. RAL delivered the work on schedule and within budget.
-hero_image: ../../assets/images/projects/four-seasons-houston/bar.jpg
+hero_image: /src/assets/images/projects/four-seasons-houston/bar.jpg
 hero_alt: Bayou & Bottle bar at Four Seasons Houston
-card_image: ../../assets/images/projects/four-seasons-houston/lobby.jpg
+card_image: /src/assets/images/projects/four-seasons-houston/lobby.jpg
 card_alt: Four Seasons Houston lobby lounge
 credits:
   - { role: Operator, name: Four Seasons Hotels and Resorts }
@@ -30,10 +30,10 @@ chapters:
       staircase and the third floor. RAL oversaw the design and construction of Bayou & Bottle, the
       new bar and restaurant, and a refresh of the porte-cochère and entrance.
 gallery:
-  - { src: ../../assets/images/projects/four-seasons-houston/lobby.jpg, alt: "Lobby lounge", kind: photo }
-  - { src: ../../assets/images/projects/four-seasons-houston/pool.jpg, alt: "Pool deck at night", kind: photo }
-  - { src: ../../assets/images/projects/four-seasons-houston/bar-detail.jpg, alt: "Bar seating", kind: photo }
-  - { src: ../../assets/images/projects/four-seasons-houston/ballroom.jpg, alt: "Event space", kind: photo }
+  - { src: /src/assets/images/projects/four-seasons-houston/lobby.jpg, alt: "Lobby lounge", kind: photo }
+  - { src: /src/assets/images/projects/four-seasons-houston/pool.jpg, alt: "Pool deck at night", kind: photo }
+  - { src: /src/assets/images/projects/four-seasons-houston/bar-detail.jpg, alt: "Bar seating", kind: photo }
+  - { src: /src/assets/images/projects/four-seasons-houston/ballroom.jpg, alt: "Event space", kind: photo }
 internal_notes:
   - "Role: RAL 'tasked by Ownership and Four Seasons to oversee the design and renovation' -> Owner's Representative. Confirm (could be Development Manager)."
   - "Address corrected to 1300 Lamar St (draft had 'Park Drive, TX 10000')."

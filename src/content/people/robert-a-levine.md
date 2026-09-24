@@ -1,7 +1,7 @@
 ---
 name: "Robert A. Levine"
 title: "Chairman & CEO"
-headshot: ../../assets/images/people/robert-a-levine.jpg
+headshot: /src/assets/images/people/robert-a-levine.jpg
 short_bio: "Founder of RAL; planner and architect by training."
 internal_notes:
   - "Bio from live site; founding year changed from 1982 to 1979 per Josh. \"Hundreds of millions of dollars in project valuations\" removed (undersells; conflicts with other figures). Confirm."

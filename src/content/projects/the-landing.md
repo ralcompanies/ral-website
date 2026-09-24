@@ -15,9 +15,9 @@ summary: >-
   The Landing is the rental companion to Quay Tower at Pier 6. Of its 140 apartments, 100 were
   offered as affordable homes through the City's housing lottery, with the same building,
   amenities and park at the front door as the market-rate residences.
-hero_image: ../../assets/images/projects/the-landing/exterior.jpg
+hero_image: /src/assets/images/projects/the-landing/exterior.jpg
 hero_alt: The Landing and Quay Tower from Bridge Park Drive
-card_image: ../../assets/images/projects/the-landing/exterior.jpg
+card_image: /src/assets/images/projects/the-landing/exterior.jpg
 card_alt: The Landing at Pier 6
 facts:
   residences: 140
@@ -30,12 +30,12 @@ credits:
   - { role: Public partner, name: Brooklyn Bridge Park Corporation }
 website: http://thelanding.mns.com
 gallery:
-  - { src: ../../assets/images/projects/the-landing/lobby.jpg, alt: "Lobby with living wall", kind: photo }
-  - { src: ../../assets/images/projects/the-landing/roof-terrace.jpg, alt: "Roof terrace facing the harbor", kind: photo }
-  - { src: ../../assets/images/projects/the-landing/lounge.jpg, alt: "Residents' lounge", kind: photo }
-  - { src: ../../assets/images/projects/the-landing/kitchen-lounge.jpg, alt: "Residents' kitchen", kind: photo }
-  - { src: ../../assets/images/projects/the-landing/terrace-dining.jpg, alt: "Terrace dining", kind: photo }
-  - { src: ../../assets/images/projects/the-landing/residence.jpg, alt: "Apartment with harbor view", kind: photo }
+  - { src: /src/assets/images/projects/the-landing/lobby.jpg, alt: "Lobby with living wall", kind: photo }
+  - { src: /src/assets/images/projects/the-landing/roof-terrace.jpg, alt: "Roof terrace facing the harbor", kind: photo }
+  - { src: /src/assets/images/projects/the-landing/lounge.jpg, alt: "Residents' lounge", kind: photo }
+  - { src: /src/assets/images/projects/the-landing/kitchen-lounge.jpg, alt: "Residents' kitchen", kind: photo }
+  - { src: /src/assets/images/projects/the-landing/terrace-dining.jpg, alt: "Terrace dining", kind: photo }
+  - { src: /src/assets/images/projects/the-landing/residence.jpg, alt: "Apartment with harbor view", kind: photo }
 internal_notes:
   - "140 units / 100 affordable / 15 stories / ODA from 6sqft (Sept 2018 lottery article). Confirm final counts."
   - "Website thelanding.mns.com is the leasing site from the draft; confirm still live."

@@ -1,7 +1,7 @@
 ---
 name: "David Sorenson"
 title: "Director of Architecture · Hospitality Group Manager"
-headshot: ../../assets/images/people/david-sorenson.jpg
+headshot: /src/assets/images/people/david-sorenson.jpg
 short_bio: "Leads development for new and operating hotel and residential ventures."
 internal_notes: []
 ---

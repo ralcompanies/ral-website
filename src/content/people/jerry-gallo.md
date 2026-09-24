@@ -1,7 +1,7 @@
 ---
 name: "Jerry Gallo"
 title: "Director of Construction"
-headshot: ../../assets/images/people/jerry-gallo.jpg
+headshot: /src/assets/images/people/jerry-gallo.jpg
 short_bio: "Oversees architectural production and construction."
 internal_notes: []
 ---

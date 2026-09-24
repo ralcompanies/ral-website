@@ -1,7 +1,7 @@
 ---
 name: "Spencer Levine"
 title: "President & Director of Landscape Architecture"
-headshot: ../../assets/images/people/spencer-levine.jpg
+headshot: /src/assets/images/people/spencer-levine.jpg
 short_bio: "Oversees RAL's current projects and construction management."
 internal_notes:
   - "Title updated per Josh (Sept 2026)."

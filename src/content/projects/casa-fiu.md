@@ -12,17 +12,17 @@ summary: >-
   International University campus. The new-construction building pairs contemporary architecture
   with generous residences, and extensive shared space including recreation areas and a
   resort-style pool deck.
-hero_image: ../../assets/images/projects/casa-fiu/aerial.jpg
+hero_image: /src/assets/images/projects/casa-fiu/aerial.jpg
 hero_alt: Rendering of CASA FIU from above, with the pool deck and campus surroundings
 hero_kind: rendering
-card_image: ../../assets/images/projects/casa-fiu/tower.jpg
+card_image: /src/assets/images/projects/casa-fiu/tower.jpg
 card_alt: Rendering of the CASA FIU tower
 credits:
   - { role: Architect, name: Niles Bolton Associates }
 gallery:
-  - { src: ../../assets/images/projects/casa-fiu/dusk.jpg, alt: "CASA FIU at dusk", kind: rendering }
-  - { src: ../../assets/images/projects/casa-fiu/amenity-deck.jpg, alt: "Amenity deck and pool", kind: rendering }
-  - { src: ../../assets/images/projects/casa-fiu/pool.jpg, alt: "Resort-style pool", kind: rendering }
+  - { src: /src/assets/images/projects/casa-fiu/dusk.jpg, alt: "CASA FIU at dusk", kind: rendering }
+  - { src: /src/assets/images/projects/casa-fiu/amenity-deck.jpg, alt: "Amenity deck and pool", kind: rendering }
+  - { src: /src/assets/images/projects/casa-fiu/pool.jpg, alt: "Resort-style pool", kind: rendering }
 internal_notes:
   - "RAL ROLE UNKNOWN. Left blank until confirmed."
   - "Official name styling: draft uses both 'Casa-FIU' and 'CASA-FIU'; using 'CASA FIU' per the CASA logo. Confirm."

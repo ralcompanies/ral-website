@@ -12,10 +12,10 @@ summary: >-
   RAL is the developer and a partner in The Mandarin Oriental Resort & Residences, Grand Cayman,
   alongside Melkonian Capital: 91 hotel keys and 42 branded residences set along 1,000 feet of
   white-sand beach, with spa, wellness and dining designed for both sunrise and sunset views.
-hero_image: ../../assets/images/projects/mandarin-oriental-grand-cayman/aerial.jpg
+hero_image: /src/assets/images/projects/mandarin-oriental-grand-cayman/aerial.jpg
 hero_alt: Rendering of the Mandarin Oriental resort and residences on the Grand Cayman coast
 hero_kind: rendering
-card_image: ../../assets/images/projects/mandarin-oriental-grand-cayman/facade-twilight.jpg
+card_image: /src/assets/images/projects/mandarin-oriental-grand-cayman/facade-twilight.jpg
 card_alt: Rendering of the residences at twilight
 facts:
   keys: 91
@@ -27,13 +27,13 @@ credits:
   - { role: Development partner, name: Melkonian Capital }
 website: https://moresidencesgrandcayman.com/
 gallery:
-  - { src: ../../assets/images/projects/mandarin-oriental-grand-cayman/ironshore.jpg, alt: "Residences above the ironshore coastline", kind: rendering }
-  - { src: ../../assets/images/projects/mandarin-oriental-grand-cayman/pool-deck.jpg, alt: "Infinity pool deck", kind: rendering }
-  - { src: ../../assets/images/projects/mandarin-oriental-grand-cayman/arrival.jpg, alt: "Arrival court", kind: rendering }
-  - { src: ../../assets/images/projects/mandarin-oriental-grand-cayman/penthouse-great-room.jpg, alt: "Penthouse great room", kind: rendering }
-  - { src: ../../assets/images/projects/mandarin-oriental-grand-cayman/garden-house-pool.jpg, alt: "Garden house with private pool", kind: rendering }
-  - { src: ../../assets/images/projects/mandarin-oriental-grand-cayman/ocean-house-lobby.jpg, alt: "Ocean House lobby", kind: rendering }
-  - { src: ../../assets/images/projects/mandarin-oriental-grand-cayman/penthouse-roof.jpg, alt: "Penthouse roof deck", kind: rendering }
+  - { src: /src/assets/images/projects/mandarin-oriental-grand-cayman/ironshore.jpg, alt: "Residences above the ironshore coastline", kind: rendering }
+  - { src: /src/assets/images/projects/mandarin-oriental-grand-cayman/pool-deck.jpg, alt: "Infinity pool deck", kind: rendering }
+  - { src: /src/assets/images/projects/mandarin-oriental-grand-cayman/arrival.jpg, alt: "Arrival court", kind: rendering }
+  - { src: /src/assets/images/projects/mandarin-oriental-grand-cayman/penthouse-great-room.jpg, alt: "Penthouse great room", kind: rendering }
+  - { src: /src/assets/images/projects/mandarin-oriental-grand-cayman/garden-house-pool.jpg, alt: "Garden house with private pool", kind: rendering }
+  - { src: /src/assets/images/projects/mandarin-oriental-grand-cayman/ocean-house-lobby.jpg, alt: "Ocean House lobby", kind: rendering }
+  - { src: /src/assets/images/projects/mandarin-oriental-grand-cayman/penthouse-roof.jpg, alt: "Penthouse roof deck", kind: rendering }
 internal_notes:
   - "Role per Josh (Sept 2026): RAL is a partner and the developer. Shown as Developer, with Melkonian Capital credited as development partner."
   - "Removed the Buckingham Square / West Bay Rd address (sales office, not the site)."
