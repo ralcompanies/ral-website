@@ -1,0 +1,21 @@
+{
+  "name": "ral-site",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "check": "astro sync && astro check"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "astro": "^7.3.5",
+    "sharp": "^0.35.4"
+  },
+  "private": true,
+  "type": "module"
+}

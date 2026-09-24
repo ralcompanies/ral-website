@@ -1,0 +1,9 @@
+# Team section. Rename, reorder (order), hide (visible: false) or change members freely.
+name: "Project Administration"
+order: 3
+visible: true
+card_size: standard
+members:
+  - valerie-kirsten
+  - kyung-kim
+  - russell-cline

@@ -1,0 +1,11 @@
+# Team section. Rename, reorder (order), hide (visible: false) or change members freely.
+name: "Leadership"
+order: 1
+visible: true
+card_size: large
+members:
+  - robert-a-levine
+  - vincent-cangelosi
+  - spencer-levine
+  - josh-wein
+  - stuart-taft

@@ -1,0 +1,18 @@
+---
+import Arrow from './Arrow.astro';
+import { fmtDate } from '../lib/site';
+const { item } = Astro.props;
+const d = item.data;
+---
+<a class="pitem" href={d.url ?? d.pdf} target="_blank" rel="noopener">
+  <p class="label pitem__pub">{item.pub.name}</p>
+  <h3 class="pitem__h">{d.headline}</h3>
+  <p class="meta num pitem__d">{fmtDate(d.date, d.date_precision)} · {d.url ? 'Read article' : 'View clipping'}<Arrow dir="up-right" /></p>
+</a>
+<style>
+  .pitem { display: flex; flex-direction: column; gap: 0.9rem; height: 100%; border-top: 1px solid var(--ink); padding-top: 1.5rem; }
+  .pitem__h { font-family: var(--font-display); font-weight: var(--display-weight); font-size: clamp(1.2rem, 1.05rem + 0.5vw, 1.5rem); line-height: 1.25; }
+  .pitem:hover .pitem__h { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 0.2em; }
+  .pitem__d { margin-top: auto; display: flex; gap: 0.5rem; align-items: center; }
+  .pitem__d :global(.arrow) { width: 0.9em; }
+</style>

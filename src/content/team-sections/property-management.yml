@@ -1,0 +1,7 @@
+# Team section. Rename, reorder (order), hide (visible: false) or change members freely.
+name: "Property Management"
+order: 6
+visible: true
+card_size: standard
+members:
+  - matt-delia

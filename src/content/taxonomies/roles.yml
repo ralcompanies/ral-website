@@ -1,0 +1,33 @@
+# RAL's role on a project. Shown as a label on cards and project pages.
+- id: developer
+  label: Developer
+  order: 1
+  capability: develop
+- id: co-developer
+  label: Co-Developer
+  order: 2
+  capability: partner
+- id: co-gp
+  label: Co-GP
+  order: 3
+  capability: partner
+- id: owners-rep
+  label: Owner's Representative
+  order: 4
+  capability: manage
+- id: development-manager
+  label: Development Manager
+  order: 5
+  capability: manage
+- id: construction-consultant
+  label: Construction / Lender Consultant
+  order: 6
+  capability: manage
+- id: design
+  label: Design & Architecture
+  order: 7
+  capability: design
+- id: property-manager
+  label: Property Manager
+  order: 8
+  capability: manage

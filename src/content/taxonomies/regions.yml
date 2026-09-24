@@ -1,0 +1,18 @@
+- id: new-york
+  label: New York
+  order: 1
+- id: mountain-west
+  label: Mountain West
+  order: 2
+- id: florida
+  label: Florida
+  order: 3
+- id: caribbean
+  label: Caribbean
+  order: 4
+- id: other-us
+  label: Other U.S.
+  order: 5
+- id: international
+  label: International
+  order: 6

@@ -1,0 +1,25 @@
+---
+/**
+ * Responsive image. Web versions (AVIF/WebP/JPEG at several widths) are
+ * generated at build time from the web master; the master is never altered.
+ */
+import { Picture } from 'astro:assets';
+interface Props { src: any; alt: string; sizes?: string; widths?: number[]; class?: string; loading?: 'lazy' | 'eager'; priority?: boolean; position?: string; aspect?: string }
+const { src, alt, sizes = '100vw', widths = [480, 800, 1200, 1600, 2000, 2560], class: cls, priority = false, position, aspect } = Astro.props;
+const w = widths.filter((x) => x <= src.width);
+if (!w.length) w.push(src.width);
+---
+<Picture
+  src={src}
+  alt={alt}
+  formats={['avif', 'webp']}
+  fallbackFormat="jpg"
+  widths={w}
+  sizes={sizes}
+  quality={78}
+  class={cls}
+  loading={priority ? 'eager' : 'lazy'}
+  fetchpriority={priority ? 'high' : undefined}
+  decoding="async"
+  style={[position && `object-position:${position}`, aspect && `aspect-ratio:${aspect}`].filter(Boolean).join(';') || undefined}
+/>

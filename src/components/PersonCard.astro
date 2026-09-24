@@ -1,0 +1,25 @@
+---
+/** Team card. Handles a missing headshot with a quiet monogram plate, never a fake portrait. */
+import Img from './Img.astro';
+const { p, size = 'standard' } = Astro.props;
+const d = p.data;
+const initials = d.name.split(/\s+/).filter((w: string) => /^[A-Z]/.test(w)).map((w: string) => w[0]).slice(0, 2).join('');
+---
+<a class:list={['person', `person--${size}`]} href={`/team/${p.id}/`}>
+  <div class="frame person__img">
+    {d.headshot
+      ? <Img src={d.headshot} alt={`Portrait of ${d.name}`} sizes={size === 'large' ? '(max-width: 700px) 50vw, 22vw' : '(max-width: 700px) 50vw, 16vw'} widths={[320, 480, 720, 960]} position={d.headshot_focus} />
+      : <span class="person__mono" aria-hidden="true">{initials}</span>}
+  </div>
+  <span class="person__name">{d.name}</span>
+  <span class="meta person__title">{d.title}</span>
+</a>
+<style>
+  .person { display: grid; gap: 0.2rem; }
+  .person__img { aspect-ratio: 4 / 5; background: var(--portrait-bg); margin-bottom: 0.75rem; display: grid; place-items: center; }
+  .person__mono { font-family: var(--font-display); font-size: clamp(2rem, 4vw, 3rem); color: #6f6d68; letter-spacing: 0.04em; }
+  .person__name { font-weight: 500; }
+  .person--large .person__name { font-family: var(--font-display); font-weight: var(--display-weight); font-size: 1.375rem; }
+  .person__title { font-size: 0.875rem; }
+  .person:hover .person__name { text-decoration: underline; text-underline-offset: 0.2em; text-decoration-thickness: 1px; }
+</style>

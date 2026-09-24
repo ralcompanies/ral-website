@@ -1,0 +1,416 @@
+---
+import { getEntry, getEntries } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import Img from '../components/Img.astro';
+import Arrow from '../components/Arrow.astro';
+import { company, homepage, statValue, lookups, publicProjects, visiblePress, fmtDate, projectUrl } from '../lib/site';
+
+const c = await company();
+const h = await homepage();
+const lk = await lookups();
+
+// Hero
+const slides = await Promise.all(
+  (h.hero_slides ?? []).map(async (s) => ({ ...s, entry: s.project ? await getEntry(s.project) : undefined })),
+);
+
+// Featured projects: ordered list from Homepage settings (only Featured tier allowed)
+const featured = (
+  await Promise.all(
+    (h.featured_projects ?? []).map(async (f) => {
+      const p = await getEntry(f.project);
+      if (!p) throw new Error(`Homepage lists a project that does not exist: ${f.project.id}`);
+      if (p.data.tier !== 'featured') throw new Error(`"${p.data.name}" is on the homepage but is not a Featured project. Set its tier to featured or remove it from the homepage list.`);
+      return { p, image: f.image ?? p.data.hero_image!, alt: f.alt ?? p.data.hero_alt!, text: f.text ?? p.data.hook };
+    }),
+  )
+);
+// Editorial rows: pairs alternate wide/narrow
+const rows: (typeof featured)[] = [];
+for (let i = 0; i < featured.length; i += 2) rows.push(featured.slice(i, i + 2));
+
+const stats = (c.stats ?? []).filter((s) => s.visible);
+
+// Markets derived from the project data (updates itself)
+const all = await publicProjects();
+const regionCounts = Object.entries(
+  all.reduce((acc, p) => ({ ...acc, [p.data.region.id]: (acc[p.data.region.id] ?? 0) + 1 }), {} as Record<string, number>),
+).sort((a, b) => lk.regions[a[0]].order - lk.regions[b[0]].order);
+
+const caps = await Promise.all(
+  (h.capabilities ?? []).map(async (cap) => ({ ...cap, projects: (await getEntries(cap.proof)).filter((p) => p.data.tier !== 'hidden') })),
+);
+
+const quotePerson = h.leadership_quote ? await getEntry(h.leadership_quote.person) : undefined;
+const leaders = (await getEntry('teamSections', 'leadership'))?.data;
+const leaderPeople = leaders ? (await getEntries(leaders.members)).filter((p) => p.data.active) : [];
+
+const press = (await visiblePress()).filter((p) => p.data.featured).slice(0, h.press_count ?? 4);
+const partnerGroups = [
+  { k: 'operator', label: 'Hotel operators' },
+  { k: 'public', label: 'Public partners' },
+  { k: 'capital', label: 'Capital & development partners' },
+  { k: 'design', label: 'Design collaborators' },
+].map((g) => ({ ...g, names: (c.partners_list ?? []).filter((x) => x.kind === g.k).map((x) => x.name) }));
+
+const roleLabel = (p: any) => p.data.roles.map((r: any) => lk.roles[r.id]?.label).filter(Boolean).join(', ');
+const statusLabel = { completed: 'Completed', current: 'Under construction', 'in-development': 'In development' } as const;
+---
+<Base overlayHeader description={c.positioning}>
+  <!-- 1. Hero -->
+  <section class="hero on-dark" aria-label="Selected projects">
+    <div class="hero__slides" data-slides>
+      {slides.map((s, i) => (
+        <figure class:list={['hero__slide', i === 0 && 'is-active']} data-caption={s.caption}>
+          <Img src={s.image} alt={s.alt} priority={i === 0} sizes="100vw" />
+        </figure>
+      ))}
+    </div>
+    <div class="hero__shade" aria-hidden="true"></div>
+    <div class="wrap hero__content">
+      <p class="label hero__eyebrow">RAL Companies · Since {c.founded}</p>
+      <h1 class="display hero__title">{h.hero_headline}</h1>
+      <p class="hero__sub">{h.hero_subline}</p>
+      <div class="hero__foot">
+        <p class="hero__caption meta" aria-live="polite"><span data-caption-text>{slides[0]?.caption}</span></p>
+        {slides.length > 1 && (
+          <p class="hero__count meta num" aria-hidden="true"><span data-count>01</span> / {String(slides.length).padStart(2, '0')}</p>
+        )}
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. Featured work -->
+  <section class="section work" aria-labelledby="work-h">
+    <div class="wrap">
+      <div class="strip">
+        <div class="strip__title"><h2 id="work-h" class="label">Selected work</h2></div>
+        <a class="link meta strip__aside" href="/projects/">All projects<Arrow /></a>
+      </div>
+      <p class="lead work__intro">{h.featured_intro}</p>
+      <div class="work__rows">
+        {rows.map((row, ri) => (
+          <div class:list={['work__row', ri % 2 === 1 && 'work__row--flip', row.length === 1 && 'work__row--single']}>
+            {row.map((f, i) => {
+              const wide = row.length === 1 || (ri % 2 === 0 ? i === 0 : i === 1);
+              const url = projectUrl(f.p);
+              return (
+                <article class:list={['work__item', wide ? 'work__item--wide' : 'work__item--narrow']}>
+                  <a href={url} class="work__link">
+                    <div class="frame" style={`aspect-ratio:${wide ? '3 / 2' : '4 / 5'}`}>
+                      <Img src={f.image} alt={f.alt} sizes={wide ? '(max-width: 860px) 100vw, 58vw' : '(max-width: 860px) 100vw, 40vw'} />
+                    </div>
+                    <div class="titleblock">
+                      <p class="label num work__no">{String(ri * 2 + i + 1).padStart(2, '0')}</p>
+                      <h3 class="titleblock__name">{f.p.data.name}</h3>
+                      <p class="titleblock__row">
+                        <span>{f.p.data.location}</span>
+                        <span>{[roleLabel(f.p), f.p.data.status && statusLabel[f.p.data.status]].filter(Boolean).join(' · ')}</span>
+                      </p>
+                      {f.text && <p class="titleblock__hook">{f.text}</p>}
+                    </div>
+                  </a>
+                </article>
+              );
+            })}
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. Track record -->
+  <section class="section section--stone record" aria-labelledby="record-h">
+    <div class="wrap">
+      <div class="strip">
+        <div class="strip__title"><h2 id="record-h" class="label">Track record</h2></div>
+        <p class="meta strip__aside">Founded {c.founded}, New York</p>
+      </div>
+      <dl class="stats">
+        {stats.map((s) => (
+          <div class="stat">
+            <dt class="stat__value num">{statValue(s.value, c.founded!)}</dt>
+            <dd class="stat__label">{s.label}</dd>
+          </div>
+        ))}
+      </dl>
+      <div class="markets">
+        <p class="label">Where we work</p>
+        <ul>
+          {regionCounts.map(([id, n]) => (
+            <li><span>{lk.regions[id].label}</span><span class="num meta">{String(n).padStart(2, '0')}</span></li>
+          ))}
+        </ul>
+        <p class="meta">Projects on this site, by region.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. Designer. Developer. Partner. -->
+  <section class="section caps" aria-labelledby="caps-h">
+    <div class="wrap">
+      <div class="strip">
+        <div class="strip__title"><h2 id="caps-h" class="label">How we work</h2></div>
+        <a class="link meta strip__aside" href="/about/">About RAL<Arrow /></a>
+      </div>
+      <div class="caps__grid">
+        {caps.map((cap, i) => (
+          <article class="cap">
+            <p class="label num cap__no">{String(i + 1).padStart(2, '0')}</p>
+            <h3 class="h2 cap__title">{cap.title}.</h3>
+            <p class="cap__text">{cap.text}</p>
+            {cap.projects.length > 0 && (
+              <ul class="cap__proof">
+                {cap.projects.map((p) => {
+                  const url = projectUrl(p);
+                  const inner = <><span class="cap__pname">{p.data.name}</span><span class="meta">{p.data.location}</span></>;
+                  return <li>{url ? <a href={url}>{inner}<Arrow /></a> : <div>{inner}</div>}</li>;
+                })}
+              </ul>
+            )}
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. Partners -->
+  <section class="section section--dark on-dark partners" aria-labelledby="partners-h">
+    <div class="wrap">
+      <div class="strip">
+        <div class="strip__title"><h2 id="partners-h" class="label">Partners</h2></div>
+        <p class="meta strip__aside">Selected operators, agencies and collaborators</p>
+      </div>
+      <div class="partners__grid">
+        {partnerGroups.filter((g) => g.names.length).map((g) => (
+          <div>
+            <p class="label partners__k">{g.label}</p>
+            <ul>{g.names.map((n) => <li>{n}</li>)}</ul>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. People -->
+  {quotePerson && (
+    <section class="section people" aria-labelledby="people-h">
+      <div class="wrap">
+        <div class="strip">
+          <div class="strip__title"><h2 id="people-h" class="label">People</h2></div>
+          <a class="link meta strip__aside" href="/team/">Meet the team<Arrow /></a>
+        </div>
+        <div class="people__grid">
+          <figure class="people__portrait">
+            {quotePerson.data.headshot && (
+              <div class="frame frame--portrait"><Img src={quotePerson.data.headshot} alt={`Portrait of ${quotePerson.data.name}`} sizes="(max-width: 860px) 100vw, 33vw" position={quotePerson.data.headshot_focus} /></div>
+            )}
+          </figure>
+          <div class="people__body">
+            <blockquote class="people__quote">
+              <p class="h2">“{h.leadership_quote!.text}”</p>
+              <footer class="meta"><a href={`/team/${quotePerson.id}/`}>{quotePerson.data.name}</a>, {quotePerson.data.title}</footer>
+            </blockquote>
+            <p class="people__line">A core leadership team that has worked together for more than two decades, with in-house architects, project managers, finance and property management.</p>
+            <ul class="people__row">
+              {leaderPeople.filter((p) => p.id !== quotePerson.id).map((p) => (
+                <li>
+                  <a href={`/team/${p.id}/`}>
+                    <div class="frame frame--portrait">{p.data.headshot && <Img src={p.data.headshot} alt="" sizes="160px" widths={[240, 400]} position={p.data.headshot_focus} />}</div>
+                    <span class="people__n">{p.data.name}</span>
+                    <span class="meta">{p.data.title}</span>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- 7. Press -->
+  {press.length > 0 && (
+    <section class="section section--stone press" aria-labelledby="press-h">
+      <div class="wrap">
+        <div class="strip">
+          <div class="strip__title"><h2 id="press-h" class="label">In the press</h2></div>
+          <a class="link meta strip__aside" href="/press/">All press<Arrow /></a>
+        </div>
+        <ul class="press__list">
+          {press.map((p) => (
+            <li>
+              <a href={p.data.url ?? p.data.pdf} target="_blank" rel="noopener">
+                <p class="label press__pub">{p.pub.name}</p>
+                <h3 class="h3 press__h">{p.data.headline}</h3>
+                <p class="meta num press__d">{fmtDate(p.data.date, p.data.date_precision)}<Arrow dir="up-right" /></p>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+  )}
+
+  <!-- 8. Contact -->
+  <section class="section contact" aria-labelledby="contact-h">
+    <div class="wrap contact__grid">
+      <div>
+        <h2 id="contact-h" class="h2">Talk to us about a site, a building or a partnership.</h2>
+      </div>
+      <ul class="contact__routes">
+        {c.contacts?.filter((x) => x.label !== 'Press').map((x) => (
+          <li>
+            <p class="label">{x.label}</p>
+            {x.note && <p class="meta">{x.note}</p>}
+            <a class="link" href={`mailto:${x.email}`}>{x.email}</a>
+          </li>
+        ))}
+        {c.offices?.filter((o) => o.primary).map((o) => (
+          <li>
+            <p class="label">Office</p>
+            <p class="meta">{o.lines.join(', ')}</p>
+            {o.phone && <a class="link num" href={`tel:${o.phone.replace(/\D/g, '')}`}>{o.phone}</a>}
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+</Base>
+
+<style>
+  /* Hero */
+  .hero { color: var(--on-dark); position: relative; height: clamp(34rem, 92svh, 62rem); background: var(--ink); overflow: hidden; }
+  .hero__slides, .hero__slide { position: absolute; inset: 0; margin: 0; }
+  .hero__slide { opacity: 0; transition: opacity 1.6s var(--ease); }
+  .hero__slide.is-active { opacity: 1; }
+  .hero__slide :global(picture) { display: block; height: 100%; }
+  .hero__slide :global(img) { width: 100%; height: 100%; object-fit: cover; }
+  .hero__slide.is-active :global(img) { animation: drift 9s linear both; }
+  @keyframes drift { from { transform: scale(1.04); } to { transform: scale(1); } }
+  .hero__shade { position: absolute; inset: 0; background: linear-gradient(to top, rgb(10 10 9 / 0.7) 0%, rgb(10 10 9 / 0.2) 50%, rgb(10 10 9 / 0) 75%), linear-gradient(to right, rgb(10 10 9 / 0.45) 0%, rgb(10 10 9 / 0.1) 45%, rgb(10 10 9 / 0) 65%); }
+  .hero__content { position: relative; height: 100%; display: flex; flex-direction: column; justify-content: flex-end; padding-bottom: var(--s-4); }
+  .hero__eyebrow { color: var(--on-dark); margin-bottom: var(--s-3); }
+  .hero__title { max-width: 11ch; }
+  .hero__sub { max-width: 34rem; margin-top: var(--s-3); font-size: var(--fs-lead); line-height: 1.45; color: var(--on-dark); font-family: var(--font-body); font-weight: 400; }
+  .hero__foot { display: flex; justify-content: space-between; align-items: baseline; margin-top: var(--s-6); padding-top: var(--s-2); border-top: 1px solid rgb(245 243 238 / 0.35); }
+  .hero__caption span { transition: opacity 0.6s; }
+
+  /* Featured work */
+  .work__intro { margin-bottom: var(--s-7); }
+  .work__rows { display: grid; gap: clamp(4rem, 2rem + 6vw, 8rem); }
+  .work__row { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--gutter); align-items: start; }
+  .work__item--wide { grid-column: 1 / span 7; }
+  .work__item--narrow { grid-column: 9 / span 4; margin-top: clamp(3rem, 10vw, 9rem); }
+  .work__row--flip .work__item--narrow { grid-column: 1 / span 4; margin-top: 0; grid-row: 1; }
+  .work__row--flip .work__item--wide { grid-column: 6 / span 7; margin-top: clamp(3rem, 10vw, 9rem); grid-row: 1; }
+  .work__row--single .work__item--wide { grid-column: 1 / -1; }
+  .work__link { display: block; }
+  .work__no { color: var(--graphite); }
+  .work__link:hover .titleblock__name { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 0.2em; }
+
+  /* Record */
+  .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr)); gap: var(--gutter); margin: 0 0 var(--s-7); }
+  .stat { border-top: 1px solid var(--rule-strong); padding-top: var(--s-3); margin: 0; }
+  .stat__value { font-family: var(--font-display); font-size: var(--fs-stat); line-height: 1; letter-spacing: -0.02em; font-weight: var(--display-weight); }
+  .stat__label { margin: var(--s-2) 0 0; max-width: 18rem; color: var(--graphite); font-size: var(--fs-small); }
+  .markets { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--gutter); row-gap: var(--s-2); align-items: baseline; }
+  .markets > .label { grid-column: 1 / span 3; }
+  .markets ul { grid-column: 4 / -1; list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); column-gap: var(--gutter); }
+  .markets li { display: flex; justify-content: space-between; border-bottom: 1px solid var(--rule); padding-block: 0.7rem; font-family: var(--font-display); font-size: 1.25rem; }
+  .markets > .meta { grid-column: 4 / -1; }
+
+  /* Capabilities */
+  .caps__grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--gutter); }
+  .cap { display: flex; flex-direction: column; gap: var(--s-3); border-left: 1px solid var(--rule); padding-left: var(--s-3); }
+  .cap:first-child { border-left: 0; padding-left: 0; }
+  .cap__no { color: var(--graphite); }
+  .cap__text { color: var(--ink-2); }
+  .cap__proof { list-style: none; margin: auto 0 0; padding: 0; border-top: 1px solid var(--ink); }
+  .cap__proof li > * { display: grid; grid-template-columns: 1fr auto; column-gap: 1rem; padding-block: 0.8rem; border-bottom: 1px solid var(--rule); }
+  .cap__proof a:hover .cap__pname { text-decoration: underline; text-underline-offset: 0.2em; }
+  .cap__proof .meta { grid-column: 1; }
+  .cap__proof :global(.arrow) { grid-column: 2; grid-row: 1 / span 2; align-self: center; width: 1.1em; }
+  .cap__pname { font-weight: 500; }
+
+  /* Partners */
+  .partners__grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--gutter); }
+  .partners__k { color: var(--on-dark-2); margin-bottom: var(--s-3); }
+  .partners ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.35rem; font-family: var(--font-display); font-size: clamp(1.25rem, 1.1rem + 0.45vw, 1.5rem); line-height: 1.3; }
+
+  /* People */
+  .people__grid { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--gutter); row-gap: var(--s-5); }
+  .people__portrait { grid-column: 1 / span 4; margin: 0; }
+  .frame--portrait { aspect-ratio: 4 / 5; background: var(--portrait-bg); }
+  .people__body { grid-column: 6 / -1; display: flex; flex-direction: column; gap: var(--s-4); }
+  .people__quote { margin: 0; }
+  .people__quote p { margin-bottom: var(--s-3); }
+  .people__quote a { border-bottom: 1px solid var(--rule-strong); color: var(--ink); }
+  .people__line { max-width: 34rem; color: var(--ink-2); }
+  .people__row { list-style: none; margin: auto 0 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--s-3); }
+  .people__row a { display: grid; gap: 0.2rem; }
+  .people__row .frame { margin-bottom: 0.6rem; }
+  .people__n { font-weight: 500; font-size: var(--fs-small); }
+  .people__row .meta { font-size: 0.8125rem; }
+
+  /* Press */
+  .press__list { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--gutter); }
+  .press__list a { display: flex; flex-direction: column; gap: var(--s-2); height: 100%; border-top: 1px solid var(--ink); padding-top: var(--s-3); }
+  .press__h { font-size: clamp(1.2rem, 1.05rem + 0.5vw, 1.5rem); }
+  .press__list a:hover .press__h { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 0.2em; }
+  .press__d { margin-top: auto; display: flex; gap: 0.5rem; align-items: center; }
+  .press__d :global(.arrow) { width: 0.9em; }
+
+  /* Contact */
+  .contact__grid { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--gutter); row-gap: var(--s-5); }
+  .contact__grid > div { grid-column: 1 / span 5; }
+  .contact__routes { grid-column: 7 / -1; list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--s-5) var(--gutter); }
+  .contact__routes li { display: flex; flex-direction: column; gap: 0.5rem; align-items: flex-start; border-top: 1px solid var(--rule); padding-top: var(--s-2); }
+  .contact__routes .link { overflow-wrap: anywhere; }
+
+  @media (max-width: 1100px) {
+    .partners__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: var(--s-5); }
+    .press__list { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: var(--s-5); }
+    .people__row { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+  @media (max-width: 860px) {
+    .work__row { row-gap: var(--s-6); }
+    .work__item--wide, .work__item--narrow, .work__row--flip .work__item--wide, .work__row--flip .work__item--narrow { grid-column: 1 / -1; grid-row: auto; margin-top: 0; }
+    .work__item--narrow { width: 82%; justify-self: end; }
+    .work__row--flip .work__item--narrow { justify-self: start; }
+    .markets > .label, .markets ul, .markets > .meta { grid-column: 1 / -1; }
+    .markets ul { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .caps__grid { grid-template-columns: 1fr; row-gap: var(--s-6); }
+    .cap { border-left: 0; padding-left: 0; }
+    .people__portrait { grid-column: 1 / span 8; }
+    .people__body { grid-column: 1 / -1; }
+    .contact__grid > div, .contact__routes { grid-column: 1 / -1; }
+  }
+  @media (max-width: 560px) {
+    .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: var(--s-4); }
+    .partners__grid, .press__list, .contact__routes { grid-template-columns: 1fr; }
+    .people__portrait { grid-column: 1 / -1; }
+    .hero__sub { font-size: 1.0625rem; }
+    .hero__count { display: none; }
+    .strip p.strip__aside { display: none; }
+  }
+</style>
+
+<script>
+  const wrap = document.querySelector('[data-slides]');
+  const slides = wrap ? Array.from(wrap.querySelectorAll('.hero__slide')) : [];
+  const cap = document.querySelector('[data-caption-text]') as HTMLElement | null;
+  const count = document.querySelector('[data-count]') as HTMLElement | null;
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let i = 0;
+  if (slides.length > 1 && !reduce) {
+    setInterval(() => {
+      if (document.hidden) return;
+      slides[i].classList.remove('is-active');
+      i = (i + 1) % slides.length;
+      slides[i].classList.add('is-active');
+      if (cap) { cap.style.opacity = '0'; setTimeout(() => { cap.textContent = (slides[i] as HTMLElement).dataset.caption ?? ''; cap.style.opacity = '1'; }, 400); }
+      if (count) count.textContent = String(i + 1).padStart(2, '0');
+    }, 7000);
+  }
+</script>

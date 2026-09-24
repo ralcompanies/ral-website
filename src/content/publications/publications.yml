@@ -1,0 +1,58 @@
+# Publications. Add an outlet once; press items pick it from this list.
+- id: off-the-mrkt
+  name: "Off the MRKT"
+  tier: trade
+- id: mann-report
+  name: "Mann Report"
+  tier: trade
+- id: the-information
+  name: "The Information"
+  tier: national
+- id: commercial-observer
+  name: "Commercial Observer"
+  tier: trade
+- id: new-york-yimby
+  name: "New York YIMBY"
+  tier: trade
+- id: architectural-digest
+  name: "Architectural Digest"
+  tier: national
+- id: the-real-deal
+  name: "The Real Deal"
+  tier: trade
+- id: 6sqft
+  name: "6sqft"
+  tier: local
+- id: new-york-post
+  name: "New York Post"
+  tier: national
+- id: globest
+  name: "GlobeSt.com"
+  tier: trade
+- id: financial-times
+  name: "Financial Times"
+  tier: national
+- id: forbes
+  name: "Forbes"
+  tier: national
+- id: new-york-times
+  name: "The New York Times"
+  tier: national
+- id: robb-report
+  name: "Robb Report"
+  tier: national
+- id: wallpaper
+  name: "Wallpaper*"
+  tier: national
+- id: wall-street-journal
+  name: "The Wall Street Journal"
+  tier: national
+- id: multi-housing-news
+  name: "Multi-Housing News"
+  tier: trade
+- id: philadelphia-business-journal
+  name: "Philadelphia Business Journal"
+  tier: trade
+- id: elite-traveler
+  name: "Elite Traveler"
+  tier: national

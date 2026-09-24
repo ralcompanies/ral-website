@@ -1,0 +1,62 @@
+---
+import Wordmark from '../assets/logos/ral-wordmark-tagline.svg?raw';
+import { company } from '../lib/site';
+const c = await company();
+const year = new Date().getFullYear();
+---
+<footer class="ftr">
+  <div class="wrap">
+    <div class="grid ftr__top">
+      <a href="/" class="ftr__logo" aria-label="RAL Companies, home" set:html={Wordmark} />
+      <div class="ftr__offices">
+        {c.offices?.map((o) => (
+          <div>
+            <p class="label">{o.name}</p>
+            <p class="meta">{o.lines.map((l, i) => <>{l}{i < o.lines.length - 1 && <br />}</>)}{o.phone && <><br />{o.phone}</>}</p>
+            {o.map_url && <a class="meta ftr__map" href={o.map_url} target="_blank" rel="noopener">Map</a>}
+          </div>
+        ))}
+      </div>
+      <div class="ftr__contacts">
+        <p class="label">Contact</p>
+        <ul>
+          {c.contacts?.filter((x) => x.label !== 'Press').map((x) => <li class="meta"><span>{x.label}</span><a href={`mailto:${x.email}`}>{x.email}</a></li>)}
+        </ul>
+      </div>
+    </div>
+    <div class="ftr__base meta">
+      <p>© {year} {c.legal_name}</p>
+      <ul>
+        <li><a href="/privacy/">Privacy</a></li>
+        <li><a href="/terms/">Terms of use</a></li>
+        {c.social?.map((s) => <li><a href={s.url} target="_blank" rel="noopener">{s.network}</a></li>)}
+      </ul>
+    </div>
+  </div>
+</footer>
+<style>
+  .ftr { background: var(--stone); padding-block: var(--s-7) var(--s-4); }
+  .ftr__top { row-gap: var(--s-5); padding-bottom: var(--s-6); }
+  .ftr__logo { grid-column: 1 / span 3; width: 6rem; color: var(--ink); }
+  .ftr__logo :global(svg) { width: 100%; height: auto; display: block; }
+  .ftr__offices { grid-column: 5 / span 4; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--s-4); }
+  .ftr__offices .label, .ftr__contacts .label { margin-bottom: 0.75rem; }
+  .ftr__map { display: inline-block; margin-top: 0.5rem; border-bottom: 1px solid var(--rule-strong); }
+  .ftr__contacts { grid-column: 9 / span 4; }
+  .ftr__contacts ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.6rem; }
+  .ftr__contacts li { display: grid; grid-template-columns: 11rem 1fr; gap: 1rem; }
+  .ftr__contacts a { color: var(--ink); overflow-wrap: anywhere; }
+  .ftr__base { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem; border-top: 1px solid var(--rule-strong); padding-top: var(--s-3); }
+  .ftr__base ul { display: flex; gap: var(--s-3); list-style: none; margin: 0; padding: 0; }
+  .ftr__base a:hover { color: var(--ink); }
+  @media (max-width: 1000px) {
+    .ftr__logo { grid-column: 1 / -1; }
+    .ftr__offices { grid-column: 1 / span 7; }
+    .ftr__contacts { grid-column: 8 / -1; }
+    .ftr__contacts li { grid-template-columns: 1fr; gap: 0; }
+  }
+  @media (max-width: 680px) {
+    .ftr__offices, .ftr__contacts { grid-column: 1 / -1; }
+    .ftr__offices { grid-template-columns: 1fr; }
+  }
+</style>

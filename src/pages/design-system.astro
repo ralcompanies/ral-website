@@ -1,0 +1,160 @@
+---
+/** Internal design-system reference. Not linked from the site; noindex. */
+import { getEntry, getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import Img from '../components/Img.astro';
+import Arrow from '../components/Arrow.astro';
+import PortfolioCard from '../components/PortfolioCard.astro';
+import PressItem from '../components/PressItem.astro';
+import PersonCard from '../components/PersonCard.astro';
+import { lookups, visiblePress } from '../lib/site';
+
+const lk = await lookups();
+const zi = (await getEntry('projects', 'zero-irving'))!;
+const portfolio = (await getCollection('projects')).filter((p) => ['four-seasons-vail', 'loft-25', 'hotel-madeline-telluride'].includes(p.id));
+const press = (await visiblePress()).slice(0, 3);
+const people = await Promise.all(['robert-a-levine', 'douglas-eisenstein', 'kyung-kim'].map((id) => getEntry('people', id)));
+const colors = [
+  ['Ink', '--ink', '#141413', 'Text, wordmark, primary button'],
+  ['Ink 2', '--ink-2', '#2b2a27', 'Body text on stone'],
+  ['Graphite', '--graphite', '#5d5b56', 'Secondary text, captions'],
+  ['Rule', '--rule', '#d9d5cc', 'Hairlines'],
+  ['Stone', '--stone', '#eae5dc', 'Footer, accent fields (from the draft)'],
+  ['Stone 2', '--stone-2', '#f4f1ea', 'Large light sections'],
+  ['Paper', '--paper', '#ffffff', 'Page'],
+  ['Portrait', '--portrait-bg', '#1d1d1c', 'Behind headshots'],
+];
+const scale = [
+  ['Display', 'display', '44–96px'],
+  ['H2', 'h2', '32–52px'],
+  ['H3', 'h3', '22–30px'],
+  ['Lead', 'lead', '20–26px'],
+];
+---
+<Base title="Design system" description="RAL website design system (internal)." noindex>
+  <section class="section ds-intro">
+    <div class="wrap">
+      <p class="label">RAL website · Design system · Working draft</p>
+      <h1 class="display ds-title">The drawing set and the monograph.</h1>
+      <div class="ds-cols">
+        <p class="lead">A visible grid, fine rules and precise labels, borrowed from architectural drawings. Photography presented large and captioned, the way a monograph presents built work. Type organizes; projects persuade.</p>
+        <p class="meta">Use the Type A / B switch (bottom right) to compare the two typography directions on every page. A is free (Google Fonts). B uses free stand-ins for a licensed pairing (Tiempos Headline + Söhne); nothing has been purchased.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section ds" aria-labelledby="t-type">
+    <div class="wrap">
+      <div class="strip"><h2 id="t-type" class="label">01 Typography</h2><p class="meta strip__aside">Fluid scale, 375 → 1440px</p></div>
+      <div class="ds-pairs">
+        <div class="ds-pair" data-sample="a">
+          <p class="label">A · Shippori Mincho B1 + Hanken Grotesk</p>
+          <p class="ds-spec" style="font-family:'Shippori Mincho B1',serif;font-weight:500">Designer. Developer. Partner.</p>
+          <p style="font-family:'Hanken Grotesk',sans-serif">RAL won a competitive RFP from Brooklyn Bridge Park Corporation to develop two buildings at Pier 6: Quay Tower and The Landing.</p>
+        </div>
+        <div class="ds-pair" data-sample="b">
+          <p class="label">B · Source Serif 4 + Schibsted Grotesk (stand-ins for a licensed pair)</p>
+          <p class="ds-spec" style="font-family:'Source Serif 4',serif">Designer. Developer. Partner.</p>
+          <p style="font-family:'Schibsted Grotesk',sans-serif">RAL won a competitive RFP from Brooklyn Bridge Park Corporation to develop two buildings at Pier 6: Quay Tower and The Landing.</p>
+        </div>
+      </div>
+      <div class="ds-scale">
+        {scale.map(([n, cls, size]) => (
+          <div class="ds-scale__row">
+            <p class="meta num">{n}<br />{size}</p>
+            <p class={cls}>Zero Irving, Union Square</p>
+          </div>
+        ))}
+        <div class="ds-scale__row"><p class="meta num">Body<br />16–18px</p><p class="prose">RAL conceived Zero Irving in response to a competitive request for proposals from the New York City Economic Development Corporation.</p></div>
+        <div class="ds-scale__row"><p class="meta num">Label<br />12px caps</p><p class="label">Selected work</p></div>
+        <div class="ds-scale__row"><p class="meta num">Meta<br />14px</p><p class="meta">Union Square, Manhattan · Developer · Completed</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section ds section--stone" aria-labelledby="t-color">
+    <div class="wrap">
+      <div class="strip"><h2 id="t-color" class="label">02 Color</h2><p class="meta strip__aside">No accent hue. Photography supplies color.</p></div>
+      <ul class="ds-swatches">
+        {colors.map(([n, v, hex, use]) => (
+          <li><span class="ds-chip" style={`background:var(${v})`}></span><span class="ds-sw__n">{n}</span><span class="meta num">{hex}</span><span class="meta">{use}</span></li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <section class="section ds" aria-labelledby="t-grid">
+    <div class="wrap">
+      <div class="strip"><h2 id="t-grid" class="label">03 Grid & spacing</h2><p class="meta strip__aside">12 columns · 1440px max · 8px base</p></div>
+      <div class="grid ds-grid">{Array.from({ length: 12 }, (_, i) => <span class="num">{i + 1}</span>)}</div>
+      <ul class="ds-space">
+        {[['8', 0.5], ['16', 1], ['24', 1.5], ['32', 2], ['48', 3], ['64', 4], ['96', 6], ['144', 9]].map(([l, r]) => <li><span style={`width:${r}rem`}></span><span class="meta num">{l}</span></li>)}
+      </ul>
+    </div>
+  </section>
+
+  <section class="section ds" aria-labelledby="t-comp">
+    <div class="wrap">
+      <div class="strip"><h2 id="t-comp" class="label">04 Components</h2><p class="meta strip__aside">Every component reads from the content files</p></div>
+
+      <p class="label ds-sub">Section strip</p>
+      <div class="strip" style="margin-bottom:var(--s-7)"><div class="strip__title"><span class="label">Selected work</span></div><a class="link meta strip__aside" href="/projects/">All projects<Arrow /></a></div>
+
+      <p class="label ds-sub">Links & buttons</p>
+      <div class="ds-row"><a class="link" href="#">View project<Arrow /></a><a class="btn" href="#">Contact RAL<Arrow /></a></div>
+
+      <p class="label ds-sub">Featured Project card</p>
+      <div class="ds-feat">
+        <a href={`/projects/${zi.id}/`}>
+          <div class="frame" style="aspect-ratio:3 / 2"><Img src={zi.data.card_image!} alt={zi.data.card_alt!} sizes="(max-width: 860px) 100vw, 58vw" /></div>
+          <div class="titleblock">
+            <h3 class="titleblock__name">{zi.data.name}</h3>
+            <p class="titleblock__row"><span>{zi.data.location}</span><span>Developer · Completed</span></p>
+            <p class="titleblock__hook">{zi.data.hook}</p>
+          </div>
+        </a>
+      </div>
+
+      <p class="label ds-sub">Portfolio card (not clickable)</p>
+      <div class="ds-three">{portfolio.map((p) => <PortfolioCard p={p} roles={lk.roles} types={lk.types} />)}</div>
+
+      <p class="label ds-sub">Press item</p>
+      <div class="ds-three">{press.map((p) => <PressItem item={p} />)}</div>
+
+      <p class="label ds-sub">Team cards: with portrait, low-resolution portrait, and the missing-photo state</p>
+      <div class="ds-people">{people.map((p) => p && <PersonCard p={p} />)}</div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .ds-intro { padding-top: calc(var(--section) * 0.6); }
+  .ds-title { margin: var(--s-3) 0 var(--s-5); max-width: 14ch; }
+  .ds-cols { display: grid; grid-template-columns: 7fr 4fr; gap: var(--gutter); align-items: end; }
+  .ds-pairs { display: grid; grid-template-columns: 1fr 1fr; gap: var(--gutter); margin-bottom: var(--s-7); }
+  .ds-pair { border-top: 1px solid var(--rule); padding-top: var(--s-3); display: grid; gap: var(--s-3); }
+  .ds-spec { font-size: clamp(2.25rem, 1.6rem + 2.4vw, 4rem); line-height: 1.05; margin: 0; }
+  .ds-scale__row { display: grid; grid-template-columns: 10rem 1fr; gap: var(--gutter); align-items: baseline; border-top: 1px solid var(--rule); padding-block: var(--s-3); }
+  .ds-swatches { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--s-4) var(--gutter); }
+  .ds-swatches li { display: grid; gap: 0.2rem; }
+  .ds-chip { display: block; aspect-ratio: 3 / 2; border: 1px solid var(--rule); margin-bottom: 0.6rem; }
+  .ds-sw__n { font-weight: 500; }
+  .ds-grid span { background: var(--stone-2); border: 1px dashed var(--rule-strong); height: 6rem; display: grid; place-items: end center; padding-bottom: 0.5rem; font-size: 0.75rem; color: var(--graphite); }
+  .ds-space { list-style: none; padding: 0; margin: var(--s-5) 0 0; display: flex; gap: var(--s-4); align-items: flex-end; flex-wrap: wrap; }
+  .ds-space li { display: grid; gap: 0.4rem; justify-items: start; }
+  .ds-space li span:first-child { height: 1rem; background: var(--ink); }
+  .ds-sub { color: var(--graphite); margin: var(--s-6) 0 var(--s-3); }
+  .ds-row { display: flex; gap: var(--s-4); align-items: center; flex-wrap: wrap; }
+  .ds-feat { max-width: 52rem; }
+  .ds-three { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--gutter); }
+  .ds-people { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: var(--gutter); }
+  @media (max-width: 860px) {
+    .ds-cols, .ds-pairs { grid-template-columns: 1fr; }
+    .ds-swatches { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .ds-three { grid-template-columns: 1fr; row-gap: var(--s-5); }
+    .ds-people { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .ds-scale__row { grid-template-columns: 1fr; gap: 0.5rem; }
+    .ds-grid { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+    .ds-grid span:nth-child(n + 7) { display: none; }
+  }
+</style>

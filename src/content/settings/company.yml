@@ -1,0 +1,61 @@
+# Company data. Enter once; reused in header, footer, Contact, About and search-engine data.
+legal_name: RAL Companies & Affiliates LLC
+short_name: RAL Companies
+founded: 1979
+tagline: Designer. Developer. Partner.
+positioning: >-
+  A New York development firm founded as an architecture practice in 1979. RAL designs,
+  develops and partners on residential, hospitality and public-private projects, from the
+  Brooklyn waterfront to Grand Cayman.
+stats:
+  - value: "{years}"
+    label: Years since RAL was founded in 1979
+    internal_source: Calculated from the founding year (1979, confirmed by Josh Sept 2026).
+  - value: "100+"
+    label: Residential, hotel and mixed-use projects
+    internal_source: Robert Levine live-site bio ("more than 100 luxury residential, hotel and mixed-use projects"). Definition (developed vs. managed) to confirm.
+  - value: "2"
+    label: Competitive public RFPs won on the New York waterfront and Union Square
+    visible: false
+    internal_source: Zero Irving (NYCEDC RFP) and Pier 6 (Brooklyn Bridge Park Corporation RFP), both stated in RAL project copy. Hidden until wording approved.
+  - value: "3"
+    label: Four Seasons hotels delivered or renovated
+    internal_source: Four Seasons Vail, Atlanta, Houston per live-site project copy.
+offices:
+  - name: New York
+    primary: true
+    lines: ["55 Broadway, 25th Floor", "New York, NY 10006"]
+    phone: "212.748.8900"
+    map_url: https://maps.google.com/?q=55+Broadway,+New+York,+NY+10006
+  - name: Colorado
+    lines: ["203 Telluride Street, Suite 150", "Brighton, CO 80601"]
+    map_url: https://maps.google.com/?q=203+Telluride+Street,+Brighton,+CO+80601
+contacts:
+  - label: General inquiries
+    email: info@ralcompanies.com
+  - label: Partnerships & acquisitions
+    email: partners@ralcompanies.com
+    note: Landowners, capital partners, operators and public agencies.
+  - label: Careers
+    email: career@ralcompanies.com
+  - label: Press
+    email: info@ralcompanies.com
+social: []
+partners_list:
+  - { name: Four Seasons, kind: operator }
+  - { name: Mandarin Oriental, kind: operator }
+  - { name: NYC Economic Development Corporation, kind: public }
+  - { name: Brooklyn Bridge Park Corporation, kind: public }
+  - { name: Town of Mountain Village, Colorado, kind: public }
+  - { name: Melkonian Capital, kind: capital }
+  - { name: Oliver's Realty Group, kind: capital }
+  - { name: Navigation Capital, kind: capital }
+  - { name: ODA Architecture, kind: design }
+  - { name: Marmol Radziner, kind: design }
+  - { name: Davis Brody Bond, kind: design }
+internal_notes:
+  - Homepage stats shown - years since 1979 (calculated), 100+ projects (Robert Levine bio), 3 Four Seasons hotels. Square footage and development value omitted until verified; the draft's 50M SF and $20B are not used.
+  - Western office address (Brighton, CO) carried over from draft; confirm or replace with Steamboat/Telluride.
+  - Careers mailbox is "career@" (singular) on the draft; confirm.
+  - Add LinkedIn / Instagram company URLs (draft footer icons linked nowhere).
+  - Partner/operator names shown as text only. Confirm each may be named publicly; logos only with permission.

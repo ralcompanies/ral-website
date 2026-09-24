@@ -1,0 +1,10 @@
+# Team section. Rename, reorder (order), hide (visible: false) or change members freely.
+name: "Senior Project Development"
+order: 2
+visible: true
+card_size: standard
+members:
+  - jerry-gallo
+  - david-sorenson
+  - tom-casciano
+  - douglas-eisenstein

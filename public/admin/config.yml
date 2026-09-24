@@ -1,0 +1,262 @@
+# RAL website admin (Sveltia CMS, Decap-compatible).
+# Every save becomes a Git commit. Nothing reaches the live site until it is published.
+backend:
+  name: github
+  repo: RAL-OWNER/ral-website   # set when the GitHub repository is created
+  branch: main
+publish_mode: editorial_workflow   # Draft -> In review -> Ready -> Publish; each draft gets a preview URL
+media_folder: src/assets/images/uploads
+public_folder: ../../assets/images/uploads
+site_url: https://www.ralcompanies.com
+logo_url: /admin/ral-mark.svg
+slug:
+  encoding: ascii
+  clean_accents: true
+
+collections:
+  # ---------------- PROJECTS ----------------
+  - name: projects
+    label: Projects
+    label_singular: Project
+    description: >-
+      One record per project. "Tier" decides how it appears: Featured (full page), Portfolio
+      (card only), Hidden (kept on file). Promote a project by changing its tier.
+    folder: src/content/projects
+    extension: md
+    format: frontmatter
+    create: true
+    slug: "{{name}}"
+    summary: "{{name}} · {{tier}} · {{location}}"
+    sortable_fields: [name, tier, display_order]
+    view_groups: [{ label: Tier, field: tier }]
+    fields:
+      - { name: name, label: Project name, widget: string }
+      - name: tier
+        label: Tier
+        widget: select
+        default: portfolio
+        options:
+          - { label: "Featured (full project page)", value: featured }
+          - { label: "Portfolio (card only)", value: portfolio }
+          - { label: "Hidden (not shown)", value: hidden }
+      - { name: display_order, label: Display order, widget: number, value_type: int, default: 100, hint: Lower numbers show first on the Projects page. }
+      - name: status
+        label: Status
+        widget: select
+        required: false
+        options: [{ label: Completed, value: completed }, { label: Under construction, value: current }, { label: In development, value: in-development }]
+      - { name: location, label: "Location (short, public)", widget: string, hint: 'e.g. "Union Square, Manhattan"' }
+      - { name: address, label: Street address, widget: string, required: false }
+      - { name: region, label: Region, widget: relation, collection: taxonomies, file: regions, search_fields: ["items.*.label"], value_field: "items.*.id", display_fields: ["items.*.label"] }
+      - { name: types, label: Project type(s), widget: relation, collection: taxonomies, file: project-types, search_fields: ["items.*.label"], value_field: "items.*.id", display_fields: ["items.*.label"], multiple: true }
+      - { name: roles, label: "RAL's role", widget: relation, collection: taxonomies, file: roles, search_fields: ["items.*.label"], value_field: "items.*.id", display_fields: ["items.*.label"], multiple: true, required: false }
+      - { name: public_private, label: Public-private partnership, widget: boolean, default: false }
+      - { name: public_partner, label: Public partner, widget: string, required: false }
+      - { name: completion_year, label: Completion year, widget: number, value_type: int, required: false }
+      - { name: hook, label: One-line description, widget: string, required: false, hint: Used on cards and at the top of the project page. }
+      - { name: card_image, label: Card image, widget: image, required: false, hint: "Used on the Projects page. Landscape works best." }
+      - { name: card_alt, label: Card image description, widget: string, required: false }
+      - name: summary
+        label: "Featured: summary paragraph"
+        widget: text
+        required: false
+      - { name: hero_image, label: "Featured: hero image", widget: image, required: false, hint: Large landscape image at least 2400px wide. }
+      - { name: hero_alt, label: "Featured: hero image description", widget: string, required: false }
+      - { name: hero_kind, label: "Featured: hero is a", widget: select, options: [{ label: Photograph, value: photo }, { label: Rendering, value: rendering }], default: photo }
+      - { name: logo, label: "Featured: project logo", widget: image, required: false }
+      - name: facts
+        label: "Featured: key facts"
+        widget: object
+        collapsed: true
+        required: false
+        fields:
+          - { name: square_feet, label: Square feet, widget: number, value_type: int, required: false }
+          - { name: stories, label: Stories, widget: number, value_type: int, required: false }
+          - { name: residences, label: Residences, widget: number, value_type: int, required: false }
+          - { name: keys, label: Hotel keys, widget: number, value_type: int, required: false }
+          - { name: other, label: Other facts, widget: list, required: false, fields: [{ name: label, widget: string }, { name: value, widget: string }] }
+      - { name: credits, label: "Featured: collaborators", widget: list, required: false, collapsed: true, fields: [{ name: role, label: Role, widget: string }, { name: name, label: Name, widget: string }] }
+      - { name: website, label: Project website, widget: string, required: false }
+      - { name: stats, label: "Featured: project stats", widget: list, required: false, collapsed: true, fields: [{ name: value, widget: string }, { name: label, widget: string }] }
+      - name: chapters
+        label: "Featured: story chapters"
+        widget: list
+        required: false
+        collapsed: true
+        fields:
+          - { name: heading, widget: string }
+          - { name: body, widget: text }
+          - name: image
+            widget: object
+            required: false
+            fields: [{ name: src, label: Image, widget: image }, { name: alt, label: Description, widget: string }, { name: kind, widget: select, options: [photo, rendering], default: photo }]
+      - { name: quote, label: "Featured: pull quote", widget: object, required: false, collapsed: true, fields: [{ name: text, widget: text }, { name: attribution, widget: string }] }
+      - name: gallery
+        label: "Featured: gallery"
+        widget: list
+        required: false
+        collapsed: true
+        fields:
+          - { name: src, label: Image, widget: image }
+          - { name: alt, label: Description, widget: string }
+          - { name: caption, widget: string, required: false }
+          - { name: credit, widget: string, required: false }
+          - { name: kind, widget: select, options: [photo, rendering], default: photo }
+      - { name: milestones, label: "Featured: milestones & awards", widget: list, required: false, collapsed: true, fields: [{ name: year, widget: string }, { name: text, widget: string }] }
+      - { name: team, label: "Featured: RAL team members", widget: relation, collection: people, search_fields: [name], value_field: "{{slug}}", display_fields: [name], multiple: true, required: false }
+      - { name: seo, label: Search & sharing, widget: object, collapsed: true, required: false, fields: [{ name: title, widget: string, required: false }, { name: description, widget: text, required: false }] }
+      - { name: internal_notes, label: "Internal notes (never shown on the site)", widget: list, required: false }
+
+  # ---------------- PEOPLE ----------------
+  - name: people
+    label: People
+    label_singular: Person
+    description: Enter each person once. Add them to a Team Section to show them on the Team page.
+    folder: src/content/people
+    extension: md
+    format: frontmatter
+    create: true
+    slug: "{{name}}"
+    summary: "{{name}} · {{title}}"
+    fields:
+      - { name: name, label: Name, widget: string }
+      - { name: title, label: Title, widget: string, hint: 'Use " · " between two roles.' }
+      - { name: headshot, label: Headshot, widget: image, required: false, hint: "Portrait, 4:5, dark studio background. Leave empty and a quiet placeholder shows." }
+      - { name: headshot_focus, label: Headshot focus, widget: string, default: "50% 30%", required: false }
+      - { name: short_bio, label: One-line summary, widget: string, required: false }
+      - { name: body, label: Biography, widget: markdown, required: false }
+      - { name: linkedin, label: LinkedIn URL, widget: string, required: false }
+      - { name: email, label: Email, widget: string, required: false }
+      - { name: show_email, label: Show email on profile, widget: boolean, default: false }
+      - { name: active, label: Active, widget: boolean, default: true, hint: Turn off when someone leaves. They disappear everywhere. }
+      - { name: internal_notes, label: "Internal notes (never shown)", widget: list, required: false }
+
+  # ---------------- TEAM SECTIONS ----------------
+  - name: teamSections
+    label: Team sections
+    label_singular: Team section
+    description: Create, rename, reorder or hide sections of the Team page, and choose who appears in each, in order.
+    folder: src/content/team-sections
+    extension: yml
+    format: yaml
+    create: true
+    slug: "{{name}}"
+    summary: "{{order}}. {{name}}"
+    sortable_fields: [order, name]
+    fields:
+      - { name: name, label: Section name, widget: string }
+      - { name: order, label: Position on the page, widget: number, value_type: int }
+      - { name: visible, label: Visible, widget: boolean, default: true }
+      - { name: card_size, label: Card size, widget: select, options: [{ label: Large, value: large }, { label: Standard, value: standard }], default: standard }
+      - { name: intro, label: Intro line, widget: string, required: false }
+      - { name: members, label: "Members (drag to reorder)", widget: relation, collection: people, search_fields: [name], value_field: "{{slug}}", display_fields: ["{{name}} · {{title}}"], multiple: true }
+
+  # ---------------- PRESS ----------------
+  - name: press
+    label: Press
+    label_singular: Press item
+    folder: src/content/press
+    extension: yml
+    format: yaml
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{headline}}"
+    summary: "{{date}} · {{headline}}"
+    sortable_fields: [date, headline]
+    fields:
+      - { name: headline, widget: string }
+      - { name: publication, widget: relation, collection: taxonomies, file: publications, search_fields: ["items.*.name"], value_field: "items.*.id", display_fields: ["items.*.name"] }
+      - { name: date, widget: datetime, time_format: false, date_format: "MMMM D, YYYY", format: "YYYY-MM-DD" }
+      - { name: url, label: Link to article, widget: string, required: false }
+      - { name: pdf, label: Archived clipping (PDF), widget: file, required: false, media_folder: /public/press, public_folder: /press }
+      - { name: image, widget: image, required: false }
+      - { name: excerpt, widget: text, required: false }
+      - { name: category, widget: select, options: [coverage, announcement, interview, award], default: coverage }
+      - { name: projects, label: Related projects, widget: relation, collection: projects, search_fields: [name], value_field: "{{slug}}", display_fields: [name], multiple: true, required: false }
+      - { name: people, label: Related people, widget: relation, collection: people, search_fields: [name], value_field: "{{slug}}", display_fields: [name], multiple: true, required: false }
+      - { name: featured, label: Feature on homepage, widget: boolean, default: false }
+      - { name: hidden, label: Hide, widget: boolean, default: false }
+      - { name: internal_notes, widget: list, required: false }
+
+  # ---------------- TIMELINE ----------------
+  - name: timeline
+    label: History timeline
+    folder: src/content/timeline
+    extension: yml
+    format: yaml
+    create: true
+    slug: "{{order}}-{{title}}"
+    summary: "{{years}} · {{title}}"
+    fields:
+      - { name: years, widget: string }
+      - { name: title, widget: string }
+      - { name: text, widget: text }
+      - { name: order, widget: number, value_type: int }
+      - { name: image, widget: image, required: false }
+      - { name: image_alt, widget: string, required: false }
+      - { name: projects, widget: relation, collection: projects, search_fields: [name], value_field: "{{slug}}", display_fields: [name], multiple: true, required: false }
+
+  # ---------------- SETTINGS ----------------
+  - name: settings
+    label: Site settings
+    editor: { preview: false }
+    files:
+      - name: homepage
+        label: Homepage
+        file: src/content/settings/homepage.yml
+        fields:
+          - { name: hero_headline, label: Headline, widget: string }
+          - { name: hero_subline, label: Positioning line, widget: text }
+          - name: hero_slides
+            label: Hero images (in order)
+            widget: list
+            fields: [{ name: image, widget: image }, { name: alt, label: Description, widget: string }, { name: project, widget: relation, collection: projects, search_fields: [name], value_field: "{{slug}}", display_fields: [name], required: false }, { name: caption, widget: string, required: false }]
+          - { name: featured_intro, label: Featured work intro, widget: text }
+          - name: featured_projects
+            label: "Homepage projects (drag to reorder; Featured projects only)"
+            widget: list
+            fields:
+              - { name: project, widget: relation, collection: projects, search_fields: [name], value_field: "{{slug}}", display_fields: ["{{name}} ({{tier}})"] }
+              - { name: image, label: Image override, widget: image, required: false }
+              - { name: alt, label: Image description, widget: string, required: false }
+              - { name: text, label: Text override, widget: string, required: false }
+          - name: capabilities
+            label: Designer / Developer / Partner
+            widget: list
+            fields: [{ name: key, widget: select, options: [design, develop, partner] }, { name: title, widget: string }, { name: text, widget: text }, { name: proof, label: Proof projects, widget: relation, collection: projects, search_fields: [name], value_field: "{{slug}}", display_fields: [name], multiple: true }]
+          - name: leadership_quote
+            label: Leadership quote
+            widget: object
+            fields: [{ name: text, widget: text }, { name: person, widget: relation, collection: people, search_fields: [name], value_field: "{{slug}}", display_fields: [name] }]
+          - { name: press_count, label: Press items on homepage, widget: number, value_type: int, default: 4 }
+          - { name: internal_notes, widget: list, required: false }
+      - name: company
+        label: Company data
+        file: src/content/settings/company.yml
+        fields:
+          - { name: legal_name, widget: string }
+          - { name: short_name, widget: string }
+          - { name: founded, label: Founding year, widget: number, value_type: int }
+          - { name: tagline, widget: string }
+          - { name: positioning, widget: text }
+          - name: stats
+            label: Company statistics
+            widget: list
+            hint: 'Write {years} to show years since founding, calculated automatically.'
+            fields: [{ name: value, widget: string }, { name: label, widget: string }, { name: visible, widget: boolean, default: true }, { name: internal_source, label: "Source (internal)", widget: string, required: false }]
+          - name: offices
+            widget: list
+            fields: [{ name: name, widget: string }, { name: lines, label: Address lines, widget: list }, { name: phone, widget: string, required: false }, { name: map_url, widget: string, required: false }, { name: primary, widget: boolean, default: false }]
+          - { name: contacts, label: Contact routes, widget: list, fields: [{ name: label, widget: string }, { name: email, widget: string }, { name: note, widget: string, required: false }] }
+          - { name: social, widget: list, required: false, fields: [{ name: network, widget: string }, { name: url, widget: string }] }
+          - { name: partners_list, label: Partners list (homepage), widget: list, fields: [{ name: name, widget: string }, { name: kind, widget: select, options: [operator, public, capital, design] }] }
+          - { name: internal_notes, widget: list, required: false }
+
+  # ---------------- LISTS ----------------
+  - name: taxonomies
+    label: Lists
+    editor: { preview: false }
+    files:
+      - { name: project-types, label: Project types, file: src/content/taxonomies/project-types.yml, fields: [{ name: items, label: Types, widget: list, root: true, fields: [{ name: id, widget: string }, { name: label, widget: string }, { name: order, widget: number }] }] }
+      - { name: regions, label: Regions, file: src/content/taxonomies/regions.yml, fields: [{ name: items, label: Regions, widget: list, root: true, fields: [{ name: id, widget: string }, { name: label, widget: string }, { name: order, widget: number }] }] }
+      - { name: roles, label: RAL roles, file: src/content/taxonomies/roles.yml, fields: [{ name: items, label: Roles, widget: list, root: true, fields: [{ name: id, widget: string }, { name: label, widget: string }, { name: order, widget: number }, { name: capability, widget: select, options: [design, develop, partner, manage], required: false }] }] }
+      - { name: publications, label: Publications, file: src/content/publications/publications.yml, fields: [{ name: items, label: Publications, widget: list, root: true, fields: [{ name: id, widget: string }, { name: name, widget: string }, { name: tier, widget: select, options: [national, trade, local] }, { name: website, widget: string, required: false }] }] }

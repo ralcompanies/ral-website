@@ -1,0 +1,95 @@
+---
+import Wordmark from '../assets/logos/ral-wordmark.svg?raw';
+import { company } from '../lib/site';
+const { overlay = false } = Astro.props;
+const c = await company();
+const nav = [
+  { href: '/projects/', label: 'Projects' },
+  { href: '/about/', label: 'About' },
+  { href: '/team/', label: 'Team' },
+  { href: '/press/', label: 'Press' },
+  { href: '/contact/', label: 'Contact' },
+];
+const path = Astro.url.pathname;
+---
+<header class:list={['hdr', overlay && 'hdr--overlay']} data-header>
+  <div class="wrap hdr__in">
+    <a href="/" class="hdr__logo" aria-label={`${c.short_name}, home`} set:html={Wordmark} />
+    <nav class="hdr__nav" aria-label="Main">
+      <ul>
+        {nav.map((n) => <li><a href={n.href} aria-current={path.startsWith(n.href) ? 'page' : undefined}>{n.label}</a></li>)}
+      </ul>
+    </nav>
+    <button class="hdr__toggle" type="button" aria-expanded="false" aria-controls="menu" data-menu-toggle>
+      <span class="visually-hidden">Menu</span><span class="bars" aria-hidden="true"></span>
+    </button>
+  </div>
+  <div class="menu" id="menu" hidden data-menu>
+    <div class="wrap menu__in">
+      <ul class="menu__nav">
+        {nav.map((n) => <li><a href={n.href}>{n.label}</a></li>)}
+      </ul>
+      <div class="menu__foot meta">
+        {c.offices?.filter((o) => o.primary).map((o) => <p>{o.lines.join(', ')}{o.phone && <><br/>{o.phone}</>}</p>)}
+        <p>{c.contacts?.[0]?.email}</p>
+      </div>
+    </div>
+  </div>
+</header>
+
+<style>
+  .hdr { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 50; background: var(--paper); color: var(--ink); border-bottom: 1px solid transparent; transition: transform 0.45s var(--ease), background 0.35s, color 0.35s, border-color 0.35s; }
+  .hdr.is-scrolled { border-bottom-color: var(--rule); }
+  .hdr.is-hidden { transform: translateY(-100%); }
+  .hdr--overlay { position: fixed; inset-inline: 0; background: transparent; color: var(--on-dark); }
+  .hdr--overlay::before { content: ""; position: absolute; inset: 0 0 -3rem; background: linear-gradient(to bottom, rgb(0 0 0 / 0.38), transparent); pointer-events: none; transition: opacity 0.35s; }
+  .hdr--overlay.is-scrolled { background: var(--paper); color: var(--ink); }
+  .hdr--overlay.is-scrolled::before { opacity: 0; }
+  .hdr__in { position: relative; display: flex; align-items: center; justify-content: space-between; height: var(--header-h); }
+  .hdr__logo { display: block; width: 4.25rem; }
+  .hdr__logo :global(svg) { width: 100%; height: auto; display: block; }
+  .hdr__nav ul { display: flex; gap: clamp(1.5rem, 3vw, 2.75rem); list-style: none; margin: 0; padding: 0; }
+  .hdr__nav a { font-size: 0.8125rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; padding-block: 0.5rem; background: linear-gradient(currentColor, currentColor) left bottom / 0 1px no-repeat; transition: background-size 0.35s var(--ease); }
+  .hdr__nav a:hover, .hdr__nav a[aria-current='page'] { background-size: 100% 1px; }
+  .hdr__toggle { display: none; width: 2.75rem; height: 2.75rem; margin-right: -0.6rem; border: 0; background: none; color: inherit; cursor: pointer; }
+  .bars, .bars::before { display: block; width: 1.5rem; height: 1px; background: currentColor; margin-inline: auto; position: relative; transition: transform 0.3s; }
+  .bars::before { content: ""; position: absolute; top: 7px; }
+  .bars { transform: translateY(-4px); }
+  .menu { position: fixed; inset: 0; background: var(--ink); color: var(--on-dark); z-index: -1; padding-top: calc(var(--header-h) + env(safe-area-inset-top, 0px)); overflow-y: auto; }
+  .menu__in { display: flex; flex-direction: column; justify-content: space-between; min-height: calc(100% - 2rem); padding-block: 2rem 3rem; }
+  .menu__nav { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.25rem; }
+  .menu__nav a { font-family: var(--font-display); font-size: clamp(2.25rem, 9vw, 3.25rem); line-height: 1.25; }
+  .menu__foot { margin-top: 3rem; color: var(--on-dark-2); }
+  :global(html.menu-open) .hdr { color: var(--on-dark); background: transparent; border-bottom-color: transparent; }
+  :global(html.menu-open) .hdr::before { opacity: 0; }
+  :global(html.menu-open) .bars { transform: rotate(45deg); }
+  :global(html.menu-open) .bars::before { transform: translateY(-7px) rotate(-90deg); }
+  :global(html.menu-open) { overflow: hidden; }
+  @media (max-width: 860px) {
+    .hdr__nav { display: none; }
+    .hdr__toggle { display: block; }
+    .hdr__logo { width: 3.6rem; }
+  }
+</style>
+
+<script>
+  const h = document.querySelector('[data-header]') as HTMLElement;
+  const t = document.querySelector('[data-menu-toggle]') as HTMLButtonElement;
+  const m = document.querySelector('[data-menu]') as HTMLElement;
+  let last = 0;
+  const onScroll = () => {
+    const y = window.scrollY;
+    h.classList.toggle('is-scrolled', y > 40);
+    if (!document.documentElement.classList.contains('menu-open')) h.classList.toggle('is-hidden', y > 400 && y > last);
+    last = y;
+  };
+  addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+  t?.addEventListener('click', () => {
+    const open = t.getAttribute('aria-expanded') !== 'true';
+    t.setAttribute('aria-expanded', String(open));
+    m.hidden = !open;
+    document.documentElement.classList.toggle('menu-open', open);
+  });
+  addEventListener('keydown', (e) => { if (e.key === 'Escape' && t.getAttribute('aria-expanded') === 'true') t.click(); });
+</script>

@@ -1,0 +1,68 @@
+# Homepage settings. Everything on the homepage that changes is controlled here.
+hero_headline: Designer. Developer. Partner.
+hero_subline: >-
+  Founded as an architecture practice in 1979, RAL designs and develops residential,
+  hospitality and public-private projects, from the Brooklyn waterfront to Grand Cayman.
+hero_slides:
+  - image: ../../assets/images/projects/quay-tower/aerial-park-context.jpg
+    alt: Quay Tower and Brooklyn Bridge Park from above, lower Manhattan beyond
+    project: quay-tower
+    caption: Quay Tower, Brooklyn Bridge Park
+  - image: ../../assets/images/projects/mandarin-oriental-grand-cayman/aerial.jpg
+    alt: Rendering of the Mandarin Oriental resort on the Grand Cayman coast
+    project: mandarin-oriental-grand-cayman
+    caption: Mandarin Oriental, Grand Cayman (rendering)
+  - image: ../../assets/images/projects/zero-irving/lobby.jpg
+    alt: Zero Irving lobby with digital art wall
+    project: zero-irving
+    caption: Zero Irving, Union Square
+  - image: ../../assets/images/projects/roan-steamboat/winter-mountain.jpg
+    alt: Rendering of ROAN townhomes below the Steamboat ski area
+    project: roan-steamboat
+    caption: ROAN, Steamboat Springs (rendering)
+featured_intro: >-
+  Four decades of work across New York, the mountains and the Caribbean. A selection of current
+  and recent projects.
+# Ordered list. Drag to reorder in the admin. Only Featured projects can be chosen.
+featured_projects:
+  - project: zero-irving
+    image: ../../assets/images/projects/zero-irving/clock-tower-view.jpg
+    alt: Tenant lounge at Zero Irving framing the Con Edison clock tower
+  - project: quay-tower
+    image: ../../assets/images/projects/quay-tower/exterior.jpg
+    alt: Quay Tower rising above Brooklyn Bridge Park
+  - project: mandarin-oriental-grand-cayman
+    image: ../../assets/images/projects/mandarin-oriental-grand-cayman/facade-twilight.jpg
+    alt: Rendering of the Mandarin Oriental residences at twilight
+  - project: roan-steamboat
+    image: ../../assets/images/projects/roan-steamboat/exterior-winter.jpg
+    alt: Rendering of ROAN townhomes in winter
+capabilities:
+  - key: design
+    title: Designer
+    text: >-
+      RAL began as an architecture firm and still plans every project from the floor plan out.
+      Our architects and designers work alongside the design teams we hire, so decisions about
+      layout, materials and cost are made together from the first sketch.
+    proof: [quay-tower, parkwood-sports-complex, loft-25]
+  - key: develop
+    title: Developer
+    text: >-
+      We acquire, finance, entitle, build and manage. RAL has taken projects from site selection
+      to sell-out across condominiums, rentals, hotels, offices and planned communities, and has
+      a reputation for delivering on schedule and on budget.
+    proof: [zero-irving, 270-broadway, roan-steamboat]
+  - key: partner
+    title: Partner
+    text: >-
+      Owners, lenders, operators and public agencies bring RAL in when a project is complex. We
+      have won competitive public RFPs, represented ownership on Four Seasons renovations and
+      stepped in for lenders to see projects through to opening.
+    proof: [the-landing, four-seasons-houston, mandarin-oriental-grand-cayman]
+leadership_quote:
+  text: Look for a sponsor's history. Longevity in the market matters. We have been delivering since the '70s.
+  person: robert-a-levine
+press_count: 4
+internal_notes:
+  - "Quote from Robert Levine interview, Off the MRKT (Nov 2024). Confirm he's comfortable with it on the homepage."
+  - "Capability copy is new; written from RAL's own project descriptions. Review wording."
