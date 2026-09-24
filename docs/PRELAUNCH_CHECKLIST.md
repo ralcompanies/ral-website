@@ -50,14 +50,14 @@ Internal. Generated September 24, 2026 from the content files (`internal_notes`)
 - [ ] **A public-private tech hub**: 2023 per NY YIMBY completion report. Confirm.
 - [ ] **Founded as a design firm in 1979. Design is still in our DNA.**: Story and how-we-work copy adapted from the live ralcompanies.com About page. Capability copy is new; review wording.
 
-## Team (31)
+## Team (34)
 
 - [ ] **David Wu**: Bio needed.
 - [ ] **David Wu**: no biography yet (profile shows title and projects only).
 - [ ] **Douglas Eisenstein**: Headshot is 321x432 and a different style: new studio portrait needed.
 - [ ] **Joanna Mikrut**: Retired (per Josh, Sept 2026). Not shown.
 - [ ] **Joanna Mikrut**: Not in Josh's Sept 2026 team list; kept inactive pending confirmation. Headshot exists.
-- [ ] **Josh Wein**: Bio from live site, lightly edited. Josh to review.
+- [ ] **Josh Wein**: Bio rewritten Sept 2026 from Josh's long version. Square footage left out pending confirmation: his draft says 100M+ SF; the live-site bio said 5M+ SF.
 - [ ] **Kyung Kim**: Headshot and bio needed.
 - [ ] **Kyung Kim**: headshot missing (placeholder shows).
 - [ ] **Kyung Kim**: no biography yet (profile shows title and projects only).
@@ -78,6 +78,9 @@ Internal. Generated September 24, 2026 from the content files (`internal_notes`)
 - [ ] **Spencer Stevens**: no biography yet (profile shows title and projects only).
 - [ ] **Stuart Taft**: Live bio says "The Rouse Organization"; corrected to The Rouse Company (the firm's name). Confirm.
 - [ ] **Stuart Taft**: Figures ($2.5B, 6M SF) from live bio; confirm current.
+- [ ] **Susan Sorenson**: Added Sept 2026 per Josh. Headshot needed.
+- [ ] **Susan Sorenson**: headshot missing (placeholder shows).
+- [ ] **Susan Sorenson**: no biography yet (profile shows title and projects only).
 - [ ] **Tom Casciano**: Bio needed before launch. No verifiable public information found; no draft written.
 - [ ] **Tom Casciano**: no biography yet (profile shows title and projects only).
 - [ ] **Valerie Kirsten**: Bio needed. Headshot 1300x1663 (usable).
