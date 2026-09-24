@@ -84,7 +84,7 @@ Internal. Generated September 24, 2026 from the content files (`internal_notes`)
 ## Assets (22)
 
 - [ ] **15 Union Square West**: Image 1328px; original preferred.
-- [ ] **Broadridge**: Shown as Portfolio per Josh (Sept 2026). No photograph on file yet; card shows the no-image state. Need a photo with usage rights.
+- [ ] **Broadridge**: Shown as Portfolio per Josh (Sept 2026). Aerial photo supplied by Josh (Sept 2026); confirm photographer credit and usage rights.
 - [ ] **Brookchester Court**: Image 640px: original required.
 - [ ] **CASA FIU**: Official name styling: draft uses both 'Casa-FIU' and 'CASA-FIU'; using 'CASA FIU' per the CASA logo. Confirm.
 - [ ] **CASA FIU**: Architect inferred from the 'Niles Bolton Associates' watermark on renderings. Confirm before launch.
