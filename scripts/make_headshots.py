@@ -1,5 +1,5 @@
 """Normalize team headshots: black and white, 4:5, head-and-shoulders, consistent head size.
-Usage: python3 scripts/make_headshots.py <source image> <person-id>
+Usage: python3 scripts/make_headshots.py <source image> <person-id> [face share of width, default 0.5; higher = tighter]
 Writes src/assets/images/people/<person-id>.jpg (1200x1500)."""
 import sys, cv2, numpy as np
 from PIL import Image, ImageOps, ImageEnhance
@@ -14,7 +14,9 @@ def face(im):
     if len(f) == 0: raise SystemExit('no face found')
     return max(f, key=lambda r: r[2] * r[3])
 
-def run(src, pid):
+def run(src, pid, face_frac=None):
+    global FACE_FRAC
+    if face_frac: FACE_FRAC = face_frac
     im = ImageOps.exif_transpose(Image.open(src)).convert('RGB')
     x, y, w, h = face(im)
     cw = w / FACE_FRAC; ch = cw * OUT_H / OUT_W
@@ -34,4 +36,4 @@ def run(src, pid):
     print(pid, 'face', (x, y, w, h), 'src', im.size, 'crop w', int(cw))
 
 if __name__ == '__main__':
-    run(sys.argv[1], sys.argv[2])
+    run(sys.argv[1], sys.argv[2], float(sys.argv[3]) if len(sys.argv) > 3 else None)
