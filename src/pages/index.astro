@@ -179,7 +179,7 @@ const statusLabel = { completed: 'Completed', current: 'Under construction', 'in
               {leaderPeople.filter((p) => p.id !== quotePerson.id).map((p) => (
                 <li>
                   <a href={`/team/${p.id}/`}>
-                    <div class="frame frame--portrait">{p.data.headshot && <Img src={p.data.headshot} alt="" sizes="160px" widths={[240, 400]} position={p.data.headshot_focus} />}</div>
+                    <div class="frame frame--portrait">{p.data.headshot && <Img src={p.data.headshot} alt="" sizes="160px" widths={[400, 800]} position={p.data.headshot_focus} />}</div>
                     <span class="people__n">{p.data.name}</span>
                     <span class="meta">{p.data.title}</span>
                   </a>

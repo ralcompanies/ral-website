@@ -8,7 +8,7 @@ const initials = d.name.split(/\s+/).filter((w: string) => /^[A-Z]/.test(w)).map
 <a class:list={['person', `person--${size}`]} href={`/team/${p.id}/`}>
   <div class="frame person__img">
     {d.headshot
-      ? <Img src={d.headshot} alt={`Portrait of ${d.name}`} sizes={size === 'large' ? '(max-width: 700px) 50vw, 22vw' : '(max-width: 700px) 50vw, 16vw'} widths={[320, 480, 720, 960]} position={d.headshot_focus} />
+      ? <Img src={d.headshot} alt={`Portrait of ${d.name}`} sizes={size === 'large' ? '(max-width: 700px) 50vw, 22vw' : '(max-width: 700px) 50vw, 16vw'} widths={[400, 800]} position={d.headshot_focus} />
       : <span class="person__mono" aria-hidden="true">{initials}</span>}
   </div>
   <span class="person__name">{d.name}</span>

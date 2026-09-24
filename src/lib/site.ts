@@ -37,3 +37,18 @@ export const fmtDate = (d: Date, precision: 'day' | 'month' | 'year' = 'day') =>
   precision === 'year'
     ? String(d.getUTCFullYear())
     : d.toLocaleDateString('en-US', { timeZone: 'UTC', month: 'long', year: 'numeric', ...(precision === 'day' ? { day: 'numeric' } : {}) });
+
+export const statusLabel: Record<string, string> = { completed: 'Completed', current: 'Under construction', 'in-development': 'In development' };
+export function rolesOf(p: CollectionEntry<'projects'>, roles: Record<string, any>) {
+  return p.data.roles.map((r) => roles[r.id]?.label).filter(Boolean).join(', ');
+}
+export function typesOf(p: CollectionEntry<'projects'>, types: Record<string, any>) {
+  return p.data.types.map((t) => types[t.id]?.label).filter(Boolean).join(' · ');
+}
+export async function activePeople() {
+  return (await getCollection('people')).filter((p) => p.data.active);
+}
+export async function legalPages() {
+  const pages = await getCollection('pages');
+  return { privacy: pages.some((p) => p.id === 'privacy'), terms: pages.some((p) => p.id === 'terms') };
+}

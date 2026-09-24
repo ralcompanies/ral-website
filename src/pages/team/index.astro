@@ -1,0 +1,85 @@
+---
+import { getCollection, getEntries } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import PageIntro from '../../components/PageIntro.astro';
+import PersonCard from '../../components/PersonCard.astro';
+
+// Sections and their members come entirely from src/content/team-sections.
+const sections = (await getCollection('teamSections'))
+  .filter((s) => s.data.visible)
+  .sort((a, b) => a.data.order - b.data.order);
+const withPeople = await Promise.all(
+  sections.map(async (s) => ({ s, people: (await getEntries(s.data.members)).filter((p) => p.data.active) })),
+);
+---
+<Base title="Team" description="The people of RAL Companies: architects, developers, project managers and finance professionals.">
+  <PageIntro eyebrow="Team" title="The people behind the work" />
+  <div class="wrap team" data-team>
+    {withPeople.filter((x) => x.people.length).map(({ s, people }) => (
+      <section class="tsec" aria-labelledby={`sec-${s.id}`}>
+        <div class="strip">
+          <h2 id={`sec-${s.id}`} class="label">{s.data.name}</h2>
+          <p class="meta strip__aside num">{String(people.length).padStart(2, '0')}</p>
+        </div>
+        {s.data.intro && <p class="tsec__intro meta">{s.data.intro}</p>}
+        <div class:list={['tgrid', `tgrid--${s.data.card_size}`]}>
+          {people.map((p) => <PersonCard p={p} size={s.data.card_size} />)}
+        </div>
+      </section>
+    ))}
+  </div>
+
+  <dialog class="bio-panel" data-panel aria-label="Profile">
+    <button type="button" class="bio-panel__close" data-close aria-label="Close profile">×</button>
+    <div class="bio-panel__body" data-body></div>
+  </dialog>
+</Base>
+
+<style>
+  .team { display: grid; gap: var(--section); padding-bottom: var(--section); }
+  .tsec__intro { max-width: 40rem; margin: calc(var(--s-4) * -1) 0 var(--s-5); }
+  .tgrid { display: grid; gap: var(--s-5) var(--gutter); }
+  .tgrid--large { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+  .tgrid--standard { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+  .bio-panel { position: fixed; inset: 0 0 0 auto; margin: 0; width: min(62rem, 92vw); max-width: none; height: 100dvh; max-height: none; border: 0; padding: 0; background: var(--paper); color: var(--ink); overflow-y: auto; box-shadow: -24px 0 60px rgb(0 0 0 / 0.18); }
+  .bio-panel::backdrop { background: rgb(20 20 19 / 0.45); }
+  .bio-panel[open] { animation: slide 0.45s var(--ease); }
+  @keyframes slide { from { transform: translateX(6%); opacity: 0; } to { transform: none; opacity: 1; } }
+  .bio-panel__close { position: sticky; top: 0; margin-left: auto; display: block; width: 3.5rem; height: 3.5rem; border: 0; background: var(--paper); font-size: 2rem; cursor: pointer; color: var(--ink); z-index: 2; }
+  .bio-panel__body { padding: 0 clamp(1.5rem, 4vw, 4rem) 4rem; margin-top: -2rem; }
+  @media (max-width: 1100px) { .tgrid--large { grid-template-columns: repeat(3, minmax(0, 1fr)); } .tgrid--standard { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+  @media (max-width: 700px) { .tgrid--large, .tgrid--standard { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+</style>
+
+<script>
+  // Desktop: open profiles in a side panel (the URL still changes, so links are shareable).
+  // Mobile, or if anything fails: follow the link to the full profile page.
+  const panel = document.querySelector<HTMLDialogElement>('[data-panel]')!;
+  const body = panel.querySelector('[data-body]')!;
+  const listUrl = location.pathname;
+  const wide = () => matchMedia('(min-width: 900px)').matches;
+  async function open(href: string, push = true) {
+    const html = await (await fetch(href)).text();
+    const doc = new DOMParser().parseFromString(html, 'text/html');
+    const article = doc.querySelector('[data-bio]');
+    if (!article) throw new Error('no bio');
+    body.replaceChildren(document.importNode(article, true));
+    if (!panel.open) panel.showModal();
+    panel.scrollTop = 0;
+    if (push) history.pushState({ bio: href }, '', href);
+    document.title = doc.title;
+  }
+  document.querySelectorAll<HTMLAnchorElement>('[data-team] a.person').forEach((a) =>
+    a.addEventListener('click', async (e) => {
+      if (!wide() || e.metaKey || e.ctrlKey) return;
+      e.preventDefault();
+      try { await open(a.href); } catch { location.href = a.href; }
+    }),
+  );
+  const close = () => { if (panel.open) panel.close(); };
+  panel.querySelector('[data-close]')!.addEventListener('click', () => history.back());
+  panel.addEventListener('cancel', (e) => { e.preventDefault(); history.back(); });
+  panel.addEventListener('click', (e) => { if (e.target === panel) history.back(); });
+  addEventListener('popstate', (e) => { if (e.state?.bio) open(e.state.bio, false); else { close(); document.title = document.title; } });
+  history.replaceState({}, '', listUrl);
+</script>

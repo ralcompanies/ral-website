@@ -6,7 +6,7 @@ const typeLabel = d.types.map((t: any) => types[t.id]?.label).filter(Boolean).jo
 ---
 <article class="pcard">
   {d.card_image
-    ? <div class="frame" style="aspect-ratio:3 / 2"><Img src={d.card_image} alt={d.card_alt ?? d.name} sizes="(max-width: 700px) 100vw, (max-width: 1100px) 50vw, 30vw" widths={[480, 800, 1200]} /></div>
+    ? <div class="frame" style="aspect-ratio:3 / 2"><Img src={d.card_image} alt={d.card_alt ?? d.name} sizes="(max-width: 700px) 100vw, (max-width: 1100px) 50vw, 30vw" widths={[640, 1024]} /></div>
     : <div class="pcard__plate" aria-hidden="true"><span class="label">{d.location}</span><span class="pcard__plate-name">{d.name}</span></div>}
   <div class="pcard__body">
     <h3 class="pcard__name">{d.name}</h3>

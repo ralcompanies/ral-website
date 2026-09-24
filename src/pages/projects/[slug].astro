@@ -1,0 +1,290 @@
+---
+/**
+ * Featured Project template. Every module is optional: empty fields simply
+ * do not render, so a project with one rendering and a paragraph produces a
+ * short, finished page, and a flagship produces a long one.
+ */
+import { getCollection, getEntries } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import Img from '../../components/Img.astro';
+import Arrow from '../../components/Arrow.astro';
+import FeaturedCard from '../../components/FeaturedCard.astro';
+import PersonCard from '../../components/PersonCard.astro';
+import PressItem from '../../components/PressItem.astro';
+import { lookups, statusLabel, rolesOf, typesOf, visiblePress } from '../../lib/site';
+
+export async function getStaticPaths() {
+  const projects = await getCollection('projects', (p) => p.data.tier === 'featured');
+  return projects.map((p) => ({ params: { slug: p.id }, props: { p } }));
+}
+const { p } = Astro.props;
+const d = p.data;
+const lk = await lookups();
+const nf = new Intl.NumberFormat('en-US');
+
+const facts: [string, string, string?][] = [];
+if (d.status) facts.push(['Status', statusLabel[d.status]]);
+if (d.completion_year) facts.push(['Completed', String(d.completion_year)]);
+facts.push(['Location', d.address ?? d.location]);
+facts.push(['Type', typesOf(p, lk.types)]);
+if (d.roles.length) facts.push(["RAL's role", rolesOf(p, lk.roles)]);
+if (d.facts.square_feet) facts.push(['Square feet', nf.format(d.facts.square_feet)]);
+if (d.facts.stories) facts.push(['Stories', String(d.facts.stories)]);
+if (d.facts.residences) facts.push(['Residences', nf.format(d.facts.residences)]);
+if (d.facts.keys) facts.push(['Hotel keys', nf.format(d.facts.keys)]);
+for (const o of d.facts.other) facts.push([o.label, o.value]);
+if (d.public_private && d.public_partner) facts.push(['Public partner', d.public_partner]);
+if (d.website) facts.push(['Website', d.website.replace(/^https?:\/\/(www\.)?/, '').replace(/\/$/, ''), d.website]);
+
+const team = (await getEntries(d.team)).filter((x) => x.data.active);
+const press = (await visiblePress()).filter((x) => x.data.projects.some((r) => r.id === p.id));
+const others = (await getCollection('projects', (x) => x.data.tier === 'featured' && x.id !== p.id)).sort((a, b) => {
+  const score = (x: any) => (x.data.region.id === d.region.id ? -2 : 0) + (x.data.types.some((t: any) => d.types.some((u) => u.id === t.id)) ? -1 : 0);
+  return score(a) - score(b) || a.data.display_order - b.data.display_order;
+}).slice(0, 3);
+const ogDesc = d.seo?.description ?? d.hook ?? d.summary;
+---
+<Base title={d.seo?.title ?? `${d.name}, ${d.location}`} description={ogDesc} overlayHeader>
+  <section class="phero on-dark">
+    <div class="phero__img"><Img src={d.hero_image!} alt={d.hero_alt!} priority sizes="100vw" /></div>
+    <div class="phero__shade" aria-hidden="true"></div>
+    <div class="wrap phero__content">
+      <p class="label phero__eyebrow"><a href="/projects/">Projects</a> <span aria-hidden="true">/</span> {d.location}</p>
+      <h1 class="display phero__title">{d.name}</h1>
+      {d.hero_kind === 'rendering' && <p class="meta phero__note">Rendering</p>}
+    </div>
+  </section>
+
+  <section class="section wrap intro">
+    <div class="intro__text">
+      {d.hook && <p class="h3 intro__hook">{d.hook}</p>}
+      {d.summary && <p class="intro__summary">{d.summary}</p>}
+    </div>
+    <aside class="facts" aria-label="Project facts">
+      <dl>
+        {facts.map(([k, v, href]) => (
+          <div class="facts__row"><dt class="label">{k}</dt><dd>{href ? <a href={href} target="_blank" rel="noopener" class="link">{v}<Arrow dir="up-right" /></a> : v}</dd></div>
+        ))}
+      </dl>
+    </aside>
+  </section>
+
+  {d.stats.length > 0 && (
+    <section class="section section--stone">
+      <div class="wrap">
+        <dl class="pstats">
+          {d.stats.map((s) => <div class="pstat"><dt class="pstat__v num">{s.value}</dt><dd class="meta">{s.label}</dd></div>)}
+        </dl>
+      </div>
+    </section>
+  )}
+
+  {d.chapters.length > 0 && (
+    <section class="section chapters">
+      {d.chapters.map((ch, i) => (
+        <article class:list={['wrap chapter', i % 2 === 1 && 'chapter--flip', !ch.image && 'chapter--text']}>
+          <div class="chapter__text">
+            <p class="label num chapter__no">{String(i + 1).padStart(2, '0')}</p>
+            <h2 class="h2">{ch.heading}</h2>
+            <p>{ch.body}</p>
+          </div>
+          {ch.image && (
+            <figure class="chapter__fig">
+              <div class="frame"><Img src={ch.image.src} alt={ch.image.alt} sizes="(max-width: 860px) 100vw, 58vw" /></div>
+              {(ch.image.caption || ch.image.kind === 'rendering') && <figcaption class="caption"><span>{ch.image.caption}</span>{ch.image.kind === 'rendering' && <span class="tag-rendering">Rendering</span>}</figcaption>}
+            </figure>
+          )}
+        </article>
+      ))}
+    </section>
+  )}
+
+  {d.quote && (
+    <section class="section section--dark on-dark">
+      <blockquote class="wrap pquote">
+        <p class="h2">“{d.quote.text}”</p>
+        <footer class="meta">{d.quote.attribution}</footer>
+      </blockquote>
+    </section>
+  )}
+
+  {d.gallery.length > 0 && (
+    <section class="section wrap" aria-labelledby="gal-h">
+      <div class="strip"><h2 id="gal-h" class="label">Gallery</h2><p class="meta strip__aside num">{String(d.gallery.length).padStart(2, '0')} images{d.gallery.some((g) => g.kind === 'rendering') && ' · includes renderings'}</p></div>
+      <ul class="gallery" data-gallery>
+        {d.gallery.map((g, i) => (
+          <li class="gallery__item">
+            <button type="button" class="gallery__btn" data-index={i} aria-label={`Open image: ${g.alt}`}>
+              <div class="frame"><Img src={g.src} alt={g.alt} sizes="(max-width: 560px) 100vw, (max-width: 860px) 50vw, 33vw" /></div>
+            </button>
+            {(g.caption || g.credit) && <p class="caption"><span>{g.caption}</span><span>{g.credit}</span></p>}
+          </li>
+        ))}
+      </ul>
+      <dialog class="lightbox" data-lightbox aria-label="Image viewer">
+        <div class="lightbox__stage" data-stage></div>
+        <p class="lightbox__cap meta" data-cap></p>
+        <button type="button" class="lightbox__btn lightbox__close" data-close aria-label="Close">×</button>
+        <button type="button" class="lightbox__btn lightbox__prev" data-prev aria-label="Previous image"><Arrow dir="left" /></button>
+        <button type="button" class="lightbox__btn lightbox__next" data-next aria-label="Next image"><Arrow /></button>
+      </dialog>
+    </section>
+  )}
+
+  {(d.credits.length > 0 || d.milestones.length > 0) && (
+    <section class="section wrap credits-wrap">
+      {d.credits.length > 0 && (
+        <div>
+          <div class="strip"><h2 class="label">Collaborators</h2></div>
+          <dl class="credits">{d.credits.map((c) => <div><dt class="label">{c.role}</dt><dd class="h3">{c.name}</dd></div>)}</dl>
+        </div>
+      )}
+      {d.milestones.length > 0 && (
+        <div>
+          <div class="strip"><h2 class="label">Milestones</h2></div>
+          <ol class="miles">{d.milestones.map((m) => <li><span class="num label">{m.year}</span><span>{m.text}</span></li>)}</ol>
+        </div>
+      )}
+    </section>
+  )}
+
+  {team.length > 0 && (
+    <section class="section wrap" aria-labelledby="team-h">
+      <div class="strip"><h2 id="team-h" class="label">RAL team</h2><a class="link meta strip__aside" href="/team/">Full team<Arrow /></a></div>
+      <div class="pteam">{team.map((t) => <PersonCard p={t} />)}</div>
+    </section>
+  )}
+
+  {press.length > 0 && (
+    <section class="section section--stone" aria-labelledby="press-h">
+      <div class="wrap">
+        <div class="strip"><h2 id="press-h" class="label">In the press</h2><a class="link meta strip__aside" href={`/press/?project=${p.id}`}>All coverage<Arrow /></a></div>
+        <div class="ppress">{press.slice(0, 6).map((x) => <PressItem item={x} />)}</div>
+      </div>
+    </section>
+  )}
+
+  <section class="section wrap" aria-labelledby="next-h">
+    <div class="strip"><h2 id="next-h" class="label">More projects</h2><a class="link meta strip__aside" href="/projects/">All projects<Arrow /></a></div>
+    <div class="next">{others.map((o) => <FeaturedCard p={o} roles={lk.roles} sizes="(max-width: 860px) 100vw, 33vw" />)}</div>
+  </section>
+</Base>
+
+<style>
+  .phero { position: relative; height: clamp(30rem, 86svh, 58rem); background: var(--ink); color: var(--on-dark); overflow: hidden; }
+  .phero__img, .phero__img :global(picture) { position: absolute; inset: 0; height: 100%; }
+  .phero__img :global(img) { width: 100%; height: 100%; object-fit: cover; }
+  .phero__shade { position: absolute; inset: 0; background: linear-gradient(to top, rgb(10 10 9 / 0.65), rgb(10 10 9 / 0) 55%), linear-gradient(to bottom, rgb(10 10 9 / 0.35), transparent 25%); }
+  .phero__content { position: relative; height: 100%; display: flex; flex-direction: column; justify-content: flex-end; padding-bottom: var(--s-5); }
+  .phero__eyebrow { color: var(--on-dark); margin-bottom: var(--s-3); }
+  .phero__eyebrow a { border-bottom: 1px solid rgb(245 243 238 / 0.5); }
+  .phero__title { max-width: 16ch; }
+  .phero__note { color: var(--on-dark-2); margin-top: var(--s-2); }
+
+  .intro { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--gutter); row-gap: var(--s-6); }
+  .intro__text { grid-column: 1 / span 7; }
+  .intro__hook { margin-bottom: var(--s-4); max-width: 32ch; }
+  .intro__summary { max-width: var(--measure); color: var(--ink-2); }
+  .facts { grid-column: 9 / -1; }
+  .facts dl { margin: 0; border-top: 1px solid var(--ink); }
+  .facts__row { display: grid; grid-template-columns: 8.5rem 1fr; gap: 1rem; padding-block: 0.8rem; border-bottom: 1px solid var(--rule); }
+  .facts dt { color: var(--graphite); padding-top: 0.2rem; }
+  .facts dd { margin: 0; overflow-wrap: anywhere; }
+  .facts .link :global(.arrow) { width: 0.8em; }
+
+  .pstats { display: grid; grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr)); gap: var(--gutter); margin: 0; }
+  .pstat { border-top: 1px solid var(--rule-strong); padding-top: var(--s-3); }
+  .pstat__v { font-family: var(--font-display); font-size: var(--fs-stat); line-height: 1; margin-bottom: var(--s-2); }
+  .pstat dd { margin: 0; }
+
+  .chapters { display: grid; gap: clamp(4rem, 2rem + 6vw, 8rem); }
+  .chapter { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--gutter); row-gap: var(--s-4); align-items: center; }
+  .chapter__text { grid-column: 1 / span 4; display: grid; gap: var(--s-3); }
+  .chapter__text p:last-child { color: var(--ink-2); }
+  .chapter__no { color: var(--graphite); }
+  .chapter__fig { grid-column: 6 / -1; margin: 0; }
+  .chapter__fig .frame { aspect-ratio: 3 / 2; }
+  .chapter--flip .chapter__text { grid-column: 9 / -1; grid-row: 1; }
+  .chapter--flip .chapter__fig { grid-column: 1 / span 7; grid-row: 1; }
+  .chapter--text .chapter__text { grid-column: 1 / span 7; }
+
+  .pquote { margin-inline: auto; }
+  .pquote p { max-width: 24ch; margin-bottom: var(--s-4); }
+  .pquote footer { color: var(--on-dark-2); }
+
+  .gallery { list-style: none; margin: 0; padding: 0; columns: 3; column-gap: var(--gutter); }
+  .gallery__item { break-inside: avoid; margin-bottom: var(--gutter); }
+  .gallery__btn { display: block; width: 100%; padding: 0; border: 0; background: none; cursor: zoom-in; }
+  .gallery__btn .frame { background: var(--stone-2); }
+  .gallery__btn :global(img) { height: auto; }
+  .gallery__btn:hover :global(img) { transform: scale(1.02); }
+
+  .lightbox { border: 0; padding: 0; margin: 0; width: 100vw; height: 100dvh; max-width: none; max-height: none; background: rgb(12 12 11 / 0.97); color: var(--on-dark); }
+  .lightbox::backdrop { background: rgb(12 12 11 / 0.9); }
+  .lightbox[open] { display: grid; grid-template-rows: 1fr auto; }
+  .lightbox__stage { display: grid; place-items: center; padding: 4rem 4.5rem 1rem; min-height: 0; }
+  .lightbox__stage :global(img) { max-width: 100%; max-height: calc(100dvh - 8rem); width: auto; height: auto; object-fit: contain; }
+  .lightbox__cap { text-align: center; padding: 0 1rem 1.5rem; color: var(--on-dark-2); }
+  .lightbox__btn { position: absolute; background: none; border: 0; color: var(--on-dark); cursor: pointer; width: 3rem; height: 3rem; display: grid; place-items: center; font-size: 2rem; line-height: 1; }
+  .lightbox__btn :global(.arrow) { width: 1.6rem; height: 1rem; }
+  .lightbox__close { top: 1rem; right: 1rem; }
+  .lightbox__prev { left: 1rem; top: 50%; transform: translateY(-50%); }
+  .lightbox__next { right: 1rem; top: 50%; transform: translateY(-50%); }
+
+  .credits-wrap { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--s-6) var(--gutter); }
+  .credits-wrap .strip { margin-bottom: var(--s-4); }
+  .credits { margin: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--s-4) var(--gutter); }
+  .credits dt { color: var(--graphite); margin-bottom: 0.4rem; }
+  .credits dd { margin: 0; }
+  .miles { list-style: none; margin: 0; padding: 0; }
+  .miles li { display: grid; grid-template-columns: 5rem 1fr; gap: 1rem; padding-block: 0.8rem; border-bottom: 1px solid var(--rule); }
+
+  .pteam { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: var(--gutter); }
+  .ppress { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--s-5) var(--gutter); }
+  .next { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--gutter); }
+
+  @media (max-width: 1000px) {
+    .pteam { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .ppress, .next { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+  @media (max-width: 860px) {
+    .intro__text, .facts { grid-column: 1 / -1; }
+    .chapter__text, .chapter__fig, .chapter--flip .chapter__text, .chapter--flip .chapter__fig, .chapter--text .chapter__text { grid-column: 1 / -1; grid-row: auto; }
+    .chapter--flip .chapter__fig { order: 2; }
+    .gallery { columns: 2; }
+    .credits-wrap { grid-template-columns: 1fr; }
+    .lightbox__stage { padding: 4rem 0.5rem 1rem; }
+    .lightbox__prev, .lightbox__next { top: auto; bottom: 0.5rem; transform: none; }
+  }
+  @media (max-width: 560px) {
+    .ppress, .next { grid-template-columns: 1fr; }
+    .gallery { columns: 1; }
+    .pteam { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .facts__row { grid-template-columns: 7rem 1fr; }
+  }
+</style>
+
+<script>
+  const list = document.querySelector('[data-gallery]');
+  const box = document.querySelector<HTMLDialogElement>('[data-lightbox]');
+  if (list && box) {
+    const items = Array.from(list.querySelectorAll<HTMLButtonElement>('.gallery__btn'));
+    const stage = box.querySelector('[data-stage]')!;
+    const cap = box.querySelector('[data-cap]')!;
+    let i = 0;
+    const show = (n: number) => {
+      i = (n + items.length) % items.length;
+      const pic = items[i].querySelector('picture')!.cloneNode(true) as HTMLElement;
+      pic.querySelectorAll('source').forEach((s) => s.setAttribute('sizes', '100vw'));
+      const img = pic.querySelector('img')!; img.setAttribute('sizes', '100vw'); img.loading = 'eager';
+      stage.replaceChildren(pic);
+      cap.textContent = `${img.alt} · ${i + 1} / ${items.length}`;
+    };
+    items.forEach((b, n) => b.addEventListener('click', () => { show(n); box.showModal(); }));
+    box.querySelector('[data-close]')!.addEventListener('click', () => box.close());
+    box.querySelector('[data-prev]')!.addEventListener('click', () => show(i - 1));
+    box.querySelector('[data-next]')!.addEventListener('click', () => show(i + 1));
+    box.addEventListener('keydown', (e) => { if (e.key === 'ArrowLeft') show(i - 1); if (e.key === 'ArrowRight') show(i + 1); });
+    box.addEventListener('click', (e) => { if (e.target === box || e.target === stage) box.close(); });
+  }
+</script>

@@ -1,0 +1,13 @@
+---
+import Base from '../layouts/Base.astro';
+import PageIntro from '../components/PageIntro.astro';
+import Arrow from '../components/Arrow.astro';
+---
+<Base title="Page not found" noindex>
+  <PageIntro eyebrow="404" title="This page has moved or no longer exists." />
+  <div class="wrap nf">
+    <a class="link" href="/projects/">View projects<Arrow /></a>
+    <a class="link" href="/">Home<Arrow /></a>
+  </div>
+</Base>
+<style>.nf { display: flex; gap: var(--s-5); padding-bottom: var(--section); }</style>

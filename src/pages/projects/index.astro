@@ -1,0 +1,120 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageIntro from '../../components/PageIntro.astro';
+import FeaturedCard from '../../components/FeaturedCard.astro';
+import PortfolioCard from '../../components/PortfolioCard.astro';
+import { publicProjects, lookups } from '../../lib/site';
+
+const lk = await lookups();
+const all = await publicProjects();
+const featured = all.filter((p) => p.data.tier === 'featured');
+const portfolio = all.filter((p) => p.data.tier === 'portfolio');
+
+// Only offer filters that match at least one project
+const used = (key: 'types' | 'region') =>
+  new Set(all.flatMap((p) => (key === 'types' ? p.data.types.map((t) => t.id) : [p.data.region.id])));
+const typeOpts = Object.entries(lk.types).filter(([id]) => used('types').has(id)).sort((a: any, b: any) => a[1].order - b[1].order);
+const regionOpts = Object.entries(lk.regions).filter(([id]) => used('region').has(id)).sort((a: any, b: any) => a[1].order - b[1].order);
+const attrs = (p: any) => ({ 'data-types': p.data.types.map((t: any) => t.id).join(' '), 'data-region': p.data.region.id });
+---
+<Base title="Projects" description="Residential, hospitality, office and public-private projects by RAL Companies, from New York to the Mountain West and the Caribbean.">
+  <PageIntro eyebrow="Projects" title="Selected work" />
+
+  <section class="wrap filters" aria-label="Filter projects" data-filters>
+    <div class="filters__group">
+      <p class="label">Type</p>
+      <div class="chips" role="group" aria-label="Project type">
+        <button type="button" class="chip" aria-pressed="true" data-filter="type" data-value="">All</button>
+        {typeOpts.map(([id, t]: any) => <button type="button" class="chip" aria-pressed="false" data-filter="type" data-value={id}>{t.label}</button>)}
+      </div>
+    </div>
+    <div class="filters__group">
+      <p class="label">Region</p>
+      <div class="chips" role="group" aria-label="Region">
+        <button type="button" class="chip" aria-pressed="true" data-filter="region" data-value="">All</button>
+        {regionOpts.map(([id, r]: any) => <button type="button" class="chip" aria-pressed="false" data-filter="region" data-value={id}>{r.label}</button>)}
+      </div>
+    </div>
+    <p class="meta filters__count num" aria-live="polite"><span data-count>{all.length}</span> projects</p>
+  </section>
+
+  <section class="section section--tight wrap" aria-labelledby="feat-h">
+    <div class="strip"><h2 id="feat-h" class="label">Featured</h2><p class="meta strip__aside num">{String(featured.length).padStart(2, '0')}</p></div>
+    <div class="feat">
+      {featured.map((p, i) => (
+        <div class:list={['feat__item', i === 0 && 'feat__item--wide']} {...attrs(p)} data-item>
+          <FeaturedCard p={p} roles={lk.roles} wide={i === 0} number={String(i + 1).padStart(2, '0')} />
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="section wrap" aria-labelledby="port-h">
+    <div class="strip"><h2 id="port-h" class="label">Portfolio</h2><p class="meta strip__aside">Selected projects since 1979</p></div>
+    <div class="port">
+      {portfolio.map((p) => (
+        <div {...attrs(p)} data-item><PortfolioCard p={p} roles={lk.roles} types={lk.types} /></div>
+      ))}
+    </div>
+    <p class="meta empty" hidden data-empty>No projects match these filters. <button type="button" class="reset" data-reset>Show all projects</button></p>
+  </section>
+</Base>
+
+<style>
+  .section--tight { padding-top: var(--s-5); }
+  .filters { display: flex; flex-wrap: wrap; gap: var(--s-3) var(--s-6); align-items: flex-end; border-top: 1px solid var(--rule); padding-top: var(--s-3); }
+  .filters__group { display: grid; gap: 0.6rem; min-width: 0; }
+  .filters__group .label { color: var(--graphite); }
+  .filters__count { margin-left: auto; }
+  .chips { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+  .chip { font: 500 0.875rem/1 var(--font-body); padding: 0.6rem 0.9rem; border: 1px solid var(--rule-strong); background: transparent; color: var(--ink); cursor: pointer; min-height: 2.5rem; transition: background 0.2s, color 0.2s, border-color 0.2s; }
+  .chip:hover { border-color: var(--ink); }
+  .chip[aria-pressed='true'] { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+  .feat { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--s-7) var(--gutter); }
+  .feat__item--wide { grid-column: 1 / -1; }
+  .port { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--s-6) var(--gutter); }
+  [data-item][hidden] { display: none; }
+  .empty { margin-top: var(--s-4); }
+  .reset { font: inherit; background: none; border: 0; border-bottom: 1px solid currentColor; padding: 0; cursor: pointer; color: var(--ink); }
+  @media (max-width: 1000px) { .port { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (max-width: 700px) {
+    .feat, .port { grid-template-columns: 1fr; row-gap: var(--s-6); }
+    .filters { flex-direction: column; align-items: stretch; }
+    .chips { flex-wrap: nowrap; overflow-x: auto; margin-inline: calc(var(--margin) * -1); padding-inline: var(--margin); scrollbar-width: none; }
+    .chip { flex: none; }
+    .filters__count { margin-left: 0; }
+  }
+</style>
+
+<script>
+  const state: Record<string, string> = { type: '', region: '' };
+  const items = Array.from(document.querySelectorAll<HTMLElement>('[data-item]'));
+  const chips = Array.from(document.querySelectorAll<HTMLButtonElement>('[data-filter]'));
+  const count = document.querySelector('[data-count]')!;
+  const empty = document.querySelector<HTMLElement>('[data-empty]')!;
+  const params = new URLSearchParams(location.search);
+  state.type = params.get('type') ?? '';
+  state.region = params.get('region') ?? '';
+  function apply(push = false) {
+    let n = 0;
+    let portShown = 0;
+    for (const el of items) {
+      const ok = (!state.type || el.dataset.types!.split(' ').includes(state.type)) && (!state.region || el.dataset.region === state.region);
+      el.hidden = !ok;
+      if (ok) { n++; if (el.closest('.port')) portShown++; }
+    }
+    chips.forEach((c) => c.setAttribute('aria-pressed', String(state[c.dataset.filter!] === c.dataset.value)));
+    count.textContent = String(n);
+    empty.hidden = n > 0;
+    document.querySelectorAll<HTMLElement>('.feat, .port').forEach((g) => (g.closest('section')!.hidden = !g.querySelector('[data-item]:not([hidden])') && n > 0));
+    if (push) {
+      const q = new URLSearchParams();
+      if (state.type) q.set('type', state.type);
+      if (state.region) q.set('region', state.region);
+      history.replaceState(null, '', q.toString() ? `?${q}` : location.pathname);
+    }
+  }
+  chips.forEach((c) => c.addEventListener('click', () => { state[c.dataset.filter!] = c.dataset.value!; apply(true); }));
+  document.querySelector('[data-reset]')?.addEventListener('click', () => { state.type = ''; state.region = ''; apply(true); });
+  apply();
+</script>

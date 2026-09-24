@@ -1,0 +1,44 @@
+---
+import Base from '../layouts/Base.astro';
+import PageIntro from '../components/PageIntro.astro';
+import Arrow from '../components/Arrow.astro';
+import { company } from '../lib/site';
+const c = await company();
+---
+<Base title="Contact" description="Contact RAL Companies in New York and Colorado.">
+  <PageIntro eyebrow="Contact" title="Get in touch." />
+  <section class="wrap routes" aria-label="Contact routes">
+    {c.contacts?.map((x) => (
+      <article class="route">
+        <p class="label">{x.label}</p>
+        {x.note && <p class="meta">{x.note}</p>}
+        <a class="link route__mail" href={`mailto:${x.email}`}>{x.email}<Arrow /></a>
+      </article>
+    ))}
+  </section>
+  <section class="section wrap" aria-labelledby="off-h">
+    <div class="strip"><h2 id="off-h" class="label">Offices</h2></div>
+    <div class="offices">
+      {c.offices?.map((o) => (
+        <article class="office">
+          <h3 class="h2">{o.name}</h3>
+          <p class="office__addr">{o.lines.map((l, i) => <>{l}{i < o.lines.length - 1 && <br />}</>)}</p>
+          {o.phone && <p><a class="link num" href={`tel:${o.phone.replace(/\D/g, '')}`}>{o.phone}</a></p>}
+          {o.map_url && <p><a class="link" href={o.map_url} target="_blank" rel="noopener">Directions<Arrow dir="up-right" /></a></p>}
+        </article>
+      ))}
+    </div>
+  </section>
+</Base>
+<style>
+  .routes { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--s-5) var(--gutter); padding-bottom: var(--s-6); }
+  .route { display: flex; flex-direction: column; gap: 0.6rem; align-items: flex-start; border-top: 1px solid var(--ink); padding-top: var(--s-3); }
+  .route .label { color: var(--graphite); }
+  .route__mail { margin-top: auto; overflow-wrap: anywhere; }
+  .offices { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--s-6) var(--gutter); }
+  .office { display: grid; gap: var(--s-2); align-content: start; }
+  .office__addr { font-size: var(--fs-lead); line-height: 1.45; }
+  .office .link :global(.arrow) { width: 0.8em; }
+  @media (max-width: 1000px) { .routes { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (max-width: 600px) { .routes, .offices { grid-template-columns: 1fr; } }
+</style>

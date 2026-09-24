@@ -1,0 +1,61 @@
+---
+import { getCollection, render } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import Img from '../../components/Img.astro';
+import Arrow from '../../components/Arrow.astro';
+import PressItem from '../../components/PressItem.astro';
+import { visiblePress, lookups } from '../../lib/site';
+
+export async function getStaticPaths() {
+  const people = await getCollection('people', (p) => p.data.active);
+  return people.map((p) => ({ params: { slug: p.id }, props: { p } }));
+}
+const { p } = Astro.props;
+const d = p.data;
+const { Content } = await render(p);
+const hasBio = Boolean(p.body && p.body.trim());
+const sections = (await getCollection('teamSections')).filter((s) => s.data.visible && s.data.members.some((m) => m.id === p.id));
+const projects = (await getCollection('projects', (x) => x.data.tier === 'featured' && x.data.team.some((t) => t.id === p.id)));
+const press = (await visiblePress()).filter((x) => x.data.people.some((r) => r.id === p.id));
+const lk = await lookups();
+const initials = d.name.split(/\s+/).filter((w) => /^[A-Z]/.test(w)).map((w) => w[0]).slice(0, 2).join('');
+---
+<Base title={d.name} description={d.seo?.description ?? `${d.name}, ${d.title} at RAL Companies.`}>
+  <article class="wrap bio" data-bio>
+    <p class="label bio__crumb"><a href="/team/">Team</a>{sections[0] && <> <span aria-hidden="true">/</span> {sections.map((s) => s.data.name).join(', ')}</>}</p>
+    <div class="bio__grid">
+      <figure class="bio__portrait">
+        {d.headshot
+          ? <div class="frame"><Img src={d.headshot} alt={`Portrait of ${d.name}`} sizes="(max-width: 700px) 100vw, 30vw" widths={[800, 1200]} position={d.headshot_focus} priority /></div>
+          : <div class="frame bio__mono" aria-hidden="true"><span>{initials}</span></div>}
+      </figure>
+      <div class="bio__text">
+        <h1 class="h2">{d.name}</h1>
+        <p class="bio__title">{d.title}</p>
+        {hasBio ? <div class="bio__body prose"><Content /></div> : d.short_bio && <p class="bio__body prose">{d.short_bio}</p>}
+        {(d.linkedin || (d.show_email && d.email)) && (
+          <ul class="bio__links">
+            {d.linkedin && <li><a class="link" href={d.linkedin} target="_blank" rel="noopener">LinkedIn<Arrow dir="up-right" /></a></li>}
+            {d.show_email && d.email && <li><a class="link" href={`mailto:${d.email}`}>{d.email}</a></li>}
+          </ul>
+        )}
+        {projects.length > 0 && (
+          <div class="bio__block">
+            <p class="label">Selected projects</p>
+            <ul class="bio__projects">
+              {projects.map((x) => <li><a href={`/projects/${x.id}/`}><span>{x.data.name}</span><span class="meta">{x.data.location}</span><Arrow /></a></li>)}
+            </ul>
+          </div>
+        )}
+        {press.length > 0 && (
+          <div class="bio__block">
+            <p class="label">In the press</p>
+            <div class="bio__press">{press.slice(0, 4).map((x) => <PressItem item={x} />)}</div>
+          </div>
+        )}
+      </div>
+    </div>
+  </article>
+</Base>
+
+<!-- Styles for the bio live in src/styles/global.css so the Team page side panel can use them. -->

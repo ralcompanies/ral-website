@@ -1,0 +1,80 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import PageIntro from '../components/PageIntro.astro';
+import PressItem from '../components/PressItem.astro';
+import { visiblePress, company } from '../lib/site';
+
+const c = await company();
+const press = await visiblePress();
+const projects = Object.fromEntries((await getCollection('projects')).map((p) => [p.id, p.data]));
+// Filter options: only projects that actually have press
+const counts: Record<string, number> = {};
+press.forEach((x) => x.data.projects.forEach((r) => (counts[r.id] = (counts[r.id] ?? 0) + 1)));
+const opts = Object.entries(counts).filter(([id]) => projects[id] && projects[id].tier !== 'hidden').sort((a, b) => b[1] - a[1]);
+const lead = press.find((x) => x.data.featured) ?? press[0];
+const years = [...new Set(press.map((x) => x.data.date.getUTCFullYear()))].sort((a, b) => b - a);
+const media = c.contacts?.find((x) => x.label === 'Press');
+---
+<Base title="Press" description="News coverage of RAL Companies and its projects.">
+  <PageIntro eyebrow="Press" title="In the press">
+    {media && <p class="meta press-contact">Media inquiries: <a href={`mailto:${media.email}`}>{media.email}</a></p>}
+  </PageIntro>
+
+  <section class="wrap filters" aria-label="Filter by project">
+    <p class="label">Project</p>
+    <div class="chips" role="group" aria-label="Project">
+      <button type="button" class="chip" aria-pressed="true" data-value="">All</button>
+      {opts.map(([id, n]) => <button type="button" class="chip" aria-pressed="false" data-value={id}>{projects[id].name} <span class="num">{n}</span></button>)}
+    </div>
+  </section>
+
+  <div class="wrap press-years" data-list>
+    {years.map((y) => (
+      <section class="pyear" data-year>
+        <div class="strip"><h2 class="label num">{y}</h2></div>
+        <div class="pgrid">
+          {press.filter((x) => x.data.date.getUTCFullYear() === y).map((x) => (
+            <div data-item data-projects={x.data.projects.map((r) => r.id).join(' ')}><PressItem item={x} /></div>
+          ))}
+        </div>
+      </section>
+    ))}
+  </div>
+</Base>
+
+<style>
+  .press-contact { margin-top: var(--s-3); }
+  .press-contact a { border-bottom: 1px solid var(--rule-strong); color: var(--ink); }
+  .filters { display: grid; gap: 0.6rem; border-top: 1px solid var(--rule); padding-top: var(--s-3); }
+  .filters .label { color: var(--graphite); }
+  .chips { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+  .chip { font: 500 0.875rem/1 var(--font-body); padding: 0.6rem 0.9rem; border: 1px solid var(--rule-strong); background: transparent; color: var(--ink); cursor: pointer; min-height: 2.5rem; }
+  .chip span { color: var(--graphite); margin-left: 0.3rem; }
+  .chip[aria-pressed='true'] { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+  .chip[aria-pressed='true'] span { color: var(--on-dark-2); }
+  .press-years { display: grid; gap: var(--s-7); padding-block: var(--s-6) var(--section); }
+  .pgrid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--s-5) var(--gutter); }
+  [data-item][hidden], [data-year][hidden] { display: none; }
+  @media (max-width: 1000px) { .pgrid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (max-width: 600px) {
+    .pgrid { grid-template-columns: 1fr; }
+    .chips { flex-wrap: nowrap; overflow-x: auto; margin-inline: calc(var(--margin) * -1); padding-inline: var(--margin); }
+    .chip { flex: none; }
+  }
+</style>
+
+<script>
+  const chips = Array.from(document.querySelectorAll<HTMLButtonElement>('.chip'));
+  const items = Array.from(document.querySelectorAll<HTMLElement>('[data-item]'));
+  const years = Array.from(document.querySelectorAll<HTMLElement>('[data-year]'));
+  function apply(v: string, push = false) {
+    items.forEach((el) => (el.hidden = !!v && !el.dataset.projects!.split(' ').includes(v)));
+    years.forEach((y) => (y.hidden = !y.querySelector('[data-item]:not([hidden])')));
+    chips.forEach((c) => c.setAttribute('aria-pressed', String(c.dataset.value === v)));
+    if (push) history.replaceState(null, '', v ? `?project=${v}` : location.pathname);
+  }
+  chips.forEach((c) => c.addEventListener('click', () => apply(c.dataset.value!, true)));
+  const init = new URLSearchParams(location.search).get('project') ?? '';
+  if (chips.some((c) => c.dataset.value === init)) apply(init);
+</script>

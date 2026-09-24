@@ -1,0 +1,136 @@
+---
+import { getCollection, getEntry, getEntries } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import PageIntro from '../components/PageIntro.astro';
+import Arrow from '../components/Arrow.astro';
+import Img from '../components/Img.astro';
+import { company, statValue, publicProjects, lookups } from '../lib/site';
+
+const page = (await getEntry('pages', 'about'))!;
+const a = page.data as any;
+const c = await company();
+const lk = await lookups();
+const projects = await publicProjects();
+const proofFor = (cap: string) =>
+  projects.filter((p) => p.data.roles.some((r) => lk.roles[r.id]?.capability === cap)).slice(0, 4);
+const eras = await Promise.all(
+  (await getCollection('timeline')).sort((x, y) => x.data.order - y.data.order).map(async (e) => ({ e, projects: (await getEntries(e.data.projects)).filter((p) => p.data.tier !== 'hidden') })),
+);
+const stats = (c.stats ?? []).filter((s) => s.visible);
+const visual = (await getEntry('projects', 'quay-tower'))!;
+---
+<Base title="About" description={a.lede}>
+  <PageIntro eyebrow={a.eyebrow} title="Founded by architects in 1979." lede={a.lede} />
+
+  <figure class="wrap about-hero">
+    <div class="frame"><Img src={visual.data.hero_image!} alt={visual.data.hero_alt!} sizes="100vw" priority /></div>
+    <figcaption class="caption"><span>Quay Tower and Brooklyn Bridge Park</span></figcaption>
+  </figure>
+
+  <section class="section wrap story" aria-label="Designer, developer, partner">
+    {a.story.map((s: any) => (
+      <article class="story__item">
+        <h2 class="h2">{s.heading}</h2>
+        <p>{s.text}</p>
+      </article>
+    ))}
+  </section>
+
+  <section class="section section--stone" aria-labelledby="cap-h">
+    <div class="wrap">
+      <div class="strip"><h2 id="cap-h" class="label">Capabilities</h2></div>
+      <div class="caps">
+        {a.capabilities.map((cap: any, i: number) => {
+          const proof = proofFor(cap.key);
+          return (
+            <article class="capb">
+              <p class="label num capb__no">{String(i + 1).padStart(2, '0')}</p>
+              <h3 class="h3">{cap.title}</h3>
+              <p class="capb__text">{cap.text}</p>
+              {proof.length > 0 && (
+                <ul class="capb__proof">
+                  {proof.map((p) => <li>{p.data.tier === 'featured' ? <a href={`/projects/${p.id}/`}>{p.data.name}<Arrow /></a> : <span>{p.data.name}</span>}</li>)}
+                </ul>
+              )}
+            </article>
+          );
+        })}
+      </div>
+    </div>
+  </section>
+
+  <section class="section wrap" aria-labelledby="hist-h">
+    <div class="strip"><h2 id="hist-h" class="label">History</h2><p class="meta strip__aside">{c.founded} to today</p></div>
+    <ol class="eras">
+      {eras.map(({ e, projects }) => (
+        <li class="era">
+          <p class="era__years h3 num">{e.data.years}</p>
+          <div class="era__body">
+            <h3 class="h3">{e.data.title}</h3>
+            <p>{e.data.text}</p>
+            {projects.length > 0 && <p class="meta era__proj">{projects.map((p, i) => <>{i > 0 && ' · '}{p.data.tier === 'featured' ? <a href={`/projects/${p.id}/`}>{p.data.name}</a> : p.data.name}</>)}</p>}
+          </div>
+        </li>
+      ))}
+    </ol>
+  </section>
+
+  <section class="section section--dark on-dark" aria-labelledby="how-h">
+    <div class="wrap how">
+      <h2 id="how-h" class="label how__label">How we work</h2>
+      <p class="h3 how__text">{a.how_we_work}</p>
+      <dl class="how__stats">
+        {stats.map((s) => <div><dt class="how__v num">{statValue(s.value, c.founded!)}</dt><dd class="meta">{s.label}</dd></div>)}
+      </dl>
+    </div>
+  </section>
+
+  <section class="section wrap next2">
+    <a class="next2__item" href="/team/"><span class="label">Team</span><span class="h2">Meet the people behind the work</span><Arrow /></a>
+    <a class="next2__item" href="/contact/"><span class="label">Contact</span><span class="h2">Get in touch</span><Arrow /></a>
+  </section>
+</Base>
+
+<style>
+  .about-hero { margin-block: 0; }
+  .about-hero .frame { aspect-ratio: 21 / 9; }
+  .story { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--s-5) var(--gutter); }
+  .story__item { display: grid; gap: var(--s-3); align-content: start; border-top: 1px solid var(--ink); padding-top: var(--s-3); }
+  .story__item p { color: var(--ink-2); }
+  .caps { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: var(--s-5) var(--gutter); }
+  .capb { display: flex; flex-direction: column; gap: var(--s-2); }
+  .capb__no { color: var(--graphite); }
+  .capb__text { color: var(--ink-2); font-size: var(--fs-small); }
+  .capb__proof { list-style: none; margin: auto 0 0; padding: var(--s-2) 0 0; border-top: 1px solid var(--rule-strong); display: grid; gap: 0.4rem; font-size: var(--fs-small); }
+  .capb__proof a { display: flex; justify-content: space-between; gap: 0.5rem; align-items: center; }
+  .capb__proof a:hover { text-decoration: underline; text-underline-offset: 0.2em; }
+  .capb__proof :global(.arrow) { width: 0.9em; flex: none; }
+  .eras { list-style: none; margin: 0; padding: 0; }
+  .era { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--gutter); padding-block: var(--s-4); border-bottom: 1px solid var(--rule); }
+  .era:first-child { border-top: 1px solid var(--ink); }
+  .era__years { grid-column: 1 / span 3; color: var(--graphite); }
+  .era__body { grid-column: 4 / span 7; display: grid; gap: var(--s-2); }
+  .era__body > p:not(.meta) { color: var(--ink-2); max-width: var(--measure); }
+  .era__proj a { border-bottom: 1px solid var(--rule-strong); color: var(--ink); }
+  .how { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--gutter); row-gap: var(--s-6); }
+  .how__label { grid-column: 1 / span 3; color: var(--on-dark-2); }
+  .how__text { grid-column: 4 / -1; max-width: 40ch; line-height: 1.35; }
+  .how__stats { grid-column: 4 / -1; margin: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr)); gap: var(--gutter); }
+  .how__stats div { border-top: 1px solid rgb(245 243 238 / 0.3); padding-top: var(--s-2); }
+  .how__v { font-family: var(--font-display); font-size: var(--fs-h2); line-height: 1; margin-bottom: var(--s-1); }
+  .how__stats dd { margin: 0; }
+  .next2 { display: grid; grid-template-columns: 1fr 1fr; gap: var(--gutter); }
+  .next2__item { display: grid; gap: var(--s-2); border-top: 1px solid var(--ink); padding-top: var(--s-3); }
+  .next2__item .label { color: var(--graphite); }
+  .next2__item :global(.arrow) { width: 1.6rem; height: 1rem; }
+  .next2__item:hover .h2 { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 0.15em; }
+  @media (max-width: 1100px) { .caps { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+  @media (max-width: 860px) {
+    .story, .next2 { grid-template-columns: 1fr; }
+    .caps { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .era__years, .era__body, .how__label, .how__text, .how__stats { grid-column: 1 / -1; }
+    .era__years { margin-bottom: var(--s-1); }
+    .about-hero .frame { aspect-ratio: 4 / 3; }
+  }
+  @media (max-width: 520px) { .caps { grid-template-columns: 1fr; } }
+</style>

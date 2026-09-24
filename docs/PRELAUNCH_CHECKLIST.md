@@ -2,7 +2,7 @@
 
 Internal. Generated September 24, 2026 from the content files (`internal_notes`) plus standing items. Launch-readiness list, not a development blocker.
 
-## Facts to verify (40)
+## Facts to verify (44)
 
 - [ ] **270 Broadway**: Figures from live copy; confirm.
 - [ ] **86 Chambers**: Carried over from live site.
@@ -42,8 +42,12 @@ Internal. Generated September 24, 2026 from the content files (`internal_notes`)
 - [ ] **company.yml**: Add LinkedIn / Instagram company URLs (draft footer icons linked nowhere).
 - [ ] **homepage.yml**: Quote from Robert Levine interview, Off the MRKT (Nov 2024). Confirm he's comfortable with it on the homepage.
 - [ ] **homepage.yml**: Capability copy is new; written from RAL's own project descriptions. Review wording.
-- [ ] **Founded as an architecture practice**: Era structure is a working draft for the About page. Confirm eras and dates with Robert.
-- [ ] **About**: About page content is built at Gate 2.
+- [ ] **Founded as an architecture practice**: Founding year confirmed by Josh (1979).
+- [ ] **Adaptive reuse in Manhattan**: Era dates not yet confirmed; shown without years.
+- [ ] **Hotels and communities in the mountains**: Era dates not yet confirmed.
+- [ ] **The Brooklyn waterfront**: 2019 = Pier 6 completion per 6sqft (spring 2019 expected). Also assumes One Brooklyn Bridge Park conversion preceded Pier 6. Confirm.
+- [ ] **A public-private tech hub**: 2023 per NY YIMBY completion report. Confirm.
+- [ ] **About**: Story and how-we-work copy adapted from the live ralcompanies.com About page. Capability copy is new; review wording.
 
 ## Team (29)
 
