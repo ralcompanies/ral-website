@@ -6,12 +6,12 @@ status: in-development
 location: Grand Cayman, Cayman Islands
 region: caribbean
 types: [hospitality, residential]
-roles: [co-developer]
+roles: [developer]
 hook: An ultra-luxury resort and branded residences on the secluded south shore of Grand Cayman.
 summary: >-
-  With Melkonian Capital, RAL is developing The Mandarin Oriental Resort & Residences, Grand
-  Cayman: 91 hotel keys and 42 branded residences set along 1,000 feet of white-sand beach, with
-  spa, wellness and dining designed for both sunrise and sunset views.
+  RAL is the developer and a partner in The Mandarin Oriental Resort & Residences, Grand Cayman,
+  alongside Melkonian Capital: 91 hotel keys and 42 branded residences set along 1,000 feet of
+  white-sand beach, with spa, wellness and dining designed for both sunrise and sunset views.
 hero_image: ../../assets/images/projects/mandarin-oriental-grand-cayman/aerial.jpg
 hero_alt: Rendering of the Mandarin Oriental resort and residences on the Grand Cayman coast
 hero_kind: rendering
@@ -35,7 +35,7 @@ gallery:
   - { src: ../../assets/images/projects/mandarin-oriental-grand-cayman/ocean-house-lobby.jpg, alt: "Ocean House lobby", kind: rendering }
   - { src: ../../assets/images/projects/mandarin-oriental-grand-cayman/penthouse-roof.jpg, alt: "Penthouse roof deck", kind: rendering }
 internal_notes:
-  - "ROLE TO CONFIRM: live site says 'as Owner's Representative'; draft says 'in partnership with Melkonian Capital, is developing'. Working build uses Co-Developer. Confirm wording with Melkonian/MO before launch."
+  - "Role per Josh (Sept 2026): RAL is a partner and the developer. Shown as Developer, with Melkonian Capital credited as development partner."
   - "Removed the Buckingham Square / West Bay Rd address (sales office, not the site)."
   - "Mandarin Oriental name/logo usage needs brand approval. Logo files exist in Drive (MOGC/LOGO) but are not used."
   - "Rendering credits unknown; add when confirmed."

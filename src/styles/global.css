@@ -19,7 +19,7 @@
   --on-dark-2: #b8b4ab;
   --portrait-bg: #1d1d1c;  /* matches studio headshot backgrounds */
 
-  /* Type: option A (no-cost) is default; [data-type="b"] previews a licensed-style direction */
+  /* Type: Shippori Mincho B1 (display) + Hanken Grotesk (text). Selected Sept 2026. */
   --font-display: "Shippori Mincho B1", "Iowan Old Style", "Palatino Linotype", Georgia, serif;
   --font-body: "Hanken Grotesk", "Helvetica Neue", Arial, sans-serif;
   --display-weight: 500;
@@ -46,12 +46,6 @@
 
   --ease: cubic-bezier(0.2, 0.6, 0.2, 1);
   --header-h: 5rem;
-}
-:root[data-type="b"] {
-  --font-display: "Source Serif 4", "Iowan Old Style", Georgia, serif;
-  --font-body: "Schibsted Grotesk", "Helvetica Neue", Arial, sans-serif;
-  --display-weight: 400;
-  --display-tracking: -0.015em;
 }
 
 /* ---- Base ---------------------------------------------------------------- */

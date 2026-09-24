@@ -1,8 +1,5 @@
 # Homepage settings. Everything on the homepage that changes is controlled here.
 hero_headline: Designer. Developer. Partner.
-hero_subline: >-
-  Founded as an architecture practice in 1979, RAL designs and develops residential,
-  hospitality and public-private projects, from the Brooklyn waterfront to Grand Cayman.
 hero_slides:
   - image: ../../assets/images/projects/quay-tower/aerial-park-context.jpg
     alt: Quay Tower and Brooklyn Bridge Park from above, lower Manhattan beyond

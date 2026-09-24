@@ -11,7 +11,7 @@ import { lookups, visiblePress } from '../lib/site';
 
 const lk = await lookups();
 const zi = (await getEntry('projects', 'zero-irving'))!;
-const portfolio = (await getCollection('projects')).filter((p) => ['four-seasons-vail', 'loft-25', 'hotel-madeline-telluride'].includes(p.id));
+const portfolio = (await getCollection('projects')).filter((p) => ['four-seasons-vail', 'hotel-madeline-telluride', 'broadridge-philadelphia'].includes(p.id));
 const press = (await visiblePress()).slice(0, 3);
 const people = await Promise.all(['robert-a-levine', 'douglas-eisenstein', 'kyung-kim'].map((id) => getEntry('people', id)));
 const colors = [
@@ -38,7 +38,7 @@ const scale = [
       <h1 class="display ds-title">The drawing set and the monograph.</h1>
       <div class="ds-cols">
         <p class="lead">A visible grid, fine rules and precise labels, borrowed from architectural drawings. Photography presented large and captioned, the way a monograph presents built work. Type organizes; projects persuade.</p>
-        <p class="meta">Use the Type A / B switch (bottom right) to compare the two typography directions on every page. A is free (Google Fonts). B uses free stand-ins for a licensed pairing (Tiempos Headline + Söhne); nothing has been purchased.</p>
+        <p class="meta">Typography: Shippori Mincho B1 for display, Hanken Grotesk for text. Both are free Google Fonts, self-hosted at launch.</p>
       </div>
     </div>
   </section>
@@ -47,15 +47,13 @@ const scale = [
     <div class="wrap">
       <div class="strip"><h2 id="t-type" class="label">01 Typography</h2><p class="meta strip__aside">Fluid scale, 375 → 1440px</p></div>
       <div class="ds-pairs">
-        <div class="ds-pair" data-sample="a">
-          <p class="label">A · Shippori Mincho B1 + Hanken Grotesk</p>
-          <p class="ds-spec" style="font-family:'Shippori Mincho B1',serif;font-weight:500">Designer. Developer. Partner.</p>
-          <p style="font-family:'Hanken Grotesk',sans-serif">RAL won a competitive RFP from Brooklyn Bridge Park Corporation to develop two buildings at Pier 6: Quay Tower and The Landing.</p>
+        <div class="ds-pair">
+          <p class="label">Display · Shippori Mincho B1</p>
+          <p class="ds-spec">Designer. Developer. Partner.</p>
         </div>
-        <div class="ds-pair" data-sample="b">
-          <p class="label">B · Source Serif 4 + Schibsted Grotesk (stand-ins for a licensed pair)</p>
-          <p class="ds-spec" style="font-family:'Source Serif 4',serif">Designer. Developer. Partner.</p>
-          <p style="font-family:'Schibsted Grotesk',sans-serif">RAL won a competitive RFP from Brooklyn Bridge Park Corporation to develop two buildings at Pier 6: Quay Tower and The Landing.</p>
+        <div class="ds-pair">
+          <p class="label">Text · Hanken Grotesk</p>
+          <p>RAL won a competitive RFP from Brooklyn Bridge Park Corporation to develop two buildings at Pier 6: Quay Tower and The Landing.</p>
         </div>
       </div>
       <div class="ds-scale">
@@ -115,7 +113,7 @@ const scale = [
         </a>
       </div>
 
-      <p class="label ds-sub">Portfolio card (not clickable)</p>
+      <p class="label ds-sub">Portfolio card (not clickable), including the no-photo state</p>
       <div class="ds-three">{portfolio.map((p) => <PortfolioCard p={p} roles={lk.roles} types={lk.types} />)}</div>
 
       <p class="label ds-sub">Press item</p>
@@ -133,7 +131,7 @@ const scale = [
   .ds-cols { display: grid; grid-template-columns: 7fr 4fr; gap: var(--gutter); align-items: end; }
   .ds-pairs { display: grid; grid-template-columns: 1fr 1fr; gap: var(--gutter); margin-bottom: var(--s-7); }
   .ds-pair { border-top: 1px solid var(--rule); padding-top: var(--s-3); display: grid; gap: var(--s-3); }
-  .ds-spec { font-size: clamp(2.25rem, 1.6rem + 2.4vw, 4rem); line-height: 1.05; margin: 0; }
+  .ds-spec { font-family: var(--font-display); font-weight: var(--display-weight); font-size: clamp(2.25rem, 1.6rem + 2.4vw, 4rem); line-height: 1.05; margin: 0; }
   .ds-scale__row { display: grid; grid-template-columns: 10rem 1fr; gap: var(--gutter); align-items: baseline; border-top: 1px solid var(--rule); padding-block: var(--s-3); }
   .ds-swatches { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--s-4) var(--gutter); }
   .ds-swatches li { display: grid; gap: 0.2rem; }

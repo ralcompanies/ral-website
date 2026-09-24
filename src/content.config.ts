@@ -104,9 +104,6 @@ const projects = defineCollection({
             if (!p[f]) ctx.addIssue({ code: 'custom', path: [f], message: `A Featured project needs "${f}". Add it, or set tier to "portfolio".` });
           }
         }
-        if (p.tier === 'portfolio' && !p.card_image) {
-          ctx.addIssue({ code: 'custom', path: ['card_image'], message: 'A Portfolio project needs a card image.' });
-        }
       }),
 });
 

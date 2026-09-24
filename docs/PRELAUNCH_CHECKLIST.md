@@ -2,11 +2,11 @@
 
 Internal. Generated September 24, 2026 from the content files (`internal_notes`) plus standing items. Launch-readiness list, not a development blocker.
 
-## Facts to verify (42)
+## Facts to verify (40)
 
 - [ ] **270 Broadway**: Figures from live copy; confirm.
 - [ ] **86 Chambers**: Carried over from live site.
-- [ ] **Broadridge**: Hidden pending Josh decision (press exists; post-ownership litigation context).
+- [ ] **Broadridge**: Role 'Developer' and grocery anchor (Aldi) from press headlines (Philadelphia Business Journal, Philly Mag). Confirm wording.
 - [ ] **Carillon Miami Beach**: Folder calls it "Canyon Ranch Living Miami Beach"; live site calls it Carillon. RAL role not stated; confirm (asset/turnaround management?).
 - [ ] **CASA FIU**: RAL ROLE UNKNOWN. Left blank until confirmed.
 - [ ] **CASA FIU**: Status, units, beds, completion date unknown.
@@ -17,8 +17,6 @@ Internal. Generated September 24, 2026 from the content files (`internal_notes`)
 - [ ] **Four Seasons Vail**: Role inferred from live copy (construction/development management). Confirm.
 - [ ] **Hotel Madeline**: Name: live "Hotel Madeline Telluride"; folder "Telluride Mountain Village Resort". Confirm name and role.
 - [ ] **Loft 25**: Carried over from live site.
-- [ ] **LYNQ Wynwood**: Hidden pending confirmation of status (announced with Tricap 2022).
-- [ ] **Mandarin Oriental, Grand Cayman**: ROLE TO CONFIRM: live site says 'as Owner's Representative'; draft says 'in partnership with Melkonian Capital, is developing'. Working build uses Co-Developer. Confirm wording with Melkonian/MO before launch.
 - [ ] **Mandarin Oriental, Grand Cayman**: Removed the Buckingham Square / West Bay Rd address (sales office, not the site).
 - [ ] **Monogram New York**: Live site: Owner's Representative partnered with Navigation Capital; Robert (2026): project manager and developer. Confirm role label.
 - [ ] **One Brooklyn Bridge Park**: Superlative and figures from live-site copy; confirm.
@@ -79,9 +77,10 @@ Internal. Generated September 24, 2026 from the content files (`internal_notes`)
 - [ ] **Valerie Kirsten**: no biography yet (profile shows title and projects only).
 - [ ] **Vincent Cangelosi**: Studio portrait used; the draft ink-wash image is not used.
 
-## Assets (20)
+## Assets (22)
 
 - [ ] **15 Union Square West**: Image 1328px; original preferred.
+- [ ] **Broadridge**: Shown as Portfolio per Josh (Sept 2026). No photograph on file yet; card shows the no-image state. Need a photo with usage rights.
 - [ ] **Brookchester Court**: Image 640px: original required.
 - [ ] **CASA FIU**: Official name styling: draft uses both 'Casa-FIU' and 'CASA-FIU'; using 'CASA FIU' per the CASA logo. Confirm.
 - [ ] **CASA FIU**: Architect inferred from the 'Niles Bolton Associates' watermark on renderings. Confirm before launch.
@@ -90,6 +89,7 @@ Internal. Generated September 24, 2026 from the content files (`internal_notes`)
 - [ ] **The Inn at Lost Creek**: Role not stated anywhere; confirm. Image 1800px.
 - [ ] **The James New York**: Image 1500px; original preferred.
 - [ ] **The Kartrite Resort & Indoor Waterpark**: From Douglas Eisenstein bio (~$200M). Confirm role and figure. Image is 1426px, original preferred.
+- [ ] **Mandarin Oriental, Grand Cayman**: Role per Josh (Sept 2026): RAL is a partner and the developer. Shown as Developer, with Melkonian Capital credited as development partner.
 - [ ] **Mandarin Oriental, Grand Cayman**: Mandarin Oriental name/logo usage needs brand approval. Logo files exist in Drive (MOGC/LOGO) but are not used.
 - [ ] **Mandarin Oriental, Grand Cayman**: Rendering credits unknown; add when confirmed.
 - [ ] **Orchard Street Hotel**: From the Drive folder (Jarmulowsky Bank images). Confirm name (now Hotel Orchard Street?), role and status. Image is a 573px construction photo.
@@ -109,11 +109,9 @@ Internal. Generated September 24, 2026 from the content files (`internal_notes`)
 - [ ] Confirm licence/usage rights: Getty images (ROAN folder, not used), operator photography (Four Seasons), listing photos (Franklin Tower), Mandarin Oriental name and marks.
 - [ ] Photographer credit lines where contracts require them (Evan Joseph, CTC, Binyan).
 
-## Press (6)
+## Press (4)
 
 - [ ] **Zendaya Is Revealed As the Buyer of a $4.9 Million Brooklyn Waterfront Condo**: Hidden: names a private buyer. Your call whether to show.
-- [ ] **Long in planning and now developed, $225M Broadridge leases up**: Hidden because its project is Hidden.
-- [ ] **RAL and Tricap to Build Creative Offices in Wynwood**: Hidden because its project is Hidden.
 - [ ] 25 clippings imported from the live site with dates read from the PDFs; 3 have confirmed original URLs, the rest link to the archived PDF. Find original URLs.
 - [ ] Find original article URLs for clippings (PDF fallbacks used now).
 - [ ] Import remaining ~85 live-site clippings progressively.
