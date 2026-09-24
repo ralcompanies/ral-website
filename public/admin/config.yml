@@ -2,7 +2,7 @@
 # Every save becomes a Git commit. Nothing reaches the live site until it is published.
 backend:
   name: github
-  repo: RAL-OWNER/ral-website   # set when the GitHub repository is created
+  repo: ralcompanies/ral-website
   branch: main
 publish_mode: editorial_workflow   # Draft -> In review -> Ready -> Publish; each draft gets a preview URL
 media_folder: src/assets/images/uploads
