@@ -2,7 +2,7 @@
 name: "Leadership"
 order: 1
 visible: true
-card_size: large
+card_size: standard
 members:
   - robert-a-levine
   - vincent-cangelosi

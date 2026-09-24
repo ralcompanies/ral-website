@@ -50,7 +50,7 @@ Internal. Generated September 24, 2026 from the content files (`internal_notes`)
 - [ ] **A public-private tech hub**: 2023 per NY YIMBY completion report. Confirm.
 - [ ] **Founded as a design firm in 1979. Design is still in our DNA.**: Story and how-we-work copy adapted from the live ralcompanies.com About page. Capability copy is new; review wording.
 
-## Team (29)
+## Team (28)
 
 - [ ] **David Wu**: Bio needed.
 - [ ] **David Wu**: no biography yet (profile shows title and projects only).
@@ -63,8 +63,7 @@ Internal. Generated September 24, 2026 from the content files (`internal_notes`)
 - [ ] **Leah Rosen**: Published name Leah Rosen per Josh; image file is named l_volpe.
 - [ ] **Matt D'Elia**: Bio needed.
 - [ ] **Matt D'Elia**: no biography yet (profile shows title and projects only).
-- [ ] **Payton Strout**: Headshot and bio needed.
-- [ ] **Payton Strout**: headshot missing (placeholder shows).
+- [ ] **Payton Strout**: Bio needed.
 - [ ] **Payton Strout**: no biography yet (profile shows title and projects only).
 - [ ] **Robert A. Levine**: Bio from live site; founding year changed from 1982 to 1979 per Josh. "Hundreds of millions of dollars in project valuations" removed (undersells; conflicts with other figures). Confirm.
 - [ ] **Russell Cline**: Headshot and bio needed.
@@ -82,7 +81,7 @@ Internal. Generated September 24, 2026 from the content files (`internal_notes`)
 - [ ] **Valerie Kirsten**: no biography yet (profile shows title and projects only).
 - [ ] **Vincent Cangelosi**: Studio portrait used; the draft ink-wash image is not used.
 
-## Assets (22)
+## Assets (23)
 
 - [ ] **15 Union Square West**: Image 1328px; original preferred.
 - [ ] **Broadridge**: Shown as Portfolio per Josh (Sept 2026). Aerial photo supplied by Josh (Sept 2026); confirm photographer credit and usage rights.
@@ -103,6 +102,7 @@ Internal. Generated September 24, 2026 from the content files (`internal_notes`)
 - [ ] **ROAN Steamboat**: Partners (AmTrust, Latitude) deliberately not shown. Confirm whether to credit.
 - [ ] **ROAN Steamboat**: Renderings by Binyan Studios (file names). Lifestyle photo 'steamboat-night' licence to confirm; Getty images excluded.
 - [ ] **Spring Creek**: Role not stated; confirm. Image 2272px (snapshot quality).
+- [ ] **The Landing**: Dusk hero supplied by Josh (Sept 2026). Confirm whether it is a photo or a rendering (if rendering, set hero_kind: rendering) and the photographer/credit.
 - [ ] **Williamsburg Terrace**: From the Drive project folder only. Confirm name, role, status. Image 645px: original required.
 - [ ] **Zero Irving**: Photography: 2025 CTC shoot (hi-res originals in Drive). Confirm photographer credit line.
 - [ ] **company.yml**: Partner/operator names shown as text only. Confirm each may be named publicly; logos only with permission.

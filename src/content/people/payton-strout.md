@@ -1,7 +1,8 @@
 ---
 name: "Payton Strout"
 title: "Designer"
+headshot: /src/assets/images/people/payton-strout.jpg
 internal_notes:
-  - "Headshot and bio needed."
+  - "Bio needed."
 ---
 

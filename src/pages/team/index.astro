@@ -14,19 +14,18 @@ const withPeople = await Promise.all(
 ---
 <Base title="Team" description="The people of RAL Companies: architects, developers, project managers and finance professionals.">
   <PageIntro eyebrow="Team" title="The people behind the work" />
+  <!-- One grid for everyone: every card is the same size. Sections sit side by side and
+       span as many columns as they have people, so the page reads as one team. -->
   <div class="wrap team" data-team>
-    {withPeople.filter((x) => x.people.length).map(({ s, people }) => (
-      <section class="tsec" aria-labelledby={`sec-${s.id}`}>
-        <div class="strip">
-          <h2 id={`sec-${s.id}`} class="label">{s.data.name}</h2>
-          <p class="meta strip__aside num">{String(people.length).padStart(2, '0')}</p>
-        </div>
-        {s.data.intro && <p class="tsec__intro meta">{s.data.intro}</p>}
-        <div class:list={['tgrid', `tgrid--${s.data.card_size}`]}>
-          {people.map((p) => <PersonCard p={p} size={s.data.card_size} />)}
-        </div>
-      </section>
-    ))}
+    {withPeople.filter((x) => x.people.length).map(({ s, people }) => {
+      const n = people.length;
+      return (
+        <section class="tsec" aria-labelledby={`sec-${s.id}`} style={`--s6:${Math.min(n, 6)};--s4:${Math.min(n, 4)};--s2:${Math.min(n, 2)}`}>
+          <h2 id={`sec-${s.id}`} class="label tsec__h">{s.data.name}</h2>
+          {people.map((p) => <PersonCard p={p} />)}
+        </section>
+      );
+    })}
   </div>
 
   <dialog class="bio-panel" data-panel aria-label="Profile">
@@ -36,19 +35,17 @@ const withPeople = await Promise.all(
 </Base>
 
 <style>
-  .team { display: grid; gap: var(--section); padding-bottom: var(--section); }
-  .tsec__intro { max-width: 40rem; margin: calc(var(--s-4) * -1) 0 var(--s-5); }
-  .tgrid { display: grid; gap: var(--s-5) var(--gutter); }
-  .tgrid--large { grid-template-columns: repeat(5, minmax(0, 1fr)); }
-  .tgrid--standard { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+  .team { --cols: 6; display: grid; grid-template-columns: repeat(var(--cols), minmax(0, 1fr)); grid-auto-flow: row dense; gap: var(--s-6) var(--gutter); padding-bottom: var(--section); }
+  .tsec { grid-column: span var(--s6); display: grid; grid-template-columns: subgrid; row-gap: var(--s-4); align-content: start; }
+  .tsec__h { grid-column: 1 / -1; border-top: 2px solid var(--ink); padding-top: var(--s-2); min-height: 2.75rem; }
   .bio-panel { position: fixed; inset: 0 0 0 auto; margin: 0; width: min(62rem, 92vw); max-width: none; height: 100dvh; max-height: none; border: 0; padding: 0; background: var(--paper); color: var(--ink); overflow-y: auto; box-shadow: -24px 0 60px rgb(0 0 0 / 0.18); }
   .bio-panel::backdrop { background: rgb(20 20 19 / 0.45); }
   .bio-panel[open] { animation: slide 0.45s var(--ease); }
   @keyframes slide { from { transform: translateX(6%); opacity: 0; } to { transform: none; opacity: 1; } }
   .bio-panel__close { position: sticky; top: 0; margin-left: auto; display: block; width: 3.5rem; height: 3.5rem; border: 0; background: var(--paper); font-size: 2rem; cursor: pointer; color: var(--ink); z-index: 2; }
   .bio-panel__body { padding: 0 clamp(1.5rem, 4vw, 4rem) 4rem; margin-top: -2rem; }
-  @media (max-width: 1100px) { .tgrid--large { grid-template-columns: repeat(3, minmax(0, 1fr)); } .tgrid--standard { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
-  @media (max-width: 700px) { .tgrid--large, .tgrid--standard { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (max-width: 1100px) { .team { --cols: 4; } .tsec { grid-column: span var(--s4); } }
+  @media (max-width: 700px) { .team { --cols: 2; row-gap: var(--s-5); } .tsec { grid-column: span var(--s2); } }
 </style>
 
 <script>

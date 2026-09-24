@@ -1,10 +1,10 @@
 # Homepage settings. Everything on the homepage that changes is controlled here.
 hero_headline: Designer. Developer. Partner.
 hero_slides:
-  - image: /src/assets/images/projects/quay-tower/aerial-park-context.jpg
-    alt: Quay Tower and Brooklyn Bridge Park from above, lower Manhattan beyond
-    project: quay-tower
-    caption: Quay Tower, Brooklyn Bridge Park
+  - image: /src/assets/images/projects/the-landing/dusk-waterfront.jpg
+    alt: The Landing at dusk with Quay Tower behind and One Brooklyn Bridge Park to the right
+    project: the-landing
+    caption: The Landing and Quay Tower, Brooklyn Bridge Park
   - image: /src/assets/images/projects/mandarin-oriental-grand-cayman/aerial.jpg
     alt: Rendering of the Mandarin Oriental resort on the Grand Cayman coast
     project: mandarin-oriental-grand-cayman
@@ -17,6 +17,10 @@ hero_slides:
     alt: Rendering of ROAN townhomes below the Steamboat ski area
     project: roan-steamboat
     caption: ROAN, Steamboat Springs (rendering)
+  - image: /src/assets/images/projects/quay-tower/aerial-park-context.jpg
+    alt: Quay Tower and Brooklyn Bridge Park from above, lower Manhattan beyond
+    project: quay-tower
+    caption: Quay Tower, Brooklyn Bridge Park
 featured_intro: >-
   Four decades of work across New York, the mountains and the Caribbean. A selection of current
   and recent projects.
@@ -56,6 +60,15 @@ capabilities:
 leadership_quote:
   text: Look for a sponsor's history. Longevity in the market matters. We have been delivering since the '70s.
   person: robert-a-levine
+people_grid:
+  - robert-a-levine
+  - payton-strout
+  - jerry-gallo
+  - leah-rosen
+  - vincent-cangelosi
+  - valerie-kirsten
+  - david-wu
+  - matt-delia
 press_count: 4
 internal_notes:
   - "Quote from Robert Levine interview, Off the MRKT (Nov 2024). Confirm he's comfortable with it on the homepage."

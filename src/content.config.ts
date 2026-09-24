@@ -247,6 +247,8 @@ const settings = defineCollection({
           .array(z.object({ key: z.enum(['design', 'develop', 'partner']), title: z.string(), text: z.string(), proof: z.array(z.string()).optional() }))
           .optional(),
         leadership_quote: z.object({ text: z.string(), person: reference('people'), image: image().optional() }).optional(),
+        // Faces shown in the homepage People section. Pick a cross-section of the team.
+        people_grid: z.array(reference('people')).max(12).optional(),
         press_count: z.number().optional(),
         internal_notes: internalNotes,
       })
