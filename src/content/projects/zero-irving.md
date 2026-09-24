@@ -6,7 +6,7 @@ status: completed
 location: Union Square, Manhattan
 address: 124 East 14th Street, New York, NY
 region: new-york
-types: [office-mixed-use]
+types: [office, mixed-use]
 roles: [developer]
 public_private: true
 public_partner: NYC Economic Development Corporation

@@ -2,10 +2,11 @@
 
 Internal. Generated September 24, 2026 from the content files (`internal_notes`) plus standing items. Launch-readiness list, not a development blocker.
 
-## Facts to verify (44)
+## Facts to verify (45)
 
 - [ ] **270 Broadway**: Figures from live copy; confirm.
 - [ ] **86 Chambers**: Carried over from live site.
+- [ ] **Broadridge**: Uses per Josh (Sept 2026): residential, retail, parking; no office.
 - [ ] **Broadridge**: Role 'Developer' and grocery anchor (Aldi) from press headlines (Philadelphia Business Journal, Philly Mag). Confirm wording.
 - [ ] **Carillon Miami Beach**: Folder calls it "Canyon Ranch Living Miami Beach"; live site calls it Carillon. RAL role not stated; confirm (asset/turnaround management?).
 - [ ] **CASA FIU**: RAL ROLE UNKNOWN. Left blank until confirmed.
