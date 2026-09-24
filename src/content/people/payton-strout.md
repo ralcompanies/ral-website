@@ -1,6 +1,6 @@
 ---
 name: "Payton Strout"
-title: "Designer"
+title: "Associate Project Manager"
 headshot: /src/assets/images/people/payton-strout.jpg
 internal_notes:
   - "Bio needed."

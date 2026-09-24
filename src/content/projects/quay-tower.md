@@ -1,7 +1,7 @@
 ---
 name: Quay Tower
 tier: featured
-display_order: 2
+display_order: 1
 status: completed
 location: Brooklyn Bridge Park, Brooklyn
 address: 50 Bridge Park Drive, Brooklyn, NY 11201

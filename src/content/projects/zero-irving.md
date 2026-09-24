@@ -1,7 +1,7 @@
 ---
 name: Zero Irving
 tier: featured
-display_order: 1
+display_order: 2
 status: completed
 location: Union Square, Manhattan
 address: 124 East 14th Street, New York, NY

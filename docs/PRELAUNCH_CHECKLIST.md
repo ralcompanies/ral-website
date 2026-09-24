@@ -50,17 +50,20 @@ Internal. Generated September 24, 2026 from the content files (`internal_notes`)
 - [ ] **A public-private tech hub**: 2023 per NY YIMBY completion report. Confirm.
 - [ ] **Founded as a design firm in 1979. Design is still in our DNA.**: Story and how-we-work copy adapted from the live ralcompanies.com About page. Capability copy is new; review wording.
 
-## Team (28)
+## Team (31)
 
 - [ ] **David Wu**: Bio needed.
 - [ ] **David Wu**: no biography yet (profile shows title and projects only).
 - [ ] **Douglas Eisenstein**: Headshot is 321x432 and a different style: new studio portrait needed.
+- [ ] **Joanna Mikrut**: Retired (per Josh, Sept 2026). Not shown.
 - [ ] **Joanna Mikrut**: Not in Josh's Sept 2026 team list; kept inactive pending confirmation. Headshot exists.
 - [ ] **Josh Wein**: Bio from live site, lightly edited. Josh to review.
 - [ ] **Kyung Kim**: Headshot and bio needed.
 - [ ] **Kyung Kim**: headshot missing (placeholder shows).
 - [ ] **Kyung Kim**: no biography yet (profile shows title and projects only).
 - [ ] **Leah Rosen**: Published name Leah Rosen per Josh; image file is named l_volpe.
+- [ ] **Mary Wicker**: Added Sept 2026 per Josh. Headshot supplied on white; background replaced with studio grey to match the team set. Bio needed if she should get a profile page.
+- [ ] **Mary Wicker**: no biography yet (profile shows title and projects only).
 - [ ] **Matt D'Elia**: Bio needed.
 - [ ] **Matt D'Elia**: no biography yet (profile shows title and projects only).
 - [ ] **Payton Strout**: Bio needed.

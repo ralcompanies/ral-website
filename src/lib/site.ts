@@ -52,3 +52,6 @@ export async function legalPages() {
   const pages = await getCollection('pages');
   return { privacy: pages.some((p) => p.id === 'privacy'), terms: pages.some((p) => p.id === 'terms') };
 }
+
+/** A person gets a clickable card and a profile page only when they have a bio. */
+export const hasBio = (p: { body?: string; data: { short_bio?: string } }) => Boolean(p.body?.trim() || p.data.short_bio?.trim());

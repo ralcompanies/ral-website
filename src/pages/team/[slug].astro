@@ -4,10 +4,10 @@ import Base from '../../layouts/Base.astro';
 import Img from '../../components/Img.astro';
 import Arrow from '../../components/Arrow.astro';
 import PressItem from '../../components/PressItem.astro';
-import { visiblePress } from '../../lib/site';
+import { visiblePress, hasBio } from '../../lib/site';
 
 export async function getStaticPaths() {
-  const people = await getCollection('people', (p) => p.data.active);
+  const people = await getCollection('people', (p) => p.data.active && hasBio(p));
   return people.map((p) => ({ params: { slug: p.id }, props: { p } }));
 }
 const { p } = Astro.props;
