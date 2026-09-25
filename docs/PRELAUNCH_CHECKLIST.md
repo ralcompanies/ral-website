@@ -41,7 +41,7 @@ Internal. Generated September 25, 2026 from the content files (`internal_notes`)
 - [ ] **company.yml**: Western office address (Brighton, CO) carried over from draft; confirm or replace with Steamboat/Telluride.
 - [ ] **company.yml**: Careers mailbox is "career@" (singular) on the draft; confirm.
 - [ ] **company.yml**: Add LinkedIn / Instagram company URLs (draft footer icons linked nowhere).
-- [ ] **homepage.yml**: Quote from Robert Levine interview, Off the MRKT (Nov 2024). Confirm he's comfortable with it on the homepage.
+- [ ] **homepage.yml**: Homepage quote chosen by Josh (Sept 2026); new wording, not from a published interview. Confirm Robert has approved it before launch.
 - [ ] **homepage.yml**: Capability copy is new; written from RAL's own project descriptions. Review wording.
 - [ ] **Founded as an architecture practice**: Founding year confirmed by Josh (1979).
 - [ ] **Adaptive reuse in Manhattan**: Era dates not yet confirmed; shown without years.
