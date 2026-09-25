@@ -121,7 +121,7 @@ const statusLabel = { completed: 'Completed', current: 'Under construction', 'in
   </section>
 
   <!-- 3. Track record -->
-  <section class="section section--stone record" aria-labelledby="record-h">
+  <section class="section on-dark record" aria-labelledby="record-h">
     <div class="wrap">
       <div class="strip">
         <div class="strip__title"><h2 id="record-h" class="label">Track record</h2></div>
@@ -253,7 +253,12 @@ const statusLabel = { completed: 'Completed', current: 'Under construction', 'in
   .work__no { color: var(--graphite); }
   .work__link:hover .titleblock__name { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 0.2em; }
 
-  /* Record */
+  /* Record: the one dark band on the page */
+  .record { background: var(--ink); color: var(--on-dark); }
+  .record .strip { border-top-color: var(--on-dark); }
+  .record .label, .record .strip__aside { color: var(--on-dark-2); }
+  .record .stat { border-top-color: rgb(245 243 238 / 0.22); }
+  .record .stat__label { color: var(--on-dark-2); }
   .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr)); gap: var(--gutter); margin: 0; }
   .stat { border-top: 1px solid var(--rule-strong); padding-top: var(--s-3); margin: 0; }
   .stat__value { font-family: var(--font-display); font-size: var(--fs-stat); line-height: 1; letter-spacing: -0.02em; font-weight: var(--display-weight); }
