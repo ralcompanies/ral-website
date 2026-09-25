@@ -2,11 +2,11 @@
 name: "Douglas Eisenstein"
 title: "General Counsel · Project Director"
 headshot: /src/assets/images/people/douglas-eisenstein.jpg
-short_bio: "Leads project management and serves as general counsel."
+short_bio: "Manages new development projects and serves as General Counsel."
 internal_notes:
-  - "Headshot is 321x432 and a different style: new studio portrait needed."
+  - "Bio updated Sept 2026 from Josh's combined bios doc."
 ---
 
-Douglas Eisenstein coordinates and manages the development of new projects. He led the project management team for a $200 million indoor waterpark and hotel in upstate New York, coordinating multiple construction managers and specialty trades, and has been part of RAL's project teams for residential, hospitality and office developments in Manhattan, Brooklyn, Philadelphia and the Caribbean.
+Douglas Eisenstein coordinates and manages the development of new projects across RAL's residential, hospitality, office and mixed-use portfolio. He also serves as RAL's General Counsel, overseeing insurance, risk management, contract negotiations and regulatory matters.
 
-An attorney with more than twenty-five years of experience, Doug also serves as RAL's general counsel and leads its insurance and risk-management work. He liaises with local and state officials and drafts and reviews development agreements, trade and supply contracts and other project documents. He is a graduate of the University of Florida and Brooklyn Law School and is licensed to practice law in New York.
+With more than 25 years of legal and real estate experience, Doug works closely with project teams, consultants, contractors and public agencies to guide projects from acquisition through completion, and structures and negotiates the firm's development agreements. He is a graduate of the University of Florida and Brooklyn Law School.

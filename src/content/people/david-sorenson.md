@@ -2,10 +2,11 @@
 name: "David Sorenson"
 title: "Director of Architecture · Hospitality Group Manager"
 headshot: /src/assets/images/people/david-sorenson.jpg
-short_bio: "Leads development for new and operating hotel and residential ventures."
-internal_notes: []
+short_bio: "Leads design and delivery of hospitality projects."
+internal_notes:
+  - "Bio updated Sept 2026 from Josh's combined bios doc."
 ---
 
-David Sorenson oversees development for new and operating hotel and residential ventures. Before joining RAL he was a project architect and project manager at Ivins Design Group in Colorado, working on large-scale projects, and earlier managed commercial and residential buildings from conception through completion at Keith Kennedy Architecture in Idaho.
+David Sorenson is Director of Architecture and Hospitality Group Manager at RAL, with more than 30 years of experience leading the design and delivery of hospitality projects across the United States. He oversees multidisciplinary teams through every phase of a project, from planning and permitting to construction and occupancy.
 
-He holds a Bachelor of Architecture from Kansas State University, is NCARB certified, is licensed in Idaho, Colorado, New York, Florida, New Jersey and Puerto Rico, and is a member of the American Institute of Architects.
+His work includes new construction, renovations, brand conversions and property improvement programs for leading hospitality clients. Known for collaborative leadership and technical depth, David delivers cost-effective solutions that improve the guest experience and create long-term value for owners and operators. He is a licensed architect in multiple states and a member of the American Institute of Architects.

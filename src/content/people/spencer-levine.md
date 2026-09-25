@@ -2,11 +2,11 @@
 name: "Spencer Levine"
 title: "President & Director of Landscape Architecture"
 headshot: /src/assets/images/people/spencer-levine.jpg
-short_bio: "Oversees RAL's current projects and construction management."
+short_bio: "Runs day-to-day operations, business development and project execution."
 internal_notes:
-  - "Title updated per Josh (Sept 2026)."
+  - "Bio updated Sept 2026 from Josh's combined bios doc. Removed the duplicated licensing sentence and the hard-coded '47-year' reference."
 ---
 
-Spencer Levine oversees RAL's current and upcoming projects and is responsible for project and construction management, working between design and construction teams to deliver projects for RAL and third-party clients. He has managed and coordinated more than three million square feet of mixed-use space, including residential, commercial and hospitality properties across the United States and the Caribbean.
+Spencer Levine leads RAL's day-to-day operations, with a focus on business development and project execution. With degrees in landscape architecture from Harvard's Graduate School of Design and Cornell, he brings together creative vision and construction precision, and a real passion for where design and building meet.
 
-Spencer holds a Master's degree in landscape architecture from the Harvard University Graduate School of Design, where he concentrated in urban planning and public park design, and a BS in landscape architecture from Cornell University. He is a licensed landscape architect in Connecticut and Pennsylvania.
+From inception to delivery, Spencer has led major projects across the luxury residential, hospitality, commercial and mixed-use sectors, including Quay Tower, Zero Irving, Mandarin Oriental Grand Cayman, ROAN Steamboat and Four Seasons Vail. He is a licensed landscape architect in Connecticut and Colorado and a member of the American Society of Landscape Architects.

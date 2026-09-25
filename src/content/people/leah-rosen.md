@@ -1,10 +1,12 @@
 ---
 name: "Leah Rosen"
-title: "Compliance Officer"
+title: "Financial Compliance Officer"
 headshot: /src/assets/images/people/leah-rosen.jpg
-short_bio: "Oversees accounting, audits and compliance."
+short_bio: "Oversees accounting, project expenses and audits."
 internal_notes:
-  - "Published name Leah Rosen per Josh; image file is named l_volpe."
+  - "Bio and title updated Sept 2026 from Josh's combined bios doc."
 ---
 
-Leah Rosen oversees accounting for RAL Companies & Affiliates, monitoring and managing project expenses and conducting internal and external audits. Before joining RAL she was an external auditor of Fortune 500 companies at PwC. Leah is a Certified Public Accountant licensed in New York and Florida, and holds a Master's degree in Accounting and a BS in Accounting & Finance from Florida State University.
+Leah Rosen oversees accounting for RAL Companies & Affiliates, where she monitors and manages project expenses and conducts internal and external audits. Before joining RAL, she was an external auditor of Fortune 500 companies at PwC.
+
+Leah is a Certified Public Accountant licensed in New York and Florida. She holds a master's degree in accounting and a BS in Accounting & Finance from Florida State University.

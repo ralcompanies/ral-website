@@ -1,6 +1,6 @@
 # RAL website: pre-launch checklist
 
-Internal. Generated September 24, 2026 from the content files (`internal_notes`) plus standing items. Launch-readiness list, not a development blocker.
+Internal. Generated September 25, 2026 from the content files (`internal_notes`) plus standing items. Launch-readiness list, not a development blocker.
 
 ## Facts to verify (45)
 
@@ -37,7 +37,7 @@ Internal. Generated September 24, 2026 from the content files (`internal_notes`)
 - [ ] **Zero Irving**: Architect corrected from draft's 'David Brody Bond' to Davis Brody Bond (YIMBY).
 - [ ] **Zero Irving**: Co-developer Junius Real Estate Partners per YIMBY and press headlines; confirm naming.
 - [ ] **Zero Irving**: Removed 'currently fully occupied' (time-sensitive). Team links are a working guess; confirm who to show.
-- [ ] **company.yml**: Homepage stats shown - years since 1979 (calculated), 100+ projects (Robert Levine bio), $2.5B+ acquired and financed since 2001 (Stuart Taft bio). Square footage and development value omitted until verified; the draft's 50M SF and $20B are not used.
+- [ ] **company.yml**: Homepage stats shown - years since 1979 (calculated), 100+ projects (Robert Levine bio), $3.6B+ acquired and financed since 2001 (Stuart Taft 2026 bio). Square footage and development value omitted until verified; the draft's 50M SF and $20B are not used.
 - [ ] **company.yml**: Western office address (Brighton, CO) carried over from draft; confirm or replace with Steamboat/Telluride.
 - [ ] **company.yml**: Careers mailbox is "career@" (singular) on the draft; confirm.
 - [ ] **company.yml**: Add LinkedIn / Instagram company URLs (draft footer icons linked nowhere).
@@ -50,42 +50,39 @@ Internal. Generated September 24, 2026 from the content files (`internal_notes`)
 - [ ] **A public-private tech hub**: 2023 per NY YIMBY completion report. Confirm.
 - [ ] **Founded as a design firm in 1979. Design is still in our DNA.**: Story and how-we-work copy adapted from the live ralcompanies.com About page. Capability copy is new; review wording.
 
-## Team (34)
+## Team (31)
 
-- [ ] **David Wu**: Bio needed.
-- [ ] **David Wu**: no biography yet (profile shows title and projects only).
-- [ ] **Douglas Eisenstein**: Headshot is 321x432 and a different style: new studio portrait needed.
+- [ ] **David Sorenson**: Bio updated Sept 2026 from Josh's combined bios doc.
+- [ ] **David Wu**: Bio added Sept 2026 from David's bio and the combined doc. Title in the doc reads 'Designer/Draftspersons'; shown as Architectural Designer to match his bio. Confirm.
+- [ ] **Douglas Eisenstein**: Bio updated Sept 2026 from Josh's combined bios doc.
+- [ ] **Jerry Gallo**: Bio updated Sept 2026 from Josh's combined bios doc.
 - [ ] **Joanna Mikrut**: Retired (per Josh, Sept 2026). Not shown.
 - [ ] **Joanna Mikrut**: Not in Josh's Sept 2026 team list; kept inactive pending confirmation. Headshot exists.
 - [ ] **Josh Wein**: Bio rewritten Sept 2026 from Josh's long version. Square footage left out pending confirmation: his draft says 100M+ SF; the live-site bio said 5M+ SF.
+- [ ] **Kristen Johnson**: Added Sept 2026 per Josh. Headshot needed.
+- [ ] **Kristen Johnson**: headshot missing (placeholder shows).
+- [ ] **Kristen Johnson**: no biography yet (profile shows title and projects only).
 - [ ] **Kyung Kim**: Headshot and bio needed.
 - [ ] **Kyung Kim**: headshot missing (placeholder shows).
 - [ ] **Kyung Kim**: no biography yet (profile shows title and projects only).
-- [ ] **Leah Rosen**: Published name Leah Rosen per Josh; image file is named l_volpe.
+- [ ] **Leah Rosen**: Bio and title updated Sept 2026 from Josh's combined bios doc.
 - [ ] **Mary Wicker**: Added Sept 2026 per Josh. Headshot supplied on white; background replaced with studio grey to match the team set. Bio needed if she should get a profile page.
 - [ ] **Mary Wicker**: no biography yet (profile shows title and projects only).
-- [ ] **Matt D'Elia**: Bio needed.
-- [ ] **Matt D'Elia**: no biography yet (profile shows title and projects only).
-- [ ] **Payton Strout**: Bio needed.
-- [ ] **Payton Strout**: no biography yet (profile shows title and projects only).
-- [ ] **Robert A. Levine**: Bio from live site; founding year changed from 1982 to 1979 per Josh. "Hundreds of millions of dollars in project valuations" removed (undersells; conflicts with other figures). Confirm.
-- [ ] **Russell Cline**: Headshot and bio needed.
+- [ ] **Matthew D'Elia**: Bio added Sept 2026 from Matthew's bio and the combined doc; name shown as Matthew per his bio.
+- [ ] **Payton Strout**: Bio added Sept 2026 from Payton's bio and the combined doc.
+- [ ] **Robert A. Levine**: Bio updated Sept 2026 from Josh's combined bios doc. Doc says 'Since the beginning in 1982'; written as founded 1979 to match the confirmed founding year.
+- [ ] **Russell Cline**: Bio and title added Sept 2026 from Russell's bio and the combined doc.
 - [ ] **Russell Cline**: headshot missing (placeholder shows).
-- [ ] **Russell Cline**: no biography yet (profile shows title and projects only).
-- [ ] **Spencer Levine**: Title updated per Josh (Sept 2026).
-- [ ] **Spencer Stevens**: Headshot and bio needed.
+- [ ] **Spencer Levine**: Bio updated Sept 2026 from Josh's combined bios doc. Removed the duplicated licensing sentence and the hard-coded '47-year' reference.
+- [ ] **Spencer Stevens**: Bio added Sept 2026 from Spencer's 2026 bio and the combined doc.
 - [ ] **Spencer Stevens**: headshot missing (placeholder shows).
-- [ ] **Spencer Stevens**: no biography yet (profile shows title and projects only).
-- [ ] **Stuart Taft**: Live bio says "The Rouse Organization"; corrected to The Rouse Company (the firm's name). Confirm.
-- [ ] **Stuart Taft**: Figures ($2.5B, 6M SF) from live bio; confirm current.
+- [ ] **Stuart Taft**: Bio updated Sept 2026 from Stuart's 2026 bio and the combined doc (7.4M SF, $3.6B).
 - [ ] **Susan Sorenson**: Added Sept 2026 per Josh. Headshot needed.
 - [ ] **Susan Sorenson**: headshot missing (placeholder shows).
 - [ ] **Susan Sorenson**: no biography yet (profile shows title and projects only).
-- [ ] **Tom Casciano**: Bio needed before launch. No verifiable public information found; no draft written.
-- [ ] **Tom Casciano**: no biography yet (profile shows title and projects only).
-- [ ] **Valerie Kirsten**: Bio needed. Headshot 1300x1663 (usable).
-- [ ] **Valerie Kirsten**: no biography yet (profile shows title and projects only).
-- [ ] **Vincent Cangelosi**: Studio portrait used; the draft ink-wash image is not used.
+- [ ] **Thomas Casciano**: Bio updated Sept 2026 from Thomas's 2026 bio and the combined doc; name shown as Thomas per his bio.
+- [ ] **Valerie Kirsten**: Bio and title added Sept 2026 from Valerie's bio and the combined doc.
+- [ ] **Vincent Cangelosi**: Bio updated Sept 2026 from Vince's executive profile (long version, lightly edited).
 
 ## Assets (23)
 

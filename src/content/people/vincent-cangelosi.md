@@ -2,11 +2,13 @@
 name: "Vincent Cangelosi"
 title: "Managing Director, Design & Development"
 headshot: /src/assets/images/people/vincent-cangelosi.jpg
-short_bio: "Leads design and marketing across RAL's residential, resort and commercial work."
+short_bio: "Architect leading design and development across RAL's hospitality, residential and mixed-use work."
 internal_notes:
-  - "Studio portrait used; the draft ink-wash image is not used."
+  - "Bio updated Sept 2026 from Vince's executive profile (long version, lightly edited)."
 ---
 
-Vince Cangelosi directs the design and marketing of millions of square feet across a broad range of development types, including new and adaptive-reuse residential communities, large resort properties, private residences and regional retail centers. His command of design and construction technology has produced consistently successful developments in the competitive New York market and across the country.
+Vincent Cangelosi is a Managing Director and architect with more than four decades of experience in design, development and project leadership. He has directed the planning and execution of millions of square feet of luxury hospitality, residential and mixed-use development in both urban and resort settings.
 
-Vince trained at the City College of New York School of Architecture, with further study in urban planning and preservation in association with the Polytechnic Institute of Milan. He is a practicing architect and member of the American Institute of Architects, registered in New York, Pennsylvania, Colorado and Connecticut.
+He began his career in New York City in the 1990s with residential conversions, work that helped shape adaptive reuse during a period of rapid change in the city. He went on to lead the design and delivery of resort and hospitality projects for brands including Four Seasons and Mandarin Oriental, where precision, brand alignment and the guest experience come first.
+
+Vincent is known for tying architecture to the larger goals of a development, bringing one view across design, construction and marketing so that projects are both well designed and positioned for long-term value. He holds a degree in architecture from the City College of New York, pursued advanced studies in urban planning and preservation in Milan, and is a licensed architect in multiple states and a member of the American Institute of Architects.
