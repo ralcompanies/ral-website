@@ -6,7 +6,7 @@ status: completed
 location: Union Square, Manhattan
 address: 124 East 14th Street, New York, NY
 region: new-york
-types: [office, mixed-use]
+types: [commercial-mixed-use]
 roles: [developer]
 public_private: true
 public_partner: NYC Economic Development Corporation
@@ -64,16 +64,13 @@ chapters:
       alt: Roof terrace under the perforated canopy, with long tables and planting
       kind: photo
 gallery:
-  - { src: /src/assets/images/projects/zero-irving/exterior-dusk.jpg, alt: "Zero Irving at dusk", kind: photo }
-  - { src: /src/assets/images/projects/zero-irving/street-golden-hour.jpg, alt: "Zero Irving at golden hour on East 14th Street", kind: photo }
   - { src: /src/assets/images/projects/zero-irving/tower-clock-tower.jpg, alt: "Zero Irving beside the Con Edison clock tower", kind: photo }
   - { src: /src/assets/images/projects/zero-irving/lounge.jpg, alt: "Double-height tenant lounge with city views", kind: photo }
-  - { src: /src/assets/images/projects/zero-irving/lobby.jpg, alt: "Lobby with a large-scale digital art wall and reception desk", kind: photo }
-  - { src: /src/assets/images/projects/zero-irving/clock-tower-view.jpg, alt: "Tenant lounge framing the Con Edison clock tower", kind: photo }
+  - { src: /src/assets/images/projects/zero-irving/street-golden-hour.jpg, alt: "Zero Irving at golden hour on East 14th Street", kind: photo }
   - { src: /src/assets/images/projects/zero-irving/lobby-art-wall.jpg, alt: "Lobby art wall and turnstiles", kind: photo }
-  - { src: /src/assets/images/projects/zero-irving/civic-hall.jpg, alt: "Civic Hall event floor", kind: photo }
+  - { src: /src/assets/images/projects/zero-irving/clock-tower-view.jpg, alt: "Tenant lounge framing the Con Edison clock tower", kind: photo }
   - { src: /src/assets/images/projects/zero-irving/food-hall-terrace.jpg, alt: "Terrace seating beside the food hall", kind: photo }
-  - { src: /src/assets/images/projects/zero-irving/tenant-floor.jpg, alt: "Tenant floor with reception and planted lounge", kind: photo }
+  - { src: /src/assets/images/projects/zero-irving/civic-hall.jpg, alt: "Civic Hall event floor", kind: photo }
   - { src: /src/assets/images/projects/zero-irving/panorama.jpg, alt: "Panorama of Manhattan from the upper floors", kind: photo }
 team: [stuart-taft, josh-wein, spencer-levine]
 seo:

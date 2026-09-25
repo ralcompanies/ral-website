@@ -50,7 +50,7 @@ Internal. Generated September 25, 2026 from the content files (`internal_notes`)
 - [ ] **A public-private tech hub**: 2023 per NY YIMBY completion report. Confirm.
 - [ ] **Founded as a design firm in 1979. Design is still in our DNA.**: Story and how-we-work copy adapted from the live ralcompanies.com About page. Capability copy is new; review wording.
 
-## Team (31)
+## Team (29)
 
 - [ ] **David Sorenson**: Bio updated Sept 2026 from Josh's combined bios doc.
 - [ ] **David Wu**: Bio added Sept 2026 from David's bio and the combined doc. Title in the doc reads 'Designer/Draftspersons'; shown as Architectural Designer to match his bio. Confirm.
@@ -72,10 +72,8 @@ Internal. Generated September 25, 2026 from the content files (`internal_notes`)
 - [ ] **Payton Strout**: Bio added Sept 2026 from Payton's bio and the combined doc.
 - [ ] **Robert A. Levine**: Bio updated Sept 2026 from Josh's combined bios doc. Doc says 'Since the beginning in 1982'; written as founded 1979 to match the confirmed founding year.
 - [ ] **Russell Cline**: Bio and title added Sept 2026 from Russell's bio and the combined doc.
-- [ ] **Russell Cline**: headshot missing (placeholder shows).
 - [ ] **Spencer Levine**: Bio updated Sept 2026 from Josh's combined bios doc. Removed the duplicated licensing sentence and the hard-coded '47-year' reference.
 - [ ] **Spencer Stevens**: Bio added Sept 2026 from Spencer's 2026 bio and the combined doc.
-- [ ] **Spencer Stevens**: headshot missing (placeholder shows).
 - [ ] **Stuart Taft**: Bio updated Sept 2026 from Stuart's 2026 bio and the combined doc (7.4M SF, $3.6B).
 - [ ] **Susan Sorenson**: Added Sept 2026 per Josh. Headshot needed.
 - [ ] **Susan Sorenson**: headshot missing (placeholder shows).
@@ -84,27 +82,32 @@ Internal. Generated September 25, 2026 from the content files (`internal_notes`)
 - [ ] **Valerie Kirsten**: Bio and title added Sept 2026 from Valerie's bio and the combined doc.
 - [ ] **Vincent Cangelosi**: Bio updated Sept 2026 from Vince's executive profile (long version, lightly edited).
 
-## Assets (24)
+## Assets (29)
 
 - [ ] **15 Union Square West**: Image 1328px; original preferred.
 - [ ] **Broadridge**: Shown as Portfolio per Josh (Sept 2026). Aerial photo supplied by Josh (Sept 2026); confirm photographer credit and usage rights.
 - [ ] **Brookchester Court**: Image 640px: original required.
 - [ ] **CASA FIU**: Official name styling: draft uses both 'Casa-FIU' and 'CASA-FIU'; using 'CASA FIU' per the CASA logo. Confirm.
 - [ ] **CASA FIU**: Architect inferred from the 'Niles Bolton Associates' watermark on renderings. Confirm before launch.
+- [ ] **Four Seasons Houston**: Gallery (Sept 2026) rebuilt from the draft site's curated 8-image grid per Vince, including texture and mood images. Most draft files are 800px; swap in originals where available. Confirm licenses for stock and lifestyle images (e.g. Getty, Stingray City, lifestyle shots).
 - [ ] **Four Seasons Houston**: Images are ~2000px from the live site; better originals preferred. Operator photography: confirm usage rights.
 - [ ] **Franklin Tower**: Role inferred from live copy; confirm. Card image is a 650px listing photo (licence + original needed).
 - [ ] **The Inn at Lost Creek**: Role not stated anywhere; confirm. Image 1800px.
 - [ ] **The James New York**: Image 1500px; original preferred.
 - [ ] **The Kartrite Resort & Indoor Waterpark**: From Douglas Eisenstein bio (~$200M). Confirm role and figure. Image is 1426px, original preferred.
+- [ ] **Mandarin Oriental, Grand Cayman**: Gallery (Sept 2026) rebuilt from the draft site's curated 8-image grid per Vince, including texture and mood images. Most draft files are 800px; swap in originals where available. Confirm licenses for stock and lifestyle images (e.g. Getty, Stingray City, lifestyle shots).
 - [ ] **Mandarin Oriental, Grand Cayman**: Role per Josh (Sept 2026): RAL is a partner and the developer. Shown as Developer, with Melkonian Capital credited as development partner.
 - [ ] **Mandarin Oriental, Grand Cayman**: Mandarin Oriental name/logo usage needs brand approval. Logo files exist in Drive (MOGC/LOGO) but are not used.
 - [ ] **Mandarin Oriental, Grand Cayman**: Rendering credits unknown; add when confirmed.
 - [ ] **Orchard Street Hotel**: From the Drive folder (Jarmulowsky Bank images). Confirm name (now Hotel Orchard Street?), role and status. Image is a 573px construction photo.
 - [ ] **Prospérité**: Role: "part of the team" - design assumed. Image 720px: original required.
+- [ ] **Quay Tower**: Gallery (Sept 2026) rebuilt from the draft site's curated 8-image grid per Vince, including texture and mood images. Most draft files are 800px; swap in originals where available. Confirm licenses for stock and lifestyle images (e.g. Getty, Stingray City, lifestyle shots).
 - [ ] **Quay Tower**: Photography: Evan Joseph (EJ file prefix). Confirm credit.
+- [ ] **ROAN Steamboat**: Gallery (Sept 2026) rebuilt from the draft site's curated 8-image grid per Vince, including texture and mood images. Most draft files are 800px; swap in originals where available. Confirm licenses for stock and lifestyle images (e.g. Getty, Stingray City, lifestyle shots).
 - [ ] **ROAN Steamboat**: Partners (AmTrust, Latitude) deliberately not shown. Confirm whether to credit.
 - [ ] **ROAN Steamboat**: Renderings by Binyan Studios (file names). Lifestyle photo 'steamboat-night' licence to confirm; Getty images excluded.
 - [ ] **Spring Creek**: Role not stated; confirm. Image 2272px (snapshot quality).
+- [ ] **The Landing**: Gallery (Sept 2026) rebuilt from the draft site's curated 8-image grid per Vince, including texture and mood images. Most draft files are 800px; swap in originals where available. Confirm licenses for stock and lifestyle images (e.g. Getty, Stingray City, lifestyle shots).
 - [ ] **The Landing**: Dusk hero supplied by Josh (Sept 2026). Confirm whether it is a photo or a rendering (if rendering, set hero_kind: rendering) and the photographer/credit.
 - [ ] **Williamsburg Terrace**: From the Drive project folder only. Confirm name, role, status. Image 645px: original required.
 - [ ] **Zero Irving**: Hero, card, chapter and new gallery images from the 2023 Davis Brody Bond professional shoot (full-res supplied by Josh Sept 2026). Confirm photo credit.

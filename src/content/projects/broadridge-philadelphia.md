@@ -6,7 +6,7 @@ status: completed
 location: "North Broad Street, Philadelphia"
 address: "1300 Fairmount Avenue, Philadelphia, PA"
 region: other-us
-types: [residential, mixed-use]
+types: [residential, commercial-mixed-use]
 roles: [developer]
 card_image: /src/assets/images/projects/broadridge-philadelphia/aerial.jpg
 card_alt: "Aerial view of Broadridge on North Broad Street with the Center City skyline behind"

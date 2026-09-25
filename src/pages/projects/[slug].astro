@@ -110,14 +110,21 @@ const ogDesc = d.seo?.description ?? d.hook ?? d.summary;
     <section class="section wrap" aria-labelledby="gal-h">
       <div class="strip"><h2 id="gal-h" class="label">Gallery</h2><p class="meta strip__aside num">{String(d.gallery.length).padStart(2, '0')} images{d.gallery.some((g) => g.kind === 'rendering') && ' · includes renderings'}</p></div>
       <ul class="gallery" data-gallery>
-        {d.gallery.map((g, i) => (
-          <li class="gallery__item">
-            <button type="button" class="gallery__btn" data-index={i} aria-label={`Open image: ${g.alt}`}>
-              <div class="frame"><Img src={g.src} alt={g.alt} sizes="(max-width: 560px) 100vw, (max-width: 860px) 50vw, 33vw" /></div>
-            </button>
-            {(g.caption || g.credit) && <p class="caption"><span>{g.caption}</span><span>{g.credit}</span></p>}
-          </li>
-        ))}
+        {d.gallery.map((g, i) => {
+          // Rows of two alternate wide/narrow, then narrow/wide, so the grid always closes as a rectangle.
+          // An odd image out runs full width at the end.
+          const last = i === d.gallery.length - 1 && d.gallery.length % 2 === 1;
+          const row = Math.floor(i / 2);
+          const wide = (row % 2 === 0) === (i % 2 === 0);
+          const shape = last ? 'full' : wide ? 'wide' : 'narrow';
+          return (
+            <li class:list={['gallery__item', `gallery__item--${shape}`]}>
+              <button type="button" class="gallery__btn" data-index={i} aria-label={`Open image: ${g.alt}`}>
+                <Img src={g.src} alt={g.alt} sizes={shape === 'narrow' ? '(max-width: 700px) 100vw, 33vw' : '(max-width: 700px) 100vw, 66vw'} />
+              </button>
+            </li>
+          );
+        })}
       </ul>
       <dialog class="lightbox" data-lightbox aria-label="Image viewer">
         <div class="lightbox__stage" data-stage></div>
@@ -203,12 +210,14 @@ const ogDesc = d.seo?.description ?? d.hook ?? d.summary;
   .pquote p { max-width: 24ch; margin-bottom: var(--s-4); }
   .pquote footer { color: var(--on-dark-2); }
 
-  .gallery { list-style: none; margin: 0; padding: 0; columns: 3; column-gap: var(--gutter); }
-  .gallery__item { break-inside: avoid; margin-bottom: var(--gutter); }
-  .gallery__btn { display: block; width: 100%; padding: 0; border: 0; background: none; cursor: zoom-in; }
-  .gallery__btn .frame { background: var(--stone-2); }
-  .gallery__btn :global(img) { height: auto; }
-  .gallery__btn:hover :global(img) { transform: scale(1.02); }
+  .gallery { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); grid-auto-rows: clamp(12rem, 7rem + 13vw, 22rem); gap: clamp(0.5rem, 0.3rem + 0.6vw, 0.875rem); }
+  .gallery__item { min-width: 0; overflow: hidden; background: var(--stone-2); }
+  .gallery__item--wide { grid-column: span 2; }
+  .gallery__item--full { grid-column: 1 / -1; }
+  .gallery__btn { display: block; width: 100%; height: 100%; padding: 0; border: 0; background: none; cursor: zoom-in; }
+  .gallery__btn :global(picture) { display: block; height: 100%; }
+  .gallery__btn :global(img) { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s var(--ease); }
+  .gallery__btn:hover :global(img) { transform: scale(1.03); }
 
   .lightbox { border: 0; padding: 0; margin: 0; width: 100vw; height: 100dvh; max-width: none; max-height: none; background: rgb(12 12 11 / 0.97); color: var(--on-dark); }
   .lightbox::backdrop { background: rgb(12 12 11 / 0.9); }
@@ -240,14 +249,14 @@ const ogDesc = d.seo?.description ?? d.hook ?? d.summary;
     .intro__text, .facts { grid-column: 1 / -1; }
     .chapter__text, .chapter__fig, .chapter--flip .chapter__text, .chapter--flip .chapter__fig, .chapter--text .chapter__text { grid-column: 1 / -1; grid-row: auto; }
     .chapter--flip .chapter__fig { order: 2; }
-    .gallery { columns: 2; }
     .credits-wrap { grid-template-columns: 1fr; }
     .lightbox__stage { padding: 4rem 0.5rem 1rem; }
     .lightbox__prev, .lightbox__next { top: auto; bottom: 0.5rem; transform: none; }
   }
   @media (max-width: 560px) {
     .ppress, .next { grid-template-columns: 1fr; }
-    .gallery { columns: 1; }
+    .gallery { grid-template-columns: 1fr; grid-auto-rows: auto; }
+    .gallery__item, .gallery__item--wide, .gallery__item--full { grid-column: auto; aspect-ratio: 3 / 2; }
     .facts__row { grid-template-columns: 7rem 1fr; }
   }
 </style>

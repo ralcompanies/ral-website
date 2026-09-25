@@ -30,11 +30,16 @@ chapters:
       staircase and the third floor. RAL oversaw the design and construction of Bayou & Bottle, the
       new bar and restaurant, and a refresh of the porte-cochère and entrance.
 gallery:
-  - { src: /src/assets/images/projects/four-seasons-houston/lobby.jpg, alt: "Lobby lounge", kind: photo }
+  - { src: /src/assets/images/projects/four-seasons-houston/gallery/01-evening-at-the-hotel-bar.jpg, alt: "Evening at the hotel bar", kind: photo }
+  - { src: /src/assets/images/projects/four-seasons-houston/gallery/02-pendant-light-detail.jpg, alt: "Pendant light detail", kind: photo }
+  - { src: /src/assets/images/projects/four-seasons-houston/gallery/03-lounge-detail.jpg, alt: "Lounge detail", kind: photo }
+  - { src: /src/assets/images/projects/four-seasons-houston/bar-detail.jpg, alt: "Bar and lounge seating", kind: photo }
+  - { src: /src/assets/images/projects/four-seasons-houston/ballroom.jpg, alt: "Event space under string lights", kind: photo }
+  - { src: /src/assets/images/projects/four-seasons-houston/gallery/06-sculptural-wall-detail.jpg, alt: "Sculptural wall detail", kind: photo }
+  - { src: /src/assets/images/projects/four-seasons-houston/gallery/07-wood-and-stone-detail.jpg, alt: "Wood and stone detail", kind: photo }
   - { src: /src/assets/images/projects/four-seasons-houston/pool.jpg, alt: "Pool deck at night", kind: photo }
-  - { src: /src/assets/images/projects/four-seasons-houston/bar-detail.jpg, alt: "Bar seating", kind: photo }
-  - { src: /src/assets/images/projects/four-seasons-houston/ballroom.jpg, alt: "Event space", kind: photo }
 internal_notes:
+  - "Gallery (Sept 2026) rebuilt from the draft site's curated 8-image grid per Vince, including texture and mood images. Most draft files are 800px; swap in originals where available. Confirm licenses for stock and lifestyle images (e.g. Getty, Stingray City, lifestyle shots)."
   - "Role: RAL 'tasked by Ownership and Four Seasons to oversee the design and renovation' -> Owner's Representative. Confirm (could be Development Manager)."
   - "Address corrected to 1300 Lamar St (draft had 'Park Drive, TX 10000')."
   - "Images are ~2000px from the live site; better originals preferred. Operator photography: confirm usage rights."

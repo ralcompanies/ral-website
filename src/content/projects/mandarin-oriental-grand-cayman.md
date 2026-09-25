@@ -27,14 +27,16 @@ credits:
   - { role: Development partner, name: Melkonian Capital }
 website: https://moresidencesgrandcayman.com/
 gallery:
-  - { src: /src/assets/images/projects/mandarin-oriental-grand-cayman/ironshore.jpg, alt: "Residences above the ironshore coastline", kind: rendering }
-  - { src: /src/assets/images/projects/mandarin-oriental-grand-cayman/pool-deck.jpg, alt: "Infinity pool deck", kind: rendering }
-  - { src: /src/assets/images/projects/mandarin-oriental-grand-cayman/arrival.jpg, alt: "Arrival court", kind: rendering }
-  - { src: /src/assets/images/projects/mandarin-oriental-grand-cayman/penthouse-great-room.jpg, alt: "Penthouse great room", kind: rendering }
-  - { src: /src/assets/images/projects/mandarin-oriental-grand-cayman/garden-house-pool.jpg, alt: "Garden house with private pool", kind: rendering }
-  - { src: /src/assets/images/projects/mandarin-oriental-grand-cayman/ocean-house-lobby.jpg, alt: "Ocean House lobby", kind: rendering }
-  - { src: /src/assets/images/projects/mandarin-oriental-grand-cayman/penthouse-roof.jpg, alt: "Penthouse roof deck", kind: rendering }
+  - { src: /src/assets/images/projects/mandarin-oriental-grand-cayman/gallery/01-lagoon-pool-and-beach.jpg, alt: "Lagoon pool and beach", kind: rendering }
+  - { src: /src/assets/images/projects/mandarin-oriental-grand-cayman/gallery/02-residences-above-the-resort-at-sunset.jpg, alt: "Residences above the resort at sunset", kind: rendering }
+  - { src: /src/assets/images/projects/mandarin-oriental-grand-cayman/gallery/03-oceanfront-restaurant-terrace-at-sunset.jpg, alt: "Oceanfront restaurant terrace at sunset", kind: rendering }
+  - { src: /src/assets/images/projects/mandarin-oriental-grand-cayman/gallery/04-penthouse-pool-deck.jpg, alt: "Penthouse pool deck", kind: rendering }
+  - { src: /src/assets/images/projects/mandarin-oriental-grand-cayman/gallery/05-residence-terraces-at-sunset.jpg, alt: "Residence terraces at sunset", kind: rendering }
+  - { src: /src/assets/images/projects/mandarin-oriental-grand-cayman/gallery/06-stingray-city-grand-cayman.jpg, alt: "Stingray City, Grand Cayman", kind: photo }
+  - { src: /src/assets/images/projects/mandarin-oriental-grand-cayman/gallery/07-the-estate-and-shoreline-from-above.jpg, alt: "The estate and shoreline from above", kind: rendering }
+  - { src: /src/assets/images/projects/mandarin-oriental-grand-cayman/gallery/08-arrival-pavilion.jpg, alt: "Arrival pavilion", kind: rendering }
 internal_notes:
+  - "Gallery (Sept 2026) rebuilt from the draft site's curated 8-image grid per Vince, including texture and mood images. Most draft files are 800px; swap in originals where available. Confirm licenses for stock and lifestyle images (e.g. Getty, Stingray City, lifestyle shots)."
   - "Role per Josh (Sept 2026): RAL is a partner and the developer. Shown as Developer, with Melkonian Capital credited as development partner."
   - "Removed the Buckingham Square / West Bay Rd address (sales office, not the site)."
   - "Mandarin Oriental name/logo usage needs brand approval. Logo files exist in Drive (MOGC/LOGO) but are not used."

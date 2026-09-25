@@ -28,13 +28,6 @@ const attrs = (p: any) => ({ 'data-types': p.data.types.map((t: any) => t.id).jo
         {typeOpts.map(([id, t]: any) => <button type="button" class="chip" aria-pressed="false" data-filter="type" data-value={id}>{t.label}</button>)}
       </div>
     </div>
-    <div class="filters__group">
-      <p class="label">Region</p>
-      <div class="chips" role="group" aria-label="Region">
-        <button type="button" class="chip" aria-pressed="true" data-filter="region" data-value="">All</button>
-        {regionOpts.map(([id, r]: any) => <button type="button" class="chip" aria-pressed="false" data-filter="region" data-value={id}>{r.label}</button>)}
-      </div>
-    </div>
     <p class="meta filters__count num" aria-live="polite"><span data-count>{all.length}</span> projects</p>
   </section>
 
@@ -94,7 +87,7 @@ const attrs = (p: any) => ({ 'data-types': p.data.types.map((t: any) => t.id).jo
   const empty = document.querySelector<HTMLElement>('[data-empty]')!;
   const params = new URLSearchParams(location.search);
   state.type = params.get('type') ?? '';
-  state.region = params.get('region') ?? '';
+  state.region = ''; // region filter retired (Sept 2026); kept in data for later use
   function apply(push = false) {
     let n = 0;
     let portShown = 0;

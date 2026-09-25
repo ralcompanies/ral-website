@@ -5,7 +5,7 @@ display_order: 22
 status: completed
 location: "Colorado Springs, Colorado"
 region: mountain-west
-types: [planned-communities]
+types: [residential]
 roles: []
 hook: "A new-urbanist planned community of 1,655 residences on 210 acres."
 card_image: /src/assets/images/projects/spring-creek/card.jpg

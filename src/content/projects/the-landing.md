@@ -30,14 +30,16 @@ credits:
   - { role: Public partner, name: Brooklyn Bridge Park Corporation }
 website: http://thelanding.mns.com
 gallery:
-  - { src: /src/assets/images/projects/the-landing/exterior.jpg, alt: "The Landing and Quay Tower from Bridge Park Drive", kind: photo }
-  - { src: /src/assets/images/projects/the-landing/lobby.jpg, alt: "Lobby with living wall", kind: photo }
-  - { src: /src/assets/images/projects/the-landing/roof-terrace.jpg, alt: "Roof terrace facing the harbor", kind: photo }
-  - { src: /src/assets/images/projects/the-landing/lounge.jpg, alt: "Residents' lounge", kind: photo }
-  - { src: /src/assets/images/projects/the-landing/kitchen-lounge.jpg, alt: "Residents' kitchen", kind: photo }
-  - { src: /src/assets/images/projects/the-landing/terrace-dining.jpg, alt: "Terrace dining", kind: photo }
-  - { src: /src/assets/images/projects/the-landing/residence.jpg, alt: "Apartment with harbor view", kind: photo }
+  - { src: /src/assets/images/projects/the-landing/gallery/01-soccer-on-the-pier-5-fields-with-the-man.jpg, alt: "Soccer on the Pier 5 fields with the Manhattan skyline", kind: photo }
+  - { src: /src/assets/images/projects/the-landing/gallery/02-bedroom-detail.jpg, alt: "Bedroom detail", kind: photo }
+  - { src: /src/assets/images/projects/the-landing/gallery/03-cycling-along-the-brooklyn-bridge-park-p.jpg, alt: "Cycling along the Brooklyn Bridge Park promenade", kind: photo }
+  - { src: /src/assets/images/projects/the-landing/gallery/04-fitness-center.jpg, alt: "Fitness center", kind: photo }
+  - { src: /src/assets/images/projects/the-landing/gallery/05-residents-lounge-and-kitchen-with-harbor.jpg, alt: "Residents' lounge and kitchen with harbor views", kind: photo }
+  - { src: /src/assets/images/projects/the-landing/gallery/06-living-wall-and-stone-in-the-lobby.jpg, alt: "Living wall and stone in the lobby", kind: photo }
+  - { src: /src/assets/images/projects/the-landing/gallery/07-children-s-playroom.jpg, alt: "Children's playroom", kind: photo }
+  - { src: /src/assets/images/projects/the-landing/gallery/08-brooklyn-bridge-park-promenade.jpg, alt: "Brooklyn Bridge Park promenade", kind: photo }
 internal_notes:
+  - "Gallery (Sept 2026) rebuilt from the draft site's curated 8-image grid per Vince, including texture and mood images. Most draft files are 800px; swap in originals where available. Confirm licenses for stock and lifestyle images (e.g. Getty, Stingray City, lifestyle shots)."
   - "Dusk hero supplied by Josh (Sept 2026). Confirm whether it is a photo or a rendering (if rendering, set hero_kind: rendering) and the photographer/credit."
   - "140 units / 100 affordable / 15 stories / ODA from 6sqft (Sept 2018 lottery article). Confirm final counts."
   - "Website thelanding.mns.com is the leasing site from the draft; confirm still live."

@@ -21,8 +21,9 @@ credits:
   - { role: Architect, name: Niles Bolton Associates }
 gallery:
   - { src: /src/assets/images/projects/casa-fiu/dusk.jpg, alt: "CASA FIU at dusk", kind: rendering }
-  - { src: /src/assets/images/projects/casa-fiu/amenity-deck.jpg, alt: "Amenity deck and pool", kind: rendering }
+  - { src: /src/assets/images/projects/casa-fiu/tower.jpg, alt: "CASA FIU tower", kind: rendering }
   - { src: /src/assets/images/projects/casa-fiu/pool.jpg, alt: "Resort-style pool", kind: rendering }
+  - { src: /src/assets/images/projects/casa-fiu/amenity-deck.jpg, alt: "Amenity deck and pool", kind: rendering }
 internal_notes:
   - "RAL ROLE UNKNOWN. Left blank until confirmed."
   - "Official name styling: draft uses both 'Casa-FIU' and 'CASA-FIU'; using 'CASA FIU' per the CASA logo. Confirm."

@@ -5,7 +5,7 @@ display_order: 27
 status: completed
 location: "Tribeca, Manhattan"
 region: new-york
-types: [office]
+types: [commercial-mixed-use]
 roles: [developer]
 hook: "Part of the Tower 270 redevelopment: new retail frontage and 100,000 square feet of renovated office space."
 card_image: /src/assets/images/projects/86-chambers/card.jpg

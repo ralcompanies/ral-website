@@ -1,19 +1,10 @@
-# Project types. Used for the filter on the Projects page. Edit labels or order freely.
+# Project types. Used for the filter on the Projects page. Keep this list short so every filter shows a solid set of work.
 - id: residential
   label: Residential
   order: 1
 - id: hospitality
   label: Hospitality & Resort
   order: 2
-- id: mixed-use
-  label: Mixed-Use
+- id: commercial-mixed-use
+  label: Commercial & Mixed-Use
   order: 3
-- id: office
-  label: Office
-  order: 4
-- id: planned-communities
-  label: Planned Communities
-  order: 5
-- id: civic-recreation
-  label: Civic & Recreation
-  order: 6
