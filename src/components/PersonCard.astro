@@ -19,7 +19,10 @@ const initials = d.name.split(/\s+/).filter((w: string) => /^[A-Z]/.test(w)).map
 </Tag>
 <style>
   .person { display: grid; gap: 0.2rem; }
-  .person__img { aspect-ratio: 4 / 5; background: var(--portrait-bg); margin-bottom: 0.75rem; display: grid; place-items: center; }
+  .person__img { aspect-ratio: 4 / 5; background: var(--portrait-bg); margin-bottom: 0.75rem; display: grid; }
+  /* Photo always fills the frame (Safari otherwise shrinks it inside a centered grid). */
+  .person__img :global(picture), .person__img :global(img) { width: 100%; height: 100%; }
+  .person__mono { place-self: center; }
   .person__mono { font-family: var(--font-display); font-size: clamp(2rem, 4vw, 3rem); color: #6f6d68; letter-spacing: 0.04em; }
   .person__name { font-weight: 500; }
   .person--large .person__name { font-family: var(--font-display); font-weight: var(--display-weight); font-size: 1.375rem; }

@@ -127,7 +127,7 @@ h1, h2, h3, h4 { margin: 0; font-weight: var(--display-weight); text-wrap: balan
 
 /* ---- Images -------------------------------------------------------------- */
 .frame { position: relative; overflow: hidden; background: var(--stone); }
-.frame picture { display: block; height: 100%; }
+.frame picture { display: block; width: 100%; height: 100%; }
 .frame img { width: 100%; height: 100%; object-fit: cover; transition: transform 1.2s var(--ease); }
 a:hover .frame img, .frame:hover img.zoom { transform: scale(1.025); }
 .caption { display: flex; justify-content: space-between; gap: var(--s-2); margin-top: 0.6rem; font-size: var(--fs-small); color: var(--graphite); }
