@@ -2,7 +2,7 @@
 name: CASA FIU
 tier: featured
 display_order: 7
-status: in-development
+status: current
 location: Sweetwater, Florida
 region: florida
 types: [residential]

@@ -2,7 +2,7 @@
 name: Mandarin Oriental, Grand Cayman
 tier: featured
 display_order: 3
-status: in-development
+status: current
 location: Grand Cayman, Cayman Islands
 region: caribbean
 types: [hospitality, residential]
