@@ -44,8 +44,8 @@ chapters:
       Union Square. RAL's proposal combined that program with Class A office space, creating a
       destination for growing companies and the neighborhood's tech community.
     image:
-      src: /src/assets/images/projects/zero-irving/exterior-day.jpg
-      alt: Zero Irving rising beside the Con Edison clock tower
+      src: /src/assets/images/projects/zero-irving/aerial-sunset.jpg
+      alt: Zero Irving at sunset above Union Square, with lower Manhattan beyond
       kind: photo
   - heading: The program
     body: >-
@@ -75,6 +75,7 @@ team: [stuart-taft, josh-wein, spencer-levine]
 seo:
   description: Zero Irving at 124 East 14th Street, a public-private technology hub on Union Square developed by RAL in response to an NYCEDC request for proposals.
 internal_notes:
+  - "Chapter image (aerial-sunset) is from the 2023 Davis Brody Bond shoot, low-res version (1613px). Swap in full-res when Josh sends it."
   - "Square footage: RAL copy says 270,000 SF; YIMBY (Aug 2023) reports 176,000 SF. Confirm gross vs. rentable."
   - "Completion 2023 from YIMBY 'Zero Irving Completes Construction' (Aug 2023). Confirm."
   - "Architect corrected from draft's 'David Brody Bond' to Davis Brody Bond (YIMBY)."
