@@ -25,7 +25,7 @@ capabilities:
     text: In-house architects and designers who plan buildings from the floor plan out and lead the design teams on every project.
   - key: property
     title: Property management & leasing
-    text: Management and office and retail leasing for properties in RAL's own portfolio.
+    text: Property management and office and retail leasing for residential, commercial and mixed-use properties, for RAL's own portfolio and for third-party owners.
 how_we_work: >-
   RAL applies a varied group of professionals to each project and combines their abilities into
   a team that is greater than the sum of its parts. The core management team has worked together
