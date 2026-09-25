@@ -11,12 +11,12 @@ roles: [developer]
 public_private: true
 public_partner: NYC Economic Development Corporation
 completion_year: 2023
-hook: A city-sponsored technology hub on Union Square, financed by the Class A office space above it.
+hook: A technology hub in the heart of Union Square, combining Class A office space with tech education and innovation space.
 summary: >-
   RAL conceived Zero Irving in response to a competitive request for proposals from the New York
-  City Economic Development Corporation. The 21-story building combines the workforce-training,
-  incubator and event space the City required with market-rate office floors that carry it,
-  and it was approved through the City's public review process.
+  City Economic Development Corporation. The 21-story building brings together Class A and
+  flexible office space, digital-skills training, innovation and event space, and a street-level
+  food hall in the heart of Union Square.
 hero_image: /src/assets/images/projects/zero-irving/exterior-dusk-wide.jpg
 hero_alt: Zero Irving at dusk, its colored glass volumes lit above East 14th Street
 card_image: /src/assets/images/projects/zero-irving/exterior-dusk.jpg
@@ -40,9 +40,9 @@ stats:
 chapters:
   - heading: The opportunity
     body: >-
-      NYCEDC sought a partner to build a technology training and innovation center on a City-owned
-      site at the edge of Union Square. RAL's proposal answered the public brief by pairing it with
-      private office space whose rents would support the civic program for the long term.
+      NYCEDC sought a partner to create a technology training and innovation center at the edge of
+      Union Square. RAL's proposal combined that program with Class A office space, creating a
+      destination for growing companies and the neighborhood's tech community.
     image:
       src: /src/assets/images/projects/zero-irving/exterior-day.jpg
       alt: Zero Irving rising beside the Con Edison clock tower
