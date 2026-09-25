@@ -35,6 +35,11 @@ const roles = defineCollection({
 });
 
 /* ---------- Projects ---------- */
+// The admin saves empty optional fields as ''. Treat those as not set.
+const blank = (v: unknown) => (v === '' || v === null ? undefined : v);
+const optUrl = () => z.preprocess(blank, z.string().url().optional());
+const optEmail = () => z.preprocess(blank, z.string().email().optional());
+
 const galleryImage = (image: any) =>
   z.object({
     src: image(),
@@ -82,7 +87,7 @@ const projects = defineCollection({
           .default({ other: [] }),
         credits: z.array(z.object({ role: z.string(), name: z.string() })).default([]),
         partners: z.array(z.string()).default([]),
-        website: z.string().url().optional(),
+        website: optUrl(),
         stats: z.array(z.object({ value: z.string(), label: z.string() })).default([]),
         chapters: z
           .array(
@@ -119,8 +124,8 @@ const people = defineCollection({
       headshot: image().optional(),
       headshot_focus: z.string().default('50% 30%').describe('CSS object-position, e.g. "50% 25%"'),
       short_bio: z.string().optional(),
-      linkedin: z.string().url().optional(),
-      email: z.string().email().optional(),
+      linkedin: optUrl(),
+      email: optEmail(),
       show_email: z.boolean().default(false),
       active: z.boolean().default(true),
       seo,
@@ -146,7 +151,7 @@ const publications = defineCollection({
   schema: z.object({
     id: z.string(),
     name: z.string(),
-    website: z.string().url().optional(),
+    website: optUrl(),
     tier: z.enum(['national', 'trade', 'local']).default('trade'),
     // Monochrome wordmark in /public/press-logos. Without one, the outlet name is set in type.
     logo: z.string().optional(),
