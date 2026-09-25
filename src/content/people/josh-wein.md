@@ -1,8 +1,13 @@
 ---
-name: "Josh Wein"
-title: "Managing Director"
+name: Josh Wein
+title: Managing Director
 headshot: /src/assets/images/people/josh-wein.jpg
-short_bio: "Leads underwriting, capital structuring, financing and deal negotiation across RAL's portfolio."
+headshot_focus: 50% 30%
+short_bio: Leads underwriting, capital structuring, financing and deal negotiation across RAL's portfolio.
+linkedin: https://www.linkedin.com/in/jmwein/
+email: ''
+show_email: false
+active: true
 internal_notes:
   - "Bio rewritten Sept 2026 from Josh's long version. Square footage left out pending confirmation: his draft says 100M+ SF; the live-site bio said 5M+ SF."
 ---
