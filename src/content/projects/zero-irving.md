@@ -17,10 +17,10 @@ summary: >-
   City Economic Development Corporation. The 21-story building brings together Class A and
   flexible office space, digital-skills training, innovation and event space, and a street-level
   food hall in the heart of Union Square.
-hero_image: /src/assets/images/projects/zero-irving/exterior-dusk-wide.jpg
-hero_alt: Zero Irving at dusk, its colored glass volumes lit above East 14th Street
+hero_image: /src/assets/images/projects/zero-irving/tower-clock-tower.jpg
+hero_alt: Zero Irving rising beside the Con Edison clock tower on Union Square
 card_image: /src/assets/images/projects/zero-irving/exterior-dusk.jpg
-card_alt: Zero Irving at dusk from East 14th Street
+card_alt: Zero Irving at dusk, its colored glass volumes lit above East 14th Street
 facts:
   square_feet: 270000
   stories: 21
@@ -59,11 +59,13 @@ chapters:
       clock tower next door, with planted terraces, a public-facing ground floor and a lobby built
       around a large-scale digital art wall.
     image:
-      src: /src/assets/images/projects/zero-irving/roof-terrace.jpg
-      alt: Planted roof terrace with a perforated canopy at Zero Irving
+      src: /src/assets/images/projects/zero-irving/roof-canopy.jpg
+      alt: Roof terrace under the perforated canopy, with long tables and planting
       kind: photo
 gallery:
   - { src: /src/assets/images/projects/zero-irving/exterior-dusk.jpg, alt: "Zero Irving at dusk", kind: photo }
+  - { src: /src/assets/images/projects/zero-irving/street-golden-hour.jpg, alt: "Zero Irving at golden hour on East 14th Street", kind: photo }
+  - { src: /src/assets/images/projects/zero-irving/lounge.jpg, alt: "Double-height tenant lounge with city views", kind: photo }
   - { src: /src/assets/images/projects/zero-irving/lobby.jpg, alt: "Lobby with a large-scale digital art wall and reception desk", kind: photo }
   - { src: /src/assets/images/projects/zero-irving/clock-tower-view.jpg, alt: "Tenant lounge framing the Con Edison clock tower", kind: photo }
   - { src: /src/assets/images/projects/zero-irving/lobby-art-wall.jpg, alt: "Lobby art wall and turnstiles", kind: photo }
@@ -75,7 +77,7 @@ team: [stuart-taft, josh-wein, spencer-levine]
 seo:
   description: Zero Irving at 124 East 14th Street, a public-private technology hub on Union Square developed by RAL in response to an NYCEDC request for proposals.
 internal_notes:
-  - "Chapter image (aerial-sunset) is from the 2023 Davis Brody Bond shoot, low-res version (1613px). Swap in full-res when Josh sends it."
+  - "Hero, card, chapter and new gallery images from the 2023 Davis Brody Bond professional shoot (full-res supplied by Josh Sept 2026). Confirm photo credit."
   - "Square footage: RAL copy says 270,000 SF; YIMBY (Aug 2023) reports 176,000 SF. Confirm gross vs. rentable."
   - "Completion 2023 from YIMBY 'Zero Irving Completes Construction' (Aug 2023). Confirm."
   - "Architect corrected from draft's 'David Brody Bond' to Davis Brody Bond (YIMBY)."

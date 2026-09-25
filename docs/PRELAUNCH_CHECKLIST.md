@@ -84,7 +84,7 @@ Internal. Generated September 25, 2026 from the content files (`internal_notes`)
 - [ ] **Valerie Kirsten**: Bio and title added Sept 2026 from Valerie's bio and the combined doc.
 - [ ] **Vincent Cangelosi**: Bio updated Sept 2026 from Vince's executive profile (long version, lightly edited).
 
-## Assets (23)
+## Assets (24)
 
 - [ ] **15 Union Square West**: Image 1328px; original preferred.
 - [ ] **Broadridge**: Shown as Portfolio per Josh (Sept 2026). Aerial photo supplied by Josh (Sept 2026); confirm photographer credit and usage rights.
@@ -107,6 +107,7 @@ Internal. Generated September 25, 2026 from the content files (`internal_notes`)
 - [ ] **Spring Creek**: Role not stated; confirm. Image 2272px (snapshot quality).
 - [ ] **The Landing**: Dusk hero supplied by Josh (Sept 2026). Confirm whether it is a photo or a rendering (if rendering, set hero_kind: rendering) and the photographer/credit.
 - [ ] **Williamsburg Terrace**: From the Drive project folder only. Confirm name, role, status. Image 645px: original required.
+- [ ] **Zero Irving**: Hero, card, chapter and new gallery images from the 2023 Davis Brody Bond professional shoot (full-res supplied by Josh Sept 2026). Confirm photo credit.
 - [ ] **Zero Irving**: Photography: 2025 CTC shoot (hi-res originals in Drive). Confirm photographer credit line.
 - [ ] **company.yml**: Partner/operator names shown as text only. Confirm each may be named publicly; logos only with permission.
 
