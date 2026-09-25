@@ -19,7 +19,7 @@ capabilities:
     text: Co-development and joint ventures with capital partners, and competitive public proposals with agencies such as NYCEDC and Brooklyn Bridge Park Corporation.
   - key: manage
     title: Owner's representation
-    text: Representing owners, lenders and operators on renovations, repositionings and completions, including hotels operated by Four Seasons.
+    text: Full-scale development management for owners, lenders and operators, as well as renovations, repositionings and completions, from planning and design through construction and opening.
   - key: design
     title: Design & architecture
     text: In-house architects and designers who plan buildings from the floor plan out and lead the design teams on every project.
