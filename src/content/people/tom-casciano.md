@@ -1,6 +1,7 @@
 ---
 name: "Thomas Casciano"
 title: "Project Executive"
+linkedin: https://www.linkedin.com/in/thomascasciano/
 short_bio: "Leads delivery of luxury hospitality, residential and commercial projects."
 headshot: /src/assets/images/people/tom-casciano.jpg
 internal_notes:

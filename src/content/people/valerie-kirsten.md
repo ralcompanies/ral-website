@@ -1,6 +1,7 @@
 ---
 name: "Valerie Kirsten"
 title: "Senior Project Manager"
+linkedin: https://www.linkedin.com/in/valerie-easterwood-kirsten-90311428/
 short_bio: "Steers projects through design and construction."
 headshot: /src/assets/images/people/valerie-kirsten.jpg
 internal_notes:

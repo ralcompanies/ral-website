@@ -1,6 +1,7 @@
 ---
 name: "David Sorenson"
 title: "Director of Architecture · Hospitality Group Manager"
+linkedin: https://www.linkedin.com/in/david-sorenson-aia-9710811a/
 headshot: /src/assets/images/people/david-sorenson.jpg
 short_bio: "Leads design and delivery of hospitality projects."
 internal_notes:

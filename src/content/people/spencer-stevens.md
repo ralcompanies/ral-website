@@ -1,6 +1,7 @@
 ---
 name: "Spencer Stevens"
 title: "Senior Financial Analyst"
+linkedin: https://www.linkedin.com/in/spencer-stevens-cpa-169021197/
 headshot: /src/assets/images/people/spencer-stevens.jpg
 short_bio: "Underwrites acquisitions and developments across asset types."
 internal_notes:

@@ -1,6 +1,7 @@
 ---
 name: "Douglas Eisenstein"
 title: "General Counsel · Project Director"
+linkedin: https://www.linkedin.com/in/douglas-eisenstein-7938746/
 headshot: /src/assets/images/people/douglas-eisenstein.jpg
 short_bio: "Manages new development projects and serves as General Counsel."
 internal_notes:

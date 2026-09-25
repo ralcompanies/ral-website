@@ -1,6 +1,7 @@
 ---
 name: "Leah Rosen"
 title: "Financial Compliance Officer"
+linkedin: https://www.linkedin.com/in/leah-volpe-rosen-cpa-5262a057/
 headshot: /src/assets/images/people/leah-rosen.jpg
 short_bio: "Oversees accounting, project expenses and audits."
 internal_notes:

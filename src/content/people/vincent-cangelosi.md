@@ -1,6 +1,7 @@
 ---
 name: "Vincent Cangelosi"
 title: "Managing Director, Design & Development"
+linkedin: https://www.linkedin.com/in/vincent-cangelosi-4053a23/
 headshot: /src/assets/images/people/vincent-cangelosi.jpg
 short_bio: "Architect leading design and development across RAL's hospitality, residential and mixed-use work."
 internal_notes:

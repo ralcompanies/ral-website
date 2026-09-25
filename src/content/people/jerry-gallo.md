@@ -1,6 +1,7 @@
 ---
 name: "Jerry Gallo"
 title: "Director of Construction"
+linkedin: https://www.linkedin.com/in/jerry-gallo-6123a13/
 headshot: /src/assets/images/people/jerry-gallo.jpg
 short_bio: "Oversees construction and serves as lead owner's representative."
 internal_notes:

@@ -1,6 +1,7 @@
 ---
 name: "Stuart Taft"
 title: "Managing Partner"
+linkedin: https://www.linkedin.com/in/stuart-taft-3603a535/
 headshot: /src/assets/images/people/stuart-taft.jpg
 short_bio: "Directs capitalization, joint ventures, acquisitions and dispositions."
 internal_notes:

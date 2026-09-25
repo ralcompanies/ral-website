@@ -1,6 +1,7 @@
 ---
 name: "David Wu"
 title: "Architectural Designer"
+linkedin: https://www.linkedin.com/in/david-wu-498477208/
 short_bio: "Architectural designer on RAL's New York and Philadelphia projects."
 headshot: /src/assets/images/people/david-wu.jpg
 internal_notes:

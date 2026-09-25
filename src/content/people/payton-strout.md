@@ -1,6 +1,7 @@
 ---
 name: "Payton Strout"
 title: "Associate Project Manager"
+linkedin: https://www.linkedin.com/in/payton-strout/
 short_bio: "Supports planning and execution from predevelopment through construction."
 headshot: /src/assets/images/people/payton-strout.jpg
 internal_notes:

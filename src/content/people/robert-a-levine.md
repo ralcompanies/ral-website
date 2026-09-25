@@ -1,6 +1,7 @@
 ---
 name: "Robert A. Levine"
 title: "Chairman & CEO"
+linkedin: https://www.linkedin.com/in/robert-levine-65b60628/
 headshot: /src/assets/images/people/robert-a-levine.jpg
 short_bio: "Founder of RAL; planner and architect by training."
 internal_notes:
