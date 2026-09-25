@@ -1,6 +1,7 @@
 ---
 name: "Spencer Stevens"
 title: "Senior Financial Analyst"
+headshot: /src/assets/images/people/spencer-stevens.jpg
 short_bio: "Underwrites acquisitions and developments across asset types."
 internal_notes:
   - "Bio added Sept 2026 from Spencer's 2026 bio and the combined doc."

@@ -5,7 +5,7 @@ import sys, cv2, numpy as np
 from PIL import Image, ImageOps, ImageEnhance
 OUT_W, OUT_H = 1200, 1500
 FACE_FRAC = 0.50    # face width as a share of the frame width
-FACE_CY = 0.38      # face centre, from the top of the frame
+FACE_CY = float(__import__("os").environ.get("FACE_CY", 0.38))      # face centre, from the top of the frame
 casc = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_default.xml')
 
 def face(im):
