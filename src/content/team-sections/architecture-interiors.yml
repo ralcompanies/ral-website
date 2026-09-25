@@ -1,6 +1,6 @@
 # Team section. Rename, reorder (order), hide (visible: false) or change members freely.
 name: "Architecture & Interiors"
-order: 5
+order: 4
 visible: true
 card_size: standard
 members:

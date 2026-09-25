@@ -1,5 +1,5 @@
 # Team section. Rename, reorder (order), hide (visible: false) or change members freely.
-name: "Senior Project Development"
+name: "Project Development"
 order: 2
 visible: true
 card_size: standard
@@ -8,3 +8,7 @@ members:
   - david-sorenson
   - tom-casciano
   - douglas-eisenstein
+  - valerie-kirsten
+  - kyung-kim
+  - russell-cline
+  - payton-strout
