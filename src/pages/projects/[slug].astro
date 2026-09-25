@@ -4,12 +4,11 @@
  * do not render, so a project with one rendering and a paragraph produces a
  * short, finished page, and a flagship produces a long one.
  */
-import { getCollection, getEntries } from 'astro:content';
+import { getCollection } from 'astro:content';
 import Base from '../../layouts/Base.astro';
 import Img from '../../components/Img.astro';
 import Arrow from '../../components/Arrow.astro';
 import FeaturedCard from '../../components/FeaturedCard.astro';
-import PersonCard from '../../components/PersonCard.astro';
 import PressItem from '../../components/PressItem.astro';
 import { lookups, statusLabel, rolesOf, typesOf, visiblePress } from '../../lib/site';
 
@@ -36,7 +35,6 @@ for (const o of d.facts.other) facts.push([o.label, o.value]);
 if (d.public_private && d.public_partner) facts.push(['Public partner', d.public_partner]);
 if (d.website) facts.push(['Website', d.website.replace(/^https?:\/\/(www\.)?/, '').replace(/\/$/, ''), d.website]);
 
-const team = (await getEntries(d.team)).filter((x) => x.data.active);
 const press = (await visiblePress()).filter((x) => x.data.projects.some((r) => r.id === p.id));
 const others = (await getCollection('projects', (x) => x.data.tier === 'featured' && x.id !== p.id)).sort((a, b) => {
   const score = (x: any) => (x.data.region.id === d.region.id ? -2 : 0) + (x.data.types.some((t: any) => d.types.some((u) => u.id === t.id)) ? -1 : 0);
@@ -148,13 +146,6 @@ const ogDesc = d.seo?.description ?? d.hook ?? d.summary;
     </section>
   )}
 
-  {team.length > 0 && (
-    <section class="section wrap" aria-labelledby="team-h">
-      <div class="strip"><h2 id="team-h" class="label">RAL team</h2><a class="link meta strip__aside" href="/team/">Full team<Arrow /></a></div>
-      <div class="pteam">{team.map((t) => <PersonCard p={t} />)}</div>
-    </section>
-  )}
-
   {press.length > 0 && (
     <section class="section section--stone" aria-labelledby="press-h">
       <div class="wrap">
@@ -239,12 +230,10 @@ const ogDesc = d.seo?.description ?? d.hook ?? d.summary;
   .miles { list-style: none; margin: 0; padding: 0; }
   .miles li { display: grid; grid-template-columns: 5rem 1fr; gap: 1rem; padding-block: 0.8rem; border-bottom: 1px solid var(--rule); }
 
-  .pteam { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: var(--gutter); }
   .ppress { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--s-5) var(--gutter); }
   .next { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--gutter); }
 
   @media (max-width: 1000px) {
-    .pteam { grid-template-columns: repeat(3, minmax(0, 1fr)); }
     .ppress, .next { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   }
   @media (max-width: 860px) {
@@ -259,7 +248,6 @@ const ogDesc = d.seo?.description ?? d.hook ?? d.summary;
   @media (max-width: 560px) {
     .ppress, .next { grid-template-columns: 1fr; }
     .gallery { columns: 1; }
-    .pteam { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     .facts__row { grid-template-columns: 7rem 1fr; }
   }
 </style>

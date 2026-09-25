@@ -104,7 +104,6 @@ collections:
           - { name: credit, widget: string, required: false }
           - { name: kind, widget: select, options: [photo, rendering], default: photo }
       - { name: milestones, label: "Featured: milestones & awards", widget: list, required: false, collapsed: true, fields: [{ name: year, widget: string }, { name: text, widget: string }] }
-      - { name: team, label: "Featured: RAL team members", widget: relation, collection: people, search_fields: [name], value_field: "{{slug}}", display_fields: [name], multiple: true, required: false }
       - { name: seo, label: Search & sharing, widget: object, collapsed: true, required: false, fields: [{ name: title, widget: string, required: false }, { name: description, widget: text, required: false }] }
       - { name: internal_notes, label: "Internal notes (never shown on the site)", widget: list, required: false }
 
