@@ -36,7 +36,7 @@ stats:
   - { value: "8", label: "floors of amenitized Class A office" }
   - { value: "5", label: "floors of flexible office for growing companies" }
   - { value: "3", label: "floors for digital-skills training" }
-  - { value: "300", label: "guests in the full-floor event space" }
+  - { value: "300+", label: "guests in the full-floor event space" }
 chapters:
   - heading: The opportunity
     body: >-
@@ -51,7 +51,7 @@ chapters:
     body: >-
       The building stacks eight floors of amenitized Class A office, five floors of flexible office
       for startups on shorter terms, three floors of digital-skills training, two floors of
-      networking and innovation space operated by Civic Hall, and a full-floor event space for 300
+      networking and innovation space operated by Civic Hall, and a full-floor event space for 300+
       guests. A food hall at street level opens the building to the neighborhood.
   - heading: Design
     body: >-
