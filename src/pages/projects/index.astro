@@ -17,7 +17,7 @@ const typeOpts = Object.entries(lk.types).filter(([id]) => used('types').has(id)
 const regionOpts = Object.entries(lk.regions).filter(([id]) => used('region').has(id)).sort((a: any, b: any) => a[1].order - b[1].order);
 const attrs = (p: any) => ({ 'data-types': p.data.types.map((t: any) => t.id).join(' '), 'data-region': p.data.region.id });
 ---
-<Base title="Projects" description="Residential, hospitality, office and public-private projects by RAL Companies, from New York to the Mountain West and the Caribbean.">
+<Base title="Projects" description="Residential, hospitality, office and mixed-use projects by RAL Companies in cities and resort destinations across the United States and the Caribbean.">
   <PageIntro eyebrow="Projects" title="Selected work" />
 
   <section class="wrap filters" aria-label="Filter projects" data-filters>

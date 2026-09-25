@@ -18,8 +18,8 @@ hero_slides:
     project: quay-tower
     caption: Quay Tower, Brooklyn Bridge Park
 featured_intro: >-
-  Four decades of work across New York, the mountains and the Caribbean. A selection of current
-  and recent projects.
+  More than four decades of work in cities and resort destinations across the United States and
+  the Caribbean. A selection of current and recent projects.
 # Ordered list. Drag to reorder in the admin. Only Featured projects can be chosen.
 featured_projects:
   - project: quay-tower
