@@ -82,16 +82,17 @@ Internal. Generated September 25, 2026 from the content files (`internal_notes`)
 - [ ] **Valerie Kirsten**: Bio and title added Sept 2026 from Valerie's bio and the combined doc.
 - [ ] **Vincent Cangelosi**: Bio updated Sept 2026 from Vince's executive profile (long version, lightly edited).
 
-## Assets (30)
+## Assets (32)
 
 - [ ] **15 Union Square West**: Image 1328px; original preferred.
 - [ ] **Broadridge**: Shown as Portfolio per Josh (Sept 2026). Aerial photo supplied by Josh (Sept 2026); confirm photographer credit and usage rights.
 - [ ] **Brookchester Court**: Image 640px: original required.
 - [ ] **CASA FIU**: Official name styling: draft uses both 'Casa-FIU' and 'CASA-FIU'; using 'CASA FIU' per the CASA logo. Confirm.
 - [ ] **CASA FIU**: Architect inferred from the 'Niles Bolton Associates' watermark on renderings. Confirm before launch.
-- [ ] **Four Seasons Atlanta**: Card image (ATL_706) from the Four Seasons Image Library files in the RAL Drive; library terms limit use to Four Seasons employees and contractors. Confirm RAL may use it on its website.
+- [ ] **Four Seasons Atlanta**: Card image (entrance at dusk) supplied by Josh Sept 2026; appears to be a Four Seasons marketing photo. Confirm RAL may use it on its website.
 - [ ] **Four Seasons Houston**: Gallery (Sept 2026) rebuilt from the draft site's curated 8-image grid per Vince, including texture and mood images. Most draft files are 800px; swap in originals where available. Confirm licenses for stock and lifestyle images (e.g. Getty, Stingray City, lifestyle shots).
 - [ ] **Four Seasons Houston**: Images are ~2000px from the live site; better originals preferred. Operator photography: confirm usage rights.
+- [ ] **Four Seasons Vail**: Card image supplied by Josh Sept 2026 (1024px). Confirm source and usage rights.
 - [ ] **Franklin Tower**: Role inferred from live copy; confirm. Card image is a 650px listing photo (licence + original needed).
 - [ ] **The Inn at Lost Creek**: Role not stated anywhere; confirm. Image 1800px.
 - [ ] **The James New York**: Image 1500px; original preferred.
@@ -100,7 +101,8 @@ Internal. Generated September 25, 2026 from the content files (`internal_notes`)
 - [ ] **Mandarin Oriental, Grand Cayman**: Role per Josh (Sept 2026): RAL is a partner and the developer. Shown as Developer, with Melkonian Capital credited as development partner.
 - [ ] **Mandarin Oriental, Grand Cayman**: Mandarin Oriental name/logo usage needs brand approval. Logo files exist in Drive (MOGC/LOGO) but are not used.
 - [ ] **Mandarin Oriental, Grand Cayman**: Rendering credits unknown; add when confirmed.
-- [ ] **Orchard Street Hotel**: From the Drive folder (Jarmulowsky Bank images). Confirm name (now Hotel Orchard Street?), role and status. Image is a 573px construction photo.
+- [ ] **Monogram New York**: Card image (rendering) supplied by Josh Sept 2026.
+- [ ] **Orchard Street Hotel**: From the Drive folder (Jarmulowsky Bank images). Confirm name (now Hotel Orchard Street?), role and status. Card image supplied by Josh (Sept 2026): the bar in the former Jarmulowsky Bank banking hall. The building opened as Nine Orchard; confirm the project name and photo credit.
 - [ ] **Prospérité**: Role: "part of the team" - design assumed. Image 720px: original required.
 - [ ] **Quay Tower**: Gallery (Sept 2026) rebuilt from the draft site's curated 8-image grid per Vince, including texture and mood images. Most draft files are 800px; swap in originals where available. Confirm licenses for stock and lifestyle images (e.g. Getty, Stingray City, lifestyle shots).
 - [ ] **Quay Tower**: Photography: Evan Joseph (EJ file prefix). Confirm credit.

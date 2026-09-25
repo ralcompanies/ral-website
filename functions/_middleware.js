@@ -2,7 +2,10 @@
 // The production domain (ralcompanies.com) is not affected.
 // Set PREVIEW_PASSWORD in Cloudflare Pages > Settings > Variables.
 export async function onRequest({ request, env, next }) {
-  const host = new URL(request.url).hostname;
+  const url = new URL(request.url);
+  const host = url.hostname;
+  // Send the bare domain to www so there is one canonical address.
+  if (host === 'ralcompanies.com') { url.hostname = 'www.ralcompanies.com'; return Response.redirect(url.toString(), 301); }
   const protectedHost = host.endsWith('.pages.dev');
   if (!protectedHost || !env.PREVIEW_PASSWORD) return next();
   const auth = request.headers.get('Authorization') || '';

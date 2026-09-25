@@ -1,0 +1,14 @@
+# Old ralcompanies.com URLs -> new site (301 permanent). Keeps old links and search results working.
+/services              /about/                               301
+/services/             /about/                               301
+/projects/14th-street  /projects/zero-irving/                301
+/projects/14th-street/ /projects/zero-irving/                301
+/projects/Mandarin-Oriental  /projects/mandarin-oriental-grand-cayman/ 301
+/projects/mandarin-oriental  /projects/mandarin-oriental-grand-cayman/ 301
+/projects/mandarin-oriental/ /projects/mandarin-oriental-grand-cayman/ 301
+/projects/Roan         /projects/roan-steamboat/             301
+/projects/roan         /projects/roan-steamboat/             301
+/projects/roan/        /projects/roan-steamboat/             301
+/project               /projects/                            301
+/project/              /projects/                            301
+/site/*                /                                     301
