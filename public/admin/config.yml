@@ -63,6 +63,7 @@ collections:
         required: false
       - { name: hero_image, label: "Featured: hero image", widget: image, required: false, hint: Large landscape image at least 2400px wide. }
       - { name: hero_alt, label: "Featured: hero image description", widget: string, required: false }
+      - { name: hero_position, label: "Featured: hero crop focus (e.g. 50% 25%)", widget: string, required: false }
       - { name: hero_kind, label: "Featured: hero is a", widget: select, options: [{ label: Photograph, value: photo }, { label: Rendering, value: rendering }], default: photo }
       - { name: logo, label: "Featured: project logo", widget: image, required: false }
       - name: facts

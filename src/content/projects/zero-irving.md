@@ -17,8 +17,9 @@ summary: >-
   City Economic Development Corporation. The 21-story building brings together Class A and
   flexible office space, digital-skills training, innovation and event space, and a street-level
   food hall in the heart of Union Square.
-hero_image: /src/assets/images/projects/zero-irving/tower-clock-tower.jpg
-hero_alt: Zero Irving rising beside the Con Edison clock tower on Union Square
+hero_image: /src/assets/images/projects/zero-irving/exterior-dusk.jpg
+hero_alt: Zero Irving at dusk, its colored glass volumes lit above East 14th Street
+hero_position: 50% 25%
 card_image: /src/assets/images/projects/zero-irving/exterior-dusk.jpg
 card_alt: Zero Irving at dusk, its colored glass volumes lit above East 14th Street
 facts:
@@ -65,6 +66,7 @@ chapters:
 gallery:
   - { src: /src/assets/images/projects/zero-irving/exterior-dusk.jpg, alt: "Zero Irving at dusk", kind: photo }
   - { src: /src/assets/images/projects/zero-irving/street-golden-hour.jpg, alt: "Zero Irving at golden hour on East 14th Street", kind: photo }
+  - { src: /src/assets/images/projects/zero-irving/tower-clock-tower.jpg, alt: "Zero Irving beside the Con Edison clock tower", kind: photo }
   - { src: /src/assets/images/projects/zero-irving/lounge.jpg, alt: "Double-height tenant lounge with city views", kind: photo }
   - { src: /src/assets/images/projects/zero-irving/lobby.jpg, alt: "Lobby with a large-scale digital art wall and reception desk", kind: photo }
   - { src: /src/assets/images/projects/zero-irving/clock-tower-view.jpg, alt: "Tenant lounge framing the Con Edison clock tower", kind: photo }

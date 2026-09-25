@@ -25,15 +25,15 @@ featured_projects:
   - project: quay-tower
     image: /src/assets/images/projects/quay-tower/exterior.jpg
     alt: Quay Tower rising above Brooklyn Bridge Park
-  - project: zero-irving
-    image: /src/assets/images/projects/zero-irving/tower-clock-tower.jpg
-    alt: Zero Irving rising beside the Con Edison clock tower
   - project: mandarin-oriental-grand-cayman
     image: /src/assets/images/projects/mandarin-oriental-grand-cayman/facade-twilight.jpg
     alt: Rendering of the Mandarin Oriental residences at twilight
   - project: roan-steamboat
     image: /src/assets/images/projects/roan-steamboat/exterior-winter.jpg
     alt: Rendering of ROAN townhomes in winter
+  - project: zero-irving
+    image: /src/assets/images/projects/zero-irving/exterior-dusk.jpg
+    alt: Zero Irving at dusk, its colored glass volumes lit above East 14th Street
 capabilities:
   - key: design
     title: Designer

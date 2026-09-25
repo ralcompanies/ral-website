@@ -44,7 +44,7 @@ const ogDesc = d.seo?.description ?? d.hook ?? d.summary;
 ---
 <Base title={d.seo?.title ?? `${d.name}, ${d.location}`} description={ogDesc} overlayHeader>
   <section class="phero on-dark">
-    <div class="phero__img"><Img src={d.hero_image!} alt={d.hero_alt!} priority sizes="100vw" /></div>
+    <div class="phero__img"><Img src={d.hero_image!} alt={d.hero_alt!} priority sizes="100vw" position={d.hero_position} /></div>
     <div class="phero__shade" aria-hidden="true"></div>
     <div class="wrap phero__content">
       <p class="label phero__eyebrow"><a href="/projects/">Projects</a> <span aria-hidden="true">/</span> {d.location}</p>

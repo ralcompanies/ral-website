@@ -67,6 +67,8 @@ const projects = defineCollection({
         card_alt: z.string().optional(),
         hero_image: image().optional(),
         hero_alt: z.string().optional(),
+        // Which part of the hero photo stays in view when it is cropped, e.g. "50% 25%" (x y).
+        hero_position: z.string().optional(),
         hero_kind: z.enum(['photo', 'rendering']).default('photo'),
         logo: image().optional(),
         facts: z
