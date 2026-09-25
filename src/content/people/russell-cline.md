@@ -1,6 +1,7 @@
 ---
 name: "Russell Cline"
 title: "Associate Project Manager"
+headshot: /src/assets/images/people/russell-cline.jpg
 short_bio: "Supports luxury hospitality and residential projects in the Colorado mountains."
 internal_notes:
   - "Bio and title added Sept 2026 from Russell's bio and the combined doc."
