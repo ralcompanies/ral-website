@@ -18,8 +18,8 @@ summary: >-
 hero_image: /src/assets/images/projects/quay-tower/aerial-park-context.jpg
 hero_alt: Aerial view of Quay Tower and Brooklyn Bridge Park with lower Manhattan beyond
 card_image: /src/assets/images/projects/quay-tower/exterior.jpg
-wide_image: /src/assets/images/projects/quay-tower/terrace-dusk.jpg
-wide_alt: Quay Tower roof terrace at dusk, looking across the harbor to lower Manhattan
+wide_image: /src/assets/images/projects/quay-tower/night-aerial.jpg
+wide_alt: Quay Tower lit at night above Brooklyn Bridge Park, with the Pier 5 fields and lower Manhattan beyond
 card_alt: Quay Tower from Brooklyn Bridge Park
 facts:
   residences: 126
@@ -57,6 +57,7 @@ gallery:
   - { src: /src/assets/images/projects/quay-tower/gallery/08-lobby-with-wood-slat-walls-and-art.jpg, alt: "Lobby with wood-slat walls and art", kind: photo }
 team: [robert-a-levine, vincent-cangelosi, spencer-levine]
 internal_notes:
+  - "Projects-page wide image (night aerial) supplied by Josh Sept 2026. Confirm photographer credit."
   - "Gallery (Sept 2026) rebuilt from the draft site's curated 8-image grid per Vince, including texture and mood images. Most draft files are 800px; swap in originals where available. Confirm licenses for stock and lifestyle images (e.g. Getty, Stingray City, lifestyle shots)."
   - "Stories removed: RAL copy says 30; 6sqft says 28. Confirm before adding back."
   - "292,000 SF from RAL copy; confirm."
