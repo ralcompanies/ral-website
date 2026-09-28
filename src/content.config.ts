@@ -70,6 +70,9 @@ const projects = defineCollection({
         summary: z.string().optional(),
         card_image: image().optional(),
         card_alt: z.string().optional(),
+        // Optional landscape image for when this project is shown large on the Projects page.
+        wide_image: image().optional(),
+        wide_alt: z.string().optional(),
         hero_image: image().optional(),
         hero_alt: z.string().optional(),
         // Which part of the hero photo stays in view when it is cropped, e.g. "50% 25%" (x y).

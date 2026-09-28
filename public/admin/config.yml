@@ -57,6 +57,8 @@ collections:
       - { name: hook, label: One-line description, widget: string, required: false, hint: Used on cards and at the top of the project page. }
       - { name: card_image, label: Card image, widget: image, required: false, hint: "Used on the Projects page. Landscape works best." }
       - { name: card_alt, label: Card image description, widget: string, required: false }
+      - { name: wide_image, label: "Wide image (when shown large on the Projects page)", widget: image, required: false }
+      - { name: wide_alt, label: Wide image description, widget: string, required: false }
       - name: summary
         label: "Featured: summary paragraph"
         widget: text

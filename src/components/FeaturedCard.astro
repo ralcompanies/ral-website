@@ -4,12 +4,12 @@ import { statusLabel, rolesOf } from '../lib/site';
 interface Props { p: any; roles: Record<string, any>; wide?: boolean; image?: any; alt?: string; text?: string; number?: string; sizes?: string }
 const { p, roles, wide = false, image, alt, text, number, sizes } = Astro.props;
 const d = p.data;
-const img = image ?? (wide ? d.hero_image : d.card_image) ?? d.hero_image;
+const img = image ?? (wide ? d.wide_image ?? d.hero_image : d.card_image) ?? d.hero_image;
 const meta = [rolesOf(p, roles), d.status && statusLabel[d.status]].filter(Boolean).join(' · ');
 ---
 <a class="fcard" href={`/projects/${p.id}/`}>
   <div class="frame" style={`aspect-ratio:${wide ? '16 / 9' : '4 / 3'}`}>
-    <Img src={img} alt={alt ?? (wide ? d.hero_alt : d.card_alt) ?? d.hero_alt ?? d.name} sizes={sizes ?? (wide ? '100vw' : '(max-width: 860px) 100vw, 50vw')} />
+    <Img src={img} alt={alt ?? (wide ? (d.wide_image ? d.wide_alt : d.hero_alt) : d.card_alt) ?? d.hero_alt ?? d.name} sizes={sizes ?? (wide ? '100vw' : '(max-width: 860px) 100vw, 50vw')} />
   </div>
   <div class="titleblock">
     {number && <p class="label num fcard__no">{number}</p>}

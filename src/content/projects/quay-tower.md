@@ -18,6 +18,8 @@ summary: >-
 hero_image: /src/assets/images/projects/quay-tower/aerial-park-context.jpg
 hero_alt: Aerial view of Quay Tower and Brooklyn Bridge Park with lower Manhattan beyond
 card_image: /src/assets/images/projects/quay-tower/exterior.jpg
+wide_image: /src/assets/images/projects/quay-tower/terrace-dusk.jpg
+wide_alt: Quay Tower roof terrace at dusk, looking across the harbor to lower Manhattan
 card_alt: Quay Tower from Brooklyn Bridge Park
 facts:
   residences: 126
