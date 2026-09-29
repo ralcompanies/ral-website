@@ -12,7 +12,7 @@ summary: >-
   Four Seasons Resort and Residences Telluride sits beside the gondola that links Telluride and
   Mountain Village, with ski-in/ski-out access to the Telluride Ski Resort. Designed by Olson
   Kundig, with interiors by Clements Design, it combines 52 guestrooms with 43 Hotel Residences
-  and 26 Private Residences. The resort is under construction.
+  and 26 Private Residences. The resort is under construction and opens in 2028.
 hero_image: /src/assets/images/projects/four-seasons-telluride/mountain-village-summer.jpg
 hero_alt: Rendering of the resort's buildings among aspens and pines in Mountain Village, with the San Juan Mountains behind
 hero_kind: rendering
@@ -25,6 +25,7 @@ facts:
     - { label: Hotel Residences, value: "43, one to four bedrooms" }
     - { label: Private Residences, value: "26, two to five bedrooms" }
     - { label: Ski access, value: Ski-in/ski-out }
+    - { label: Opening, value: "2028" }
 credits:
   - { role: Operator, name: Four Seasons Hotels and Resorts }
   - { role: Architect, name: Olson Kundig }
@@ -60,7 +61,7 @@ gallery:
   - { src: /src/assets/images/projects/four-seasons-telluride/gallery/07-terrace-facing-the-san-juans.jpg, alt: "Terrace facing the San Juan Mountains", kind: rendering }
   - { src: /src/assets/images/projects/four-seasons-telluride/gallery/08-terrace-above-the-ski-runs.jpg, alt: "Terrace above the ski runs", kind: rendering }
 internal_notes:
-  - "Added Sept 29 2026 per Josh. Facts from the Four Seasons press release of Sept 30 2025 (press.fourseasons.com/news-releases/2025/new-four-seasons-in-telluride/). Opening date not announced, so none is shown."
+  - "Added Sept 29 2026 per Josh. Facts from the Four Seasons press release of Sept 30 2025 (press.fourseasons.com/news-releases/2025/new-four-seasons-in-telluride/). Opening 2028 per Josh."
   - "Role per Josh: RAL is the developer. The release names Fort Partners and Merrimac Ventures as developers; confirm whether to credit them (not shown)."
   - "Residences fact (69) = 43 Hotel Residences + 26 Private Residences."
   - "Website links to the Four Seasons Telluride residences page; swap for a project site if there is one."
