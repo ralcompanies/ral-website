@@ -1,7 +1,7 @@
 ---
 name: ROAN Steamboat
 tier: featured
-display_order: 4
+display_order: 5
 status: current
 location: Steamboat Springs, Colorado
 region: mountain-west

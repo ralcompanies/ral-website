@@ -1,7 +1,7 @@
 ---
 name: CASA FIU
 tier: featured
-display_order: 7
+display_order: 8
 status: current
 location: Sweetwater, Florida
 region: florida
