@@ -11,5 +11,5 @@ hook: "39 residences in 55,000 square feet, at the center of Port Chester's revi
 card_image: /src/assets/images/projects/brookchester-court/card.jpg
 card_alt: "Brookchester Court"
 internal_notes:
-  - "Image 640px: original required."
+  - "Image replaced Sept 29 2026 with a 1920px version from the WEBSITE HIGH-RES folder."
 ---
