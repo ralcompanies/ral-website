@@ -1,7 +1,7 @@
 ---
 name: Four Seasons Houston
 tier: featured
-display_order: 6
+display_order: 7
 status: completed
 location: Downtown Houston, Texas
 address: 1300 Lamar Street, Houston, TX 77010

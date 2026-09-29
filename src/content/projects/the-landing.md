@@ -1,7 +1,7 @@
 ---
 name: The Landing
 tier: featured
-display_order: 5
+display_order: 6
 status: completed
 location: Brooklyn Bridge Park, Brooklyn
 address: 15 Bridge Park Drive, Brooklyn, NY 11201
