@@ -14,4 +14,4 @@ internal_notes:
 
 Spencer Levine leads RAL's day-to-day operations, with a focus on business development and project execution. With degrees in landscape architecture from Harvard's Graduate School of Design and Cornell, he brings together creative vision and construction precision, and a real passion for where design and building meet.
 
-From inception to delivery, Spencer has led major projects across the luxury residential, hospitality, commercial and mixed-use sectors, including Quay Tower, Zero Irving, Mandarin Oriental Grand Cayman, ROAN Steamboat and Four Seasons Vail. He is a licensed landscape architect in Connecticut and Colorado and a member of the American Society of Landscape Architects.
+From inception to delivery, Spencer has led major projects across the luxury residential, hospitality, commercial and mixed-use sectors. He is a licensed landscape architect in Connecticut and Colorado and a member of the American Society of Landscape Architects.
