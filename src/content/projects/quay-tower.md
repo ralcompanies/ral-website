@@ -47,10 +47,10 @@ quote:
   text: "With protected views and protected greenspace, condo prices can rival Manhattan, and we're proud to have set price records at Quay Tower."
   attribution: Robert A. Levine, Chairman & CEO
 gallery:
-  - { src: /src/assets/images/projects/quay-tower/gallery/01-kitchen-with-manhattan-skyline-views.jpg, alt: "Kitchen with Manhattan skyline views", kind: photo }
+  - { src: /src/assets/images/projects/quay-tower/gallery/01-kitchen.jpg, alt: "Kitchen with harbor views", kind: photo }
   - { src: /src/assets/images/projects/quay-tower/gallery/02-natural-stone-detail.jpg, alt: "Natural stone detail", kind: photo }
   - { src: /src/assets/images/projects/quay-tower/gallery/03-quay-tower-above-brooklyn-bridge-park-lo.jpg, alt: "Quay Tower above Brooklyn Bridge Park, lower Manhattan beyond", kind: photo }
-  - { src: /src/assets/images/projects/quay-tower/gallery/04-wood-paneling-detail.jpg, alt: "Wood paneling detail", kind: photo }
+  - { src: /src/assets/images/projects/quay-tower/gallery/04-lobby-lounge.jpg, alt: "Lobby lounge along the window wall", kind: photo }
   - { src: /src/assets/images/projects/quay-tower/penthouse-living.jpg, alt: "Living room with a book-matched stone fireplace wall", kind: photo }
   - { src: /src/assets/images/projects/quay-tower/gallery/06-primary-bath-with-harbor-views.jpg, alt: "Primary bath with harbor views", kind: photo }
   - { src: /src/assets/images/projects/quay-tower/gallery/07-sculptural-textured-wall-detail.jpg, alt: "Sculptural textured wall detail", kind: photo }
@@ -59,6 +59,7 @@ team: [robert-a-levine, vincent-cangelosi, spencer-levine]
 internal_notes:
   - "Projects-page wide image (night aerial) supplied by Josh Sept 2026. Confirm photographer credit."
   - "Gallery (Sept 2026) rebuilt from the draft site's curated 8-image grid per Vince, including texture and mood images. Most draft files are 800px; swap in originals where available. Confirm licenses for stock and lifestyle images (e.g. Getty, Stingray City, lifestyle shots)."
+  - "Gallery hi-res swap Sept 29 2026 (WEBSITE HIGH-RES): 01 kitchen, 02 stone detail (re-cropped from the full-res living room original), 04 now a lobby lounge photo, 07, 08. Still 800px: 06 primary bath."
   - "Stories removed: RAL copy says 30; 6sqft says 28. Confirm before adding back."
   - "292,000 SF from RAL copy; confirm."
   - "'Highest home sale price in the borough' is from RAL copy (Forbes/AD 2019-20 coverage of a ~$20M sale). Confirm the record still stands or say 'set a borough record'."
