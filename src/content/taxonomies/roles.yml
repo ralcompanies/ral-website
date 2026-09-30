@@ -1,4 +1,5 @@
 # RAL's role on a project. Shown as a label on cards and project pages.
+# When a project has several roles they are shown in this order (e.g. "Development Manager / Owner's Representative").
 - id: developer
   label: Developer
   order: 1
@@ -11,12 +12,12 @@
   label: Co-GP
   order: 3
   capability: partner
-- id: owners-rep
-  label: Owner's Representative
-  order: 4
-  capability: manage
 - id: development-manager
   label: Development Manager
+  order: 4
+  capability: manage
+- id: owners-rep
+  label: Owner's Representative
   order: 5
   capability: manage
 - id: construction-consultant
