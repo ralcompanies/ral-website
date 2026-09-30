@@ -6,7 +6,7 @@ status: current
 location: Mountain Village, Telluride, Colorado
 region: mountain-west
 types: [hospitality, residential]
-roles: [developer]
+roles: [development-manager, owners-rep]
 hook: Telluride's first five-star resort in 15 years, with ski-in/ski-out access in Mountain Village.
 summary: >-
   Four Seasons Resort and Residences Telluride sits beside the gondola that links Telluride and
@@ -62,7 +62,7 @@ gallery:
   - { src: /src/assets/images/projects/four-seasons-telluride/gallery/08-terrace-above-the-ski-runs.jpg, alt: "Terrace above the ski runs", kind: rendering }
 internal_notes:
   - "Added Sept 29 2026 per Josh. Facts from the Four Seasons press release of Sept 30 2025 (press.fourseasons.com/news-releases/2025/new-four-seasons-in-telluride/). Opening 2028 per Josh."
-  - "Role per Josh: RAL is the developer. The release names Fort Partners and Merrimac Ventures as developers; confirm whether to credit them (not shown)."
+  - "Role per Josh (Sept 30 2026): Development Manager / Owner's Representative. The release names Fort Partners and Merrimac Ventures as developers; confirm whether to credit them (not shown)."
   - "Residences fact (69) = 43 Hotel Residences + 26 Private Residences."
   - "Website links to the Four Seasons Telluride residences page; swap for a project site if there is one."
   - "Images: 10 renderings from the Drive folder, resized to 2800px. Files 10 and 11 in Drive were identical, so only one is used. Rendering credits unknown. Four Seasons name usage needs brand approval."
