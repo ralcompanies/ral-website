@@ -40,7 +40,7 @@ export const fmtDate = (d: Date, precision: 'day' | 'month' | 'year' = 'day') =>
 
 export const statusLabel: Record<string, string> = { completed: 'Completed', current: 'Under construction', 'in-development': 'In development' };
 export function rolesOf(p: CollectionEntry<'projects'>, roles: Record<string, any>) {
-  return p.data.roles.map((r) => roles[r.id]?.label).filter(Boolean).join(', ');
+  return p.data.roles.map((r) => roles[r.id]?.label).filter(Boolean).join(' / ');
 }
 export function typesOf(p: CollectionEntry<'projects'>, types: Record<string, any>) {
   return p.data.types.map((t) => types[t.id]?.label).filter(Boolean).join(' · ');
