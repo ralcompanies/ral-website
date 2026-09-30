@@ -6,7 +6,7 @@ status: completed
 location: "Midtown East, Manhattan"
 region: new-york
 types: [residential]
-roles: [owners-rep, development-manager]
+roles: [development-manager, owners-rep]
 hook: "Condominium residences at 135 East 47th Street, developed with Navigation Capital."
 card_image: /src/assets/images/projects/monogram-new-york/card.jpg
 card_alt: "Rendering of the Monogram crown at dusk with the Chrysler Building beyond"

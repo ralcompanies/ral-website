@@ -4,7 +4,7 @@ import Base from '../layouts/Base.astro';
 import Img from '../components/Img.astro';
 import Arrow from '../components/Arrow.astro';
 import PubMark from '../components/PubMark.astro';
-import { company, homepage, statValue, lookups, visiblePress, fmtDate, projectUrl } from '../lib/site';
+import { company, homepage, statValue, lookups, visiblePress, fmtDate, projectUrl, rolesOf } from '../lib/site';
 
 const c = await company();
 const h = await homepage();
@@ -39,7 +39,6 @@ const quotePerson = h.leadership_quote ? await getEntry(h.leadership_quote.perso
 
 const press = (await visiblePress()).filter((p) => p.data.featured).slice(0, h.press_count ?? 4);
 
-const roleLabel = (p: any) => p.data.roles.map((r: any) => lk.roles[r.id]?.label).filter(Boolean).join(', ');
 const statusLabel = { completed: 'Completed', current: 'Under construction', 'in-development': 'In development' } as const;
 ---
 <Base overlayHeader description={c.positioning}>
@@ -106,7 +105,7 @@ const statusLabel = { completed: 'Completed', current: 'Under construction', 'in
                       <h3 class="titleblock__name">{f.p.data.name}</h3>
                       <p class="titleblock__row">
                         <span>{f.p.data.location}</span>
-                        <span>{[roleLabel(f.p), f.p.data.status && statusLabel[f.p.data.status]].filter(Boolean).join(' · ')}</span>
+                        <span>{[rolesOf(f.p, lk.roles), f.p.data.status && statusLabel[f.p.data.status]].filter(Boolean).join(' · ')}</span>
                       </p>
                       {f.text && <p class="titleblock__hook">{f.text}</p>}
                     </div>
