@@ -1,8 +1,8 @@
 # RAL website: pre-launch checklist
 
-Internal. Generated September 25, 2026 from the content files (`internal_notes`) plus standing items. Launch-readiness list, not a development blocker.
+Internal. Generated September 30, 2026 from the content files (`internal_notes`) plus standing items. Launch-readiness list, not a development blocker.
 
-## Facts to verify (45)
+## Facts to verify (48)
 
 - [ ] **270 Broadway**: Figures from live copy; confirm.
 - [ ] **86 Chambers**: Carried over from live site.
@@ -15,6 +15,9 @@ Internal. Generated September 25, 2026 from the content files (`internal_notes`)
 - [ ] **Four Seasons Houston**: Role: RAL 'tasked by Ownership and Four Seasons to oversee the design and renovation' -> Owner's Representative. Confirm (could be Development Manager).
 - [ ] **Four Seasons Houston**: Address corrected to 1300 Lamar St (draft had 'Park Drive, TX 10000').
 - [ ] **Four Seasons Houston**: Completion year unknown.
+- [ ] **Four Seasons Telluride**: Added Sept 29 2026 per Josh. Facts from the Four Seasons press release of Sept 30 2025 (press.fourseasons.com/news-releases/2025/new-four-seasons-in-telluride/). Opening 2028 per Josh.
+- [ ] **Four Seasons Telluride**: Residences fact (69) = 43 Hotel Residences + 26 Private Residences.
+- [ ] **Four Seasons Telluride**: Website links to the Four Seasons Telluride residences page; swap for a project site if there is one.
 - [ ] **Four Seasons Vail**: Role inferred from live copy (construction/development management). Confirm.
 - [ ] **Hotel Madeline**: Name: live "Hotel Madeline Telluride"; folder "Telluride Mountain Village Resort". Confirm name and role.
 - [ ] **Loft 25**: Carried over from live site.
@@ -50,7 +53,7 @@ Internal. Generated September 25, 2026 from the content files (`internal_notes`)
 - [ ] **A public-private tech hub**: 2023 per NY YIMBY completion report. Confirm.
 - [ ] **Founded as a design firm in 1979. Design is still in our DNA.**: Story and how-we-work copy adapted from the live ralcompanies.com About page. Capability copy is new; review wording.
 
-## Team (29)
+## Team (28)
 
 - [ ] **David Sorenson**: Bio updated Sept 2026 from Josh's combined bios doc.
 - [ ] **David Wu**: Bio added Sept 2026 from David's bio and the combined doc. Title in the doc reads 'Designer/Draftspersons'; shown as Architectural Designer to match his bio. Confirm.
@@ -75,44 +78,51 @@ Internal. Generated September 25, 2026 from the content files (`internal_notes`)
 - [ ] **Spencer Levine**: Bio updated Sept 2026 from Josh's combined bios doc. Removed the duplicated licensing sentence and the hard-coded '47-year' reference.
 - [ ] **Spencer Stevens**: Bio added Sept 2026 from Spencer's 2026 bio and the combined doc.
 - [ ] **Stuart Taft**: Bio updated Sept 2026 from Stuart's 2026 bio and the combined doc (7.4M SF, $3.6B).
-- [ ] **Susan Sorenson**: Added Sept 2026 per Josh. Headshot needed.
-- [ ] **Susan Sorenson**: headshot missing (placeholder shows).
+- [ ] **Susan Sorenson**: Added Sept 2026 per Josh. Headshot is a B&W photo Josh supplied; light backdrop swapped for studio grey (scripts/grey_bg.py) and cropped to match the team set.
 - [ ] **Susan Sorenson**: no biography yet (profile shows title and projects only).
 - [ ] **Thomas Casciano**: Bio updated Sept 2026 from Thomas's 2026 bio and the combined doc; name shown as Thomas per his bio.
 - [ ] **Valerie Kirsten**: Bio and title added Sept 2026 from Valerie's bio and the combined doc.
 - [ ] **Vincent Cangelosi**: Bio updated Sept 2026 from Vince's executive profile (long version, lightly edited).
 
-## Assets (32)
+## Assets (40)
 
 - [ ] **15 Union Square West**: Image 1328px; original preferred.
 - [ ] **Broadridge**: Shown as Portfolio per Josh (Sept 2026). Aerial photo supplied by Josh (Sept 2026); confirm photographer credit and usage rights.
-- [ ] **Brookchester Court**: Image 640px: original required.
+- [ ] **Brookchester Court**: Image replaced Sept 29 2026 with a 1920px version from the WEBSITE HIGH-RES folder.
 - [ ] **CASA FIU**: Official name styling: draft uses both 'Casa-FIU' and 'CASA-FIU'; using 'CASA FIU' per the CASA logo. Confirm.
 - [ ] **CASA FIU**: Architect inferred from the 'Niles Bolton Associates' watermark on renderings. Confirm before launch.
 - [ ] **Four Seasons Atlanta**: Card image (entrance at dusk) supplied by Josh Sept 2026; appears to be a Four Seasons marketing photo. Confirm RAL may use it on its website.
 - [ ] **Four Seasons Houston**: Gallery (Sept 2026) rebuilt from the draft site's curated 8-image grid per Vince, including texture and mood images. Most draft files are 800px; swap in originals where available. Confirm licenses for stock and lifestyle images (e.g. Getty, Stingray City, lifestyle shots).
+- [ ] **Four Seasons Houston**: Gallery Sept 29 2026: 01 and 02 replaced from WEBSITE HIGH-RES. Supplied 04 dining bar, 05 lobby, 07 and 08 pool files are lower-res than what is already on the site (1996-2800px), so kept current. Still 800px or less: 03, 06, 07 details. Operator photography: confirm usage rights.
 - [ ] **Four Seasons Houston**: Images are ~2000px from the live site; better originals preferred. Operator photography: confirm usage rights.
-- [ ] **Four Seasons Vail**: Card image supplied by Josh Sept 2026 (1024px). Confirm source and usage rights.
-- [ ] **Franklin Tower**: Role inferred from live copy; confirm. Card image is a 650px listing photo (licence + original needed).
+- [ ] **Four Seasons Telluride**: Role per Josh (Sept 30 2026): Development Manager / Owner's Representative. The release names Fort Partners and Merrimac Ventures as developers; confirm whether to credit them (not shown).
+- [ ] **Four Seasons Telluride**: Images: 10 renderings from the Drive folder, resized to 2800px. Files 10 and 11 in Drive were identical, so only one is used. Rendering credits unknown. Four Seasons name usage needs brand approval.
+- [ ] **Four Seasons Vail**: Card image: winter dusk exterior from the WEBSITE HIGH-RES folder (Sept 29 2026, 1000px; replaces the summer balcony shot). Confirm source and usage rights.
+- [ ] **Franklin Tower**: Role inferred from live copy; confirm. Card image replaced Sept 29 2026 with a 1240px exterior from the WEBSITE HIGH-RES folder; confirm source/licence.
 - [ ] **The Inn at Lost Creek**: Role not stated anywhere; confirm. Image 1800px.
 - [ ] **The James New York**: Image 1500px; original preferred.
 - [ ] **The Kartrite Resort & Indoor Waterpark**: From Douglas Eisenstein bio (~$200M). Confirm role and figure. Image is 1426px, original preferred.
 - [ ] **Mandarin Oriental, Grand Cayman**: Gallery (Sept 2026) rebuilt from the draft site's curated 8-image grid per Vince, including texture and mood images. Most draft files are 800px; swap in originals where available. Confirm licenses for stock and lifestyle images (e.g. Getty, Stingray City, lifestyle shots).
+- [ ] **Mandarin Oriental, Grand Cayman**: All 8 gallery images replaced Sept 29 2026 from the WEBSITE HIGH-RES folder (2800px renderings; Stingray City 1141px). Confirm license for the Stingray City photo.
+- [ ] **Mandarin Oriental, Grand Cayman**: Sept 30 2026: every rendering now comes from the MOGC renderings Drive folder (1E8vjl3S1nsUeHQwm4lfljf3lsWPG5Gjk), the most current versions. Hero, card and gallery 01, 02, 03, 08 already matched. Gallery 04 (penthouse pool deck) was an older render and was replaced. 05 (residence terraces) and 07 (overhead site plan) were not in the folder and were replaced with Penthouse Terrace and From Ocean Looking Back. 06 Stingray City stays as a lifestyle photo per Josh.
 - [ ] **Mandarin Oriental, Grand Cayman**: Role per Josh (Sept 2026): RAL is a partner and the developer. Shown as Developer, with Melkonian Capital credited as development partner.
 - [ ] **Mandarin Oriental, Grand Cayman**: Mandarin Oriental name/logo usage needs brand approval. Logo files exist in Drive (MOGC/LOGO) but are not used.
 - [ ] **Mandarin Oriental, Grand Cayman**: Rendering credits unknown; add when confirmed.
 - [ ] **Monogram New York**: Card image (rendering) supplied by Josh Sept 2026.
 - [ ] **Orchard Street Hotel**: From the Drive folder (Jarmulowsky Bank images). Confirm name (now Hotel Orchard Street?), role and status. Card image supplied by Josh (Sept 2026): the bar in the former Jarmulowsky Bank banking hall. The building opened as Nine Orchard; confirm the project name and photo credit.
 - [ ] **Prospérité**: Role: "part of the team" - design assumed. Image 720px: original required.
+- [ ] **Quay Tower**: Projects-page wide image (night aerial) supplied by Josh Sept 2026. Confirm photographer credit.
 - [ ] **Quay Tower**: Gallery (Sept 2026) rebuilt from the draft site's curated 8-image grid per Vince, including texture and mood images. Most draft files are 800px; swap in originals where available. Confirm licenses for stock and lifestyle images (e.g. Getty, Stingray City, lifestyle shots).
+- [ ] **Quay Tower**: Gallery hi-res swap Sept 29 2026 (WEBSITE HIGH-RES): 01 kitchen, 02 stone detail (re-cropped from the full-res living room original), 04 now a lobby lounge photo, 07, 08. Still 800px: 06 primary bath.
 - [ ] **Quay Tower**: Photography: Evan Joseph (EJ file prefix). Confirm credit.
 - [ ] **ROAN Steamboat**: Gallery (Sept 2026) rebuilt from the draft site's curated 8-image grid per Vince, including texture and mood images. Most draft files are 800px; swap in originals where available. Confirm licenses for stock and lifestyle images (e.g. Getty, Stingray City, lifestyle shots).
 - [ ] **ROAN Steamboat**: Partners (AmTrust, Latitude) deliberately not shown. Confirm whether to credit.
 - [ ] **ROAN Steamboat**: Renderings by Binyan Studios (file names). Lifestyle photo 'steamboat-night' licence to confirm; Getty images excluded.
 - [ ] **Spring Creek**: Role not stated; confirm. Image 2272px (snapshot quality).
 - [ ] **The Landing**: Gallery (Sept 2026) rebuilt from the draft site's curated 8-image grid per Vince, including texture and mood images. Most draft files are 800px; swap in originals where available. Confirm licenses for stock and lifestyle images (e.g. Getty, Stingray City, lifestyle shots).
+- [ ] **The Landing**: Gallery hi-res swap Sept 29 2026 (WEBSITE HIGH-RES): all 8 slots replaced or upsized; 06 re-cropped from the full-res lobby original. 08 replaced Sept 29 2026 with a brownstone street photo supplied by Josh. 01, 03, 08 are 1024px lifestyle/park photos: confirm licenses.
 - [ ] **The Landing**: Dusk hero supplied by Josh (Sept 2026). Confirm whether it is a photo or a rendering (if rendering, set hero_kind: rendering) and the photographer/credit.
-- [ ] **Williamsburg Terrace**: From the Drive project folder only. Confirm name, role, status. Image 645px: original required.
+- [ ] **Williamsburg Terrace**: From the Drive project folder only. Confirm name, role, status. Image replaced Sept 29 2026 with a 1680px version from the WEBSITE HIGH-RES folder.
 - [ ] **Zero Irving**: Hero, card, chapter and new gallery images from the 2023 Davis Brody Bond professional shoot (full-res supplied by Josh Sept 2026). Confirm photo credit.
 - [ ] **Zero Irving**: Photography: 2025 CTC shoot (hi-res originals in Drive). Confirm photographer credit line.
 - [ ] **company.yml**: Partner/operator names shown as text only. Confirm each may be named publicly; logos only with permission.
