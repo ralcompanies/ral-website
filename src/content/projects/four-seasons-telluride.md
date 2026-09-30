@@ -22,8 +22,8 @@ facts:
   keys: 52
   residences: 69
   other:
-    - { label: Hotel Residences, value: "43, fully furnished, one to four bedrooms" }
-    - { label: Private Residences, value: "26, unfurnished, two to five bedrooms" }
+    - { label: Hotel Residences, value: "43, one to four bedrooms" }
+    - { label: Private Residences, value: "26, two to five bedrooms" }
     - { label: Ski access, value: Ski-in/ski-out }
     - { label: Opening, value: "2028" }
 credits:
