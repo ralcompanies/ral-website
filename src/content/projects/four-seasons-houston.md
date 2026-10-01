@@ -8,7 +8,7 @@ address: 1300 Lamar Street, Houston, TX 77010
 region: other-us
 types: [hospitality]
 roles: [owners-rep]
-hook: A phased renovation that remade the arrival, lobby, bar and spa of a downtown landmark hotel.
+hook: A phased renovation that remade the arrival, lobby, bar, and spa of a downtown landmark hotel.
 summary: >-
   Ownership and Four Seasons asked RAL to oversee the design and renovation of the hotel in
   phases, keeping it open throughout. RAL delivered the work on schedule and within budget.

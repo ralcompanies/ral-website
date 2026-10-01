@@ -14,7 +14,7 @@ hook: Market-rate and affordable rental homes side by side at Pier 6.
 summary: >-
   The Landing is the rental companion to Quay Tower at Pier 6. Of its 140 apartments, 100 were
   offered as affordable homes through the City's housing lottery, with the same building,
-  amenities and park at the front door as the market-rate residences.
+  amenities, and park at the front door as the market-rate residences.
 hero_image: /src/assets/images/projects/the-landing/dusk-waterfront.jpg
 hero_alt: The Landing at dusk with Quay Tower behind and One Brooklyn Bridge Park to the right, the harbor beyond
 card_image: /src/assets/images/projects/the-landing/dusk-waterfront.jpg

@@ -5,14 +5,14 @@ founded: 1979
 tagline: Designer. Developer. Partner.
 positioning: >-
   A New York development firm founded as an architecture practice in 1979. RAL designs,
-  develops and partners on residential, hospitality, office and mixed-use projects in cities and
+  develops, and partners on residential, hospitality, office, and mixed-use projects in cities and
   resort destinations across the United States and the Caribbean.
 stats:
   - value: "{years}"
     label: Years since RAL was founded in 1979
     internal_source: Calculated from the founding year (1979, confirmed by Josh Sept 2026).
   - value: "100+"
-    label: Residential, hotel and mixed-use projects
+    label: Residential, hotel, and mixed-use projects
     internal_source: Robert Levine live-site bio ("more than 100 luxury residential, hotel and mixed-use projects"). Definition (developed vs. managed) to confirm.
   - value: "2"
     label: Competitive public RFPs won on the New York waterfront and Union Square
@@ -39,7 +39,7 @@ contacts:
     email: info@ralcompanies.com
   - label: Partnerships & acquisitions
     email: partners@ralcompanies.com
-    note: Landowners, capital partners, operators and public agencies.
+    note: Landowners, capital partners, operators, and public agencies.
   - label: Careers
     email: career@ralcompanies.com
   - label: Press

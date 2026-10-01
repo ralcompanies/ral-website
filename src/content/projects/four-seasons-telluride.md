@@ -49,14 +49,14 @@ chapters:
       bedrooms.
   - heading: The resort
     body: >-
-      Amenities include two restaurants, a spa with a thermal lounge, cold plunge and eight
-      treatment rooms, a fitness center, a lap pool and an outdoor hot tub.
+      Amenities include two restaurants, a spa with a thermal lounge, cold plunge, and eight
+      treatment rooms, a fitness center, a lap pool, and an outdoor hot tub.
 gallery:
   - { src: /src/assets/images/projects/four-seasons-telluride/gallery/01-garden-courtyard.jpg, alt: "Garden courtyard between the residence buildings", kind: rendering }
   - { src: /src/assets/images/projects/four-seasons-telluride/gallery/02-penthouse-roof-terrace.jpg, alt: "Penthouse and planted roof terrace", kind: rendering }
   - { src: /src/assets/images/projects/four-seasons-telluride/gallery/03-penthouse-terrace-and-plunge-pool.jpg, alt: "Penthouse terrace with plunge pool and fireplace", kind: rendering }
   - { src: /src/assets/images/projects/four-seasons-telluride/gallery/04-resort-at-dusk-in-snow.jpg, alt: "The resort at dusk in falling snow", kind: rendering }
-  - { src: /src/assets/images/projects/four-seasons-telluride/gallery/05-great-room-and-bar.jpg, alt: "Residence great room, bar and dining", kind: rendering }
+  - { src: /src/assets/images/projects/four-seasons-telluride/gallery/05-great-room-and-bar.jpg, alt: "Residence great room, bar, and dining", kind: rendering }
   - { src: /src/assets/images/projects/four-seasons-telluride/gallery/06-living-room-opening-to-terrace.jpg, alt: "Living room opening to a terrace", kind: rendering }
   - { src: /src/assets/images/projects/four-seasons-telluride/gallery/07-terrace-facing-the-san-juans.jpg, alt: "Terrace facing the San Juan Mountains", kind: rendering }
   - { src: /src/assets/images/projects/four-seasons-telluride/gallery/08-terrace-above-the-ski-runs.jpg, alt: "Terrace above the ski runs", kind: rendering }
