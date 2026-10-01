@@ -39,12 +39,25 @@ const quotePerson = h.leadership_quote ? await getEntry(h.leadership_quote.perso
 
 const press = (await visiblePress()).filter((p) => p.data.featured).slice(0, h.press_count ?? 4);
 
-// Headline words; a trailing period gets its own span for the hero skyline animation
+// Headline words; a trailing period gets its own span so the intro's dots can land in it
 const headline = (h.hero_headline ?? '').split(/\s+/).filter(Boolean);
 
 const statusLabel = { completed: 'Completed', current: 'Under construction', 'in-development': 'In development' } as const;
 ---
 <Base overlayHeader description={c.positioning}>
+  <!-- Intro, once per visit: decided before first paint so the page starts black. Add ?intro to the URL to replay it. -->
+  <script is:inline slot="head">
+    (function () {
+      try {
+        var force = /[?&]intro\b/.test(location.search);
+        if (!force && (location.hash || matchMedia('(prefers-reduced-motion: reduce)').matches || sessionStorage.getItem('ral:intro'))) return;
+        sessionStorage.setItem('ral:intro', '1');
+        document.documentElement.classList.add('intro');
+      } catch (e) {}
+    })();
+  </script>
+  <div class="intro" aria-hidden="true" data-intro></div>
+
   <!-- 1. Hero -->
   <section class="hero on-dark" aria-roledescription="carousel" aria-label="Selected projects" data-hero>
     <div class="hero__slides" data-slides>
@@ -57,7 +70,7 @@ const statusLabel = { completed: 'Completed', current: 'Under construction', 'in
     <div class="hero__shade" aria-hidden="true"></div>
     <div class="wrap hero__content">
       <p class="label hero__eyebrow">RAL Companies · Since {c.founded}</p>
-      <h1 class="display hero__title" data-skyline>{headline.map((w, i) => (
+      <h1 class="display hero__title">{headline.map((w, i) => (
         <>{i > 0 && ' '}{w.endsWith('.') ? <span class="hero__word">{w.slice(0, -1)}<span class="hero__dot">.</span></span> : w}</>
       ))}</h1>
       {h.hero_subline && <p class="hero__sub">{h.hero_subline}</p>}
@@ -223,7 +236,15 @@ const statusLabel = { completed: 'Completed', current: 'Under construction', 'in
   .hero__eyebrow { color: var(--on-dark); margin-bottom: var(--s-3); }
   .hero__title { max-width: 11ch; position: relative; }
   .hero__word { white-space: nowrap; }
-  .hero__title.is-skyline .hero__dot { color: transparent; }
+
+  /* Intro (src/scripts/intro.ts). If the script never runs, the CSS failsafe reveals the page after a few seconds. */
+  .intro { display: none; }
+  :global(html.intro) .intro { display: block; position: fixed; inset: 0; z-index: 90; background: var(--ink); color: var(--on-dark); animation: intro-failsafe 0.6s 4s both; }
+  :global(html.intro) .hero__dot { color: transparent; animation: intro-dot 0.01s 4.3s forwards; }
+  :global(html.intro-js) .intro, :global(html.intro-js) .hero__dot { animation: none; }
+  :global(html.intro) .hero__slide.is-active :global(img) { animation-play-state: paused; }
+  @keyframes intro-failsafe { to { opacity: 0; visibility: hidden; } }
+  @keyframes intro-dot { to { color: var(--on-dark); } }
   .hero__sub { max-width: 34rem; margin-top: var(--s-3); font-size: var(--fs-lead); line-height: 1.45; color: var(--on-dark); font-family: var(--font-body); font-weight: 400; }
   .hero__bars { display: grid; grid-auto-flow: column; grid-auto-columns: 1fr; gap: 0.5rem; margin-top: var(--s-6); }
   .hero__bar { appearance: none; background: none; border: 0; padding: 0.75rem 0; cursor: pointer; }
@@ -317,9 +338,10 @@ const statusLabel = { completed: 'Completed', current: 'Under construction', 'in
 </style>
 
 <script>
-  import { skyline } from '../scripts/skyline';
-  const title = document.querySelector<HTMLElement>('[data-skyline]');
-  if (title) skyline(title);
+  import { intro, afterIntro } from '../scripts/intro';
+  const introRoot = document.querySelector<HTMLElement>('[data-intro]');
+  const title = document.querySelector<HTMLElement>('.hero__title');
+  if (introRoot && title) intro(introRoot, title);
 
   const hero = document.querySelector<HTMLElement>('[data-hero]');
   const slides = hero ? Array.from(hero.querySelectorAll<HTMLElement>('.hero__slide')) : [];
@@ -370,6 +392,6 @@ const statusLabel = { completed: 'Completed', current: 'Under construction', 'in
       if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy)) manual(dx < 0 ? i + 1 : i - 1);
     });
     hero.addEventListener('pointercancel', () => (x0 = null));
-    play();
+    afterIntro(play); // the slideshow waits until the intro has finished
   }
 </script>
