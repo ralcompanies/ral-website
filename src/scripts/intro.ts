@@ -1,62 +1,52 @@
 // Homepage intro, once per visit. The inline script in index.astro decides before
 // first paint and adds `intro` to <html>, so the page starts black.
 //
-// A line drawing of Lower Manhattan draws in across the East River. Three dots then
-// build RAL's Brooklyn Bridge Park buildings in front of it: Quay Tower, One Brooklyn
-// Bridge Park and The Landing. Once the hero photo is ready the drawing fades away
+// The lines below are traced from the first hero photo (The Landing at dusk). On
+// black, the far shore draws in, then three dots trace Quay Tower, One Brooklyn
+// Bridge Park and The Landing. When the photo has loaded, the black fades away
+// beneath the lines so the drawing lands on the real buildings, the lines dissolve,
 // and the dots fly into the periods of "Designer. Developer. Partner."
+//
+// If the first hero photo changes, the intro skips itself until it is retraced.
 
-const NS = 'http://www.w3.org/2000/svg';
+const IMAGE = 'dusk-waterfront';
 const DONE = 'ral:intro-done';
+const NS = 'http://www.w3.org/2000/svg';
 type Pt = [number, number];
 
-// Scene units: x to the right, y up from the Brooklyn shore.
-const HORIZON = 2.6; // Manhattan waterline
-const TALL = 4.05; // top of Quay Tower's crown
-const BOX: Pt = [-1.3, 3.5]; // horizontal span that must stay on screen
-const SKY = 0.8; // Manhattan is far away: scale its heights down
+// All coordinates are pixels in the web master.
+const MASTER: Pt = [2800, 2387];
+const BACKGROUND: Pt[][] = [
+  // far shore: Jersey City and the tip of Lower Manhattan
+  [[0, 1276], [495, 1276], [495, 1205], [520, 1205], [520, 1262], [590, 1262], [590, 1211], [614, 1211], [614, 1258], [712, 1258], [712, 1218], [760, 1218], [760, 1145], [804, 1138], [804, 1195], [850, 1195], [850, 1132], [856, 1132], [856, 1105], [856, 1132], [886, 1132], [886, 1191], [918, 1191], [918, 1250], [964, 1250], [964, 1214], [1005, 1214], [1005, 1200], [1030, 1200], [1030, 1084], [1073, 1084], [1073, 1027], [1134, 1027]],
+  [[0, 1283], [1134, 1283]], // waterline
+  [[1681, 898], [1681, 933]], // One World Trade Center's spire
+];
 
-// Listed in headline order: Designer -> Quay Tower, Developer -> One Brooklyn Bridge Park, Partner -> The Landing
-type Building = { outline: Pt[]; detail: Pt[][]; top: Pt };
+// `path` is what the dot traces; `extra` lines draw in behind it. Listed in headline order.
+type Building = { path: Pt[]; extra: Pt[][] };
 const QUAY: Building = {
-  outline: [[0, 0], [0, 3.72], [0.14, 3.72], [0.14, 4.05], [0.94, 4.05], [0.94, 3.72], [1, 3.72], [1, 0]],
-  // the bronze frame that steps across the facade
-  detail: [
-    [[0.3, 0], [0.3, 0.95], [0.46, 0.95], [0.46, 1.9], [0.62, 1.9], [0.62, 2.85], [0.78, 2.85], [0.78, 3.72]],
-    [[0.14, 3.86], [0.94, 3.86]],
-  ],
-  top: [0.54, 4.05],
+  path: [[1572, 905], [1572, 598], [1522, 587], [1522, 497], [1361, 462], [1182, 539], [1182, 624], [1134, 645], [1134, 1440]],
+  extra: [[[1182, 624], [1353, 551], [1522, 587]], [[1353, 551], [1353, 935]], [[1361, 462], [1361, 545]], [[1134, 755], [1199, 755], [1199, 950], [1258, 950]]],
 };
 const OBBP: Building = {
-  outline: [[0.75, 0], [0.75, 1.72], [1, 1.72], [1, 1.9], [1.82, 1.9], [1.82, 2.18], [1.94, 2.18], [1.94, 2.42], [2.16, 2.42], [2.16, 2.18], [2.28, 2.18], [2.28, 1.9], [3.05, 1.9], [3.05, 1.72], [3.3, 1.72], [3.3, 0]],
-  // floor bands of the old warehouse
-  detail: [[[0.75, 0.58], [3.3, 0.58]], [[0.75, 1.15], [3.3, 1.15]], [[1.82, 1.9], [1.82, 0]], [[2.28, 1.9], [2.28, 0]]],
-  top: [2.05, 2.42],
+  path: [[2800, 1065], [2745, 1065], [2745, 1028], [2624, 1028], [2624, 1013], [2565, 1013], [2565, 930], [2376, 930], [2376, 950], [2324, 950], [2324, 865], [2297, 865], [2297, 812], [2272, 812], [2272, 797], [2272, 812], [2245, 812], [2245, 865], [2145, 865], [2145, 965], [2013, 965], [2013, 1009], [1964, 1013], [1964, 1500]],
+  extra: [[[1964, 1013], [2203, 992], [2560, 1044]], [[2203, 992], [2203, 1500]]],
 };
 const LANDING: Building = {
-  outline: [[2.3, 0], [2.3, 1.52], [2.42, 1.52], [2.42, 1.68], [3.32, 1.68], [3.32, 1.52], [3.48, 1.52], [3.48, 0]],
-  detail: [[[2.69, 0], [2.69, 1.52]], [[3.09, 0], [3.09, 1.52]]],
-  top: [2.87, 1.68],
+  path: [[1892, 1530], [1892, 1075], [1368, 1040], [1160, 1067], [1160, 1735], [1368, 1810]],
+  extra: [[[1368, 1040], [1368, 1810]], [[1258, 1027], [1258, 959], [1410, 933], [1784, 959], [1784, 1022]], [[1410, 933], [1410, 1030]]],
 };
 const BUILDINGS = [QUAY, OBBP, LANDING];
-const BACK_TO_FRONT = [1, 0, 2];
 
-// Manhattan, left to right from x = -6: [width, height, shape]
-type Block = [number, number, string?];
-const MANHATTAN: Block[] = [
-  [0.3, 0.14], [0.22, 0.2], [0.26, 0.16], [0.2, 0.26], [0.24, 0.22], [0.18, 0.32], [0.26, 0.28], [0.2, 0.4],
-  [0.22, 0.4, 'peak'], [0.28, 0.3], [0.16, 0.48], [0.24, 0.42], [0.2, 0.58, 'peak'], [0.26, 0.5], [0.18, 0.66],
-  [0.22, 0.55], [0.3, 0.72, 'slant'], [0.2, 0.62], [0.24, 0.8], [0.22, 0.68], [0.18, 0.74], [0.18, 0.6],
-  [0.32, 1.2, 'wtc'], // One World Trade Center
-  [0.2, 0.7], [0.24, 0.86, 'slant'], [0.18, 0.64], [0.26, 0.92], [0.14, 0.98], [0.22, 0.78], [0.2, 0.7],
-  [0.28, 0.84, 'peak'], [0.18, 0.58], [0.24, 0.66], [0.2, 0.52], [0.26, 0.45], [0.24, 0.36],
-  [0.3, 0.18], [0.4, 0.12], [0.35, 0.2], [0.3, 0.14],
-  // Midtown, further away
-  [0.3, 0.22], [0.25, 0.3], [0.2, 0.26], [0.3, 0.36], [0.22, 0.3], [0.34, 0.62, 'esb'], [0.26, 0.34], [0.2, 0.42],
-  [0.1, 0.78], [0.24, 0.46], [0.3, 0.38], [0.09, 0.82], [0.26, 0.5], [0.2, 0.4], [0.3, 0.32], [0.24, 0.44],
-  [0.3, 0.28], [0.26, 0.36], [0.3, 0.24], [0.4, 0.2], [0.5, 0.16], [0.6, 0.12], [0.8, 0.1], [1.2, 0.08],
-];
-const BRIDGE = { from: 3.0, to: 8.4, towers: [4.1, 6.9], tw: 0.14, th: 0.56, deck: 0.12 };
+// Timeline (ms)
+const BG: Pt = [300, 2600];
+const TRACE_AT = [1100, 2100, 1600]; // Quay, One Brooklyn Bridge Park, The Landing
+const TRACE_MS = 3000;
+const HOLD = 5700; // earliest reveal
+const MAX = 12000; // reveal by now even if the photo is still loading
+const REVEAL_MS = 3200;
+const SKIP_MS = 700;
 
 const clamp = (v: number) => Math.min(1, Math.max(0, v));
 const seg = (t: number, a: number, b: number) => clamp((t - a) / (b - a));
@@ -68,128 +58,68 @@ const el = <K extends keyof SVGElementTagNameMap>(tag: K, attrs: Record<string, 
   return n;
 };
 
-// Top outline of Manhattan as [x, y] points, y measured up from the waterline
-function skylinePoints(): Pt[] {
-  const pts: Pt[] = [[-6, 0]];
-  let x = -6;
-  for (const [w, raw, shape] of MANHATTAN) {
-    const h = raw * SKY, x1 = x + w, cx = x + w / 2;
-    if (shape === 'wtc') {
-      // chamfered tower tapering to a narrower top, with a spire
-      pts.push([x, h * 0.14], [x + w * 0.22, h], [cx, h], [cx, h + 0.42 * SKY], [cx, h], [x1 - w * 0.22, h], [x1, h * 0.14]);
-    } else if (shape === 'esb') {
-      pts.push([x, h * 0.7], [x + w * 0.15, h * 0.7], [x + w * 0.15, h * 0.84], [x + w * 0.32, h * 0.84], [x + w * 0.32, h],
-        [cx, h], [cx, h + 0.14 * SKY], [cx, h], [x1 - w * 0.32, h], [x1 - w * 0.32, h * 0.84], [x1 - w * 0.15, h * 0.84], [x1 - w * 0.15, h * 0.7], [x1, h * 0.7]);
-    } else if (shape === 'peak') {
-      pts.push([x, h * 0.82], [cx, h], [x1, h * 0.82]);
-    } else if (shape === 'slant') {
-      pts.push([x, h * 0.86], [x1, h]);
-    } else {
-      pts.push([x, h], [x1, h]);
-    }
-    x = x1;
-  }
-  pts.push([x, 0]);
-  return pts;
-}
-
 export function intro(root: HTMLElement, title: HTMLElement) {
   const html = document.documentElement;
   if (!html.classList.contains('intro')) return;
   html.classList.add('intro-js'); // switches off the CSS failsafe
+
+  const finishEarly = () => {
+    root.remove();
+    html.classList.remove('intro', 'intro-js');
+    dispatchEvent(new Event(DONE));
+  };
+  const img = document.querySelector<HTMLImageElement>('.hero__slide.is-active img');
+  if (!img || !(img.getAttribute('srcset') ?? img.src).includes(IMAGE)) return finishEarly();
+  const [iw, ih] = MASTER; // not naturalWidth: that is whichever responsive size the browser picked
+
   const scrollWas = html.style.overflow;
   html.style.overflow = 'hidden';
 
+  // Map photo pixels to the screen the way the hero shows it (object-fit: cover, centered)
+  const box = img.getBoundingClientRect();
+  const k = Math.max(box.width / iw, box.height / ih);
+  const ox = box.left + (box.width - iw * k) / 2, oy = box.top + (box.height - ih * k) / 2;
+  const d = (pts: Pt[]) => pts.map(([x, y], i) => `${i ? 'L' : 'M'}${(ox + x * k).toFixed(1)} ${(oy + y * k).toFixed(1)}`).join('');
   const vw = innerWidth, vh = innerHeight;
-  const s = Math.min((0.66 * vh) / TALL, (0.9 * vw) / (BOX[1] - BOX[0]));
-  const ox = vw / 2 - ((BOX[0] + BOX[1]) / 2) * s;
-  const gy = vh / 2 + (TALL / 2) * s + 0.02 * vh;
-  const X = (u: number) => ox + u * s;
-  const Y = (v: number) => gy - v * s;
-  const d = (pts: Pt[], lift = 0) => pts.map(([u, v], i) => `${i ? 'L' : 'M'}${X(u).toFixed(1)} ${Y(v + lift).toFixed(1)}`).join('');
-  const sw = Math.max(1, s * 0.011);
+  const sw = Math.max(1, Math.min(1.6, k * 2.2));
 
-  // ---- Scene ----
-  const svg = el('svg', { width: vw, height: vh, 'aria-hidden': 'true' });
+  // ---- Layers: black backdrop, line drawing, dots ----
+  const black = document.createElement('div');
+  black.style.cssText = 'position:absolute;inset:0;background:var(--ink)';
+  root.style.background = 'none';
+  root.append(black);
+
+  const svg = el('svg', { width: vw, height: vh, 'aria-hidden': 'true', fill: 'none', stroke: 'currentColor', 'stroke-width': sw, 'stroke-linejoin': 'miter' });
   svg.style.cssText = 'position:absolute;inset:0';
-  const defs = el('defs');
-  svg.append(defs);
-  const g = el('g', { fill: 'none', stroke: 'currentColor', 'stroke-width': sw, 'stroke-linejoin': 'miter' });
-  svg.append(g);
-
-  const draw = (pathD: string, opacity: number, width = sw) => {
-    const p = el('path', { d: pathD, pathLength: 1, 'stroke-dasharray': '1 1', 'stroke-dashoffset': 1, opacity, 'stroke-width': width });
-    g.append(p);
-    return p;
-  };
-  const shore = draw(`M0 ${gy.toFixed(1)}H${vw}`, 0.8);
-  const horizon = draw(`M0 ${Y(HORIZON).toFixed(1)}H${vw}`, 0.45, sw * 0.8);
-  const sky = draw(d(skylinePoints(), HORIZON), 0.6, sw * 0.8);
-
-  // River: a few dashes, wider apart and longer toward the viewer
-  const water = el('g', { opacity: 0, 'stroke-width': sw * 0.7 });
-  let seed = 7;
-  const rand = () => ((seed = (seed * 16807) % 2147483647) / 2147483647);
-  [2.45, 2.28, 2.05, 1.75, 1.35, 0.85, 0.3].forEach((v, row) => {
-    const len = 0.08 + row * 0.05;
-    for (let u = -6 + rand() * 0.6; X(u) < vw; u += 0.5 + row * 0.25 + rand() * 0.6) {
-      if (X(u + len) > 0) water.append(el('line', { x1: X(u), x2: X(u + len), y1: Y(v), y2: Y(v), opacity: 0.25 }));
-    }
-  });
-  g.append(water);
-
-  // Brooklyn Bridge, in front of Midtown
-  const bridge = el('g', { opacity: 0, 'stroke-width': sw * 0.8 });
-  const B = BRIDGE, by = (v: number) => HORIZON + v * SKY;
-  bridge.append(el('path', { d: d([[B.from, by(B.deck)], [B.to, by(B.deck)]]) }));
-  const [t1, t2] = B.towers;
-  const cable = (a: Pt, b: Pt, sag: number) => {
-    const mx = (a[0] + b[0]) / 2, my = (a[1] + b[1]) / 2 - sag;
-    return `M${X(a[0])} ${Y(a[1])}Q${X(mx)} ${Y(2 * my - (a[1] + b[1]) / 2)} ${X(b[0])} ${Y(b[1])}`;
-  };
-  const top = by(B.th);
-  bridge.append(el('path', { d: cable([t1, top], [t2, top], (B.th - B.deck) * SKY * 0.85) + cable([B.from, by(B.deck)], [t1, top], 0.03 * SKY) + cable([t2, top], [B.to, by(B.deck)], 0.03 * SKY) }));
-  for (const t of B.towers) {
-    const p = el('path', { d: d([[t - B.tw / 2, by(B.deck)], [t - B.tw / 2, by(B.th)], [t + B.tw / 2, by(B.th)], [t + B.tw / 2, by(B.deck)]]) + 'Z' });
-    p.style.fill = 'var(--ink)';
-    bridge.append(p);
-  }
-  g.append(bridge);
-
-  // RAL's buildings, revealed from the ground up as their dots climb
-  const reveal = BUILDINGS.map(() => el('rect', { x: 0, width: vw, y: gy, height: 0 }));
-  BACK_TO_FRONT.forEach((i) => {
-    const b = BUILDINGS[i];
-    const cp = el('clipPath', { id: `intro-clip-${i}` });
-    cp.append(reveal[i]);
-    defs.append(cp);
-    const bg = el('g', { 'clip-path': `url(#intro-clip-${i})` });
-    const body = el('path', { d: d(b.outline) + 'Z' });
-    body.style.fill = 'var(--ink)';
-    bg.append(body);
-    bg.append(el('path', { d: b.detail.map((l) => d(l)).join(''), opacity: 0.4, 'stroke-width': sw * 0.8 }));
-    g.append(bg);
-  });
   root.append(svg);
 
-  // ---- Dots: their own layer, so they stay visible while the scene fades ----
+  const line = (pts: Pt[], opacity: number, width = sw) => {
+    const p = el('path', { d: d(pts), opacity, 'stroke-width': width });
+    svg.append(p);
+    const len = p.getTotalLength();
+    p.setAttribute('stroke-dasharray', `${len} ${len}`);
+    p.setAttribute('stroke-dashoffset', String(len));
+    return { p, len, draw: (f: number) => p.setAttribute('stroke-dashoffset', String(len * (1 - f))) };
+  };
+  const bg = BACKGROUND.map((pts) => line(pts, 0.55, sw * 0.75));
+  const extras = BUILDINGS.map((b) => b.extra.map((pts) => line(pts, 0.6, sw * 0.85)));
+  const traces = BUILDINGS.map((b) => line(b.path, 0.95));
+
   const fs = parseFloat(getComputedStyle(title).fontSize);
-  let r0 = fs * 0.06; // close to the period's size until fonts are measured
+  let r0 = Math.max(2.5, fs * 0.06); // close to the period's size until fonts are measured
   const dotsSvg = el('svg', { width: vw, height: vh, 'aria-hidden': 'true', fill: 'currentColor' });
   dotsSvg.style.cssText = 'position:fixed;inset:0;z-index:91;pointer-events:none;color:var(--on-dark)';
   const dots = BUILDINGS.map(() => el('circle', { r: 0, cx: -99, cy: -99 }));
   dotsSvg.append(...dots);
   document.body.append(dotsSvg);
 
-  // ---- Readiness: fonts for measuring the periods, the first hero photo for the reveal ----
-  const img = document.querySelector<HTMLImageElement>('.hero__slide.is-active img');
-  const imgReady = new Promise<void>((res) => {
-    if (!img || img.complete) return res();
+  // ---- Readiness: the photo for the reveal, fonts for measuring the periods ----
+  let ready = false;
+  const imgReady = img.complete ? Promise.resolve() : new Promise<void>((res) => {
     img.addEventListener('load', () => res(), { once: true });
     img.addEventListener('error', () => res(), { once: true });
   });
-  let ready = false;
-  Promise.all([document.fonts.ready, imgReady]).then(() => (ready = true));
+  Promise.all([document.fonts.ready, imgReady.then(() => img.decode?.().catch(() => {}))]).then(() => (ready = true));
 
   // Where each period's ink sits on screen
   const targets = () => {
@@ -209,72 +139,69 @@ export function intro(root: HTMLElement, title: HTMLElement) {
     });
   };
 
-  // ---- Timeline (ms) ----
-  const APPEAR = (i: number) => 1000 + i * 160;
-  const RISE: Pt[] = [[1350, 3050], [1500, 2700], [1650, 2750]];
-  const HOLD = 3500, MAX = 7500;
-  let leaveAt = 0, leaveMs = 1600;
+  let revealAt = 0, revealMs = REVEAL_MS;
   let from: Pt[] = [], to: { x: number; y: number; r: number }[] = [];
-
-  const leave = (now: number, ms: number) => {
-    leaveAt = now; leaveMs = ms;
-    // a dot that has not appeared yet leaves from the foot of its building
-    from = dots.map((c, i) => (Number(c.getAttribute('cx')) < 0 ? [X(BUILDINGS[i].top[0]), gy] : [Number(c.getAttribute('cx')), Number(c.getAttribute('cy'))]));
+  const reveal = (now: number, ms: number) => {
+    revealAt = now; revealMs = ms;
+    // a dot that has not appeared yet leaves from the start of its outline
+    from = dots.map((c, i) => {
+      const cx = Number(c.getAttribute('cx'));
+      if (cx > -99) return [cx, Number(c.getAttribute('cy'))];
+      const p = traces[i].p.getPointAtLength(0);
+      return [p.x, p.y];
+    });
     to = targets();
     if (to.length !== dots.length) to = from.map(([x, y]) => ({ x, y, r: 0 }));
     r0 = Math.max(...dots.map((c) => Number(c.getAttribute('r')))) || r0;
   };
 
   let raf = 0, t0 = 0, last = 0;
+  const EVENTS = ['wheel', 'touchstart', 'keydown', 'pointerdown', 'resize'];
+  const skip = () => { if (!revealAt) reveal(last, SKIP_MS); };
+  EVENTS.forEach((e) => addEventListener(e, skip, { passive: true }));
   const finish = () => {
     cancelAnimationFrame(raf);
-    ['wheel', 'touchstart', 'keydown', 'pointerdown', 'resize'].forEach((e) => removeEventListener(e, skip));
-    root.remove();
+    EVENTS.forEach((e) => removeEventListener(e, skip));
     dotsSvg.remove();
-    html.classList.remove('intro', 'intro-js');
     html.style.overflow = scrollWas;
-    dispatchEvent(new Event(DONE));
+    finishEarly();
   };
-  const skip = () => { if (!leaveAt) leave(last, 500); };
-  ['wheel', 'touchstart', 'keydown', 'pointerdown', 'resize'].forEach((e) => addEventListener(e, skip, { passive: true }));
 
   const frame = (now: number) => {
     if (!t0) t0 = now;
     last = now;
     const t = now - t0;
 
-    shore.setAttribute('stroke-dashoffset', String(1 - inOut(seg(t, 0, 900))));
-    horizon.setAttribute('stroke-dashoffset', String(1 - inOut(seg(t, 150, 1050))));
-    sky.setAttribute('stroke-dashoffset', String(1 - inOut(seg(t, 250, 2200))));
-    water.setAttribute('opacity', String(seg(t, 700, 1800)));
-    bridge.setAttribute('opacity', String(seg(t, 1100, 2000)));
-
-    BUILDINGS.forEach((b, i) => {
-      const climb = inOut(seg(t, RISE[i][0], RISE[i][1])) * b.top[1];
-      reveal[i].setAttribute('y', String(Y(climb) - sw));
-      reveal[i].setAttribute('height', String(climb > 0 ? climb * s + sw * 2 : 0));
-      if (!leaveAt) {
-        const r = r0 * out(seg(t, APPEAR(i), APPEAR(i) + 400));
-        dots[i].setAttribute('r', r.toFixed(2));
-        dots[i].setAttribute('cx', X(b.top[0]).toFixed(1));
-        dots[i].setAttribute('cy', (Y(climb) - r).toFixed(1));
+    bg.forEach((l) => l.draw(inOut(seg(t, BG[0], BG[1]))));
+    BUILDINGS.forEach((_, i) => {
+      const a = TRACE_AT[i];
+      const f = inOut(seg(t, a, a + TRACE_MS));
+      traces[i].draw(f);
+      extras[i].forEach((l) => l.draw(inOut(seg(t, a + TRACE_MS * 0.55, a + TRACE_MS * 1.15))));
+      if (!revealAt) {
+        const p = traces[i].p.getPointAtLength(traces[i].len * f);
+        dots[i].setAttribute('r', (r0 * out(seg(t, a - 350, a))).toFixed(2));
+        dots[i].setAttribute('cx', p.x.toFixed(1));
+        dots[i].setAttribute('cy', p.y.toFixed(1));
       }
     });
 
-    if (!leaveAt && ((t > HOLD && ready) || t > MAX)) leave(now, 1600);
-    if (leaveAt) {
-      const p = inOut(seg(now, leaveAt, leaveAt + leaveMs));
-      root.style.opacity = String(1 - p);
+    if (!revealAt && ((t > HOLD && ready) || t > MAX)) reveal(now, REVEAL_MS);
+    if (revealAt) {
+      const e = now - revealAt, R = revealMs;
+      // black fades first so the drawing sits on the real buildings, then the lines dissolve
+      black.style.opacity = String(1 - inOut(seg(e, 0, R * 0.62)));
+      svg.style.opacity = String(1 - inOut(seg(e, R * 0.42, R * 0.95)));
+      const p = inOut(seg(e, R * 0.35, R));
       dots.forEach((c, i) => {
-        const [sx, sy] = from[i], e = to[i];
-        // arc down and to the left, toward the headline
-        const cx = sx + (e.x - sx) * 0.2, cy = sy + (e.y - sy) * 0.85;
+        const [sx, sy] = from[i], end = to[i];
+        const cx = sx + (end.x - sx) * 0.15, cy = sy + (end.y - sy) * 0.9; // gentle arc toward the headline
         const u = 1 - p;
-        c.setAttribute('cx', (u * u * sx + 2 * u * p * cx + p * p * e.x).toFixed(2));
-        c.setAttribute('cy', (u * u * sy + 2 * u * p * cy + p * p * e.y).toFixed(2));
-        c.setAttribute('r', (r0 + (e.r - r0) * p).toFixed(2));
+        c.setAttribute('cx', (u * u * sx + 2 * u * p * cx + p * p * end.x).toFixed(2));
+        c.setAttribute('cy', (u * u * sy + 2 * u * p * cy + p * p * end.y).toFixed(2));
+        c.setAttribute('r', (r0 + (end.r - r0) * p).toFixed(2));
       });
-      if (p >= 1) return finish();
+      if (e >= R) return finish();
     }
     raf = requestAnimationFrame(frame);
   };
