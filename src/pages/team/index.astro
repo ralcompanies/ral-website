@@ -12,7 +12,7 @@ const withPeople = await Promise.all(
   sections.map(async (s) => ({ s, people: (await getEntries(s.data.members)).filter((p) => p.data.active) })),
 );
 ---
-<Base title="Team" description="The people of RAL Companies: architects, developers, project managers and finance professionals.">
+<Base title="Team" description="The people of RAL Companies: architects, developers, project managers, and finance professionals.">
   <PageIntro eyebrow="Team" title="The people behind the work" />
   <!-- One grid for everyone: every card is the same size. Sections sit side by side and
        span as many columns as they have people, so the page reads as one team. -->

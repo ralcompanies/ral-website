@@ -10,7 +10,7 @@ roles: [developer]
 hook: A new townhome community in Steamboat Springs, designed for mountain life in every season.
 summary: >-
   ROAN brings 81 townhome residences to Steamboat Springs, with gabled rooflines, timber and
-  dark-metal facades and interiors built around views of the mountain. The first phase is under
+  dark-metal facades, and interiors built around views of the mountain. The first phase is under
   construction.
 hero_image: /src/assets/images/projects/roan-steamboat/winter-mountain.jpg
 hero_alt: Rendering of ROAN townhomes in snow with the Steamboat ski area behind

@@ -138,7 +138,7 @@ collections:
   - name: teamSections
     label: Team sections
     label_singular: Team section
-    description: Create, rename, reorder or hide sections of the Team page, and choose who appears in each, in order.
+    description: Create, rename, reorder, or hide sections of the Team page, and choose who appears in each, in order.
     folder: src/content/team-sections
     extension: yml
     format: yaml

@@ -7,7 +7,7 @@ location: "Midtown Atlanta, Georgia"
 region: other-us
 types: [hospitality]
 roles: [owners-rep]
-hook: "A phased renovation of guestrooms, spa and bar, and a new 50th-floor penthouse ballroom."
+hook: "A phased renovation of guestrooms, spa, and bar, and a new 50th-floor penthouse ballroom."
 card_image: /src/assets/images/projects/four-seasons-atlanta/entrance-dusk.jpg
 card_alt: "Four Seasons Hotel Atlanta entrance at dusk"
 internal_notes:

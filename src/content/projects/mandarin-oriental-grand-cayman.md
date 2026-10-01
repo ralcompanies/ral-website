@@ -11,7 +11,7 @@ hook: An ultra-luxury resort and branded residences on the secluded south shore 
 summary: >-
   RAL is the developer and a partner in The Mandarin Oriental Resort & Residences, Grand Cayman,
   alongside Melkonian Capital: 91 hotel keys and 42 branded residences set along 1,000 feet of
-  white-sand beach, with spa, wellness and dining designed for both sunrise and sunset views.
+  white-sand beach, with spa, wellness, and dining designed for both sunrise and sunset views.
 hero_image: /src/assets/images/projects/mandarin-oriental-grand-cayman/aerial.jpg
 hero_alt: Rendering of the Mandarin Oriental resort and residences on the Grand Cayman coast
 hero_kind: rendering

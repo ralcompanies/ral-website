@@ -26,7 +26,7 @@ facts:
   square_feet: 270000
   stories: 21
   other:
-    - { label: Program, value: "Class A office, flexible office, digital-skills training, Civic Hall, event space and food hall" }
+    - { label: Program, value: "Class A office, flexible office, digital-skills training, Civic Hall, event space, and food hall" }
 credits:
   - { role: Architect, name: Davis Brody Bond }
   - { role: Co-developer, name: Junius Real Estate Partners }
@@ -57,7 +57,7 @@ chapters:
   - heading: Design
     body: >-
       Designed by Davis Brody Bond, the tower sets a glass volume against the landmark Con Edison
-      clock tower next door, with planted terraces, a public-facing ground floor and a lobby built
+      clock tower next door, with planted terraces, a public-facing ground floor, and a lobby built
       around a large-scale digital art wall.
     image:
       src: /src/assets/images/projects/zero-irving/roof-canopy.jpg
