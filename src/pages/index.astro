@@ -39,6 +39,9 @@ const quotePerson = h.leadership_quote ? await getEntry(h.leadership_quote.perso
 
 const press = (await visiblePress()).filter((p) => p.data.featured).slice(0, h.press_count ?? 4);
 
+// Headline words; a trailing period gets its own span for the hero skyline animation
+const headline = (h.hero_headline ?? '').split(/\s+/).filter(Boolean);
+
 const statusLabel = { completed: 'Completed', current: 'Under construction', 'in-development': 'In development' } as const;
 ---
 <Base overlayHeader description={c.positioning}>
@@ -54,7 +57,9 @@ const statusLabel = { completed: 'Completed', current: 'Under construction', 'in
     <div class="hero__shade" aria-hidden="true"></div>
     <div class="wrap hero__content">
       <p class="label hero__eyebrow">RAL Companies · Since {c.founded}</p>
-      <h1 class="display hero__title">{h.hero_headline}</h1>
+      <h1 class="display hero__title" data-skyline>{headline.map((w, i) => (
+        <>{i > 0 && ' '}{w.endsWith('.') ? <span class="hero__word">{w.slice(0, -1)}<span class="hero__dot">.</span></span> : w}</>
+      ))}</h1>
       {h.hero_subline && <p class="hero__sub">{h.hero_subline}</p>}
       {slides.length > 1 && (
         <div class="hero__bars" role="group" aria-label="Choose slide">
@@ -216,7 +221,9 @@ const statusLabel = { completed: 'Completed', current: 'Under construction', 'in
   .hero__shade { position: absolute; inset: 0; background: linear-gradient(to top, rgb(10 10 9 / 0.7) 0%, rgb(10 10 9 / 0.2) 50%, rgb(10 10 9 / 0) 75%), linear-gradient(to right, rgb(10 10 9 / 0.45) 0%, rgb(10 10 9 / 0.1) 45%, rgb(10 10 9 / 0) 65%); }
   .hero__content { position: relative; height: 100%; display: flex; flex-direction: column; justify-content: flex-end; padding-bottom: var(--s-4); }
   .hero__eyebrow { color: var(--on-dark); margin-bottom: var(--s-3); }
-  .hero__title { max-width: 11ch; }
+  .hero__title { max-width: 11ch; position: relative; }
+  .hero__word { white-space: nowrap; }
+  .hero__title.is-skyline .hero__dot { color: transparent; }
   .hero__sub { max-width: 34rem; margin-top: var(--s-3); font-size: var(--fs-lead); line-height: 1.45; color: var(--on-dark); font-family: var(--font-body); font-weight: 400; }
   .hero__bars { display: grid; grid-auto-flow: column; grid-auto-columns: 1fr; gap: 0.5rem; margin-top: var(--s-6); }
   .hero__bar { appearance: none; background: none; border: 0; padding: 0.75rem 0; cursor: pointer; }
@@ -310,6 +317,10 @@ const statusLabel = { completed: 'Completed', current: 'Under construction', 'in
 </style>
 
 <script>
+  import { skyline } from '../scripts/skyline';
+  const title = document.querySelector<HTMLElement>('[data-skyline]');
+  if (title) skyline(title);
+
   const hero = document.querySelector<HTMLElement>('[data-hero]');
   const slides = hero ? Array.from(hero.querySelectorAll<HTMLElement>('.hero__slide')) : [];
   if (hero && slides.length > 1) {
