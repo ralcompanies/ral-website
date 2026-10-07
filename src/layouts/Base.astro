@@ -8,6 +8,8 @@ const c = await company();
 const { title, description = c.positioning, overlayHeader = false, noindex = false } = Astro.props;
 const fullTitle = title ? `${title} | ${c.short_name}` : `${c.short_name} | ${c.tagline}`;
 const preview = import.meta.env.PUBLIC_PREVIEW === 'true';
+// One address per page (www, https, trailing slash) so Google doesn't pick between duplicates.
+const canonical = new URL(Astro.url.pathname, Astro.site).href;
 const orgLd = {
   '@context': 'https://schema.org', '@type': 'Organization', name: c.short_name, legalName: c.legal_name,
   foundingDate: String(c.founded), url: Astro.site?.href, slogan: c.tagline,
@@ -29,6 +31,8 @@ const orgLd = {
     <meta property="og:title" content={fullTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
+    {!noindex && <meta property="og:url" content={canonical} />}
+    {!noindex && <link rel="canonical" href={canonical} />}
     {(preview || noindex) && <meta name="robots" content="noindex, nofollow" />}
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
