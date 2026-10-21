@@ -63,7 +63,10 @@ const el = <K extends keyof SVGElementTagNameMap>(tag: K, attrs: Record<string, 
 export function intro(root: HTMLElement, title: HTMLElement) {
   const html = document.documentElement;
   if (!html.classList.contains('intro')) return;
-  const late = performance.now() > FAILSAFE - 500; // the CSS failsafe has already shown the page
+  // Has the CSS failsafe already shown the page? Its timer starts when the page turns black
+  // (the inline script in index.astro records when), not when the visitor clicked.
+  const blackAt = Number(html.dataset.introAt) || 0;
+  const late = performance.now() - blackAt > FAILSAFE - 500;
   html.classList.add('intro-js'); // switches off the CSS failsafe
 
   const finishEarly = () => {

@@ -53,6 +53,7 @@ const statusLabel = { completed: 'Completed', current: 'Under construction', 'in
         if (!force && (location.hash || matchMedia('(prefers-reduced-motion: reduce)').matches || sessionStorage.getItem('ral:intro'))) return;
         sessionStorage.setItem('ral:intro', '1');
         document.documentElement.classList.add('intro');
+        document.documentElement.dataset.introAt = String(Math.round(performance.now()));
       } catch (e) {}
     })();
   </script>
