@@ -47,6 +47,8 @@ const HOLD = 5700; // earliest reveal
 const MAX = 12000; // reveal by now even if the photo is still loading
 const REVEAL_MS = 3200;
 const SKIP_MS = 700;
+const SKIP_AFTER = 800; // ignore input this early: stray touches, trackpad momentum from the last page
+const FAILSAFE = 8000; // keep in step with the CSS failsafe in index.astro
 
 const clamp = (v: number) => Math.min(1, Math.max(0, v));
 const seg = (t: number, a: number, b: number) => clamp((t - a) / (b - a));
@@ -61,6 +63,7 @@ const el = <K extends keyof SVGElementTagNameMap>(tag: K, attrs: Record<string, 
 export function intro(root: HTMLElement, title: HTMLElement) {
   const html = document.documentElement;
   if (!html.classList.contains('intro')) return;
+  const late = performance.now() > FAILSAFE - 500; // the CSS failsafe has already shown the page
   html.classList.add('intro-js'); // switches off the CSS failsafe
 
   const finishEarly = () => {
@@ -69,18 +72,24 @@ export function intro(root: HTMLElement, title: HTMLElement) {
     dispatchEvent(new Event(DONE));
   };
   const img = document.querySelector<HTMLImageElement>('.hero__slide.is-active img');
-  if (!img || !(img.getAttribute('srcset') ?? img.src).includes(IMAGE)) return finishEarly();
+  if (late || !img || !(img.getAttribute('srcset') ?? img.src).includes(IMAGE)) return finishEarly();
   const [iw, ih] = MASTER; // not naturalWidth: that is whichever responsive size the browser picked
 
   const scrollWas = html.style.overflow;
   html.style.overflow = 'hidden';
 
-  // Map photo pixels to the screen the way the hero shows it (object-fit: cover, centered)
-  const box = img.getBoundingClientRect();
-  const k = Math.max(box.width / iw, box.height / ih);
-  const ox = box.left + (box.width - iw * k) / 2, oy = box.top + (box.height - ih * k) / 2;
+  // Map photo pixels to the screen the way the hero shows it (object-fit: cover, centered).
+  // Measured again if the window height changes, so the drawing stays on the photo.
+  let k = 1, ox = 0, oy = 0;
+  const measure = () => {
+    const box = img.getBoundingClientRect();
+    k = Math.max(box.width / iw, box.height / ih);
+    ox = box.left + (box.width - iw * k) / 2;
+    oy = box.top + (box.height - ih * k) / 2;
+  };
+  measure();
   const d = (pts: Pt[]) => pts.map(([x, y], i) => `${i ? 'L' : 'M'}${(ox + x * k).toFixed(1)} ${(oy + y * k).toFixed(1)}`).join('');
-  const vw = innerWidth, vh = innerHeight;
+  const vw = innerWidth;
   const sw = Math.max(1, Math.min(1.6, k * 2.2));
 
   // ---- Layers: black backdrop, line drawing, dots ----
@@ -89,17 +98,24 @@ export function intro(root: HTMLElement, title: HTMLElement) {
   root.style.background = 'none';
   root.append(black);
 
-  const svg = el('svg', { width: vw, height: vh, 'aria-hidden': 'true', fill: 'none', stroke: 'currentColor', 'stroke-width': sw, 'stroke-linejoin': 'miter' });
+  const svg = el('svg', { width: '100%', height: '100%', 'aria-hidden': 'true', fill: 'none', stroke: 'currentColor', 'stroke-width': sw, 'stroke-linejoin': 'miter' });
   svg.style.cssText = 'position:absolute;inset:0';
   root.append(svg);
 
+  const lines: { p: SVGPathElement; len: number; pts: Pt[]; draw: (f: number) => void }[] = [];
+  const shape = (l: (typeof lines)[number]) => {
+    l.p.setAttribute('d', d(l.pts));
+    l.len = l.p.getTotalLength();
+    l.p.setAttribute('stroke-dasharray', `${l.len} ${l.len}`);
+  };
   const line = (pts: Pt[], opacity: number, width = sw) => {
-    const p = el('path', { d: d(pts), opacity, 'stroke-width': width });
+    const p = el('path', { opacity, 'stroke-width': width });
     svg.append(p);
-    const len = p.getTotalLength();
-    p.setAttribute('stroke-dasharray', `${len} ${len}`);
-    p.setAttribute('stroke-dashoffset', String(len));
-    return { p, len, draw: (f: number) => p.setAttribute('stroke-dashoffset', String(len * (1 - f))) };
+    const l = { p, len: 0, pts, draw: (f: number) => p.setAttribute('stroke-dashoffset', String(l.len * (1 - f))) };
+    shape(l);
+    l.draw(0);
+    lines.push(l);
+    return l;
   };
   const bg = BACKGROUND.map((pts) => line(pts, 0.55, sw * 0.75));
   const extras = BUILDINGS.map((b) => b.extra.map((pts) => line(pts, 0.6, sw * 0.85)));
@@ -107,7 +123,7 @@ export function intro(root: HTMLElement, title: HTMLElement) {
 
   const fs = parseFloat(getComputedStyle(title).fontSize);
   let r0 = Math.max(2.5, fs * 0.06); // close to the period's size until fonts are measured
-  const dotsSvg = el('svg', { width: vw, height: vh, 'aria-hidden': 'true', fill: 'currentColor' });
+  const dotsSvg = el('svg', { width: '100%', height: '100%', 'aria-hidden': 'true', fill: 'currentColor' });
   dotsSvg.style.cssText = 'position:fixed;inset:0;z-index:91;pointer-events:none;color:var(--on-dark)';
   const dots = BUILDINGS.map(() => el('circle', { r: 0, cx: -99, cy: -99 }));
   dotsSvg.append(...dots);
@@ -155,9 +171,23 @@ export function intro(root: HTMLElement, title: HTMLElement) {
     r0 = Math.max(...dots.map((c) => Number(c.getAttribute('r')))) || r0;
   };
 
-  let raf = 0, t0 = 0, last = 0;
-  const EVENTS = ['wheel', 'touchstart', 'keydown', 'pointerdown', 'resize'];
-  const skip = () => { if (!revealAt) reveal(last, SKIP_MS); };
+  // The intro keeps its own clock: a frame never advances it more than 50ms, so when the
+  // device is busy (decoding the photo) or the tab is hidden it pauses instead of jumping ahead.
+  let raf = 0, prev = 0, t = 0;
+
+  // Skip only on a deliberate scroll, swipe, click or key press. A phone's address bar
+  // showing or hiding resizes the window too, so only a width change counts.
+  const skip = (e: Event) => {
+    if (e.type === 'resize' && innerWidth === vw) {
+      measure();
+      lines.forEach(shape); // redrawn at the same progress on the next frame
+      return;
+    }
+    if (revealAt || t < SKIP_AFTER) return;
+    if (e.type === 'pointerdown' && (e as PointerEvent).pointerType !== 'mouse') return;
+    reveal(t, SKIP_MS);
+  };
+  const EVENTS = ['wheel', 'touchmove', 'keydown', 'pointerdown', 'resize'];
   EVENTS.forEach((e) => addEventListener(e, skip, { passive: true }));
   const finish = () => {
     cancelAnimationFrame(raf);
@@ -168,9 +198,8 @@ export function intro(root: HTMLElement, title: HTMLElement) {
   };
 
   const frame = (now: number) => {
-    if (!t0) t0 = now;
-    last = now;
-    const t = now - t0;
+    t += prev ? Math.min(now - prev, 50) : 0;
+    prev = now;
 
     bg.forEach((l) => l.draw(inOut(seg(t, BG[0], BG[1]))));
     BUILDINGS.forEach((_, i) => {
@@ -186,9 +215,9 @@ export function intro(root: HTMLElement, title: HTMLElement) {
       }
     });
 
-    if (!revealAt && ((t > HOLD && ready) || t > MAX)) reveal(now, REVEAL_MS);
+    if (!revealAt && ((t > HOLD && ready) || t > MAX)) reveal(t, REVEAL_MS);
     if (revealAt) {
-      const e = now - revealAt, R = revealMs;
+      const e = t - revealAt, R = revealMs;
       // black fades first so the drawing sits on the real buildings, then the lines dissolve
       black.style.opacity = String(1 - inOut(seg(e, 0, R * 0.62)));
       svg.style.opacity = String(1 - inOut(seg(e, R * 0.42, R * 0.95)));
