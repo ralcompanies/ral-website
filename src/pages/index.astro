@@ -237,10 +237,10 @@ const statusLabel = { completed: 'Completed', current: 'Under construction', 'in
   .hero__title { max-width: 11ch; position: relative; }
   .hero__word { white-space: nowrap; }
 
-  /* Intro (src/scripts/intro.ts). If the script never runs, the CSS failsafe reveals the page after a few seconds. */
+  /* Intro (src/scripts/intro.ts). If the script never runs, the CSS failsafe reveals the page after 8 seconds (FAILSAFE in intro.ts). */
   .intro { display: none; }
-  :global(html.intro) .intro { display: block; position: fixed; inset: 0; z-index: 90; background: var(--ink); color: var(--on-dark); animation: intro-failsafe 0.6s 4s both; }
-  :global(html.intro) .hero__dot { color: transparent; animation: intro-dot 0.01s 4.3s forwards; }
+  :global(html.intro) .intro { display: block; position: fixed; inset: 0; z-index: 90; background: var(--ink); color: var(--on-dark); animation: intro-failsafe 0.6s 8s both; }
+  :global(html.intro) .hero__dot { color: transparent; animation: intro-dot 0.01s 8.3s forwards; }
   :global(html.intro-js) .intro, :global(html.intro-js) .hero__dot { animation: none; }
   :global(html.intro) .hero__slide.is-active :global(img) { animation-play-state: paused; }
   @keyframes intro-failsafe { to { opacity: 0; visibility: hidden; } }
