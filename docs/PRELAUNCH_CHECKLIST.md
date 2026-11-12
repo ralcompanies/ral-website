@@ -1,6 +1,6 @@
 # RAL website: pre-launch checklist
 
-Internal. Generated September 30, 2026 from the content files (`internal_notes`) plus standing items. Launch-readiness list, not a development blocker.
+Internal. Generated November 12, 2026 from the content files (`internal_notes`) plus standing items. Launch-readiness list, not a development blocker.
 
 ## Facts to verify (48)
 
@@ -53,7 +53,7 @@ Internal. Generated September 30, 2026 from the content files (`internal_notes`)
 - [ ] **A public-private tech hub**: 2023 per NY YIMBY completion report. Confirm.
 - [ ] **Founded as a design firm in 1979. Design is still in our DNA.**: Story and how-we-work copy adapted from the live ralcompanies.com About page. Capability copy is new; review wording.
 
-## Team (28)
+## Team (29)
 
 - [ ] **David Sorenson**: Bio updated Sept 2026 from Josh's combined bios doc.
 - [ ] **David Wu**: Bio added Sept 2026 from David's bio and the combined doc. Title in the doc reads 'Designer/Draftspersons'; shown as Architectural Designer to match his bio. Confirm.
@@ -72,6 +72,7 @@ Internal. Generated September 30, 2026 from the content files (`internal_notes`)
 - [ ] **Mary Wicker**: Added Sept 2026 per Josh. Headshot supplied on white; background replaced with studio grey to match the team set. Bio needed if she should get a profile page.
 - [ ] **Mary Wicker**: no biography yet (profile shows title and projects only).
 - [ ] **Matthew D'Elia**: Bio added Sept 2026 from Matthew's bio and the combined doc; name shown as Matthew per his bio.
+- [ ] **Payton Strout**: Removed from the website (per Josh, Nov 2026). Not shown.
 - [ ] **Payton Strout**: Bio added Sept 2026 from Payton's bio and the combined doc.
 - [ ] **Robert A. Levine**: Bio updated Sept 2026 from Josh's combined bios doc. Doc says 'Since the beginning in 1982'; written as founded 1979 to match the confirmed founding year.
 - [ ] **Russell Cline**: Bio and title added Sept 2026 from Russell's bio and the combined doc.
